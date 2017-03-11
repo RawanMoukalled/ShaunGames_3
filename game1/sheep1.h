@@ -1,10 +1,11 @@
 #ifndef SHEEP1_H
 #define SHEEP1_H
 
-#include <QWidget>
+#include <QObject>
+#include <QGraphicsPixmapItem>
+#include <
 
-
-class Sheep1 : public QWidget
+class Sheep1 : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
