@@ -1,6 +1,6 @@
-#include "game2.h"
+#include "game2/game2.h"
 #include "helper.h"
-#include "gamemainmenu.h"
+#include "gui/gamemainmenu.h"
 
 /**
 * \file game2.cpp

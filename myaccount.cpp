@@ -1,6 +1,6 @@
 #include "myaccount.h"
 #include "helper.h"
-#include "gameselection.h"
+#include "gui/gameselection.h"
 
 /**
 * \file myaccount.cpp

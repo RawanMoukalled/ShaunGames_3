@@ -1,7 +1,7 @@
-#include "gameselection.h"
+#include "gui/gameselection.h"
 #include "helper.h"
-#include "mainwidget.h"
-#include "gamemainmenu.h"
+#include "gui/mainwidget.h"
+#include "gui/gamemainmenu.h"
 #include "myaccount.h"
 
 /**

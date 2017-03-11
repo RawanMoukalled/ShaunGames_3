@@ -1,5 +1,5 @@
-#include "mainwidget.h"
-#include "gameselection.h"
+#include "gui/mainwidget.h"
+#include "gui/gameselection.h"
 /**
 * \file mainwidget.cpp
 * \brief Contains MainWidget class definition

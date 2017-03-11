@@ -1,3 +1,0 @@
-QPushButton[accessibleName="m_logoutButton"] {
-    background: url(/home/rawanmoukalled/Games/pictures/logout.png);
-}

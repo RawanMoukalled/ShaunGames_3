@@ -1,9 +1,9 @@
-#include "gamemainmenu.h"
 #include <QFont>
+#include "gui/gamemainmenu.h"
 #include "helper.h"
-#include "game1options.h"
+#include "game1/game1options.h"
 #include "games23options.h"
-#include "gameselection.h"
+#include "gui/gameselection.h"
 
 /**
 * \file gamemainmenu.cpp

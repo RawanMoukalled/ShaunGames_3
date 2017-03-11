@@ -1,8 +1,8 @@
 #include "games23options.h"
 #include "helper.h"
-#include "game2.h"
-#include "game3.h"
-#include "gamemainmenu.h"
+#include "game2/game2.h"
+#include "game3/game3.h"
+#include "gui/gamemainmenu.h"
 
 /**
 * \file games23options.cpp

@@ -4,11 +4,11 @@
 #include <QString>
 #include <QLatin1String>
 
-#include "mainwidget.h"
-#include "gameselection.h"
+#include "gui/mainwidget.h"
+#include "gui/gameselection.h"
 #include "myaccount.h"
-#include "gamemainmenu.h"
-#include "game1.h"
+#include "gui/gamemainmenu.h"
+#include "game1/game1.h"
 
 /**
 * \mainpage EECE 435L Games Project

@@ -1,26 +1,26 @@
 SOURCES += \
     main.cpp \
-    mainwidget.cpp \
-    gameselection.cpp \
     myaccount.cpp \
     helper.cpp \
-    game1.cpp \
-    game2.cpp \
-    game3.cpp \
     games23options.cpp \
-    gamemainmenu.cpp \
-    game1options.cpp
+    game2/game2.cpp \
+    game1/game1options.cpp \
+    game1/game1.cpp \
+    game3/game3.cpp \
+    gui/mainwidget.cpp \
+    gui/gameselection.cpp \
+    gui/gamemainmenu.cpp
 
 HEADERS += \
-    mainwidget.h \
-    gameselection.h \
     myaccount.h \
     helper.h \
-    game1.h \
-    game2.h \
-    game3.h \
     games23options.h \
-    gamemainmenu.h \
-    game1options.h
+    game2/game2.h \
+    game1/game1options.h \
+    game1/game1.h \
+    game3/game3.h \
+    gui/mainwidget.h \
+    gui/gameselection.h \
+    gui/gamemainmenu.h
 
 OTHER_FILES +=

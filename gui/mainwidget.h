@@ -1,5 +1,5 @@
-#ifndef MAINSCENE_H
-#define MAINSCENE_H
+#ifndef MAINWIDGET_H
+#define MAINWIDGET_H
 
 #include <QWidget>
 #include <QLineEdit>
@@ -80,4 +80,4 @@ private:
     void setConnections();
 };
 
-#endif // MAINSCENE_H
+#endif // MAINWIDGET_H

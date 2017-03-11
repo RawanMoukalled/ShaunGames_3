@@ -1,7 +1,7 @@
-#include "game1options.h"
+#include "game1/game1options.h"
 #include "helper.h"
-#include "gamemainmenu.h"
-#include "game1.h"
+#include "gui/gamemainmenu.h"
+#include "game1/game1.h"
 
 /**
 * \file game1options.cpp
