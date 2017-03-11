@@ -19,7 +19,8 @@ class Game1 : public QWidget
     Q_OBJECT
 public:
     /**
-    * \brief Default constructor
+    * \brief Constructor
+    * \param level Game level
     */
     explicit Game1(int level, QWidget *parent = 0);
     
