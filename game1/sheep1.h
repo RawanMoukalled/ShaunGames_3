@@ -8,7 +8,7 @@ class Sheep1 : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    explicit Sheep1(int number, QWidget *parent = 0);
+    explicit Sheep1(int number, QObject *parent = 0);
     
 signals:
     

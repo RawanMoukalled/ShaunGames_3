@@ -1,4 +1,5 @@
 #include "cannon.h"
+#include <QtGui>
 
 /**
 * \file cannon.cpp
@@ -11,7 +12,7 @@
 Cannon::Cannon(QObject *parent) :
     QObject(parent)
 {
-    setPixmap(QPixMap("pictures/cannon.png"));
+    setPixmap(QPixmap("pictures/cannon.png"));
 }
 
 
