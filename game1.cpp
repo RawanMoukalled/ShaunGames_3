@@ -13,10 +13,11 @@
 * Sets the size of the window, initializes the graphic items, sets the layouts
 * and connects buttons to their slots
 */
-Game1::Game1(QWidget *parent) :
-    QWidget(parent)
+Game1::Game1(int level, QWidget *parent) :
+    QWidget(parent), m_level(level)
 {
     setFixedSize(600,600);
+
     m_title = new QLabel("Sheep Line");
     m_game1Layout = new QVBoxLayout();
     m_exit = new QPushButton("Save and Exit");
@@ -28,7 +29,7 @@ Game1::Game1(QWidget *parent) :
     setLayout(m_game1Layout);
 
     QObject::connect(m_exit, SIGNAL(clicked()), SLOT(goToMainMenu()));
-
+    qDebug() << level;
 }
 
 /**

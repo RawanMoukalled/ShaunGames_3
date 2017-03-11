@@ -19,7 +19,7 @@ public:
     /**
     * \brief Default constructor
     */
-    explicit Game1(QWidget *parent = 0);
+    explicit Game1(int level, QWidget *parent = 0);
     
 signals:
     
@@ -30,6 +30,7 @@ public slots:
     void goToMainMenu();
     
 private:
+    int m_level;
     QLabel *m_title; //<Main title of the game
     QPushButton *m_exit; //<Button to take the user to the game main menu
     QVBoxLayout *m_game1Layout; //<Layout for Sheep Line

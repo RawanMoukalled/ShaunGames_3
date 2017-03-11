@@ -23,7 +23,6 @@ Game1Options::Game1Options(QWidget *parent) :
         m_levels[i] = new QPushButton(QString::number(i+1));
         m_levels[i]->setFixedSize(60,60);
         m_levels[i]->setDisabled(true);
-       QObject::connect(m_levels[i], SIGNAL(clicked()), this, SLOT(gotoGame1()));
    }
     m_levels[0]->setEnabled(true);
 
@@ -36,8 +35,7 @@ Game1Options::Game1Options(QWidget *parent) :
 
     setMainLayout();
     setLayout(m_mainLayout);
-
-    QObject::connect(m_back, SIGNAL(clicked()), this, SLOT(gotoGameMainMenu()));
+    setConnections();
 }
 
 /**
@@ -54,10 +52,25 @@ void Game1Options::gotoGameMainMenu() {
 * Takes the user to game 1.
 * Called after clicking any level button.
 */
-void Game1Options::gotoGame1() {
-    Game1 *g1 = new Game1;
+void Game1Options::gotoGame1(int level) {
+    Game1 *g1 = new Game1(level);
     g1->show();
     this->close();
+}
+
+/**
+* Sets the connections of all button clicks of the widget.
+*/
+void Game1Options::setConnections() {
+    m_signalMapper = new QSignalMapper(this);
+
+    for (int i=0; i<25; ++i) {
+        QObject::connect(m_levels[i], SIGNAL(clicked()), m_signalMapper, SLOT(map()));
+        m_signalMapper->setMapping(m_levels[i], i);
+    }
+
+    QObject::connect(m_signalMapper, SIGNAL(mapped(int)), this, SLOT(gotoGame1(int)));
+    QObject::connect(m_back, SIGNAL(clicked()), this, SLOT(gotoGameMainMenu()));
 }
 
 /**

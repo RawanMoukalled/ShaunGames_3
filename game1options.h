@@ -33,7 +33,7 @@ public slots:
     /**
     * \brief Takes the user to game 1
     */
-    void gotoGame1();
+    void gotoGame1(int level);
     
 private:
     QLabel *m_instructions; ///< Asks the user to pick a level
@@ -41,6 +41,7 @@ private:
     QPushButton *m_back; ///< Allows the user to go back to the game main menu
     QVBoxLayout *m_mainLayout; ///< Main layout of the page
     QGridLayout *m_levelLayout; ///< Layout of the level buttons
+    QSignalMapper *m_signalMapper; ///< Maps signals to slots to allow for level selection to be passed
 
     /**
     * \brief Sets the main layout of the widget
@@ -51,6 +52,11 @@ private:
     * \brief Sets the layout of the level buttons
     */
     void setLevelLayout();
+
+    /**
+    * \brief Sets the connections of all buttons
+    */
+    void setConnections();
 };
 
 #endif // GAME1OPTIONS_H
