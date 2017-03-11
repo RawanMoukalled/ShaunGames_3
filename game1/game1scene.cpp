@@ -6,7 +6,6 @@ Game1Scene::Game1Scene(QObject *parent) :
     m_cannon = new Cannon;
     m_cannon->setFlag(QGraphicsItem::ItemIsFocusable);
     m_cannon->setFocus();
-    m_cannon->setPos(300,300);
 
     addItem(m_cannon);
 }

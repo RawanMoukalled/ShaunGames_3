@@ -4,7 +4,6 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 
-
 class Sheep1 : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT

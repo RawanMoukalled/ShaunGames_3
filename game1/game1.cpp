@@ -11,7 +11,7 @@
 * \brief Constructor for Sheep Line
 *
 * Sets the size of the window, initializes the graphic items, sets the layouts
-* and connects buttons to their slots
+* and connects buttons to their slots.
 */
 Game1::Game1(int level, QWidget *parent) :
     QWidget(parent), m_level(level)
@@ -39,8 +39,16 @@ Game1::Game1(int level, QWidget *parent) :
 *brief Adds widgets and spaces for the layout of Sheep Line
 */
 void Game1::setGame1Layout() {
+    m_gameScene->setSceneRect(0,0,600,500);
+    m_gameView->setScene(m_gameScene);
+    m_gameView->setBackgroundBrush(QBrush(QImage("pictures/grass.jpg").scaledToHeight(550)));
+    m_gameView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_gameView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_gameView->viewport()->setMouseTracking(true);
+
     m_game1Layout->addWidget(m_title);
-    m_game1Layout->addItem(new QSpacerItem(600,500));
+    m_game1Layout->addWidget(m_gameView);
+    //m_game1Layout->addItem(new QSpacerItem(600,500));
     m_game1Layout->addWidget(m_exit);
 
     m_game1Layout->setAlignment(m_title, Qt::AlignHCenter);
