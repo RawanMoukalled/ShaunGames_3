@@ -9,7 +9,8 @@ SOURCES += \
     game3/game3.cpp \
     gui/mainwidget.cpp \
     gui/gameselection.cpp \
-    gui/gamemainmenu.cpp
+    gui/gamemainmenu.cpp \
+    game1/sheep1.cpp
 
 HEADERS += \
     myaccount.h \
@@ -21,6 +22,7 @@ HEADERS += \
     game3/game3.h \
     gui/mainwidget.h \
     gui/gameselection.h \
-    gui/gamemainmenu.h
+    gui/gamemainmenu.h \
+    game1/sheep1.h
 
 OTHER_FILES +=
