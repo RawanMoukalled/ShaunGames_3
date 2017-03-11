@@ -13,6 +13,9 @@ Cannon::Cannon(QObject *parent) :
     QObject(parent)
 {
     setPixmap(QPixmap("pictures/cannon.png"));
+    setScale(0.3);
+    setPos(250,250);
+
 }
 
 
