@@ -29,7 +29,6 @@ Game1::Game1(int level, QWidget *parent) :
     setLayout(m_game1Layout);
 
     QObject::connect(m_exit, SIGNAL(clicked()), SLOT(goToMainMenu()));
-    qDebug() << level;
 }
 
 /**
