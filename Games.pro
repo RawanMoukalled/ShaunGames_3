@@ -11,7 +11,8 @@ SOURCES += \
     gui/gameselection.cpp \
     gui/gamemainmenu.cpp \
     game1/cannon.cpp \
-    game1/game1scene.cpp
+    game1/game1scene.cpp \
+    game1/sheep1.cpp
 
 HEADERS += \
     myaccount.h \
@@ -25,6 +26,7 @@ HEADERS += \
     gui/gameselection.h \
     gui/gamemainmenu.h \
     game1/cannon.h \
-    game1/game1scene.h
+    game1/game1scene.h \
+    game1/sheep1.h
 
 OTHER_FILES +=
