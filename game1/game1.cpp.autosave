@@ -39,8 +39,12 @@ Game1::Game1(int level, QWidget *parent) :
 *brief Adds widgets and spaces for the layout of Sheep Line
 */
 void Game1::setGame1Layout() {
+    m_gameScene->setSceneRect(0,0,600,500);
+    m_gameView->setScene(m_gameScene);
+
     m_game1Layout->addWidget(m_title);
-    m_game1Layout->addItem(new QSpacerItem(600,500));
+
+    //m_game1Layout->addItem(new QSpacerItem(600,500));
     m_game1Layout->addWidget(m_exit);
 
     m_game1Layout->setAlignment(m_title, Qt::AlignHCenter);
