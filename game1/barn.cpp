@@ -1,6 +1,7 @@
 #include "barn.h"
 #include "helper.h"
 #include "game1scene.h"
+#include "game1/sheep1.h"
 #include <QGraphicsScene>
 #include <QList>
 
@@ -21,9 +22,22 @@ Barn::Barn(QObject *parent) :
 void Barn::sheepIn() {
 
     if(!m_collisionDone) {
-        if(!scene()->collidingItems(this).isEmpty()) {
-            m_collisionDone = true;
-            static_cast<Game1Scene*>(scene())->gameOver();
+        QList<QGraphicsItem*> items = scene()->collidingItems(this);
+
+        if(!items.isEmpty()) {
+            //check all the colliding items with the barn
+            QList<QGraphicsItem*>::iterator i;
+            for (i = items.begin(); i != items.end(); ++i) {
+
+                Sheep1 *tempSheep = static_cast<Sheep1*>((*i));
+
+                //game over only when sheep from the line enter, not one shot
+                //from the cannon
+                if(tempSheep->isInLine()){
+                    m_collisionDone = true;
+                    static_cast<Game1Scene*>(scene())->gameOver();
+                }
+            }
         }
     }
 }

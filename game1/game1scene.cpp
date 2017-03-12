@@ -14,15 +14,13 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     m_cannon->setFlag(QGraphicsItem::ItemIsFocusable);
     m_cannon->setFocus();
 
-    m_current = new Sheep1(Helper::getRandomSheepNumber());
+    m_current = new Sheep1(Helper::getRandomSheepNumber(), false);
     m_current->setPos(334,247);
     m_current->setRotation(345);
-    m_next = new Sheep1(Helper::getRandomSheepNumber());
+    m_next = new Sheep1(Helper::getRandomSheepNumber(), false);
     m_next->setPos(285,235);
 
     m_barn = new Barn;
-    m_barn->setFlag(QGraphicsItem::ItemIsFocusable);
-    m_barn->setFocus();
 
     m_stopMoving = false;
 
@@ -30,7 +28,7 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
 
     srand(time(NULL));
     for(int i = 0; i < 50; i++) {
-        Sheep1 * newSheep = new Sheep1(Helper::getRandomSheepNumber());
+        Sheep1 * newSheep = new Sheep1(Helper::getRandomSheepNumber(), true);
         newSheep->setPos(500, yValue);
         m_sheepLine.push_back(newSheep);        
         addItem(newSheep);
@@ -66,6 +64,11 @@ void Game1Scene::mousePressEvent(QGraphicsSceneMouseEvent *) {
 }
 
 void Game1Scene::gameOver() {
+
+    m_gameOverPicture = new GameOver;
+
+    addItem(m_gameOverPicture);
+
     m_stopMoving = true;
     emit Done();
     m_cannon->setEnabled(false);

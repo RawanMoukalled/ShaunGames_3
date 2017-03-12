@@ -13,7 +13,8 @@ SOURCES += \
     game1/cannon.cpp \
     game1/game1scene.cpp \
     game1/sheep1.cpp \
-    game1/barn.cpp
+    game1/barn.cpp \
+    game1/gameover.cpp
 
 HEADERS += \
     myaccount.h \
@@ -29,6 +30,7 @@ HEADERS += \
     game1/cannon.h \
     game1/game1scene.h \
     game1/sheep1.h \
-    game1/barn.h
+    game1/barn.h \
+    game1/gameover.h
 
 OTHER_FILES +=
