@@ -27,6 +27,8 @@ public:
 
     static const double PI; ///< PI
 
+    static bool GAMEOVER; ///< Indicates if the game is over
+
     /**
     * \brief Returns a number between 1 and 9
     * \returns Number between 1 and 9

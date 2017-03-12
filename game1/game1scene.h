@@ -8,6 +8,7 @@
 #include <QTimer>
 #include "game1/cannon.h"
 #include "game1/sheep1.h"
+#include "game1/barn.h"
 
 class Game1Scene : public QGraphicsScene
 {
@@ -33,7 +34,10 @@ public:
     */
     void moveCurrentSheep(bool toRight);
 
+    void gameOver();
+
 signals:
+    void Done();
     
 public slots:
     void move_line();
@@ -44,6 +48,8 @@ private:
     QTimer *m_line_timer; ///< Timer that moves the line
     Sheep1 *m_current; ///< Current sheep that will be thrown
     Sheep1 *m_next; ///< Next sheep that will be thrown
+    Barn *m_barn; ///< Barn that the sheep disappear into
+    bool m_stopMoving; ///< Once a sheep hits the barn, signals other sheep to stop moving
 };
 
 #endif // GAME1SCENE_H

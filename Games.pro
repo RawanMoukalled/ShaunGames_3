@@ -12,7 +12,8 @@ SOURCES += \
     gui/gamemainmenu.cpp \
     game1/cannon.cpp \
     game1/game1scene.cpp \
-    game1/sheep1.cpp
+    game1/sheep1.cpp \
+    game1/barn.cpp
 
 HEADERS += \
     myaccount.h \
@@ -27,6 +28,7 @@ HEADERS += \
     gui/gamemainmenu.h \
     game1/cannon.h \
     game1/game1scene.h \
-    game1/sheep1.h
+    game1/sheep1.h \
+    game1/barn.h
 
 OTHER_FILES +=

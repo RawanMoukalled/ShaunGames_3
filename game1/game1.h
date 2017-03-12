@@ -36,6 +36,11 @@ public slots:
     * \brief Slot to go back to the games main menu when pressing Exit
     */
     void goToMainMenu();
+
+    /**
+    * \brief Slot to handle ending the game once it's over
+    */
+    void endGame();
     
 private:
     QLabel *m_title; ///< Main title of the game
