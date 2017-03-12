@@ -1,6 +1,7 @@
 #include "cannon.h"
 #include <QtGui>
 #include "helper.h"
+#include "game1scene.h"
 
 /**
 * \file cannon.cpp
@@ -16,7 +17,8 @@ Cannon::Cannon(QObject *parent) :
 {
     this->setPixmap(QPixmap("pictures/cannon.png"));
     setScale(0.3);
-    setPos(300,250);
+    setTransformOriginPoint(0,45);
+    setPos(290,210);
 }
 
 /**
@@ -37,6 +39,9 @@ void Cannon::keyPressEvent(QKeyEvent *event) {
             rot = rot + 360;
         }
         setRotation(rot);
+
+        Game1Scene *s = static_cast<Game1Scene*>(scene());
+        s->moveCurrentSheep(false);
     }
     else if (event->key() == Qt::Key_Right) {
         int rot = rotation()+5;
@@ -44,8 +49,11 @@ void Cannon::keyPressEvent(QKeyEvent *event) {
             rot = rot - 360;
         }
         setRotation(rot);
+
+        Game1Scene *s = static_cast<Game1Scene*>(scene());
+        s->moveCurrentSheep(true);
     }
     else if (event->key() == Qt::Key_Space) {
-        qDebug() << "Rotation: " << rotation();
+
     }
 }

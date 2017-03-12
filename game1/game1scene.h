@@ -28,6 +28,11 @@ public:
     */
     void mousePressEvent(QGraphicsSceneMouseEvent *);
 
+    /**
+    * \brief Moves sheep with rotating cannon
+    */
+    void moveCurrentSheep(bool toRight);
+
 signals:
     
 public slots:

@@ -15,9 +15,10 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     m_cannon->setFocus();
 
     m_current = new Sheep1(Helper::getRandomSheepNumber());
-    m_current->setPos(330,250);
+    m_current->setPos(340,240);
     m_next = new Sheep1(Helper::getRandomSheepNumber());
-    m_next->setPos(200,200);
+    m_next->setPos(290,255);
+    m_next->setScale(0.01);
 
     //int yValue = 600;
     int yValue = 500;
@@ -59,6 +60,26 @@ void Game1Scene::mousePressEvent(QGraphicsSceneMouseEvent *) {
 }
 
 /**
+* Moves current sheep.
+* Called when the cannon rotates.
+*/
+void Game1Scene::moveCurrentSheep(bool toRight) {
+    int angleInDegrees = m_current->getAngle();
+    if (toRight) {
+        angleInDegrees = angleInDegrees + 5;
+    }
+    else {
+        angleInDegrees = angleInDegrees - 5;
+    }
+    m_current->setAngle(angleInDegrees);
+    int r = 50;
+    double a = Helper::toRadians(angleInDegrees);
+    double x = 290 + r*cos(a);
+    double y = 255 + r*sin(a);
+    m_current->setPos(x,y);
+}
+
+/**
 * Moves the sheep line.
 */
 void Game1Scene::move_line() {
@@ -78,14 +99,9 @@ void Game1Scene::move_line() {
         else{
             int angle_degrees = (curr->getAngle() + 3) % 360;
             curr->setAngle(angle_degrees);
-            double rAngle = (angle_degrees/180.0)*Helper::PI;
+            double rAngle = Helper::toRadians(angle_degrees);
             double newX = 300 + 200*cos(rAngle);
             double newY = 250 + 200*sin(rAngle);
-
-            qDebug() << "angle degrees " << angle_degrees;
-            qDebug() << "rAngle " << rAngle;
-            qDebug() << "new X " << newX;
-            qDebug() << "new Y " << newY;
 
             curr->setPos(newX, newY);
         }
