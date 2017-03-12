@@ -9,6 +9,7 @@
 #include "game1/cannon.h"
 #include "game1/sheep1.h"
 #include "game1/barn.h"
+#include "game1/gameover.h"
 
 class Game1Scene : public QGraphicsScene
 {
@@ -50,6 +51,7 @@ private:
     Sheep1 *m_next; ///< Next sheep that will be thrown
     Barn *m_barn; ///< Barn that the sheep disappear into
     bool m_stopMoving; ///< Once a sheep hits the barn, signals other sheep to stop moving
+    GameOver *m_gameOverPicture;
 };
 
 #endif // GAME1SCENE_H

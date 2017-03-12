@@ -57,6 +57,7 @@ private:
 
     int m_level; ///<  Level selected
 
+
     /**
     * \brief Sets the different graphic items in one layout for the game
     */

@@ -95,8 +95,6 @@ void Game1::endGame() {
 }
 
 void Game1::replay() {
-
-
     delete m_gameScene;
     m_gameScene = new Game1Scene(m_level);
     m_gameView->setScene(m_gameScene);

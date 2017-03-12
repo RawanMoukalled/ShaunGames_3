@@ -4,7 +4,7 @@
 /**
 * Sets the properties of the sheep.
 */
-Sheep1::Sheep1(int number, QObject *parent) :
+Sheep1::Sheep1(int number, bool status, QObject *parent) :
     QObject(parent)
 {
     m_angle = 0;
@@ -12,6 +12,8 @@ Sheep1::Sheep1(int number, QObject *parent) :
     setPixmap(QPixmap("pictures/sheep/"+QString::number(number)+".png"));
     setScale(0.10);
     setPos(500,0);
+
+    m_inLine = status;
 }
 
 /**
@@ -28,3 +30,10 @@ void Sheep1::setAngle(int angle){
     m_angle = angle % 360;
 }
 
+void Sheep1::setInLine(bool status) {
+    m_inLine = status;
+}
+
+bool Sheep1::isInLine() {
+    return m_inLine;
+}
