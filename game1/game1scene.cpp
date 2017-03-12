@@ -135,13 +135,13 @@ void Game1Scene::fireSheep() {
             y++;
         }
         else {
-            y = y--;
+            y--;
         }
         qDebug() << x << y;
 
         fired->setPos(x,y);
 
-        if (x > 625 || x<-40 || y > 545 || y < -40 ) {
+        if (x > 620 || x<-35 || y > 540 || y < -35 ) {
             delete fired;
             break;
         }
