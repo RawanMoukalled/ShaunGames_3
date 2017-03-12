@@ -24,6 +24,7 @@ public:
     * \brief Makes given widget large.
     */
     static void makeWidgetLarge(QWidget *widget);
+    static const double PI;
 
 private:
     static QFont m_smallFont; ///< 12-pt font

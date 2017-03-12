@@ -10,6 +10,11 @@ class Sheep1 : public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     explicit Sheep1(int number, QObject *parent = 0);
+    int getAngle();
+    void setAngle(int angle);
+
+private:
+    int m_angle;
 
 signals:
     

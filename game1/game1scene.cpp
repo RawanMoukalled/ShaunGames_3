@@ -1,5 +1,7 @@
 #include "game1scene.h"
-
+#include "helper.h"
+#include <QDebug>
+#include <QtGui>
 
 Game1Scene::Game1Scene(int level, QObject *parent) :
     QGraphicsScene(parent)
@@ -38,12 +40,23 @@ void Game1Scene::move_line(){
         int currX = curr->x();
         int currY = curr->y();
 
-        if(currX >= 500 && currY <= 500 ) {
+        if(currX >= 500 && currY <= 300 ) {
             curr->setPos(currX, currY+10);
         }
 
         else{
+            int angle_degrees = (curr->getAngle() + 10)%360;
+            curr->setAngle(angle_degrees);
+            double rAngle = (angle_degrees/180.0)*Helper::PI;
+            double newX = 300 + 200*cos(rAngle);
+            double newY = 250 + 200*sin(rAngle);
 
+            qDebug() << "angle degrees " << angle_degrees;
+            qDebug() << "rAngle " << rAngle;
+            qDebug() << "new X " << newX;
+            qDebug() << "new Y " << newY;
+
+            curr->setPos(newX, newY);
         }
 
     }

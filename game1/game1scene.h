@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 #include <QLinkedList>
+#include <cmath>
 #include <QTimer>
 #include "game1/cannon.h"
 #include "game1/sheep1.h"
@@ -24,6 +25,7 @@ private:
     QLinkedList<Sheep1*> m_sheepLine;
     Sheep1 *test;
     QTimer *m_line_timer;
+
 };
 
 #endif // GAME1SCENE_H

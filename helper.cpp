@@ -38,3 +38,5 @@ void Helper::initialize() {
 QFont Helper::m_smallFont;
 QFont Helper::m_largeFont;
 bool Helper::m_uninitialized(true);
+
+const double Helper::PI = 3.14159265;
