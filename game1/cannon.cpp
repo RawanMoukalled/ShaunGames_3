@@ -1,4 +1,5 @@
 #include "cannon.h"
+#include <QtGui>
 
 /**
 * \file cannon.cpp
@@ -19,10 +20,18 @@ Cannon::Cannon(QObject *parent) :
 
 void Cannon::keyPressEvent(QKeyEvent *event) {
     if (event->key() == Qt::Key_Left) {
-        setRotation(rotation()-5);
+        int rot = rotation()-5;
+        if (rot < 0) {
+            rot = rot + 360;
+        }
+        setRotation(rot);
     }
     else if (event->key() == Qt::Key_Right) {
-        setRotation(rotation()+5);
+        int rot = rotation()+5;
+        if (rot >= 360) {
+            rot = rot - 360;
+        }
+        setRotation(rot);
     }
     else if (event->key() == Qt::Key_Space) {
         qDebug() << "Rotation: " << rotation();
