@@ -107,7 +107,8 @@ void Game1Scene::fireSheep() {
     m_current->setPos(fired->pos());
     m_current->setRotation(fired->rotation());
 
-    int rot = fired->rotation();
+    fired->setRotation(0);
+
     int angle = m_cannon->rotation();
 
     double x = fired->x();
@@ -118,11 +119,6 @@ void Game1Scene::fireSheep() {
 
     while(collidingItems(fired).empty() || collidingItems(fired).contains(m_barn) ||
           collidingItems(fired).contains(m_cannon) || collidingItems(fired).contains(m_current)) {
-        if (rot != 0) {
-            rot = (rot + 1) % 365;
-        }
-        fired->setRotation(rot);
-
         if (angle < 90 || angle > 270) {
             //qDebug() << angle << a << b << x << y;
             x++;
@@ -133,12 +129,12 @@ void Game1Scene::fireSheep() {
             y = a*x+b;
         }
         else if (angle == 90) {
-            qDebug() << x << y;
             y++;
         }
         else {
-            y--;
+            y = y--;
         }
+        qDebug() << x << y;
 
         fired->setPos(x,y);
 
