@@ -38,7 +38,6 @@ signals:
 public slots:
     
 private:
-
 };
 
 #endif // CANNON_H

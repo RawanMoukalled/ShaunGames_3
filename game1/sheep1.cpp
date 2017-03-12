@@ -25,6 +25,6 @@ int Sheep1::getAngle() const {
 }
 
 void Sheep1::setAngle(int angle){
-    m_angle = angle;
+    m_angle = angle % 360;
 }
 

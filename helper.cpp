@@ -29,6 +29,13 @@ void Helper::makeWidgetLarge(QWidget *widget) {
 const double Helper::PI = 3.14159265;
 
 /**
+* Converts angle from degrees to radians.
+*/
+double Helper::toRadians(double degrees) {
+    return degrees*PI/180;
+}
+
+/**
 * Returns a random sheep number between 1 and 9.
 */
 int Helper::getRandomSheepNumber() {

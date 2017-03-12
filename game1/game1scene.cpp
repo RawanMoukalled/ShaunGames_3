@@ -15,9 +15,10 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     m_cannon->setFocus();
 
     m_current = new Sheep1(Helper::getRandomSheepNumber());
-    m_current->setPos(330,250);
+    m_current->setPos(334,247);
+    m_current->setRotation(345);
     m_next = new Sheep1(Helper::getRandomSheepNumber());
-    m_next->setPos(200,200);
+    m_next->setPos(285,235);
 
     m_barn = new Barn;
     m_barn->setFlag(QGraphicsItem::ItemIsFocusable);
@@ -67,6 +68,28 @@ void Game1Scene::mousePressEvent(QGraphicsSceneMouseEvent *) {
 void Game1Scene::gameOver() {
     m_stopMoving = true;
     emit Done();
+    m_cannon->setEnabled(false);
+}
+
+/**
+* Moves current sheep.
+* Called when the cannon rotates.
+*/
+void Game1Scene::moveCurrentSheep(bool toRight) {
+    int angleInDegrees = m_current->rotation();
+    if (toRight) {
+        angleInDegrees = angleInDegrees + 5;
+    }
+    else {
+        angleInDegrees = angleInDegrees - 5;
+    }
+    m_current->setAngle(angleInDegrees);
+    int r = 45;
+    double a = Helper::toRadians(angleInDegrees);
+    double x = 290 + r*cos(a);
+    double y = 255 + r*sin(a);
+    m_current->setPos(x,y);
+    m_current->setRotation(angleInDegrees);
 }
 
 /**
@@ -75,7 +98,6 @@ void Game1Scene::gameOver() {
 void Game1Scene::move_line() {
     QLinkedList<Sheep1*>::iterator i;
     int count = 0;
-
     if(!m_stopMoving) {
         for (i = m_sheepLine.begin(); i != m_sheepLine.end(); ++i) {
             //Get current sheep in the line and its position
