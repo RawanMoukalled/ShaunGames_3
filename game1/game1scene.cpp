@@ -1,12 +1,14 @@
 #include "game1scene.h"
 
 
-Game1Scene::Game1Scene(QObject *parent) :
+Game1Scene::Game1Scene(int level, QObject *parent) :
     QGraphicsScene(parent)
 {
     m_cannon = new Cannon;
     m_cannon->setFlag(QGraphicsItem::ItemIsFocusable);
     m_cannon->setFocus();
+
+
 
     int yValue = 600;
     srand(time(NULL));
@@ -20,7 +22,8 @@ Game1Scene::Game1Scene(QObject *parent) :
 
     m_line_timer = new QTimer(this);
     connect(m_line_timer, SIGNAL(timeout()), this, SLOT(move_line()));
-    m_line_timer->start(300);
+
+    m_line_timer->start(1000.0/(level+1));
 
     addItem(m_cannon);
 }
@@ -28,6 +31,7 @@ Game1Scene::Game1Scene(QObject *parent) :
 void Game1Scene::move_line(){
     QLinkedList<Sheep1*>::iterator i;
     for (i = m_sheepLine.begin(); i != m_sheepLine.end(); ++i) {
-        (*i)->setPos((*i)->x(), (*i)->y()+10);
+        Sheep1 * curr = (*i);
+        curr->setPos(curr->x(), curr->y()+10);
     }
 }
