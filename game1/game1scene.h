@@ -23,7 +23,7 @@ public:
     */
     virtual ~Game1Scene();
 
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    void mousePressEvent(QGraphicsSceneMouseEvent *);
 
 signals:
     

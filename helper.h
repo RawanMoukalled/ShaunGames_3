@@ -16,15 +16,21 @@ class Helper
 {
 public:
     /**
-    * \brief Makes given widget small.
+    * \brief Makes given widget small
     */
     static void makeWidgetSmall(QWidget *widget);
 
     /**
-    * \brief Makes given widget large.
+    * \brief Makes given widget large
     */
     static void makeWidgetLarge(QWidget *widget);
-    static const double PI;
+
+    static const double PI; ///< PI
+
+    /**
+    * \brief Returns a number between 1 and 9
+    */
+    static int getRandomSheepNumber();
 
 private:
     static QFont m_smallFont; ///< 12-pt font

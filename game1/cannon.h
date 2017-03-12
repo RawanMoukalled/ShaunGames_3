@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QKeyEvent>
+#include "sheep1.h"
 
 /**
 * \file cannon.h
@@ -36,6 +37,9 @@ signals:
     
 public slots:
     
+private:
+    Sheep1 *m_current;
+    Sheep1 *m_next;
 };
 
 #endif // CANNON_H

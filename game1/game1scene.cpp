@@ -18,7 +18,7 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     int yValue = 500;
     srand(time(NULL));
     for(int i = 0; i < 50; i++) {
-        Sheep1 * newSheep = new Sheep1(rand()%9 + 1);
+        Sheep1 * newSheep = new Sheep1(Helper::getRandomSheepNumber());
         newSheep->setPos(500, yValue);
         m_sheepLine.push_back(newSheep);        
         addItem(newSheep);
@@ -44,7 +44,7 @@ Game1Scene::~Game1Scene() {
     delete m_line_timer;
 }
 
-void Game1Scene::mousePressEvent(QGraphicsSceneMouseEvent *event) {
+void Game1Scene::mousePressEvent(QGraphicsSceneMouseEvent *) {
     m_cannon->setFocus();
 }
 
