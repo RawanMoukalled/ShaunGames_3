@@ -3,6 +3,7 @@
 #include <QFile>
 #include <QString>
 #include <QLatin1String>
+#include <ctime>
 
 #include "gui/mainwidget.h"
 #include "gui/gameselection.h"
@@ -19,6 +20,7 @@
 * Runs the application.
 */
 int main(int argc, char **argv) {
+    srand(time(0));
     QApplication app(argc, argv);
 
     MainWidget *mainWidget = new MainWidget;

@@ -3,7 +3,10 @@
 
 #include <QGraphicsScene>
 #include <QGraphicsItem>
+#include <QLinkedList>
+#include <QTimer>
 #include "game1/cannon.h"
+#include "game1/sheep1.h"
 
 class Game1Scene : public QGraphicsScene
 {
@@ -14,9 +17,13 @@ public:
 signals:
     
 public slots:
+    void move_line();
     
 private:
     Cannon *m_cannon;
+    QLinkedList<Sheep1*> m_sheepLine;
+    Sheep1 *test;
+    QTimer *m_line_timer;
 };
 
 #endif // GAME1SCENE_H
