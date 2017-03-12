@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QGraphicsPixmapItem>
-#include <QMouseEvent>
+#include <QKeyEvent>
 
 /**
 * \file cannon.h
@@ -22,11 +22,7 @@ public:
     */
     explicit Cannon(QObject *parent = 0);
 
-    /**
-    * \brief Entrance point of triggered mouse events
-    * \param event Triggered event
-    */
-    void mouseMoveEvent(QMouseEvent *event);
+    void keyPressEvent(QKeyEvent *event);
     
 signals:
     
