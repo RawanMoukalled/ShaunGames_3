@@ -12,7 +12,7 @@ class Game1Scene : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    explicit Game1Scene(QObject *parent = 0);
+    explicit Game1Scene(int level, QObject *parent = 0);
 
 signals:
     

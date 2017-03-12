@@ -25,6 +25,6 @@ void Cannon::keyPressEvent(QKeyEvent *event) {
         setRotation(rotation()+5);
     }
     else if (event->key() == Qt::Key_Space) {
-
+        qDebug() << "Rotation: " << rotation();
     }
 }

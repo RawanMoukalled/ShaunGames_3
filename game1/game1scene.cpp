@@ -1,7 +1,7 @@
 #include "game1scene.h"
 
 
-Game1Scene::Game1Scene(QObject *parent) :
+Game1Scene::Game1Scene(int level, QObject *parent) :
     QGraphicsScene(parent)
 {
     m_cannon = new Cannon;

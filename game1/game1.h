@@ -33,7 +33,6 @@ public slots:
     void goToMainMenu();
     
 private:
-    int m_level; ///< Level of the game
     QLabel *m_title; ///< Main title of the game
     QPushButton *m_exit; ///< Button to take the user to the game main menu
     QVBoxLayout *m_game1Layout; ///< Layout for Sheep Line
