@@ -96,6 +96,65 @@ void Game1Scene::moveCurrentSheep(bool toRight) {
 }
 
 /**
+* Releases the sheep and makes it move in a straight line.
+*/
+void Game1Scene::fireSheep() {
+    Sheep1 *fired = m_current;
+
+    m_current = m_next;
+    m_next = new Sheep1(Helper::getRandomSheepNumber());
+
+    m_next->setPos(m_current->pos());
+    addItem(m_next);
+
+    m_current->setPos(fired->pos());
+    m_current->setRotation(fired->rotation());
+
+    int rot = fired->rotation();
+    int angle = m_cannon->rotation();
+
+    double x = fired->x();
+    double y = fired->y();
+
+    double a = tan(Helper::toRadians(angle));
+    double b = y - a*x;
+
+    while(collidingItems(fired).empty() || collidingItems(fired).contains(m_barn) ||
+          collidingItems(fired).contains(m_cannon) || collidingItems(fired).contains(m_current)) {
+        if (rot != 0) {
+            rot = (rot + 1) % 365;
+        }
+        fired->setRotation(rot);
+
+        if (angle < 90 || angle > 270) {
+            //qDebug() << angle << a << b << x << y;
+            x++;
+            y = a*x+b;
+        }
+        else if (angle > 90 && angle < 270) {
+            x--;
+            y = a*x+b;
+        }
+        else if (angle == 90) {
+            qDebug() << x << y;
+            y++;
+        }
+        else {
+            y--;
+        }
+
+        fired->setPos(x,y);
+
+        if (x > 625 || x<-40 || y > 545 || y < -40 ) {
+            delete fired;
+            break;
+        }
+
+        Helper::delay(5);
+    }
+}
+
+/**
 * Moves the sheep line.
 */
 void Game1Scene::move_line() {

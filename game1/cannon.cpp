@@ -54,6 +54,7 @@ void Cannon::keyPressEvent(QKeyEvent *event) {
         s->moveCurrentSheep(true);
     }
     else if (event->key() == Qt::Key_Space) {
-
+        Game1Scene *s = static_cast<Game1Scene*>(scene());
+        s->fireSheep();
     }
 }

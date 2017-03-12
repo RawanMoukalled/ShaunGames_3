@@ -37,6 +37,11 @@ public:
 
     void gameOver();
 
+    /**
+    * \brief Fires the sheep
+    */
+    void fireSheep();
+
 signals:
     void Done();
     

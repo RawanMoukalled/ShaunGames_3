@@ -42,6 +42,12 @@ public:
     */
     static double toRadians(double degrees);
 
+    /**
+    * \brief Delay function
+    * \param msec Desired delay in milliseconds
+    */
+    static void delay(int msec);
+
 private:
     static QFont m_smallFont; ///< 12-pt font
     static QFont m_largeFont; ///< 18-pt font

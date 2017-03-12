@@ -1,5 +1,7 @@
 #include "helper.h"
 #include <ctime>
+#include <QTime>
+#include <QCoreApplication>
 
 /**
 * \file helper.cpp
@@ -40,6 +42,16 @@ double Helper::toRadians(double degrees) {
 */
 int Helper::getRandomSheepNumber() {
     return rand()%9 + 1;
+}
+
+/**
+* Delays execution
+*/
+void Helper::delay(int msec)
+{
+    QTime dieTime= QTime::currentTime().addMSecs(msec);
+    while (QTime::currentTime() < dieTime)
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 }
 
 /**
