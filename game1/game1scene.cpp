@@ -8,6 +8,8 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     m_cannon->setFlag(QGraphicsItem::ItemIsFocusable);
     m_cannon->setFocus();
 
+
+
     int yValue = 600;
     srand(time(NULL));
     for(int i = 0; i < 50; i++) {
@@ -20,14 +22,29 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
 
     m_line_timer = new QTimer(this);
     connect(m_line_timer, SIGNAL(timeout()), this, SLOT(move_line()));
-    m_line_timer->start(300);
+
+    m_line_timer->start(1000.0/(level+1));
 
     addItem(m_cannon);
 }
 
 void Game1Scene::move_line(){
     QLinkedList<Sheep1*>::iterator i;
+
     for (i = m_sheepLine.begin(); i != m_sheepLine.end(); ++i) {
-        (*i)->setPos((*i)->x(), (*i)->y()+10);
+
+        //Get current sheep in the line and its position
+        Sheep1 * curr = (*i);
+        int currX = curr->x();
+        int currY = curr->y();
+
+        if(currX >= 500 && currY <= 500 ) {
+            curr->setPos(currX, currY+10);
+        }
+
+        else{
+
+        }
+
     }
 }
