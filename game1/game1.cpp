@@ -31,7 +31,6 @@ Game1::Game1(int level, QWidget *parent) :
     setGame1Layout();
     setLayout(m_game1Layout);
 
-
     QObject::connect(m_exit, SIGNAL(clicked()), SLOT(goToMainMenu()));
 }
 
@@ -44,11 +43,9 @@ void Game1::setGame1Layout() {
     m_gameView->setBackgroundBrush(QBrush(QImage("pictures/grass.jpg").scaledToHeight(550)));
     m_gameView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_gameView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_gameView->viewport()->setMouseTracking(true);
 
     m_game1Layout->addWidget(m_title);
     m_game1Layout->addWidget(m_gameView);
-    //m_game1Layout->addItem(new QSpacerItem(600,500));
     m_game1Layout->addWidget(m_exit);
 
     m_game1Layout->setAlignment(m_title, Qt::AlignHCenter);

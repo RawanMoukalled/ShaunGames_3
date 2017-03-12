@@ -2,6 +2,7 @@
 #define GAME1SCENE_H
 
 #include <QGraphicsScene>
+#include <QGraphicsItem>
 #include "game1/cannon.h"
 
 class Game1Scene : public QGraphicsScene
@@ -9,7 +10,7 @@ class Game1Scene : public QGraphicsScene
     Q_OBJECT
 public:
     explicit Game1Scene(QObject *parent = 0);
-    
+
 signals:
     
 public slots:
