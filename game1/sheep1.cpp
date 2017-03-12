@@ -10,7 +10,7 @@ Sheep1::Sheep1(int number, QObject *parent) :
     m_angle = 0;
 
     setPixmap(QPixmap("pictures/sheep/"+QString::number(number)+".png"));
-    setScale(0.13);
+    setScale(0.10);
     setPos(500,0);
 }
 

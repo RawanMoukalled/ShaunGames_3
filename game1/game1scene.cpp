@@ -14,14 +14,15 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     m_cannon->setFlag(QGraphicsItem::ItemIsFocusable);
     m_cannon->setFocus();
 
-    int yValue = 600;
+    //int yValue = 600;
+    int yValue = 500;
     srand(time(NULL));
     for(int i = 0; i < 50; i++) {
         Sheep1 * newSheep = new Sheep1(rand()%9 + 1);
         newSheep->setPos(500, yValue);
         m_sheepLine.push_back(newSheep);        
         addItem(newSheep);
-        yValue -= 44;
+        yValue -= 40;
     }
 
     m_line_timer = new QTimer(this);
@@ -52,20 +53,20 @@ void Game1Scene::mousePressEvent(QGraphicsSceneMouseEvent *event) {
 */
 void Game1Scene::move_line() {
     QLinkedList<Sheep1*>::iterator i;
-
+    int count = 0;
     for (i = m_sheepLine.begin(); i != m_sheepLine.end(); ++i) {
-
+        if(1){
         //Get current sheep in the line and its position
         Sheep1 * curr = (*i);
         int currX = curr->x();
         int currY = curr->y();
 
-        if(currX >= 500 && currY <= 300 ) {
+        if(currX >= 500 && currY <= 250 ) {
             curr->setPos(currX, currY+10);
         }
 
         else{
-            int angle_degrees = (curr->getAngle() + 10)%360;
+            int angle_degrees = (curr->getAngle() + 3) % 360;
             curr->setAngle(angle_degrees);
             double rAngle = (angle_degrees/180.0)*Helper::PI;
             double newX = 300 + 200*cos(rAngle);
@@ -78,6 +79,7 @@ void Game1Scene::move_line() {
 
             curr->setPos(newX, newY);
         }
-
+        count++;
+    }
     }
 }
