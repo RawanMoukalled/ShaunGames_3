@@ -25,8 +25,7 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
 
     m_stopMoving = false;
 
-    //int yValue = 600;
-    int yValue = 500;
+    int yValue = 0;
 
     srand(time(NULL));
     for(int i = 0; i < 50; i++) {

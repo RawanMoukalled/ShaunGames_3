@@ -41,6 +41,8 @@ public slots:
     * \brief Slot to handle ending the game once it's over
     */
     void endGame();
+
+    void replay();
     
 private:
     QLabel *m_title; ///< Main title of the game
@@ -49,6 +51,11 @@ private:
 
     QGraphicsView *m_gameView; ///< Game view that has the game scene
     Game1Scene *m_gameScene; ///< Game1 scene
+
+    QPushButton *m_goBack; ///< Go back to the game main menu
+    QPushButton *m_replay; ///< Replay the same level
+
+    int m_level; ///<  Level selected
 
     /**
     * \brief Sets the different graphic items in one layout for the game

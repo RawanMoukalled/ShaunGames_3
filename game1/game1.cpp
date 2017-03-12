@@ -26,6 +26,7 @@ Game1::Game1(int level, QWidget *parent) :
     Helper::makeWidgetLarge(m_title);
     Helper::makeWidgetSmall(m_exit);
 
+    m_level = level;
     m_gameScene = new Game1Scene(level);
     m_gameView = new QGraphicsView;
 
@@ -33,6 +34,7 @@ Game1::Game1(int level, QWidget *parent) :
     setLayout(m_game1Layout);
 
     QObject::connect(m_exit, SIGNAL(clicked()), SLOT(goToMainMenu()));
+
     QObject::connect(m_gameScene, SIGNAL(Done()),SLOT(endGame()));
 }
 
@@ -75,5 +77,45 @@ void Game1::goToMainMenu() {
 }
 
 void Game1::endGame() {
-    qDebug() << "in bitches";
+    m_goBack = new QPushButton("Go Back");
+    m_replay = new QPushButton("Replay");
+
+    m_game1Layout->removeWidget(m_exit);
+    delete m_exit;
+
+    m_game1Layout->addWidget(m_goBack);
+    m_game1Layout->addWidget(m_replay);
+
+    m_game1Layout->setAlignment(m_goBack, Qt::AlignHCenter);
+    m_game1Layout->setAlignment(m_replay, Qt::AlignHCenter);
+
+    QObject::connect(m_goBack, SIGNAL(clicked()), SLOT(goToMainMenu()));
+    QObject::connect(m_replay, SIGNAL(clicked()), SLOT(replay()));
+
 }
+
+void Game1::replay() {
+
+
+    delete m_gameScene;
+    m_gameScene = new Game1Scene(m_level);
+    m_gameView->setScene(m_gameScene);
+    m_gameScene->setSceneRect(0,0,575,505);
+    m_gameView->setBackgroundBrush(QBrush(QImage("pictures/grass.jpg").scaledToHeight(550)));
+    m_gameView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_gameView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+
+    m_game1Layout->removeWidget(m_goBack);
+    delete m_goBack;
+
+    m_game1Layout->removeWidget(m_replay);
+    delete m_replay;
+
+    m_exit = new QPushButton("Save and Exit");
+    m_game1Layout->addWidget(m_exit);
+    m_game1Layout->setAlignment(m_exit, Qt::AlignHCenter);
+    QObject::connect(m_exit, SIGNAL(clicked()), SLOT(goToMainMenu()));
+    QObject::connect(m_gameScene, SIGNAL(Done()),SLOT(endGame()));
+}
+
