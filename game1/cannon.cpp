@@ -14,9 +14,17 @@ Cannon::Cannon(QObject *parent) :
 {
     this->setPixmap(QPixmap("pictures/cannon.png"));
     setScale(0.3);
-    setPos(250,250);
+    setPos(300,250);
 }
 
 void Cannon::keyPressEvent(QKeyEvent *event) {
-    setRotation(rotation()+5);
+    if (event->key() == Qt::Key_Left) {
+        setRotation(rotation()-5);
+    }
+    else if (event->key() == Qt::Key_Right) {
+        setRotation(rotation()+5);
+    }
+    else if (event->key() == Qt::Key_Space) {
+
+    }
 }
