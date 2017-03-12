@@ -19,6 +19,12 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     m_next = new Sheep1(Helper::getRandomSheepNumber());
     m_next->setPos(200,200);
 
+    m_barn = new Barn;
+    m_barn->setFlag(QGraphicsItem::ItemIsFocusable);
+    m_barn->setFocus();
+
+    m_stopMoving = false;
+
     //int yValue = 600;
     int yValue = 500;
 
@@ -39,6 +45,7 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     addItem(m_cannon);
     addItem(m_current);
     addItem(m_next);
+    addItem(m_barn);
 }
 
 /**
@@ -58,38 +65,38 @@ void Game1Scene::mousePressEvent(QGraphicsSceneMouseEvent *) {
     m_cannon->setFocus();
 }
 
+void Game1Scene::gameOver() {
+    m_stopMoving = true;
+}
+
 /**
 * Moves the sheep line.
 */
 void Game1Scene::move_line() {
     QLinkedList<Sheep1*>::iterator i;
     int count = 0;
-    for (i = m_sheepLine.begin(); i != m_sheepLine.end(); ++i) {
-        if(1){
-        //Get current sheep in the line and its position
-        Sheep1 * curr = (*i);
-        int currX = curr->x();
-        int currY = curr->y();
 
-        if(currX >= 500 && currY <= 250 ) {
-            curr->setPos(currX, currY+10);
+    if(!m_stopMoving) {
+        for (i = m_sheepLine.begin(); i != m_sheepLine.end(); ++i) {
+            //Get current sheep in the line and its position
+            Sheep1 * curr = (*i);
+            int currX = curr->x();
+            int currY = curr->y();
+
+            if(currX >= 500 && currY <= 250 ) {
+                curr->setPos(currX, currY+10);
+            }
+
+            else{
+                int angle_degrees = (curr->getAngle() + 3) % 360;
+                curr->setAngle(angle_degrees);
+                double rAngle = (angle_degrees/180.0)*Helper::PI;
+                double newX = 300 + 200*cos(rAngle);
+                double newY = 250 + 200*sin(rAngle);
+
+                curr->setPos(newX, newY);
+            }
+            count++;
         }
-
-        else{
-            int angle_degrees = (curr->getAngle() + 3) % 360;
-            curr->setAngle(angle_degrees);
-            double rAngle = (angle_degrees/180.0)*Helper::PI;
-            double newX = 300 + 200*cos(rAngle);
-            double newY = 250 + 200*sin(rAngle);
-
-            qDebug() << "angle degrees " << angle_degrees;
-            qDebug() << "rAngle " << rAngle;
-            qDebug() << "new X " << newX;
-            qDebug() << "new Y " << newY;
-
-            curr->setPos(newX, newY);
-        }
-        count++;
-    }
     }
 }
