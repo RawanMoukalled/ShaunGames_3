@@ -67,6 +67,7 @@ void Game1Scene::mousePressEvent(QGraphicsSceneMouseEvent *) {
 
 void Game1Scene::gameOver() {
     m_stopMoving = true;
+    emit Done();
 }
 
 /**

@@ -2,6 +2,9 @@
 #include "helper.h"
 #include "gui/gamemainmenu.h"
 
+#include <QDebug>
+#include <QtGui>
+
 /**
 * \file game1.cpp
 * \brief Contains the Sheep Line
@@ -30,6 +33,7 @@ Game1::Game1(int level, QWidget *parent) :
     setLayout(m_game1Layout);
 
     QObject::connect(m_exit, SIGNAL(clicked()), SLOT(goToMainMenu()));
+    QObject::connect(m_gameScene, SIGNAL(Done()),SLOT(endGame()));
 }
 
 /**
@@ -68,4 +72,8 @@ void Game1::goToMainMenu() {
     GameMainMenu *menu = new GameMainMenu(1);
     menu->show();
     close();
+}
+
+void Game1::endGame() {
+    qDebug() << "in bitches";
 }

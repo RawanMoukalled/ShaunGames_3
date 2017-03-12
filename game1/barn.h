@@ -14,10 +14,11 @@ public:
 signals:
     
 public slots:
-    void takeSheep();
+    void sheepIn();
 
 private:
     QTimer *m_timer;
+    bool m_collisionDone;
 
 };
 

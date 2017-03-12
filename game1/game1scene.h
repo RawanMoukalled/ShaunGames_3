@@ -32,6 +32,7 @@ public:
     void gameOver();
 
 signals:
+    void Done();
     
 public slots:
     void move_line();

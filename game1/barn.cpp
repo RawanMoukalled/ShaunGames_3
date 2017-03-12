@@ -12,12 +12,18 @@ Barn::Barn(QObject *parent) :
     setScale(0.04);
 
     m_timer = new  QTimer(this);
-    connect(m_timer, SIGNAL(timeout()), this, SLOT(takeSheep()));
+    connect(m_timer, SIGNAL(timeout()), this, SLOT(sheepIn()));
     m_timer->start(100);
+
+    m_collisionDone = false;
 }
 
-void Barn::takeSheep() {
-    if(!scene()->collidingItems(this).isEmpty()) {
-        static_cast<Game1Scene*>(scene())->gameOver();
+void Barn::sheepIn() {
+
+    if(!m_collisionDone) {
+        if(!scene()->collidingItems(this).isEmpty()) {
+            m_collisionDone = true;
+            static_cast<Game1Scene*>(scene())->gameOver();
+        }
     }
 }
