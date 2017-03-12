@@ -3,14 +3,16 @@
 #include <QDebug>
 #include <QtGui>
 
+
+/**
+* Initializes variables and connections.
+*/
 Game1Scene::Game1Scene(int level, QObject *parent) :
     QGraphicsScene(parent)
 {
     m_cannon = new Cannon;
     m_cannon->setFlag(QGraphicsItem::ItemIsFocusable);
     m_cannon->setFocus();
-
-
 
     int yValue = 600;
     srand(time(NULL));
@@ -30,7 +32,25 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     addItem(m_cannon);
 }
 
-void Game1Scene::move_line(){
+/**
+* Frees allocated memory.
+*/
+Game1Scene::~Game1Scene() {
+    delete m_cannon;
+    for (QLinkedList<Sheep1*>::iterator sheep=m_sheepLine.begin(); sheep!=m_sheepLine.end(); ++sheep) {
+        delete *sheep;
+    }
+    delete m_line_timer;
+}
+
+void Game1Scene::mousePressEvent(QGraphicsSceneMouseEvent *event) {
+    m_cannon->setFocus();
+}
+
+/**
+* Moves the sheep line.
+*/
+void Game1Scene::move_line() {
     QLinkedList<Sheep1*>::iterator i;
 
     for (i = m_sheepLine.begin(); i != m_sheepLine.end(); ++i) {

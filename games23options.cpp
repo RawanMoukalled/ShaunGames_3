@@ -48,6 +48,19 @@ Games23Options::Games23Options(int gameNumber, QWidget *parent) :
 }
 
 /**
+* Frees allocated memory.
+*/
+Games23Options::~Games23Options() {
+    delete m_instructions;
+    delete m_easy;
+    delete m_medium;
+    delete m_hard;
+    delete m_back;
+    delete m_mainLayout;
+    delete m_levelLayout;
+}
+
+/**
 * Takes the user to game 2 or 3, depending on his/her initial selection.
 * Called after clicking any level button.
 */

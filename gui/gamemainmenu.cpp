@@ -77,6 +77,18 @@ GameMainMenu::GameMainMenu(int gameChoice, QWidget *parent) :
 }
 
 /**
+* Frees allocated memory.
+*/
+GameMainMenu::~GameMainMenu() {
+    delete m_gameTitle;
+    delete m_instructions;
+    delete m_back;
+    delete m_play;
+    delete m_resume;
+    delete m_layout;
+}
+
+/**
 * Takes the user to the game option widget that corresponds to the game choice.
 * Called after clicking "Play".
 */

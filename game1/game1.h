@@ -23,6 +23,11 @@ public:
     * \param level Game level
     */
     explicit Game1(int level, QWidget *parent = 0);
+
+    /**
+    * \brief Destructor
+    */
+    virtual ~Game1();
     
 signals:
     

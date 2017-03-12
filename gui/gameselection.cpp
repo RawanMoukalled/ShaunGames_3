@@ -54,6 +54,21 @@ GameSelection::GameSelection(QWidget *parent) :
 }
 
 /**
+* Frees allocated memory.
+*/
+GameSelection::~GameSelection() {
+    delete m_game1;
+    delete m_game2;
+    delete m_game3;
+    delete m_title;
+    delete m_myAccountButton;
+    delete m_logoutButton;
+    delete m_gamesListLayout;
+    delete m_linksListLayout;
+    delete m_gameSelectionFullLayout;
+}
+
+/**
 * Sets the overall layout of the widget.
 */
 void GameSelection::setGamesSelectionFullLayout() {

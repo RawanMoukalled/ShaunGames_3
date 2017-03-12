@@ -13,7 +13,17 @@ class Game1Scene : public QGraphicsScene
 {
     Q_OBJECT
 public:
+    /**
+    * \brief Constructor
+    */
     explicit Game1Scene(int level, QObject *parent = 0);
+
+    /**
+    * \brief Destructor
+    */
+    virtual ~Game1Scene();
+
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
 
 signals:
     

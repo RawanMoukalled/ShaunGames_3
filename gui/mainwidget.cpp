@@ -44,6 +44,31 @@ MainWidget::MainWidget(QWidget *parent) :
 }
 
 /**
+* Frees allocated memory.
+*/
+MainWidget::~MainWidget() {
+    delete m_guestSignIn;
+    delete m_signIn;
+    delete m_signUp;
+    delete m_existingUsernameEdit;
+    delete m_existingUsernameLabel;
+    delete m_existingPasswordEdit;
+    delete m_existingPasswordLabel;
+    delete m_firstNameEdit;
+    delete m_firstNameLabel;
+    delete m_lastNameEdit;
+    delete m_lastNameLabel;
+    delete m_usernameEdit;
+    delete m_usernameLabel;
+    delete m_passwordEdit;
+    delete m_passwordLabel;
+    delete m_mainLayout;
+    delete m_userLayout;
+    delete m_signInLayout;
+    delete m_signUpLayout;
+}
+
+/**
 * Adds the username and password fields to the sign in layout.
 */
 void MainWidget::setSignInLayout() {

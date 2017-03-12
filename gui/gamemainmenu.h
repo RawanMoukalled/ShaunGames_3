@@ -21,6 +21,11 @@ public:
     * \brief Constructor
     */
     explicit GameMainMenu(int gameChoice, QWidget *parent = 0);
+
+    /**
+    * \brief Destructor
+    */
+    virtual ~GameMainMenu();
     
 signals:
     

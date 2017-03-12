@@ -9,8 +9,17 @@ class Sheep1 : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
+    /**
+    * \brief Constructor
+    */
     explicit Sheep1(int number, QObject *parent = 0);
-    int getAngle();
+
+    /**
+    * \brief Destructor
+    */
+    virtual ~Sheep1();
+
+    int getAngle() const;
     void setAngle(int angle);
 
 private:

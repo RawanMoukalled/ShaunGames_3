@@ -1,6 +1,9 @@
 #include "sheep1.h"
 #include "helper.h"
 
+/**
+* Sets the properties of the sheep.
+*/
 Sheep1::Sheep1(int number, QObject *parent) :
     QObject(parent)
 {
@@ -11,10 +14,17 @@ Sheep1::Sheep1(int number, QObject *parent) :
     setPos(500,0);
 }
 
-int Sheep1::getAngle() {
+/**
+* Frees allocated memory.
+*/
+Sheep1::~Sheep1() {
+}
+
+int Sheep1::getAngle() const {
     return m_angle;
 }
 
 void Sheep1::setAngle(int angle){
     m_angle = angle;
 }
+

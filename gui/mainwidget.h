@@ -26,6 +26,11 @@ public:
     */
     explicit MainWidget(QWidget *parent = 0);
 
+    /**
+    * \brief Destructor
+    */
+    virtual ~MainWidget();
+
 signals:
 
 public slots:

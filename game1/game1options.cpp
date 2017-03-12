@@ -39,6 +39,20 @@ Game1Options::Game1Options(QWidget *parent) :
 }
 
 /**
+* Frees allocated memory
+*/
+Game1Options::~Game1Options() {
+    delete m_instructions;
+    for (int i=0; i<25; ++i) {
+        delete m_levels[i];
+    }
+    delete m_back;
+    delete m_mainLayout;
+    delete m_levelLayout;
+    delete m_signalMapper;
+}
+
+/**
 * Takes the user to the game main menu that corresponds to game 1.
 * Called after clicking the corresponding button.
 */

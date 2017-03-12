@@ -8,10 +8,8 @@
 */
 
 /**
-* \brief Constructor for Trap the Sheep
-*
 * Sets the size of the window, initializes the graphic items, sets the layouts
-* and connects buttons to their slots
+* and connects buttons to their slots.
 */
 Game2::Game2(QWidget *parent) :
     QWidget(parent)
@@ -30,10 +28,19 @@ Game2::Game2(QWidget *parent) :
     QObject::connect(m_exit, SIGNAL(clicked()), SLOT(goToMainMenu()));
 
 }
-/**
-*brief Adds widgets and spaces for the layout of Sheep Line
-*/
 
+/**
+* Frees allocated memory.
+*/
+Game2::~Game2() {
+    delete m_title;
+    delete m_Game2Layout;
+    delete m_exit;
+}
+
+/**
+* Adds widgets and spaces for the layout of Sheep Line.
+*/
 void Game2::setGame2Layout() {
     m_Game2Layout->addWidget(m_title);
     m_Game2Layout->addItem(new QSpacerItem(600,500));
@@ -42,8 +49,9 @@ void Game2::setGame2Layout() {
     m_Game2Layout->setAlignment(m_title, Qt::AlignHCenter);
     m_Game2Layout->setAlignment(m_exit, Qt::AlignHCenter);
 }
+
 /**
-* \brief Goes to the main menu of Sheep Line
+* Goes to the main menu of Sheep Line
 */
 void Game2::goToMainMenu() {
     GameMainMenu *menu = new GameMainMenu(2);
