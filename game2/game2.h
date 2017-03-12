@@ -21,6 +21,11 @@ public:
     */
     explicit Game2(QWidget *parent = 0);
 
+    /**
+    * \brief Destructor
+    */
+    virtual ~Game2();
+
 signals:
 
 public slots:

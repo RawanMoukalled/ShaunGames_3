@@ -8,8 +8,6 @@
 */
 
 /**
-* \brief Constructor for Sheep Line
-*
 * Sets the size of the window, initializes the graphic items, sets the layouts
 * and connects buttons to their slots.
 */
@@ -35,7 +33,18 @@ Game1::Game1(int level, QWidget *parent) :
 }
 
 /**
-*brief Adds widgets and spaces for the layout of Sheep Line
+* Frees allocated memory
+*/
+Game1::~Game1() {
+    delete m_title;
+    delete m_game1Layout;
+    delete m_exit;
+    delete m_gameScene;
+    delete m_gameView;
+}
+
+/**
+* Adds widgets and spaces for the layout of Sheep Line
 */
 void Game1::setGame1Layout() {
     m_gameScene->setSceneRect(0,0,575,505);
@@ -53,7 +62,7 @@ void Game1::setGame1Layout() {
 }
 
 /**
-* \brief Goes to the main menu of Sheep Line
+* Goes to the main menu of Sheep Line
 */
 void Game1::goToMainMenu() {
     GameMainMenu *menu = new GameMainMenu(1);

@@ -22,6 +22,14 @@ public:
     */
     explicit Cannon(QObject *parent = 0);
 
+    /**
+    * \brief Destructor
+    */
+    virtual ~Cannon();
+
+    /**
+    * \brief Entrance point of triggered key events
+    */
     void keyPressEvent(QKeyEvent *event);
     
 signals:

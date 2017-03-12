@@ -21,6 +21,11 @@ public:
     * \brief Default constructor
     */
     explicit Game1Options(QWidget *parent = 0);
+
+    /**
+    * \brief Destructor
+    */
+    virtual ~Game1Options();
     
 signals:
     

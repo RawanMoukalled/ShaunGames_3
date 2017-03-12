@@ -38,6 +38,16 @@ MyAccount::MyAccount(QWidget *parent) :
 }
 
 /**
+* Frees allocated memory.
+*/
+MyAccount::~MyAccount() {
+    delete m_backToGamesButton;
+    delete m_title;
+    delete m_performance;
+    delete m_myAccountLayout;
+}
+
+/**
 * Sets the overall layout of the widget.
 */
 void MyAccount::setMyAccountLayout() {

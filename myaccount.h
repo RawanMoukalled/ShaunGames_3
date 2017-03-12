@@ -21,6 +21,11 @@ public:
     * \brief Default constructor
     */
     explicit MyAccount(QWidget *parent = 0);
+
+    /**
+    * \brief Destructor
+    */
+    virtual ~MyAccount();
     
 signals:
     

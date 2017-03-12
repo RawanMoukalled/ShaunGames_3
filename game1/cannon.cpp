@@ -18,6 +18,18 @@ Cannon::Cannon(QObject *parent) :
     setPos(300,250);
 }
 
+/**
+* Frees allocated memory.
+*/
+Cannon::~Cannon() {
+
+}
+
+/**
+* Checks the key that triggered the event.
+* If the key was a left or right arrow key, the cannon rotates left or right.
+* If the key was a space, a sheep is thrown.
+*/
 void Cannon::keyPressEvent(QKeyEvent *event) {
     if (event->key() == Qt::Key_Left) {
         int rot = rotation()-5;

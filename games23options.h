@@ -21,6 +21,11 @@ public:
     * \brief Constructor
     */
     explicit Games23Options(int gameNumber, QWidget *parent = 0);
+
+    /**
+    * \brief Destructor
+    */
+    virtual ~Games23Options();
     
 signals:
     
