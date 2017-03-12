@@ -17,17 +17,12 @@ Cannon::Cannon(QObject *parent) :
     this->setPixmap(QPixmap("pictures/cannon.png"));
     setScale(0.3);
     setPos(300,250);
-
-    m_current = new Sheep1(Helper::getRandomSheepNumber());
-    m_next = new Sheep1(Helper::getRandomSheepNumber());
 }
 
 /**
 * Frees allocated memory.
 */
 Cannon::~Cannon() {
-    delete m_current;
-    delete m_next;
 }
 
 /**

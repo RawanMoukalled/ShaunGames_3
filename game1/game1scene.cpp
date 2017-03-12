@@ -14,6 +14,11 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     m_cannon->setFlag(QGraphicsItem::ItemIsFocusable);
     m_cannon->setFocus();
 
+    m_current = new Sheep1(Helper::getRandomSheepNumber());
+    m_current->setPos(330,250);
+    m_next = new Sheep1(Helper::getRandomSheepNumber());
+    m_next->setPos(200,200);
+
     int yValue = 600;
     srand(time(NULL));
     for(int i = 0; i < 50; i++) {
@@ -30,6 +35,8 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     m_line_timer->start(1000.0/(level+1));
 
     addItem(m_cannon);
+    addItem(m_current);
+    addItem(m_next);
 }
 
 /**
@@ -37,6 +44,8 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
 */
 Game1Scene::~Game1Scene() {
     delete m_cannon;
+    delete m_current;
+    delete m_next;
     for (QLinkedList<Sheep1*>::iterator sheep=m_sheepLine.begin(); sheep!=m_sheepLine.end(); ++sheep) {
         delete *sheep;
     }

@@ -23,6 +23,9 @@ public:
     */
     virtual ~Game1Scene();
 
+    /**
+    * \brief Adjusts focus
+    */
     void mousePressEvent(QGraphicsSceneMouseEvent *);
 
 signals:
@@ -31,11 +34,11 @@ public slots:
     void move_line();
     
 private:
-    Cannon *m_cannon;
-    QLinkedList<Sheep1*> m_sheepLine;
-    Sheep1 *test;
-    QTimer *m_line_timer;
-
+    Cannon *m_cannon; ///< Cannon and focus of scene
+    QLinkedList<Sheep1*> m_sheepLine; ///< Initial line of 50 sheep
+    QTimer *m_line_timer; ///< Timer that moves the line
+    Sheep1 *m_current; ///< Current sheep that will be thrown
+    Sheep1 *m_next; ///< Next sheep that will be thrown
 };
 
 #endif // GAME1SCENE_H

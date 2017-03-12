@@ -38,8 +38,7 @@ signals:
 public slots:
     
 private:
-    Sheep1 *m_current;
-    Sheep1 *m_next;
+
 };
 
 #endif // CANNON_H
