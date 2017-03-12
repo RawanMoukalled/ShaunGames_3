@@ -12,7 +12,7 @@ public:
     /**
     * \brief Constructor
     */
-    explicit Sheep1(int number, bool status, QObject *parent = 0);
+    explicit Sheep1(int number, bool inLine, QObject *parent = 0);
 
     /**
     * \brief Destructor
@@ -23,7 +23,7 @@ public:
     void setAngle(int angle);
 
     bool isInLine();
-    void setInLine(bool status);
+    void setInLine(bool inLine);
 
 private:
     int m_angle;

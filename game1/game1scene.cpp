@@ -102,7 +102,7 @@ void Game1Scene::fireSheep() {
     Sheep1 *fired = m_current;
 
     m_current = m_next;
-    m_next = new Sheep1(Helper::getRandomSheepNumber());
+    m_next = new Sheep1(Helper::getRandomSheepNumber(), false);
 
     m_next->setPos(m_current->pos());
     addItem(m_next);
