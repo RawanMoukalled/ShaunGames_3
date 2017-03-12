@@ -30,8 +30,21 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
 
 void Game1Scene::move_line(){
     QLinkedList<Sheep1*>::iterator i;
+
     for (i = m_sheepLine.begin(); i != m_sheepLine.end(); ++i) {
+
+        //Get current sheep in the line and its position
         Sheep1 * curr = (*i);
-        curr->setPos(curr->x(), curr->y()+10);
+        int currX = curr->x();
+        int currY = curr->y();
+
+        if(currX >= 500 && currY <= 500 ) {
+            curr->setPos(currX, currY+10);
+        }
+
+        else{
+
+        }
+
     }
 }

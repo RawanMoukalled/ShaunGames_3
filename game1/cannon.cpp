@@ -1,4 +1,5 @@
 #include "cannon.h"
+#include <QtGui>
 
 /**
 * \file cannon.cpp
