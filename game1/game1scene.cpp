@@ -144,7 +144,7 @@ void Game1Scene::move_line() {
 
     //check every sheep in the line
     QLinkedList<Sheep1*>::iterator i;
-    int count = 0;
+
     if(!m_stopMoving) {
         for (i = m_sheepLine.end()-1; i != m_sheepLine.begin()-1; --i) {
             //Get current sheep in the line and its position
@@ -155,10 +155,11 @@ void Game1Scene::move_line() {
             int incrementStraight;
             int incrementCircular;
 
-            if(!separate){
+            if (!separate) {
                 incrementStraight = 10;
                 incrementCircular = 3;
-            }else{
+            }
+            else {
                 incrementStraight = 40;
                 incrementCircular = 20;
             }
@@ -170,10 +171,10 @@ void Game1Scene::move_line() {
                 curr->setPos(currX, currY+incrementStraight);
             }
             //in the circular path
-            else{
+            else {
                 int angle_degrees = (curr->getAngle() + incrementCircular) % 360;
                 curr->setAngle(angle_degrees);
-                double rAngle = (angle_degrees/180.0)*Helper::PI;
+                double rAngle = Helper::toRadians(angle_degrees);
                 double newX = 300 + 200*cos(rAngle);
                 double newY = 250 + 200*sin(rAngle);
 
@@ -183,17 +184,15 @@ void Game1Scene::move_line() {
             //check if a sheep has collided with it
             QList<QGraphicsItem*> items = this->collidingItems(curr);
             QList<QGraphicsItem*>::iterator j;
-                for (j = items.begin(); j != items.end(); ++j) {
-                    Sheep1 *tempSheep = static_cast<Sheep1*>((*j));
-                    //sheep was fired
-                    if(!tempSheep->isInLine()) {
-                        //qDebug() << curr->m_number;
-                        separate = true;
-                        m_line_timer->stop();
-                    }
-                }
 
-            count++;
+            for (j = items.begin(); j != items.end(); ++j) {
+                Sheep1 *tempSheep = static_cast<Sheep1*>(*j);
+                //sheep was fired
+                if(!tempSheep->isInLine()) {
+                    separate = true;
+                    m_line_timer->stop();
+                }
+            }
         }
     }
 }
