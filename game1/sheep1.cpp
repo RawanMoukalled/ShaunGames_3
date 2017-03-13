@@ -8,7 +8,7 @@
 * Sets the properties of the sheep.
 */
 Sheep1::Sheep1(int number, bool inLine, QObject *parent) :
-    QObject(parent), m_scene(NULL)
+    QObject(parent), m_scene(NULL), m_number(number)
 {
     m_angle = 0;
 
@@ -17,7 +17,6 @@ Sheep1::Sheep1(int number, bool inLine, QObject *parent) :
     setPos(500,0);
 
     m_inLine = inLine;
-
     m_timer = new QTimer(this);
 }
 
