@@ -26,14 +26,17 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     m_stopMoving = false;
 
     int yValue = 0;
+    int TEMP = 1;
 
-    srand(time(NULL));
-    for(int i = 0; i < 50; i++) {
-        Sheep1 * newSheep = new Sheep1(Helper::getRandomSheepNumber(), true);
+    for(int i = 0; i < 50; ++i) {
+        //Sheep1 *newSheep = new Sheep1(Helper::getRandomSheepNumber(), true);
+        Sheep1 *newSheep = new Sheep1(TEMP, true);
         newSheep->setPos(500, yValue);
         m_sheepLine.push_back(newSheep);        
         addItem(newSheep);
         yValue -= 40;
+        TEMP = TEMP + 1;
+        if (TEMP>9) TEMP = 1;
     }
 
     m_line_timer = new QTimer(this);
@@ -139,7 +142,6 @@ bool Game1Scene::collidesWithSheepInLine(QGraphicsItem *item) {
 * Moves the sheep in the line according to their position on the screen
 */
 void Game1Scene::move_line() {
-
     bool separate = false;
 
     //check every sheep in the line
@@ -148,7 +150,7 @@ void Game1Scene::move_line() {
     if(!m_stopMoving) {
         for (i = m_sheepLine.end()-1; i != m_sheepLine.begin()-1; --i) {
             //Get current sheep in the line and its position
-            Sheep1 * curr = (*i);
+            Sheep1 *curr = *i;
             int currX = curr->x();
             int currY = curr->y();
 
@@ -164,8 +166,6 @@ void Game1Scene::move_line() {
                 incrementCircular = 20;
             }
 
-
-            //no collision, proceeding normally
             //straight line
             if(currX >= 500 && currY <= 250 ) {
                 curr->setPos(currX, currY+incrementStraight);
@@ -187,6 +187,7 @@ void Game1Scene::move_line() {
 
             for (j = items.begin(); j != items.end(); ++j) {
                 Sheep1 *tempSheep = static_cast<Sheep1*>(*j);
+
                 //sheep was fired
                 if(!tempSheep->isInLine()) {
                     separate = true;

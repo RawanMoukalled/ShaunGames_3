@@ -22,9 +22,9 @@ Game1Options::Game1Options(QWidget *parent) :
     for (int i=0; i<25; ++i) {
         m_levels[i] = new QPushButton(QString::number(i+1));
         m_levels[i]->setFixedSize(60,60);
-        m_levels[i]->setDisabled(true);
+        //m_levels[i]->setDisabled(true);
    }
-    m_levels[0]->setEnabled(true);
+   // m_levels[0]->setEnabled(true);
 
     m_back = new QPushButton("Back to Game Menu");
     m_back->setFixedWidth(200);

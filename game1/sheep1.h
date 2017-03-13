@@ -32,6 +32,7 @@ public:
     * \brief Gets the angle of the sheep in degrees
     */
     int getAngle() const;
+
     /**
     * \brief Sets the angle of the sheep in degrees
     */
@@ -39,8 +40,9 @@ public:
 
     /**
     * \brief Checks whether the sheep is part of the moving line
+    * \returns Whether sheep is in line
     */
-    bool isInLine();
+    bool isInLine() const;
 
     /**
     * \brief Changes the status of the sheep as in or out of the moving line
@@ -51,6 +53,11 @@ public:
     * \brief Fires the sheep in a straight line
     */
     void fire(int angle);
+
+    /**
+    * \brief Returns the sheep number
+    */
+    int getNumber() const;
 
 signals:
     

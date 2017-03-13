@@ -8,15 +8,12 @@
 * Sets the properties of the sheep.
 */
 Sheep1::Sheep1(int number, bool inLine, QObject *parent) :
-    QObject(parent), m_scene(NULL), m_number(number)
+    QObject(parent), m_number(number), m_angle(0), m_inLine(inLine), m_scene(NULL)
 {
-    m_angle = 0;
-
     setPixmap(QPixmap("pictures/sheep/"+QString::number(number)+".png"));
     setScale(0.10);
     setPos(500,0);
 
-    m_inLine = inLine;
     m_timer = new QTimer(this);
 }
 
@@ -43,13 +40,12 @@ void Sheep1::firedMove() {
 
     if (sc->collidesWithSheepInLine(this)) {
         m_timer->stop();
-        setRotation(0);
     }
     else {
         double newX = x() + cos(Helper::toRadians(m_angle));
         double newY = y() + sin(Helper::toRadians(m_angle));
         setPos(newX, newY);
-        if (newX > 620 || newX<-35 || newY > 540 || newY < -35 ) {
+        if (newX > 620 || newX < -35 || newY > 540 || newY < -35 ) {
             delete this;
         }
     }
@@ -67,6 +63,10 @@ void Sheep1::setInLine(bool inLine) {
     m_inLine = inLine;
 }
 
-bool Sheep1::isInLine() {
+bool Sheep1::isInLine() const {
     return m_inLine;
+}
+
+int Sheep1::getNumber() const {
+    return m_number;
 }
