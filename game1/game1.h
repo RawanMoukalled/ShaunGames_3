@@ -42,6 +42,9 @@ public slots:
     */
     void endGame();
 
+    /**
+    * \brief Reloads the game with the same level
+    */
     void replay();
     
 private:

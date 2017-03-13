@@ -11,6 +11,14 @@
 #include "game1/barn.h"
 #include "game1/gameover.h"
 
+/**
+* \file game1scene.h
+* \brief Sheep Line class
+*
+* Implements the scene of Game 1: Sheep Line
+* \author Rita Aoun
+* \author Rawan Moukalled
+*/
 class Game1Scene : public QGraphicsScene
 {
     Q_OBJECT
@@ -35,6 +43,9 @@ public:
     */
     void moveCurrentSheep(bool toRight);
 
+    /**
+    * \brief Stops movement of the sheep and triggers finishing the game
+    */
     void gameOver();
 
     /**
@@ -43,9 +54,15 @@ public:
     void fireSheep();
 
 signals:
+    /**
+    * \brief Signals Game1 that the game is over
+    */
     void Done();
     
 public slots:
+    /**
+    * \brief Move sheep in the line according to a straight line then circle
+    */
     void move_line();
     
 private:
@@ -56,7 +73,7 @@ private:
     Sheep1 *m_next; ///< Next sheep that will be thrown
     Barn *m_barn; ///< Barn that the sheep disappear into
     bool m_stopMoving; ///< Once a sheep hits the barn, signals other sheep to stop moving
-    GameOver *m_gameOverPicture;
+    GameOver *m_gameOverPicture; ///< Overlayed on top of the game to show Game Over
 };
 
 #endif // GAME1SCENE_H

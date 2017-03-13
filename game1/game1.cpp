@@ -76,6 +76,10 @@ void Game1::goToMainMenu() {
     close();
 }
 
+/**
+* Removes the save and exit button and adds the go back and replay
+* buttons along with their connections
+*/
 void Game1::endGame() {
     m_goBack = new QPushButton("Go Back");
     m_replay = new QPushButton("Replay");
@@ -94,6 +98,9 @@ void Game1::endGame() {
 
 }
 
+/**
+* Loads a new instance of the Game1 Scene
+*/
 void Game1::replay() {
     delete m_gameScene;
     m_gameScene = new Game1Scene(m_level);

@@ -5,6 +5,14 @@
 #include <QGraphicsScene>
 #include <QList>
 
+/**
+* \file barn.cpp
+* \brief Contains Barn class definition
+*/
+
+/**
+* Sets the barn image and timer to check for collisions
+*/
 Barn::Barn(QObject *parent) :
     QObject(parent)
 {
@@ -19,6 +27,18 @@ Barn::Barn(QObject *parent) :
     m_collisionDone = false;
 }
 
+/**
+* Frees allocated memory.
+*/
+Barn::~Barn() {
+    delete m_timer;
+}
+
+/**
+* Called by the timer, checks if there are colliding items with the barn
+* If the sheep is part of the moving line, stop the game
+* Otherwise, the sheep was shot and the game proceeds normally
+*/
 void Barn::sheepIn() {
 
     if(!m_collisionDone) {

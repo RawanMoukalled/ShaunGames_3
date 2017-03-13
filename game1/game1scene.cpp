@@ -151,7 +151,7 @@ void Game1Scene::fireSheep() {
 }
 
 /**
-* Moves the sheep line.
+* Moves the sheep in the line according to their position on the screen
 */
 void Game1Scene::move_line() {
     QLinkedList<Sheep1*>::iterator i;
