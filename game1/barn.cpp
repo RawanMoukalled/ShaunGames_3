@@ -40,24 +40,13 @@ Barn::~Barn() {
 * Otherwise, the sheep was shot and the game proceeds normally
 */
 void Barn::sheepIn() {
-
     if(!m_collisionDone) {
-        QList<QGraphicsItem*> items = scene()->collidingItems(this);
-
-        if(!items.isEmpty()) {
-            //check all the colliding items with the barn
-            QList<QGraphicsItem*>::iterator i;
-            for (i = items.begin(); i != items.end(); ++i) {
-
-                Sheep1 *tempSheep = static_cast<Sheep1*>((*i));
-
-                //game over only when sheep from the line enter, not one shot
-                //from the cannon
-                if(tempSheep->isInLine()){
-                    m_collisionDone = true;
-                    static_cast<Game1Scene*>(scene())->gameOver();
-                }
-            }
+        //game over only when sheep from the line enter, not one shot
+        //from the cannon
+        Game1Scene *sc = static_cast<Game1Scene*>(scene());
+        if(sc->collidesWithSheepInLine(this)){
+            m_collisionDone = true;
+            sc->gameOver();
         }
     }
 }

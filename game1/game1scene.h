@@ -53,6 +53,13 @@ public:
     */
     void fireSheep();
 
+    /**
+    * \brief Checks the collision list of the item for a sheep in the sheep list
+    * \param item Pointer to item to check
+    * \returns Whether the given item collides with a sheep in the list
+    */
+    bool collidesWithSheepInLine(QGraphicsItem *item);
+
 signals:
     /**
     * \brief Signals Game1 that the game is over
