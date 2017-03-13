@@ -32,54 +32,24 @@ Sheep1::~Sheep1() {
 * Fires sheep at an angle. Called when the user fires the cannon.
 */
 void Sheep1::fire(int angle) {
-    setRotation(0);
     m_angle = angle;
     m_scene = scene();
 
     connect(m_timer, SIGNAL(timeout()), this, SLOT(firedMove()));
-    if (angle == 90 || angle == 180) {
-        m_timer->start(10);
-    }
-    else {
-        m_timer->start(5);
-    }
+    m_timer->start(2);
 }
 
 void Sheep1::firedMove() {
-    double newX = x();
-    double newY = y();
-
-    double a = 0.;
-    double b = 0.;
-
-    if (m_angle != 90 && m_angle != 270) {
-        a = tan(Helper::toRadians(m_angle));
-        b = newY - a*newX;
-    }
-
     Game1Scene *sc = static_cast<Game1Scene*>(m_scene);
 
     if (sc->collidesWithSheepInLine(this)) {
         m_timer->stop();
+        setRotation(0);
     }
     else {
-        if (m_angle < 90 || m_angle > 270) {
-            newX++;
-            newY = a*newX+b;
-        }
-        else if (m_angle > 90 && m_angle < 270) {
-            newX--;
-            newY = a*newX+b;
-        }
-        else if (m_angle == 90) {
-            newY++;
-        }
-        else {
-            newY--;
-        }
-
-        setPos(newX,newY);
-
+        double newX = x() + cos(Helper::toRadians(m_angle));
+        double newY = y() + sin(Helper::toRadians(m_angle));
+        setPos(newX, newY);
         if (newX > 620 || newX<-35 || newY > 540 || newY < -35 ) {
             delete this;
         }
