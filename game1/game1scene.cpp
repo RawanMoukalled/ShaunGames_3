@@ -167,7 +167,7 @@ void Game1Scene::move_line() {
             }
 
             //straight line
-            if(currX >= 500 && currY <= 250 ) {
+            if(currX >= 500 && currY < 250 ) {
                 curr->setPos(currX, currY+incrementStraight);
             }
             //in the circular path
