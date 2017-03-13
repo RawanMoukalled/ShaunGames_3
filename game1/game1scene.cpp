@@ -110,44 +110,49 @@ void Game1Scene::fireSheep() {
     m_current->setPos(fired->pos());
     m_current->setRotation(fired->rotation());
 
-    fired->setRotation(0);
-
     int angle = m_cannon->rotation();
 
-    double x = fired->x();
-    double y = fired->y();
+    fired->fire(angle);
+}
 
-    double a = tan(Helper::toRadians(angle));
-    double b = y - a*x;
+/**
+* Returns whether the given item collides with a sheep in the line.
+*/
+bool Game1Scene::collidesWithSheepInLine(QGraphicsItem *item) {
+    QList<QGraphicsItem*> collisionList = collidingItems(item);
 
-    while(collidingItems(fired).empty() || collidingItems(fired).contains(m_barn) ||
-          collidingItems(fired).contains(m_cannon) || collidingItems(fired).contains(m_current)) {
-        if (angle < 90 || angle > 270) {
-            //qDebug() << angle << a << b << x << y;
-            x++;
-            y = a*x+b;
+    //check all the colliding items with the list
+    QList<QGraphicsItem*>::iterator i;
+    for (i = collisionList.begin(); i != collisionList.end(); ++i) {
+        if (*i != m_cannon && *i != m_barn) {
+            Sheep1 *tempSheep = static_cast<Sheep1*>(*i);
+            if(tempSheep->isInLine()){
+                return true;
+            }
         }
-        else if (angle > 90 && angle < 270) {
-            x--;
-            y = a*x+b;
-        }
-        else if (angle == 90) {
-            y++;
-        }
-        else {
-            y--;
-        }
-        qDebug() << x << y;
-
-        fired->setPos(x,y);
-
-        if (x > 620 || x<-35 || y > 540 || y < -35 ) {
-            delete fired;
-            break;
-        }
-
-        Helper::delay(5);
     }
+    return false;
+}
+
+/**
+* Returns the barn object.
+*/
+Barn *Game1Scene::getBarn() const {
+    return m_barn;
+}
+
+/**
+* Returns the sheep on the head of the cannon.
+*/
+Sheep1 *Game1Scene::getCurrentSheep() const {
+    return m_current;
+}
+
+/**
+* Returns the cannon object.
+*/
+Cannon *Game1Scene::getCannon() const {
+    return m_cannon;
 }
 
 /**
@@ -180,3 +185,4 @@ void Game1Scene::move_line() {
         }
     }
 }
+
