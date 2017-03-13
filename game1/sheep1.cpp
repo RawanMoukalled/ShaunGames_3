@@ -14,6 +14,8 @@ Sheep1::Sheep1(int number, bool inLine, QObject *parent) :
     setPos(500,0);
 
     m_inLine = inLine;
+
+    m_number = number;
 }
 
 /**

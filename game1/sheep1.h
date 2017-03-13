@@ -46,6 +46,8 @@ public:
     */
     void setInLine(bool inLine);
 
+    int m_number; ///< The number on the sheep
+
 private:
     int m_angle; ///< Angle of the sheep in degrees
     bool m_inLine; ///< Specifies whether the sheep is moving in the line

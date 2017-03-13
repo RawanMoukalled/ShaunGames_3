@@ -2,6 +2,7 @@
 #include "helper.h"
 #include <QDebug>
 #include <QtGui>
+#include <QGraphicsScene>
 
 
 /**
@@ -154,21 +155,39 @@ void Game1Scene::fireSheep() {
 * Moves the sheep in the line according to their position on the screen
 */
 void Game1Scene::move_line() {
+
+    bool separate = false;
+
+    //check every sheep in the line
     QLinkedList<Sheep1*>::iterator i;
     int count = 0;
     if(!m_stopMoving) {
-        for (i = m_sheepLine.begin(); i != m_sheepLine.end(); ++i) {
+        for (i = m_sheepLine.end()-1; i != m_sheepLine.begin()-1; --i) {
             //Get current sheep in the line and its position
             Sheep1 * curr = (*i);
             int currX = curr->x();
             int currY = curr->y();
 
-            if(currX >= 500 && currY <= 250 ) {
-                curr->setPos(currX, currY+10);
+            int incrementStraight;
+            int incrementCircular;
+
+            if(!separate){
+                incrementStraight = 10;
+                incrementCircular = 3;
+            }else{
+                incrementStraight = 40;
+                incrementCircular = 20;
             }
 
+
+            //no collision, proceeding normally
+            //straight line
+            if(currX >= 500 && currY <= 250 ) {
+                curr->setPos(currX, currY+incrementStraight);
+            }
+            //in the circular path
             else{
-                int angle_degrees = (curr->getAngle() + 3) % 360;
+                int angle_degrees = (curr->getAngle() + incrementCircular) % 360;
                 curr->setAngle(angle_degrees);
                 double rAngle = (angle_degrees/180.0)*Helper::PI;
                 double newX = 300 + 200*cos(rAngle);
@@ -176,6 +195,20 @@ void Game1Scene::move_line() {
 
                 curr->setPos(newX, newY);
             }
+
+            //check if a sheep has collided with it
+            QList<QGraphicsItem*> items = this->collidingItems(curr);
+            QList<QGraphicsItem*>::iterator j;
+                for (j = items.begin(); j != items.end(); ++j) {
+                    Sheep1 *tempSheep = static_cast<Sheep1*>((*j));
+                    //sheep was fired
+                    if(!tempSheep->isInLine()) {
+                        //qDebug() << curr->m_number;
+                        separate = true;
+                        m_line_timer->stop();
+                    }
+                }
+
             count++;
         }
     }
