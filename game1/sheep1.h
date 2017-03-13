@@ -47,10 +47,6 @@ public:
     */
     void setInLine(bool inLine);
 
-private:
-    int m_angle; ///< Angle of the sheep in degrees
-    bool m_inLine; ///< Specifies whether the sheep is moving in the line
-
     /**
     * \brief Fires the sheep in a straight line
     */
