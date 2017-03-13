@@ -60,24 +60,6 @@ public:
     */
     bool collidesWithSheepInLine(QGraphicsItem *item);
 
-    /**
-    * \brief Returns the barn object
-    * \returns The Barn object
-    */
-    Barn *getBarn() const;
-
-    /**
-    * \brief Returns the sheep on the head of the cannon
-    * \returns The sheep on the head of the cannon
-    */
-    Sheep1 *getCurrentSheep() const;
-
-    /**
-    * \brief Returns the cannon
-    * \returns The cannon
-    */
-    Cannon *getCannon() const;
-
 signals:
     /**
     * \brief Signals Game1 that the game is over

@@ -135,27 +135,6 @@ bool Game1Scene::collidesWithSheepInLine(QGraphicsItem *item) {
 }
 
 /**
-* Returns the barn object.
-*/
-Barn *Game1Scene::getBarn() const {
-    return m_barn;
-}
-
-/**
-* Returns the sheep on the head of the cannon.
-*/
-Sheep1 *Game1Scene::getCurrentSheep() const {
-    return m_current;
-}
-
-/**
-* Returns the cannon object.
-*/
-Cannon *Game1Scene::getCannon() const {
-    return m_cannon;
-}
-
-/**
 * Moves the sheep in the line according to their position on the screen
 */
 void Game1Scene::move_line() {
