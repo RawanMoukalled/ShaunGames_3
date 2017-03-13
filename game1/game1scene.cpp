@@ -26,17 +26,13 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     m_stopMoving = false;
 
     int yValue = 0;
-    int TEMP = 1;
 
     for(int i = 0; i < 50; ++i) {
-        //Sheep1 *newSheep = new Sheep1(Helper::getRandomSheepNumber(), true);
-        Sheep1 *newSheep = new Sheep1(TEMP, true);
+        Sheep1 *newSheep = new Sheep1(Helper::getRandomSheepNumber(), true);
         newSheep->setPos(500, yValue);
         m_sheepLine.push_back(newSheep);        
         addItem(newSheep);
         yValue -= 40;
-        TEMP = TEMP + 1;
-        if (TEMP>9) TEMP = 1;
     }
 
     m_line_timer = new QTimer(this);
