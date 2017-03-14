@@ -1,9 +1,13 @@
 #include "gameover.h"
 
-GameOver::GameOver(QObject *parent) :
+GameOver::GameOver(bool win, QObject *parent) :
     QObject(parent)
 {
-    this->setPixmap(QPixmap("pictures/gameover.png"));
-    //setScale(0.3);
+    if(!win){
+        this->setPixmap(QPixmap("pictures/gameover.png"));
+    } else {
+        this->setPixmap(QPixmap("pictures/gameoverwin.png"));
+    }
+
     setPos(0,170);
 }

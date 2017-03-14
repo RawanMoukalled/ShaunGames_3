@@ -46,7 +46,7 @@ void Barn::sheepIn() {
         Game1Scene *sc = static_cast<Game1Scene*>(scene());
         if(sc->collidesWithSheepInLine(this)){
             m_collisionDone = true;
-            sc->gameOver();
+            sc->gameOver(false);
         }
     }
 }

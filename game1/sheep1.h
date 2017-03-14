@@ -31,12 +31,12 @@ public:
     /**
     * \brief Gets the angle of the sheep in degrees
     */
-    int getAngle() const;
+    double getAngle() const;
 
     /**
     * \brief Sets the angle of the sheep in degrees
     */
-    void setAngle(int angle);
+    void setAngle(double angle);
 
     /**
     * \brief Checks whether the sheep is part of the moving line
@@ -52,7 +52,20 @@ public:
     /**
     * \brief Fires the sheep in a straight line
     */
-    void fire(int angle);
+    void fire(double angle);
+
+    /**
+    * \brief Moves the sheep in line by given distance.
+    * \param distance Distance by which to move the sheep in pixels
+    */
+    void moveInLine(double distance);
+
+    /**
+    * \brief Returns the in-line distance between object and given sheep
+    * \param other Other sheep
+    * \returns Distance in pixels
+    */
+    double inLineDistanceTo(Sheep1 *other);
 
     /**
     * \brief Returns the sheep number
@@ -69,7 +82,7 @@ public slots:
 
 private:
     int m_number; ///< Sheep number
-    int m_angle; ///< Angle of the sheep in degrees
+    double m_angle; ///< Angle of the sheep in degrees
     bool m_inLine; ///< Specifies whether the sheep is moving in the line
     QTimer *m_timer; ///< Timer for when the sheep is fired from the cannon
     QGraphicsScene *m_scene; ///< Scene that owns the sheep

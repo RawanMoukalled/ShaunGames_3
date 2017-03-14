@@ -19,6 +19,7 @@ Cannon::Cannon(QObject *parent) :
     setScale(0.3);
     setTransformOriginPoint(0,45);
     setPos(290,210);
+    setZValue(0);
 }
 
 /**

@@ -8,7 +8,7 @@
 * Sets the properties of the sheep.
 */
 Sheep1::Sheep1(int number, bool inLine, QObject *parent) :
-    QObject(parent), m_number(number), m_angle(0), m_inLine(inLine), m_scene(NULL)
+    QObject(parent), m_number(number), m_angle(0.), m_inLine(inLine), m_scene(NULL)
 {
     setPixmap(QPixmap("pictures/sheep/"+QString::number(number)+".png"));
     setScale(0.10);
@@ -27,14 +27,85 @@ Sheep1::~Sheep1() {
 /**
 * Fires sheep at an angle. Called when the user fires the cannon.
 */
-void Sheep1::fire(int angle) {
+void Sheep1::fire(double angle) {
     m_angle = angle;
     m_scene = scene();
 
     connect(m_timer, SIGNAL(timeout()), this, SLOT(firedMove()));
-    m_timer->start(2);
+    m_timer->start(1);
 }
 
+/**
+* Moves sheep in line by given distance.
+*/
+void Sheep1::moveInLine(double distance) {
+    if (m_inLine) {
+        double currX = x();
+        double currY = y();
+
+        if (currX == 500) {
+            // if in the straight line
+            if (currY <= 250-distance) {
+                // if we're moving only in the straight line
+                setPos(currX, currY + distance);
+                return;
+            }
+            else {
+                // if we also need to move in the circle
+                setPos(currX, 250);
+                distance = distance - (250 - currY);
+            }
+        }
+
+        double angle = (m_angle + distance/(2*Helper::PI*200/360));
+
+        if (angle >= 360) {
+            angle = angle - 360;
+        }
+
+        setAngle(angle);
+
+        double rAngle = Helper::toRadians(angle);
+        currX = 300 + 200*cos(rAngle);
+        currY = 250 + 200*sin(rAngle);
+
+        setPos(currX, currY);
+    }
+}
+
+/**
+* Calculates the distance between the two in-line sheep.
+*/
+double Sheep1::inLineDistanceTo(Sheep1 *other) {
+    double distance = 0;
+    if (m_inLine && other->m_inLine) {
+        double thisX = x();
+        double thisY = y();
+        double otherX = other->x();
+        double otherY = other->y();
+
+        if (thisX == 500) {
+            if (otherX == 500) {
+                return qAbs(thisY - otherY);
+            }
+            else {
+                distance = 250 - thisY;
+                thisY = 250;
+            }
+        }
+        else if (otherX == 500) {
+            distance = 250 - otherY;
+            otherY = 250;
+        }
+
+        distance = distance + 2*Helper::PI*200/360*qAbs(m_angle-other->m_angle);
+    }
+    return distance;
+}
+
+/**
+* Moves the sheep in the distance of the firing of the cannon.
+*/
 void Sheep1::firedMove() {
     Game1Scene *sc = static_cast<Game1Scene*>(m_scene);
 
@@ -51,12 +122,15 @@ void Sheep1::firedMove() {
     }
 }
 
-int Sheep1::getAngle() const {
+double Sheep1::getAngle() const {
     return m_angle;
 }
 
-void Sheep1::setAngle(int angle){
-    m_angle = angle % 360;
+void Sheep1::setAngle(double angle){
+    if (angle >= 360) {
+        angle = angle - 360;
+    }
+    m_angle = angle;
 }
 
 void Sheep1::setInLine(bool inLine) {
