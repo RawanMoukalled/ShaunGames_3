@@ -3,7 +3,7 @@
 #include <QDebug>
 #include <QtGui>
 #include <QGraphicsScene>
-
+#include <QVector>
 
 /**
 * Initializes variables and connections.
@@ -38,7 +38,7 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     m_line_timer = new QTimer(this);
     connect(m_line_timer, SIGNAL(timeout()), this, SLOT(move_line()));
 
-    m_line_timer->start(1000.0/(level+1));
+    m_line_timer->start(-36.364*level+1000);
 
     addItem(m_cannon);
     addItem(m_current);
@@ -79,14 +79,14 @@ void Game1Scene::gameOver() {
 * Called when the cannon rotates.
 */
 void Game1Scene::moveCurrentSheep(bool toRight) {
-    int angleInDegrees = m_current->rotation();
+    double angleInDegrees = m_current->rotation();
     if (toRight) {
         angleInDegrees = angleInDegrees + 5;
     }
     else {
         angleInDegrees = angleInDegrees - 5;
     }
-    m_current->setAngle(angleInDegrees);
+    m_current->setAngle(angleInDegrees+15);
     int r = 45;
     double a = Helper::toRadians(angleInDegrees);
     double x = 290 + r*cos(a);
@@ -139,19 +139,15 @@ bool Game1Scene::collidesWithSheepInLine(QGraphicsItem *item) {
 */
 void Game1Scene::move_line() {
     bool separate = false;
+    QVector<Sheep1*> toInsert;
+    QVector<QLinkedList<Sheep1*>::iterator> insertPos;
 
     //check every sheep in the line
-    QLinkedList<Sheep1*>::iterator i;
 
     if(!m_stopMoving) {
-        for (i = m_sheepLine.end()-1; i != m_sheepLine.begin()-1; --i) {
+        for (QLinkedList<Sheep1*>::iterator i = m_sheepLine.end()-1; i != m_sheepLine.begin()-1; --i) {
             //Get current sheep in the line and its position
             Sheep1 *curr = *i;
-            int currX = curr->x();
-            int currY = curr->y();
-
-            int incrementStraight;
-            int incrementCircular;
 
             //check if a sheep has collided with it
             QList<QGraphicsItem*> items = this->collidingItems(curr);
@@ -162,36 +158,35 @@ void Game1Scene::move_line() {
 
                 //sheep was fired
                 if(!tempSheep->isInLine()) {
+                    qDebug() << tempSheep->getNumber() << ((Sheep1*)(*(i+1)))->getNumber();
                     separate = true;
-                    //m_line_timer->stop();
+                    toInsert.append(tempSheep);
+                    insertPos.append(i+1);
                 }
             }
 
-            if (!separate) {
-                incrementStraight = 10;
-                incrementCircular = 3;
+            if (separate) {
+                curr->moveInLine(40*toInsert.size()+10);
             }
             else {
-                incrementStraight = 40;
-                incrementCircular = 10;
+                curr->moveInLine(10);
             }
 
-            //straight line
-            if(currX >= 500 && currY < 250 ) {
-                curr->setPos(currX, currY+incrementStraight);
-            }
-            //in the circular path
-            else {
-                int angle_degrees = (curr->getAngle() + incrementCircular) % 360;
-                curr->setAngle(angle_degrees);
-                double rAngle = Helper::toRadians(angle_degrees);
-                double newX = 300 + 200*cos(rAngle);
-                double newY = 250 + 200*sin(rAngle);
+        }
 
-                curr->setPos(newX, newY);
-            }
+        int size = toInsert.size();
+        for (int i = 0; i < size; ++i) {
+            Sheep1 *newSheep = toInsert.at(i);
+            QLinkedList<Sheep1*>::iterator pos = insertPos.at(i);
+            m_sheepLine.insert(pos, newSheep);
+            newSheep->setRotation(0);
 
+            Sheep1 *prevSheep = *pos;
 
+            newSheep->setAngle(prevSheep->getAngle());
+            newSheep->setInLine(true);
+            newSheep->setPos(prevSheep->x(), prevSheep->y());
+            newSheep->moveInLine(40);
         }
     }
 }
