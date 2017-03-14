@@ -8,7 +8,7 @@
 * Sets the properties of the sheep.
 */
 Sheep1::Sheep1(int number, bool inLine, QObject *parent) :
-    QObject(parent), m_number(number), m_angle(0.), m_inLine(inLine), m_stop(false), m_scene(NULL)
+    QObject(parent), m_number(number), m_angle(0.), m_inLine(inLine), m_scene(NULL)
 {
     setPixmap(QPixmap("pictures/sheep/"+QString::number(number)+".png"));
     setScale(0.10);
