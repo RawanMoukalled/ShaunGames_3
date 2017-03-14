@@ -65,7 +65,7 @@ public:
     * \param other Other sheep
     * \returns Distance in pixels
     */
-    double inLineDistanceTo(Sheep1 *other);
+    double inLineDistanceTo(const Sheep1 *other) const;
 
     /**
     * \brief Returns the sheep number

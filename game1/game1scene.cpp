@@ -192,10 +192,19 @@ void Game1Scene::move_line() {
     qDeleteAll(toDelete);
 
     //if all the sheep are gone
-    //if(m_sheepLine.isEmpty()) {
+    if(m_sheepLine.isEmpty()) {
+        gameOver(true);
+    }
 
-        //gameOver(true);
-    //}
+    for (QLinkedList<Sheep1*>::iterator i = m_sheepLine.end()-2; i != m_sheepLine.begin()-1; --i) {
+        Sheep1 *curr = *i;
+        Sheep1 *next = *(i+1);
+        if (curr->inLineDistanceTo(next) > 41) {
+            curr->setAngle(next->getAngle());
+            curr->setPos(next->pos());
+            curr->moveInLine(40);
+        }
+    }
 
     for (QLinkedList<Sheep1*>::iterator i = m_sheepLine.end()-1; i != m_sheepLine.begin()-1; --i) {
         Sheep1 *curr = *i;
@@ -214,12 +223,17 @@ void Game1Scene::move_line() {
             }
         }
 
-        if (separate) {
-            curr->moveInLine(40*toInsert.size()+10);
-        }
-        else {
-            curr->moveInLine(10);
-        }
+       // if (!curr->getStop()) {
+            if (separate) {
+                curr->moveInLine(40*toInsert.size()+10);
+            }
+            else {
+                curr->moveInLine(10);
+            }
+    //    }
+    //    else if (separate) {
+     //       curr->moveInLine(40*toInsert.size());
+//        }
     }
 
     int size = toInsert.size();

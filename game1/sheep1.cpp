@@ -8,7 +8,7 @@
 * Sets the properties of the sheep.
 */
 Sheep1::Sheep1(int number, bool inLine, QObject *parent) :
-    QObject(parent), m_number(number), m_angle(0.), m_inLine(inLine), m_scene(NULL)
+    QObject(parent), m_number(number), m_angle(0.), m_inLine(inLine), m_stop(false), m_scene(NULL)
 {
     setPixmap(QPixmap("pictures/sheep/"+QString::number(number)+".png"));
     setScale(0.10);
@@ -76,7 +76,7 @@ void Sheep1::moveInLine(double distance) {
 /**
 * Calculates the distance between the two in-line sheep.
 */
-double Sheep1::inLineDistanceTo(Sheep1 *other) {
+double Sheep1::inLineDistanceTo(const Sheep1 *other) const {
     double distance = 0;
     if (m_inLine && other->m_inLine) {
         double thisX = x();
@@ -144,3 +144,4 @@ bool Sheep1::isInLine() const {
 int Sheep1::getNumber() const {
     return m_number;
 }
+
