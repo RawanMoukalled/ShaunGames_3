@@ -212,6 +212,7 @@ void Game1Scene::move_line() {
         QList<QGraphicsItem*> items = this->collidingItems(curr);
         QList<QGraphicsItem*>::iterator j;
 
+
         for (j = items.begin(); j != items.end(); ++j) {
             Sheep1 *tempSheep = static_cast<Sheep1*>(*j);
 
