@@ -30,12 +30,14 @@ Game1::Game1(int level, QWidget *parent) :
     m_gameScene = new Game1Scene(level);
     m_gameView = new QGraphicsView;
 
+    m_next = NULL;
+
     setGame1Layout();
     setLayout(m_game1Layout);
 
     QObject::connect(m_exit, SIGNAL(clicked()), SLOT(goToMainMenu()));
 
-    QObject::connect(m_gameScene, SIGNAL(Done()),SLOT(endGame()));
+    QObject::connect(m_gameScene, SIGNAL(Done(bool)),SLOT(endGame(bool)));
 }
 
 /**
@@ -80,7 +82,7 @@ void Game1::goToMainMenu() {
 * Removes the save and exit button and adds the go back and replay
 * buttons along with their connections
 */
-void Game1::endGame() {
+void Game1::endGame(bool win) {
     m_goBack = new QPushButton("Go Back");
     m_replay = new QPushButton("Replay");
 
@@ -96,12 +98,34 @@ void Game1::endGame() {
     QObject::connect(m_goBack, SIGNAL(clicked()), SLOT(goToMainMenu()));
     QObject::connect(m_replay, SIGNAL(clicked()), SLOT(replay()));
 
+    if(win){
+        m_next = new QPushButton("Continue");
+        m_game1Layout->addWidget(m_next);
+        m_game1Layout->setAlignment(m_next, Qt::AlignHCenter);
+        QObject::connect(m_next, SIGNAL(clicked()), SLOT(next()));
+    }
 }
 
 /**
 * Loads a new instance of the Game1 Scene
 */
 void Game1::replay() {
+    loadNewGame(true);
+}
+
+/**
+* Proceed to the next level
+*/
+void Game1::next() {
+    loadNewGame(false);
+}
+
+void Game1::loadNewGame(bool sameLevel) {
+
+    if(!sameLevel) {
+        m_level++;
+    }
+
     delete m_gameScene;
     m_gameScene = new Game1Scene(m_level);
     m_gameView->setScene(m_gameScene);
@@ -117,10 +141,17 @@ void Game1::replay() {
     m_game1Layout->removeWidget(m_replay);
     delete m_replay;
 
+    if(!(m_next == NULL)) {
+        m_game1Layout->removeWidget(m_next);
+        delete m_next;
+        m_next = NULL;
+    }
+
     m_exit = new QPushButton("Save and Exit");
     m_game1Layout->addWidget(m_exit);
     m_game1Layout->setAlignment(m_exit, Qt::AlignHCenter);
     QObject::connect(m_exit, SIGNAL(clicked()), SLOT(goToMainMenu()));
-    QObject::connect(m_gameScene, SIGNAL(Done()),SLOT(endGame()));
+    QObject::connect(m_gameScene, SIGNAL(Done(bool)),SLOT(endGame(bool)));
 }
+
 

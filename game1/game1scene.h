@@ -46,7 +46,7 @@ public:
     /**
     * \brief Stops movement of the sheep and triggers finishing the game
     */
-    void gameOver();
+    void gameOver(bool win);
 
     /**
     * \brief Fires the sheep
@@ -64,7 +64,7 @@ signals:
     /**
     * \brief Signals Game1 that the game is over
     */
-    void Done();
+    void Done(bool);
     
 public slots:
     /**
@@ -79,7 +79,6 @@ private:
     Sheep1 *m_current; ///< Current sheep that will be thrown
     Sheep1 *m_next; ///< Next sheep that will be thrown
     Barn *m_barn; ///< Barn that the sheep disappear into
-    bool m_stopMoving; ///< Once a sheep hits the barn, signals other sheep to stop moving
     GameOver *m_gameOverPicture; ///< Overlayed on top of the game to show Game Over
 };
 

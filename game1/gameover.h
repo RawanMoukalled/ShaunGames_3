@@ -19,7 +19,7 @@ public:
     /**
     * \brief Default constructor
     */
-    explicit GameOver(QObject *parent = 0);
+    explicit GameOver(bool win, QObject *parent = 0);
     
 signals:
     

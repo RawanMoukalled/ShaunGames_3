@@ -4,6 +4,7 @@
 #include <QtGui>
 #include <QGraphicsScene>
 #include <QVector>
+#include <QSet>
 
 /**
 * Initializes variables and connections.
@@ -23,22 +24,28 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
 
     m_barn = new Barn;
 
-    m_stopMoving = false;
-
     int yValue = 0;
+    int prevRand;
+    int currRand = Helper::getRandomSheepNumber();
 
     for(int i = 0; i < 50; ++i) {
-        Sheep1 *newSheep = new Sheep1(Helper::getRandomSheepNumber(), true);
+        Sheep1 *newSheep = new Sheep1(currRand, true);
         newSheep->setPos(500, yValue);
         m_sheepLine.push_back(newSheep);        
         addItem(newSheep);
         yValue -= 40;
+
+        prevRand = currRand;
+        do {
+            currRand = Helper::getRandomSheepNumber();
+        }
+        while(prevRand+currRand == 10);
     }
 
     m_line_timer = new QTimer(this);
     connect(m_line_timer, SIGNAL(timeout()), this, SLOT(move_line()));
 
-    m_line_timer->start(-36.364*level+1000);
+    m_line_timer->start(-29.091*level+818.182);
 
     addItem(m_cannon);
     addItem(m_current);
@@ -63,15 +70,14 @@ void Game1Scene::mousePressEvent(QGraphicsSceneMouseEvent *) {
     m_cannon->setFocus();
 }
 
-void Game1Scene::gameOver() {
-
-    m_gameOverPicture = new GameOver;
+void Game1Scene::gameOver(bool win) {
+    m_gameOverPicture = new GameOver(win);
 
     addItem(m_gameOverPicture);
 
-    m_stopMoving = true;
-    emit Done();
+    emit Done(win);
     m_cannon->setEnabled(false);
+    m_line_timer->stop();
 }
 
 /**
@@ -105,6 +111,7 @@ void Game1Scene::fireSheep() {
     m_next = new Sheep1(Helper::getRandomSheepNumber(), false);
 
     m_next->setPos(m_current->pos());
+    m_next->setZValue(1);
     addItem(m_next);
 
     m_current->setPos(fired->pos());
@@ -141,53 +148,95 @@ void Game1Scene::move_line() {
     bool separate = false;
     QVector<Sheep1*> toInsert;
     QVector<QLinkedList<Sheep1*>::iterator> insertPos;
+    QSet<Sheep1*> toDelete;
 
     //check every sheep in the line
 
-    if(!m_stopMoving) {
-        for (QLinkedList<Sheep1*>::iterator i = m_sheepLine.end()-1; i != m_sheepLine.begin()-1; --i) {
-            //Get current sheep in the line and its position
-            Sheep1 *curr = *i;
+    for (QLinkedList<Sheep1*>::iterator i = m_sheepLine.end()-1; i != m_sheepLine.begin()-1; --i) {
+        //Get current sheep in the line
+        Sheep1 *curr = *i;
 
-            //check if a sheep has collided with it
-            QList<QGraphicsItem*> items = this->collidingItems(curr);
-            QList<QGraphicsItem*>::iterator j;
-
-            for (j = items.begin(); j != items.end(); ++j) {
-                Sheep1 *tempSheep = static_cast<Sheep1*>(*j);
-
-                //sheep was fired
-                if(!tempSheep->isInLine()) {
-                    qDebug() << tempSheep->getNumber() << ((Sheep1*)(*(i+1)))->getNumber();
-                    separate = true;
-                    toInsert.append(tempSheep);
-                    insertPos.append(i+1);
-                }
+        if (i == m_sheepLine.end()-1) {
+            Sheep1 *prev = *(i-1);
+            if(prev->getNumber() + curr->getNumber() == 10) {
+                toDelete.insert(prev);
+                toDelete.insert(curr);
             }
-
-            if (separate) {
-                curr->moveInLine(40*toInsert.size()+10);
-            }
-            else {
-                curr->moveInLine(10);
-            }
-
         }
-
-        int size = toInsert.size();
-        for (int i = 0; i < size; ++i) {
-            Sheep1 *newSheep = toInsert.at(i);
-            QLinkedList<Sheep1*>::iterator pos = insertPos.at(i);
-            m_sheepLine.insert(pos, newSheep);
-            newSheep->setRotation(0);
-
-            Sheep1 *prevSheep = *pos;
-
-            newSheep->setAngle(prevSheep->getAngle());
-            newSheep->setInLine(true);
-            newSheep->setPos(prevSheep->x(), prevSheep->y());
-            newSheep->moveInLine(40);
+        else if (i == m_sheepLine.begin()) {
+            Sheep1 *next = *(i+1);
+            if(next->getNumber() + curr->getNumber() == 10) {
+                toDelete.insert(next);
+                toDelete.insert(curr);
+            }
+        }
+        else {
+            Sheep1 *prev = *(i-1);
+            Sheep1 *next = *(i+1);
+            if(prev->getNumber() + curr->getNumber() == 10) {
+                toDelete.insert(prev);
+                toDelete.insert(curr);
+            }
+            if(next->getNumber() + curr->getNumber() == 10) {
+                toDelete.insert(next);
+                toDelete.insert(curr);
+            }
         }
     }
+
+    for (QSet<Sheep1*>::iterator i = toDelete.begin(); i != toDelete.end(); ++i) {
+        Sheep1 *del = *i;
+        m_sheepLine.removeOne(del);
+        removeItem(del);
+    }
+    qDeleteAll(toDelete);
+
+    //if all the sheep are gone
+    //if(m_sheepLine.isEmpty()) {
+
+        //gameOver(true);
+    //}
+
+    for (QLinkedList<Sheep1*>::iterator i = m_sheepLine.end()-1; i != m_sheepLine.begin()-1; --i) {
+        Sheep1 *curr = *i;
+        //check if a sheep has collided with it
+        QList<QGraphicsItem*> items = this->collidingItems(curr);
+        QList<QGraphicsItem*>::iterator j;
+
+        for (j = items.begin(); j != items.end(); ++j) {
+            Sheep1 *tempSheep = static_cast<Sheep1*>(*j);
+
+            //sheep was fired
+            if(!tempSheep->isInLine()) {
+                separate = true;
+                toInsert.append(tempSheep);
+                insertPos.append(i+1);
+            }
+        }
+
+        if (separate) {
+            curr->moveInLine(40*toInsert.size()+10);
+        }
+        else {
+            curr->moveInLine(10);
+        }
+    }
+
+    int size = toInsert.size();
+    for (int i = 0; i < size; ++i) {
+        Sheep1 *newSheep = toInsert.at(i);
+        QLinkedList<Sheep1*>::iterator pos = insertPos.at(i);
+
+        m_sheepLine.insert(pos, newSheep);
+        newSheep->setRotation(0);
+
+        Sheep1 *prevSheep = *pos;
+
+        newSheep->setAngle(prevSheep->getAngle());
+        newSheep->setInLine(true);
+        newSheep->setPos(prevSheep->x(), prevSheep->y());
+        newSheep->moveInLine(40);
+    }
+
 }
 

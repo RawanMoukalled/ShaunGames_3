@@ -61,6 +61,13 @@ public:
     void moveInLine(double distance);
 
     /**
+    * \brief Returns the in-line distance between object and given sheep
+    * \param other Other sheep
+    * \returns Distance in pixels
+    */
+    double inLineDistanceTo(Sheep1 *other);
+
+    /**
     * \brief Returns the sheep number
     */
     int getNumber() const;

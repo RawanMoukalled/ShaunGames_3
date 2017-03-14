@@ -28,6 +28,11 @@ public:
     * \brief Destructor
     */
     virtual ~Game1();
+
+    /**
+    * \brief Load new game
+    */
+    void loadNewGame(bool sameLevel);
     
 signals:
     
@@ -40,13 +45,18 @@ public slots:
     /**
     * \brief Slot to handle ending the game once it's over
     */
-    void endGame();
+    void endGame(bool win);
 
     /**
     * \brief Reloads the game with the same level
     */
     void replay();
     
+    /**
+    * \brief Proceed to the next level
+    */
+    void next();
+
 private:
     QLabel *m_title; ///< Main title of the game
     QPushButton *m_exit; ///< Button to take the user to the game main menu
@@ -57,6 +67,7 @@ private:
 
     QPushButton *m_goBack; ///< Go back to the game main menu
     QPushButton *m_replay; ///< Replay the same level
+    QPushButton *m_next; ///< Proceed to the next level
 
     int m_level; ///<  Level selected
 

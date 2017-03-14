@@ -73,6 +73,39 @@ void Sheep1::moveInLine(double distance) {
     }
 }
 
+/**
+* Calculates the distance between the two in-line sheep.
+*/
+double Sheep1::inLineDistanceTo(Sheep1 *other) {
+    double distance = 0;
+    if (m_inLine && other->m_inLine) {
+        double thisX = x();
+        double thisY = y();
+        double otherX = other->x();
+        double otherY = other->y();
+
+        if (thisX == 500) {
+            if (otherX == 500) {
+                return qAbs(thisY - otherY);
+            }
+            else {
+                distance = 250 - thisY;
+                thisY = 250;
+            }
+        }
+        else if (otherX == 500) {
+            distance = 250 - otherY;
+            otherY = 250;
+        }
+
+        distance = distance + 2*Helper::PI*200/360*qAbs(m_angle-other->m_angle);
+    }
+    return distance;
+}
+
+/**
+* Moves the sheep in the distance of the firing of the cannon.
+*/
 void Sheep1::firedMove() {
     Game1Scene *sc = static_cast<Game1Scene*>(m_scene);
 
