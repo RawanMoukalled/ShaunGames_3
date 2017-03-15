@@ -1,6 +1,5 @@
 #include "game1scene.h"
 #include "helper.h"
-#include <QDebug>
 #include <QtGui>
 #include <QGraphicsScene>
 #include <QVector>
@@ -152,43 +151,47 @@ void Game1Scene::move_line() {
 
     //check every sheep in the line
 
-    for (QLinkedList<Sheep1*>::iterator i = m_sheepLine.end()-1; i != m_sheepLine.begin()-1; --i) {
-        //Get current sheep in the line
-        Sheep1 *curr = *i;
+    if (m_sheepLine.size() > 1) {
+        for (QLinkedList<Sheep1*>::iterator i = m_sheepLine.end()-1; i != m_sheepLine.begin()-1; --i) {
 
-        if (i == m_sheepLine.end()-1) {
-            Sheep1 *prev = *(i-1);
-            if(prev->getNumber() + curr->getNumber() == 10) {
-                toDelete.insert(prev);
-                toDelete.insert(curr);
+            //Get current sheep in the line
+            Sheep1 *curr = *i;
+
+            if (i == m_sheepLine.end()-1) {
+                Sheep1 *prev = *(i-1);
+                if(prev->getNumber() + curr->getNumber() == 10) {
+                    toDelete.insert(prev);
+                    toDelete.insert(curr);
+                }
+            }
+            else if (i == m_sheepLine.begin()) {
+                Sheep1 *next = *(i+1);
+                if(next->getNumber() + curr->getNumber() == 10) {
+                    toDelete.insert(next);
+                    toDelete.insert(curr);
+                }
+            }
+            else {
+                Sheep1 *prev = *(i-1);
+                Sheep1 *next = *(i+1);
+                if(prev->getNumber() + curr->getNumber() == 10) {
+                    toDelete.insert(prev);
+                    toDelete.insert(curr);
+                }
+                if(next->getNumber() + curr->getNumber() == 10) {
+                    toDelete.insert(next);
+                    toDelete.insert(curr);
+                }
             }
         }
-        else if (i == m_sheepLine.begin()) {
-            Sheep1 *next = *(i+1);
-            if(next->getNumber() + curr->getNumber() == 10) {
-                toDelete.insert(next);
-                toDelete.insert(curr);
-            }
-        }
-        else {
-            Sheep1 *prev = *(i-1);
-            Sheep1 *next = *(i+1);
-            if(prev->getNumber() + curr->getNumber() == 10) {
-                toDelete.insert(prev);
-                toDelete.insert(curr);
-            }
-            if(next->getNumber() + curr->getNumber() == 10) {
-                toDelete.insert(next);
-                toDelete.insert(curr);
-            }
+
+        for (QSet<Sheep1*>::iterator i = toDelete.begin(); i != toDelete.end(); ++i) {
+            Sheep1 *del = *i;
+            m_sheepLine.removeOne(del);
+            removeItem(del);
         }
     }
 
-    for (QSet<Sheep1*>::iterator i = toDelete.begin(); i != toDelete.end(); ++i) {
-        Sheep1 *del = *i;
-        m_sheepLine.removeOne(del);
-        removeItem(del);
-    }
     qDeleteAll(toDelete);
 
     //if all the sheep are gone
@@ -220,21 +223,22 @@ void Game1Scene::move_line() {
             if(!tempSheep->isInLine()) {
                 separate = true;
                 toInsert.append(tempSheep);
-                insertPos.append(i+1);
+                if (i == m_sheepLine.end()-1) {
+                    insertPos.append(i);
+                }
+                else {
+                    insertPos.append(i+1);
+                }
+                tempSheep->setInLine(true);
             }
         }
 
-       // if (!curr->getStop()) {
-            if (separate) {
-                curr->moveInLine(40*toInsert.size()+10);
-            }
-            else {
-                curr->moveInLine(10);
-            }
-    //    }
-    //    else if (separate) {
-     //       curr->moveInLine(40*toInsert.size());
-//        }
+        if (separate) {
+            curr->moveInLine(40*toInsert.size()+10);
+        }
+        else {
+            curr->moveInLine(10);
+        }
     }
 
     int size = toInsert.size();
@@ -248,10 +252,9 @@ void Game1Scene::move_line() {
         Sheep1 *prevSheep = *pos;
 
         newSheep->setAngle(prevSheep->getAngle());
-        newSheep->setInLine(true);
+        //newSheep->setInLine(true);
         newSheep->setPos(prevSheep->x(), prevSheep->y());
         newSheep->moveInLine(40);
     }
-
 }
 

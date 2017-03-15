@@ -19,7 +19,7 @@ Game1::Game1(int level, QWidget *parent) :
 {
     setFixedSize(600,600);
 
-    m_title = new QLabel("Sheep Line");
+    m_title = new QLabel("Sheep Line (Level " + QString::number(level+1) + ")");
     m_game1Layout = new QVBoxLayout();
     m_exit = new QPushButton("Save and Exit");
 
@@ -124,6 +124,7 @@ void Game1::loadNewGame(bool sameLevel) {
 
     if(!sameLevel) {
         m_level++;
+        m_title->setText("Sheep Line (Level " + QString::number(m_level+1) + ")");
     }
 
     delete m_gameScene;

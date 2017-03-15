@@ -24,7 +24,7 @@ int main(int argc, char **argv) {
     //MainWidget *mainWidget = new MainWidget;
     //mainWidget->show();
 
-    Game1 *g = new Game1(24);
+    Game1 *g = new Game1(7);
     g->show();
 
     return app.exec();
