@@ -6,6 +6,7 @@
 #include <QLinkedList>
 #include <cmath>
 #include <QTimer>
+#include <QLCDNumber>
 #include "game1/cannon.h"
 #include "game1/sheep1.h"
 #include "game1/barn.h"
@@ -60,6 +61,12 @@ public:
     */
     bool collidesWithSheepInLine(QGraphicsItem *item);
 
+    /**
+    * \brief Returns the current player score
+    * \returns Current player score
+    */
+    int getScore() const;
+
 signals:
     /**
     * \brief Signals Game1 that the game is over
@@ -73,6 +80,8 @@ public slots:
     void move_line();
     
 private:
+    int m_score; ///< Game score
+    QLCDNumber *m_scoreDisplay; ///< Displays the game score
     Cannon *m_cannon; ///< Cannon and focus of scene
     QLinkedList<Sheep1*> m_sheepLine; ///< Initial line of 50 sheep
     QTimer *m_line_timer; ///< Timer that moves the line

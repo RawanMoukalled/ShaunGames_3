@@ -26,6 +26,12 @@ public:
     * \brief Destructor
     */
     virtual ~Game1Options();
+
+    /**
+    * \brief Enables the given level
+    * \param level Level to enable
+    */
+    void enable(int level);
     
 signals:
     

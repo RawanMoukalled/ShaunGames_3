@@ -84,6 +84,7 @@ private:
     int m_number; ///< Sheep number
     double m_angle; ///< Angle of the sheep in degrees
     bool m_inLine; ///< Specifies whether the sheep is moving in the line
+    bool m_stop; ///< Used to stop the sheep in-line to wait for the rest of the line to catch up
     QTimer *m_timer; ///< Timer for when the sheep is fired from the cannon
     QGraphicsScene *m_scene; ///< Scene that owns the sheep
 };

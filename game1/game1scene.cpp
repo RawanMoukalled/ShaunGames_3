@@ -9,8 +9,10 @@
 * Initializes variables and connections.
 */
 Game1Scene::Game1Scene(int level, QObject *parent) :
-    QGraphicsScene(parent)
+    QGraphicsScene(parent), m_score(0)
 {
+    m_scoreDisplay = new QLCDNumber(4);
+
     m_cannon = new Cannon;
     m_cannon->setFlag(QGraphicsItem::ItemIsFocusable);
     m_cannon->setFocus();
@@ -27,7 +29,7 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     int prevRand;
     int currRand = Helper::getRandomSheepNumber();
 
-    for(int i = 0; i < 50; ++i) {
+    for(int i = 0; i < 10; ++i) {
         Sheep1 *newSheep = new Sheep1(currRand, true);
         newSheep->setPos(500, yValue);
         m_sheepLine.push_back(newSheep);        
@@ -46,6 +48,17 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
 
     m_line_timer->start(-29.091*level+818.182);
 
+    addWidget(m_scoreDisplay);
+    m_scoreDisplay->move(20,20);
+
+    QPalette lcdPalette = m_scoreDisplay->palette();
+    lcdPalette.setColor(QPalette::Background, QColor(170, 255, 0));
+    lcdPalette.setColor(QPalette::WindowText, QColor(85, 85, 255));
+    lcdPalette.setColor(QPalette::Light, QColor(255, 0, 0));
+    lcdPalette.setColor(QPalette::Dark, QColor(255, 0, 0));
+
+    m_scoreDisplay->setPalette(lcdPalette);
+
     addItem(m_cannon);
     addItem(m_current);
     addItem(m_next);
@@ -56,6 +69,7 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
 * Frees allocated memory.
 */
 Game1Scene::~Game1Scene() {
+    delete m_scoreDisplay;
     delete m_cannon;
     delete m_current;
     delete m_next;
@@ -141,6 +155,16 @@ bool Game1Scene::collidesWithSheepInLine(QGraphicsItem *item) {
 }
 
 /**
+* Returns the player score for the current game.
+* For each destroyed sheep, the player is awarded 10 points.
+* When the player wins the game, they are awarded
+            m_scoreDisplay->display(m_score); 1 point per remaining sheep in-line move.
+*/
+int Game1Scene::getScore() const {
+    return m_score;
+}
+
+/**
 * Moves the sheep in the line according to their position on the screen
 */
 void Game1Scene::move_line() {
@@ -148,6 +172,8 @@ void Game1Scene::move_line() {
     QVector<Sheep1*> toInsert;
     QVector<QLinkedList<Sheep1*>::iterator> insertPos;
     QSet<Sheep1*> toDelete;
+
+    Sheep1 *last = NULL;
 
     //check every sheep in the line
 
@@ -189,15 +215,30 @@ void Game1Scene::move_line() {
             Sheep1 *del = *i;
             m_sheepLine.removeOne(del);
             removeItem(del);
+            m_score = m_score + 10;
+            m_scoreDisplay->display(m_score);
+            last = del;
         }
     }
 
-    qDeleteAll(toDelete);
 
     //if all the sheep are gone
     if(m_sheepLine.isEmpty()) {
+        addItem(last);
+        do {
+            last->moveInLine(10);
+            m_score = m_score + 1;
+            m_scoreDisplay->display(m_score);
+        }
+        while(collidingItems(last).empty());
+
+        removeItem(last);
+        qDeleteAll(toDelete);
         gameOver(true);
+        return;
     }
+
+    qDeleteAll(toDelete);
 
     for (QLinkedList<Sheep1*>::iterator i = m_sheepLine.end()-2; i != m_sheepLine.begin()-1; --i) {
         Sheep1 *curr = *i;

@@ -53,6 +53,13 @@ Game1Options::~Game1Options() {
 }
 
 /**
+* Enables the given level. Called when a user wins the previous level.
+*/
+void Game1Options::enable(int level) {
+    m_levels[level]->setEnabled(true);
+}
+
+/**
 * Takes the user to the game main menu that corresponds to game 1.
 * Called after clicking the corresponding button.
 */
