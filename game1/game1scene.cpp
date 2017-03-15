@@ -29,7 +29,7 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     int prevRand;
     int currRand = Helper::getRandomSheepNumber();
 
-    for(int i = 0; i < 10; ++i) {
+    for(int i = 0; i < 50; ++i) {
         Sheep1 *newSheep = new Sheep1(currRand, true);
         newSheep->setPos(500, yValue);
         m_sheepLine.push_back(newSheep);        
