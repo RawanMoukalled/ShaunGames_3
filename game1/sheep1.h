@@ -1,10 +1,8 @@
 #ifndef SHEEP1_H
 #define SHEEP1_H
 
-#include <QObject>
-#include <QGraphicsPixmapItem>
+#include <QtGui>
 #include <QTimer>
-#include <QGraphicsScene>
 
 /**
 * \file sheep1.h
@@ -71,6 +69,12 @@ public:
     * \brief Returns the sheep number
     */
     int getNumber() const;
+
+    /**
+    * \brief Returns a number between 1 and 9
+    * \returns Number between 1 and 9
+    */
+    static int getRandomSheepNumber();
 
 signals:
     

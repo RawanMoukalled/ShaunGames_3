@@ -1,8 +1,7 @@
 #ifndef GAMEOVER_H
 #define GAMEOVER_H
 
-#include <QObject>
-#include <QGraphicsPixmapItem>
+#include <QtGui>
 
 /**
 * \file gameover.h
@@ -20,6 +19,11 @@ public:
     * \brief Default constructor
     */
     explicit GameOver(bool win, QObject *parent = 0);
+
+    /**
+    * \brief Destructor
+    */
+    virtual ~GameOver();
     
 signals:
     

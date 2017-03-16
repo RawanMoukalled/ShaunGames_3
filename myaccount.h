@@ -1,9 +1,7 @@
 #ifndef MYACCOUNT_H
 #define MYACCOUNT_H
 
-#include <QWidget>
 #include <QtGui>
-#include <QGraphicsItem>
 
 /**
 * \file myaccount.h

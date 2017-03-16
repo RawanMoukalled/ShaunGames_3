@@ -1,7 +1,6 @@
 #ifndef GAME1OPTIONS_H
 #define GAME1OPTIONS_H
 
-#include <QWidget>
 #include <QtGui>
 
 /**
@@ -28,10 +27,16 @@ public:
     virtual ~Game1Options();
 
     /**
-    * \brief Enables the given level
-    * \param level Level to enable
+    * \brief Returns the number of levels in game 1 that the user has unlocked
+    * \returns Number of levels
     */
-    void enable(int level);
+    static int getNumberOfUnlockedLevels();
+
+    /**
+    * \brief Unlocks one new game 1 level if appropriate
+    * \param currLevel Level that was just won
+    */
+    static void unlockExtraLevel(int currLevel);
     
 signals:
     
@@ -47,6 +52,8 @@ public slots:
     void gotoGame1(int level);
     
 private:
+    static int m_numberOfUnlockedLevels; ///< Number of levels that the user has unlocked
+
     QLabel *m_instructions; ///< Asks the user to pick a level
     QPushButton *m_levels[25]; ///< Allow the user to pick one of the 25 levels of game 1
     QPushButton *m_back; ///< Allows the user to go back to the game main menu

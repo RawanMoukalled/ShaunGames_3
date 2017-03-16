@@ -1,12 +1,9 @@
 #ifndef GAME1SCENE_H
 #define GAME1SCENE_H
 
-#include <QGraphicsScene>
-#include <QGraphicsItem>
+#include <QtGui>
 #include <QLinkedList>
-#include <cmath>
 #include <QTimer>
-#include <QLCDNumber>
 #include "game1/cannon.h"
 #include "game1/sheep1.h"
 #include "game1/barn.h"
@@ -80,6 +77,7 @@ public slots:
     void move_line();
     
 private:
+    int m_level; ///< Current level of the scene
     int m_score; ///< Game score
     QLCDNumber *m_scoreDisplay; ///< Displays the game score
     Cannon *m_cannon; ///< Cannon and focus of scene

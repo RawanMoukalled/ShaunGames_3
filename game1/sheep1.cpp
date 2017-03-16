@@ -2,7 +2,6 @@
 #include "helper.h"
 #include "game1scene.h"
 #include <QString>
-#include <QtGui>
 
 /**
 * Sets the properties of the sheep.
@@ -33,6 +32,13 @@ void Sheep1::fire(double angle) {
 
     connect(m_timer, SIGNAL(timeout()), this, SLOT(firedMove()));
     m_timer->start(1);
+}
+
+/**
+* Returns a random sheep number between 1 and 9.
+*/
+int Sheep1::getRandomSheepNumber() {
+    return rand()%9 + 1;
 }
 
 /**

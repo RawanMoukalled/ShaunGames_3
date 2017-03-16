@@ -22,9 +22,13 @@ Game1Options::Game1Options(QWidget *parent) :
     for (int i=0; i<25; ++i) {
         m_levels[i] = new QPushButton(QString::number(i+1));
         m_levels[i]->setFixedSize(60,60);
-        //m_levels[i]->setDisabled(true);
-   }
-   // m_levels[0]->setEnabled(true);
+        m_levels[i]->setDisabled(true);
+    }
+
+    int nbOfUnlockedLevels = Game1Options::getNumberOfUnlockedLevels();
+    for (int i=0; i<nbOfUnlockedLevels; ++i) {
+        m_levels[i]->setEnabled(true);
+    }
 
     m_back = new QPushButton("Back to Game Menu");
     m_back->setFixedWidth(200);
@@ -53,10 +57,20 @@ Game1Options::~Game1Options() {
 }
 
 /**
-* Enables the given level. Called when a user wins the previous level.
+* Returns the number of levels that the user has unlocked.
 */
-void Game1Options::enable(int level) {
-    m_levels[level]->setEnabled(true);
+int Game1Options::getNumberOfUnlockedLevels() {
+    return m_numberOfUnlockedLevels;
+}
+
+/**
+* Unlocks a new level if the user has just won the last unlocked level.
+* Called after a user wins a certain level.
+*/
+void Game1Options::unlockExtraLevel(int currLevel) {
+    if (m_numberOfUnlockedLevels == currLevel+1) {
+        ++m_numberOfUnlockedLevels;
+    }
 }
 
 /**
@@ -120,3 +134,5 @@ void Game1Options::setLevelLayout() {
     }
     m_levelLayout->addItem(new QSpacerItem(100,100),0,6,5,1);
 }
+
+int Game1Options::m_numberOfUnlockedLevels(1);

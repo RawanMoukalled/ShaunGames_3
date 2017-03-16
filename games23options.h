@@ -1,7 +1,6 @@
 #ifndef GAMES23OPTIONS_H
 #define GAMES23OPTIONS_H
 
-#include <QWidget>
 #include <QtGui>
 
 /**

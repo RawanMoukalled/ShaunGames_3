@@ -1,13 +1,7 @@
 #ifndef MAINWIDGET_H
 #define MAINWIDGET_H
 
-#include <QWidget>
-#include <QLineEdit>
-#include <QLabel>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QGridLayout>
-#include <QPushButton>
+#include <QtGui>
 
 /**
 * \file mainwidget.h

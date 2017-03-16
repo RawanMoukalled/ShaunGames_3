@@ -1,4 +1,3 @@
-#include <QFont>
 #include "gui/gamemainmenu.h"
 #include "helper.h"
 #include "game1/game1options.h"

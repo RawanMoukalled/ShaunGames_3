@@ -1,7 +1,6 @@
 #ifndef GAMEMAINMENU_H
 #define GAMEMAINMENU_H
 
-#include <QWidget>
 #include <QtGui>
 
 /**

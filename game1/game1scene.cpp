@@ -1,15 +1,14 @@
 #include "game1scene.h"
 #include "helper.h"
-#include <QtGui>
-#include <QGraphicsScene>
 #include <QVector>
 #include <QSet>
+#include "game1options.h"
 
 /**
 * Initializes variables and connections.
 */
 Game1Scene::Game1Scene(int level, QObject *parent) :
-    QGraphicsScene(parent), m_score(0)
+    QGraphicsScene(parent), m_level(level), m_score(0), m_gameOverPicture(NULL)
 {
     m_scoreDisplay = new QLCDNumber(4);
 
@@ -17,17 +16,17 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
     m_cannon->setFlag(QGraphicsItem::ItemIsFocusable);
     m_cannon->setFocus();
 
-    m_current = new Sheep1(Helper::getRandomSheepNumber(), false);
+    m_current = new Sheep1(Sheep1::getRandomSheepNumber(), false);
     m_current->setPos(334,247);
     m_current->setRotation(345);
-    m_next = new Sheep1(Helper::getRandomSheepNumber(), false);
+    m_next = new Sheep1(Sheep1::getRandomSheepNumber(), false);
     m_next->setPos(285,235);
 
     m_barn = new Barn;
 
     int yValue = 0;
     int prevRand;
-    int currRand = Helper::getRandomSheepNumber();
+    int currRand = Sheep1::getRandomSheepNumber();
 
     for(int i = 0; i < 50; ++i) {
         Sheep1 *newSheep = new Sheep1(currRand, true);
@@ -38,7 +37,7 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
 
         prevRand = currRand;
         do {
-            currRand = Helper::getRandomSheepNumber();
+            currRand = Sheep1::getRandomSheepNumber();
         }
         while(prevRand+currRand == 10);
     }
@@ -70,6 +69,7 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
 */
 Game1Scene::~Game1Scene() {
     delete m_scoreDisplay;
+    delete m_barn;
     delete m_cannon;
     delete m_current;
     delete m_next;
@@ -77,6 +77,10 @@ Game1Scene::~Game1Scene() {
         delete *sheep;
     }
     delete m_line_timer;
+
+    if (m_gameOverPicture != NULL) {
+        delete m_gameOverPicture;
+    }
 }
 
 void Game1Scene::mousePressEvent(QGraphicsSceneMouseEvent *) {
@@ -121,7 +125,7 @@ void Game1Scene::fireSheep() {
     Sheep1 *fired = m_current;
 
     m_current = m_next;
-    m_next = new Sheep1(Helper::getRandomSheepNumber(), false);
+    m_next = new Sheep1(Sheep1::getRandomSheepNumber(), false);
 
     m_next->setPos(m_current->pos());
     m_next->setZValue(1);
@@ -235,6 +239,7 @@ void Game1Scene::move_line() {
         removeItem(last);
         qDeleteAll(toDelete);
         gameOver(true);
+        Game1Options::unlockExtraLevel(m_level);
         return;
     }
 

@@ -1,8 +1,7 @@
 #ifndef BARN_H
 #define BARN_H
 
-#include <QObject>
-#include <QGraphicsPixmapItem>
+#include <QtGui>
 #include <QTimer>
 
 /**

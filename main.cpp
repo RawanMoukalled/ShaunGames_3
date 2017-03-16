@@ -1,14 +1,5 @@
 #include <QApplication>
-#include <QGraphicsView>
-#include <QFile>
-#include <QString>
-#include <QLatin1String>
-
 #include "gui/mainwidget.h"
-#include "gui/gameselection.h"
-#include "myaccount.h"
-#include "gui/gamemainmenu.h"
-#include "game1/game1.h"
 
 /**
 * \mainpage EECE 435L Games Project
@@ -21,11 +12,8 @@
 int main(int argc, char **argv) {
     QApplication app(argc, argv);
 
-    //MainWidget *mainWidget = new MainWidget;
-    //mainWidget->show();
-
-    Game1 *g = new Game1(7);
-    g->show();
+    MainWidget *mainWidget = new MainWidget;
+    mainWidget->show();
 
     return app.exec();
 }

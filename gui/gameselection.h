@@ -1,10 +1,7 @@
 #ifndef GAMESELECTION_H
 #define GAMESELECTION_H
 
-#include <QWidget>
 #include <QtGui>
-#include <QApplication>
-#include <QGraphicsScene>
 
 /**
 * \file gameselection.h

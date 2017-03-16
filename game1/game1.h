@@ -1,9 +1,7 @@
 #ifndef GAME1_H
 #define GAME1_H
 
-#include <QWidget>
 #include <QtGui>
-#include <QGraphicsView>
 #include "game1/game1scene.h"
 
 /**

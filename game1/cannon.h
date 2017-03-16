@@ -1,10 +1,7 @@
 #ifndef CANNON_H
 #define CANNON_H
 
-#include <QObject>
-#include <QGraphicsPixmapItem>
-#include <QKeyEvent>
-#include "sheep1.h"
+#include <QtGui>
 
 /**
 * \file cannon.h

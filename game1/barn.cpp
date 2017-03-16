@@ -1,8 +1,5 @@
 #include "barn.h"
-#include "helper.h"
 #include "game1scene.h"
-#include "game1/sheep1.h"
-#include <QGraphicsScene>
 #include <QList>
 
 /**

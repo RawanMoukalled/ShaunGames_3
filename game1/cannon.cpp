@@ -1,6 +1,4 @@
 #include "cannon.h"
-#include <QtGui>
-#include "helper.h"
 #include "game1scene.h"
 
 /**

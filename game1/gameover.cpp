@@ -12,3 +12,6 @@ GameOver::GameOver(bool win, QObject *parent) :
     setPos(0,170);
     setZValue(2);
 }
+
+GameOver::~GameOver() {
+}

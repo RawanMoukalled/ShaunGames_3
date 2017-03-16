@@ -1,7 +1,6 @@
 #ifndef GAME3_H
 #define GAME3_H
 
-#include <QWidget>
 #include <QtGui>
 
 /**

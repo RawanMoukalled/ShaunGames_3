@@ -1,8 +1,7 @@
 #ifndef HELPER_H
 #define HELPER_H
 
-#include <QWidget>
-#include <QFont>
+#include <QtGui>
 
 /**
 * \file helper.h
@@ -27,26 +26,12 @@ public:
 
     static const double PI; ///< PI
 
-    static bool GAMEOVER; ///< Indicates if the game is over
-
-    /**
-    * \brief Returns a number between 1 and 9
-    * \returns Number between 1 and 9
-    */
-    static int getRandomSheepNumber();
-
     /**
     * \brief Takes an angle in degrees, turns it into radians
     * \param degrees Angle in degrees
     * \returns Angle in radians
     */
     static double toRadians(double degrees);
-
-    /**
-    * \brief Delay function
-    * \param msec Desired delay in milliseconds
-    */
-    static void delay(int msec);
 
 private:
     static QFont m_smallFont; ///< 12-pt font

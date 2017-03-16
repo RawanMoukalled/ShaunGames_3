@@ -2,9 +2,6 @@
 #include "helper.h"
 #include "gui/gamemainmenu.h"
 
-#include <QDebug>
-#include <QtGui>
-
 /**
 * \file game1.cpp
 * \brief Contains the Sheep Line
@@ -45,9 +42,11 @@ Game1::Game1(int level, QWidget *parent) :
 Game1::~Game1() {
     delete m_title;
     delete m_game1Layout;
-    delete m_exit;
     delete m_gameScene;
     delete m_gameView;
+    if (m_exit != NULL) {
+        delete m_exit;
+    }
 }
 
 /**
@@ -87,6 +86,7 @@ void Game1::endGame(bool win) {
 
     m_game1Layout->removeWidget(m_exit);
     delete m_exit;
+    m_exit = NULL;
 
     m_game1Layout->addWidget(m_goBack);
     m_game1Layout->addWidget(m_replay);
@@ -120,7 +120,6 @@ void Game1::next() {
 }
 
 void Game1::loadNewGame(bool sameLevel) {
-
     if(!sameLevel) {
         m_level++;
         m_title->setText("Sheep Line (Level " + QString::number(m_level+1) + ")");
