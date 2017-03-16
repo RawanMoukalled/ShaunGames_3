@@ -6,13 +6,22 @@
 \item 
 void \hyperlink{classGame1Options_a3222e0a22e8ed7deb0ae7ba05677bf8d}{goto\-Game\-Main\-Menu} ()
 \begin{DoxyCompactList}\small\item\em \-Takes the user to the game main menu. \end{DoxyCompactList}\item 
-void \hyperlink{classGame1Options_aac8c0fd1521b7c7ee17144ca265a80a2}{goto\-Game1} ()
+void \hyperlink{classGame1Options_a24872ff9bd747ce5fa184cd876d1073a}{goto\-Game1} (int level)
 \begin{DoxyCompactList}\small\item\em \-Takes the user to game 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{\-Public \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classGame1Options_a368eef646eb49bdd45a8c04e00bdc45c}{\-Game1\-Options} (\-Q\-Widget $\ast$parent=0)
-\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classGame1Options_ae409fa563f0e6c89e0af3786614d6265}{$\sim$\-Game1\-Options} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Static \-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classGame1Options_ac2709ba618a4f81b2669685a7720930f}{get\-Number\-Of\-Unlocked\-Levels} ()
+\begin{DoxyCompactList}\small\item\em \-Returns the number of levels in game 1 that the user has unlocked. \end{DoxyCompactList}\item 
+static void \hyperlink{classGame1Options_a17769cad0373a80bf26e81a91d1bc164}{unlock\-Extra\-Level} (int curr\-Level)
+\begin{DoxyCompactList}\small\item\em \-Unlocks one new game 1 level if appropriate. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Constructor \& \-Destructor \-Documentation}
@@ -27,20 +36,50 @@ void \hyperlink{classGame1Options_aac8c0fd1521b7c7ee17144ca265a80a2}{goto\-Game1
 
 \-Default constructor. 
 
-\-Initializes all buttons and text and shows them on the screen. \-Also initializes connections. 
-
-\subsection{\-Member \-Function \-Documentation}
-\hypertarget{classGame1Options_aac8c0fd1521b7c7ee17144ca265a80a2}{\index{\-Game1\-Options@{\-Game1\-Options}!goto\-Game1@{goto\-Game1}}
-\index{goto\-Game1@{goto\-Game1}!Game1Options@{\-Game1\-Options}}
-\subsubsection[{goto\-Game1}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-Options\-::goto\-Game1} (
+\-Initializes all buttons and text and shows them on the screen. \-Also initializes connections. \hypertarget{classGame1Options_ae409fa563f0e6c89e0af3786614d6265}{\index{\-Game1\-Options@{\-Game1\-Options}!$\sim$\-Game1\-Options@{$\sim$\-Game1\-Options}}
+\index{$\sim$\-Game1\-Options@{$\sim$\-Game1\-Options}!Game1Options@{\-Game1\-Options}}
+\subsubsection[{$\sim$\-Game1\-Options}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game1\-Options\-::$\sim$\-Game1\-Options} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}\label{classGame1Options_aac8c0fd1521b7c7ee17144ca265a80a2}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classGame1Options_ae409fa563f0e6c89e0af3786614d6265}
+
+
+\-Destructor. 
+
+\-Frees allocated memory 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classGame1Options_ac2709ba618a4f81b2669685a7720930f}{\index{\-Game1\-Options@{\-Game1\-Options}!get\-Number\-Of\-Unlocked\-Levels@{get\-Number\-Of\-Unlocked\-Levels}}
+\index{get\-Number\-Of\-Unlocked\-Levels@{get\-Number\-Of\-Unlocked\-Levels}!Game1Options@{\-Game1\-Options}}
+\subsubsection[{get\-Number\-Of\-Unlocked\-Levels}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Game1\-Options\-::get\-Number\-Of\-Unlocked\-Levels} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classGame1Options_ac2709ba618a4f81b2669685a7720930f}
+
+
+\-Returns the number of levels in game 1 that the user has unlocked. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Number of levels
+\end{DoxyReturn}
+\-Returns the number of levels that the user has unlocked. \hypertarget{classGame1Options_a24872ff9bd747ce5fa184cd876d1073a}{\index{\-Game1\-Options@{\-Game1\-Options}!goto\-Game1@{goto\-Game1}}
+\index{goto\-Game1@{goto\-Game1}!Game1Options@{\-Game1\-Options}}
+\subsubsection[{goto\-Game1}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-Options\-::goto\-Game1} (
+\begin{DoxyParamCaption}
+\item[{int}]{level}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}\label{classGame1Options_a24872ff9bd747ce5fa184cd876d1073a}
 
 
 \-Takes the user to game 1. 
 
+
+\begin{DoxyParams}{\-Parameters}
+{\em level} & \-The level of the game\\
+\hline
+\end{DoxyParams}
 \-Takes the user to game 1. \-Called after clicking any level button. \hypertarget{classGame1Options_a3222e0a22e8ed7deb0ae7ba05677bf8d}{\index{\-Game1\-Options@{\-Game1\-Options}!goto\-Game\-Main\-Menu@{goto\-Game\-Main\-Menu}}
 \index{goto\-Game\-Main\-Menu@{goto\-Game\-Main\-Menu}!Game1Options@{\-Game1\-Options}}
 \subsubsection[{goto\-Game\-Main\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-Options\-::goto\-Game\-Main\-Menu} (
@@ -52,9 +91,25 @@ void \hyperlink{classGame1Options_aac8c0fd1521b7c7ee17144ca265a80a2}{goto\-Game1
 
 \-Takes the user to the game main menu. 
 
-\-Takes the user to the game main menu that corresponds to game 1. \-Called after clicking the corresponding button. 
+\-Takes the user to the game main menu that corresponds to game 1. \-Called after clicking the corresponding button. \hypertarget{classGame1Options_a17769cad0373a80bf26e81a91d1bc164}{\index{\-Game1\-Options@{\-Game1\-Options}!unlock\-Extra\-Level@{unlock\-Extra\-Level}}
+\index{unlock\-Extra\-Level@{unlock\-Extra\-Level}!Game1Options@{\-Game1\-Options}}
+\subsubsection[{unlock\-Extra\-Level}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-Options\-::unlock\-Extra\-Level} (
+\begin{DoxyParamCaption}
+\item[{int}]{curr\-Level}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classGame1Options_a17769cad0373a80bf26e81a91d1bc164}
+
+
+\-Unlocks one new game 1 level if appropriate. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em curr\-Level} & \-Level that was just won\\
+\hline
+\end{DoxyParams}
+\-Unlocks a new level if the user has just won the last unlocked level. \-Called after a user wins a certain level. 
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{game1options_8h}{game1options.\-h}\item 
-\hyperlink{game1options_8cpp}{game1options.\-cpp}\end{DoxyCompactItemize}
+game1/\hyperlink{game1options_8h}{game1options.\-h}\item 
+game1/\hyperlink{game1options_8cpp}{game1options.\-cpp}\end{DoxyCompactItemize}

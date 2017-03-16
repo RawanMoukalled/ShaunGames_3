@@ -81,32 +81,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="helper_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef HELPER_H</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define HELPER_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QWidget&gt;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QFont&gt;</span>
-<a name="l00006"></a>00006 
-<a name="l00015"></a><a class="code" href="classHelper.html">00015</a> <span class="keyword">class </span><a class="code" href="classHelper.html">Helper</a>
-<a name="l00016"></a>00016 {
-<a name="l00017"></a>00017 <span class="keyword">public</span>:
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QtGui&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00014"></a><a class="code" href="classHelper.html">00014</a> <span class="keyword">class </span><a class="code" href="classHelper.html">Helper</a>
+<a name="l00015"></a>00015 {
+<a name="l00016"></a>00016 <span class="keyword">public</span>:
 <a name="l00021"></a>00021     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classHelper.html#a2eeb1ba71a75f4d0f59c6efdd429a1b7" title="Makes given widget small.">makeWidgetSmall</a>(QWidget *widget);
 <a name="l00022"></a>00022 
-<a name="l00026"></a>00026     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classHelper.html#a1c444bceb723964a341b1c8b2bd2f95c" title="Makes given widget large.">makeWidgetLarge</a>(QWidget *widget);
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028 <span class="keyword">private</span>:
-<a name="l00029"></a>00029     <span class="keyword">static</span> QFont m_smallFont; 
-<a name="l00030"></a>00030     <span class="keyword">static</span> QFont m_largeFont; 
-<a name="l00031"></a>00031     <span class="keyword">static</span> <span class="keywordtype">bool</span> m_uninitialized; 
-<a name="l00032"></a>00032 
-<a name="l00036"></a>00036     <span class="keyword">static</span> <span class="keywordtype">void</span> initialize();
-<a name="l00037"></a>00037 };
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039 <span class="preprocessor">#endif // HELPER_H</span>
+<a name="l00027"></a>00027     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classHelper.html#a1c444bceb723964a341b1c8b2bd2f95c" title="Makes given widget large.">makeWidgetLarge</a>(QWidget *widget);
+<a name="l00028"></a>00028 
+<a name="l00029"></a><a class="code" href="classHelper.html#a13faf9f5fa52f832db1a99b4c0c91cb8">00029</a>     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="classHelper.html#a13faf9f5fa52f832db1a99b4c0c91cb8" title="PI.">PI</a>; 
+<a name="l00030"></a>00030 
+<a name="l00036"></a>00036     <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="classHelper.html#ad085317d0b7ad0e5ac3d08b559a7015f" title="Takes an angle in degrees, turns it into radians.">toRadians</a>(<span class="keywordtype">double</span> degrees);
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 <span class="keyword">private</span>:
+<a name="l00039"></a>00039     <span class="keyword">static</span> QFont m_smallFont; 
+<a name="l00040"></a>00040     <span class="keyword">static</span> QFont m_largeFont; 
+<a name="l00041"></a>00041     <span class="keyword">static</span> <span class="keywordtype">bool</span> m_uninitialized; 
+<a name="l00042"></a>00042 
+<a name="l00046"></a>00046     <span class="keyword">static</span> <span class="keywordtype">void</span> initialize();
+<a name="l00047"></a>00047 };
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 <span class="preprocessor">#endif // HELPER_H</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -118,7 +121,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 28 2017 15:33:41 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 16 2017 21:38:31 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

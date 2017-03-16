@@ -1,0 +1,52 @@
+#include "shaungamestest.h"
+#include "game1/sheep1.h"
+#include "helper.h"
+
+CPPUNIT_TEST_SUITE_REGISTRATION (ShaunGamesTest);
+
+
+ShaunGamesTest::ShaunGamesTest()
+{
+}
+
+void ShaunGamesTest::setUp() {
+	a = 90;
+	b = 185;
+	c = Sheep1::getRandomSheepNumber();
+}
+
+void listTest::tearDown() {
+
+}
+
+void listTest::toRadiansTest() {
+    // checks getmax results
+    CPPUNIT_ASSERT_EQUAL (true, qAbs(Helper::toRadians(a) - 1.571) < 0.01); 
+    CPPUNIT_ASSERT_EQUAL (true, qAbs(Helper::toRadians(b) - 3.229) < 0.01); 
+
+}
+
+void ShaunGamesTest::getRandomSheepNumberTest() {
+    CPPUNIT_ASSERT_EQUAL (a->getMin(), -10);
+
+}
+
+void listTest::alldistinctTest() {
+    CPPUNIT_ASSERT(a->allDistinct());
+    CPPUNIT_ASSERT(b->allDistinct());
+    CPPUNIT_ASSERT_EQUAL(c->allDistinct(), false);//fail: got true: empty array not accounted
+    CPPUNIT_ASSERT_EQUAL(f->allDistinct(), false);
+    CPPUNIT_ASSERT_EQUAL(h->allDistinct(), true);
+}
+
+void listTest::equaltoTest() {
+    CPPUNIT_ASSERT(a->equalTo(a));
+    //CPPUNIT_ASSERT_EQUAL(b->equalTo(a), false);//fail: got true: empty array not accounted for
+    CPPUNIT_ASSERT_EQUAL(j->equalTo(f), false);
+    CPPUNIT_ASSERT_EQUAL(i->equalTo(f), false);
+    CPPUNIT_ASSERT_EQUAL(false, f->equalTo(i));
+}
+
+
+
+

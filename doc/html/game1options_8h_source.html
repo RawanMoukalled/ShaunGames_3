@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Group 3 Project: game1options.h Source File</title>
+<title>Group 3 Project: game1/game1options.h Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -75,48 +75,58 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">game1options.h</div>  </div>
+<div class="title">game1/game1options.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="game1options_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef GAME1OPTIONS_H</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define GAME1OPTIONS_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QWidget&gt;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QtGui&gt;</span>
-<a name="l00006"></a>00006 
-<a name="l00016"></a><a class="code" href="classGame1Options.html">00016</a> <span class="keyword">class </span><a class="code" href="classGame1Options.html">Game1Options</a> : <span class="keyword">public</span> QWidget
-<a name="l00017"></a>00017 {
-<a name="l00018"></a>00018     Q_OBJECT
-<a name="l00019"></a>00019 <span class="keyword">public</span>:
-<a name="l00023"></a>00023     <span class="keyword">explicit</span> <a class="code" href="classGame1Options.html#a368eef646eb49bdd45a8c04e00bdc45c" title="Default constructor.">Game1Options</a>(QWidget *parent = 0);
-<a name="l00024"></a>00024     
-<a name="l00025"></a>00025 signals:
-<a name="l00026"></a>00026     
-<a name="l00027"></a>00027 <span class="keyword">public</span> slots:
-<a name="l00031"></a>00031     <span class="keywordtype">void</span> <a class="code" href="classGame1Options.html#a3222e0a22e8ed7deb0ae7ba05677bf8d" title="Takes the user to the game main menu.">gotoGameMainMenu</a>();
-<a name="l00032"></a>00032 
-<a name="l00036"></a>00036     <span class="keywordtype">void</span> <a class="code" href="classGame1Options.html#aac8c0fd1521b7c7ee17144ca265a80a2" title="Takes the user to game 1.">gotoGame1</a>();
-<a name="l00037"></a>00037     
-<a name="l00038"></a>00038 <span class="keyword">private</span>:
-<a name="l00039"></a>00039     QLabel *m_instructions; 
-<a name="l00040"></a>00040     QPushButton *m_levels[25]; 
-<a name="l00041"></a>00041     QPushButton *m_back; 
-<a name="l00042"></a>00042     QVBoxLayout *m_mainLayout; 
-<a name="l00043"></a>00043     QGridLayout *m_levelLayout; 
-<a name="l00044"></a>00044 
-<a name="l00048"></a>00048     <span class="keywordtype">void</span> setMainLayout();
-<a name="l00049"></a>00049 
-<a name="l00053"></a>00053     <span class="keywordtype">void</span> setLevelLayout();
-<a name="l00054"></a>00054 };
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 <span class="preprocessor">#endif // GAME1OPTIONS_H</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QtGui&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00015"></a><a class="code" href="classGame1Options.html">00015</a> <span class="keyword">class </span><a class="code" href="classGame1Options.html">Game1Options</a> : <span class="keyword">public</span> QWidget
+<a name="l00016"></a>00016 {
+<a name="l00017"></a>00017     Q_OBJECT
+<a name="l00018"></a>00018 <span class="keyword">public</span>:
+<a name="l00022"></a>00022     <span class="keyword">explicit</span> <a class="code" href="classGame1Options.html#a368eef646eb49bdd45a8c04e00bdc45c" title="Default constructor.">Game1Options</a>(QWidget *parent = 0);
+<a name="l00023"></a>00023 
+<a name="l00027"></a>00027     <span class="keyword">virtual</span> <a class="code" href="classGame1Options.html#ae409fa563f0e6c89e0af3786614d6265" title="Destructor.">~Game1Options</a>();
+<a name="l00028"></a>00028 
+<a name="l00033"></a>00033     <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classGame1Options.html#ac2709ba618a4f81b2669685a7720930f" title="Returns the number of levels in game 1 that the user has unlocked.">getNumberOfUnlockedLevels</a>();
+<a name="l00034"></a>00034 
+<a name="l00039"></a>00039     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classGame1Options.html#a17769cad0373a80bf26e81a91d1bc164" title="Unlocks one new game 1 level if appropriate.">unlockExtraLevel</a>(<span class="keywordtype">int</span> currLevel);
+<a name="l00040"></a>00040     
+<a name="l00041"></a>00041 signals:
+<a name="l00042"></a>00042     
+<a name="l00043"></a>00043 <span class="keyword">public</span> slots:
+<a name="l00047"></a>00047     <span class="keywordtype">void</span> <a class="code" href="classGame1Options.html#a3222e0a22e8ed7deb0ae7ba05677bf8d" title="Takes the user to the game main menu.">gotoGameMainMenu</a>();
+<a name="l00048"></a>00048 
+<a name="l00053"></a>00053     <span class="keywordtype">void</span> <a class="code" href="classGame1Options.html#a24872ff9bd747ce5fa184cd876d1073a" title="Takes the user to game 1.">gotoGame1</a>(<span class="keywordtype">int</span> level);
+<a name="l00054"></a>00054     
+<a name="l00055"></a>00055 <span class="keyword">private</span>:
+<a name="l00056"></a>00056     <span class="keyword">static</span> <span class="keywordtype">int</span> m_numberOfUnlockedLevels; 
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058     QLabel *m_instructions; 
+<a name="l00059"></a>00059     QPushButton *m_levels[25]; 
+<a name="l00060"></a>00060     QPushButton *m_back; 
+<a name="l00061"></a>00061     QVBoxLayout *m_mainLayout; 
+<a name="l00062"></a>00062     QGridLayout *m_levelLayout; 
+<a name="l00063"></a>00063     QSignalMapper *m_signalMapper; 
+<a name="l00064"></a>00064 
+<a name="l00068"></a>00068     <span class="keywordtype">void</span> setMainLayout();
+<a name="l00069"></a>00069 
+<a name="l00073"></a>00073     <span class="keywordtype">void</span> setLevelLayout();
+<a name="l00074"></a>00074 
+<a name="l00078"></a>00078     <span class="keywordtype">void</span> setConnections();
+<a name="l00079"></a>00079 };
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 <span class="preprocessor">#endif // GAME1OPTIONS_H</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -128,7 +138,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 28 2017 15:33:41 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 16 2017 21:38:31 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

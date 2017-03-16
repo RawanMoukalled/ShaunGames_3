@@ -27,7 +27,7 @@ public:
 
     /**
     * \brief Entrance point of triggered key events
-    * \param The event that has been triggered
+    * \param event The event that has been triggered
     */
     void keyPressEvent(QKeyEvent *event);
     

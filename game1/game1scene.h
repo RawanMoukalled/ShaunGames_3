@@ -23,6 +23,7 @@ class Game1Scene : public QGraphicsScene
 public:
     /**
     * \brief Constructor
+    * \param level Level of the game
     */
     explicit Game1Scene(int level, QObject *parent = 0);
 
@@ -38,13 +39,13 @@ public:
 
     /**
     * \brief Moves sheep with rotating cannon
-    * \param Indicates the direction of the cannon move
+    * \param toRight Indicates the direction of the cannon move
     */
     void moveCurrentSheep(bool toRight);
 
     /**
     * \brief Stops movement of the sheep and triggers finishing the game
-    * \param Indicates if the game has been won
+    * \param win Indicates if the game has been won
     */
     void gameOver(bool win);
 

@@ -77,7 +77,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">Helper Class Reference</div>  </div>
 </div><!--header-->
@@ -91,6 +92,13 @@ Static Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes given widget small.  <a href="#a2eeb1ba71a75f4d0f59c6efdd429a1b7"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHelper.html#a1c444bceb723964a341b1c8b2bd2f95c">makeWidgetLarge</a> (QWidget *widget)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes given widget large.  <a href="#a1c444bceb723964a341b1c8b2bd2f95c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHelper.html#ad085317d0b7ad0e5ac3d08b559a7015f">toRadians</a> (double degrees)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes an angle in degrees, turns it into radians.  <a href="#ad085317d0b7ad0e5ac3d08b559a7015f"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a13faf9f5fa52f832db1a99b4c0c91cb8"></a><!-- doxytag: member="Helper::PI" ref="a13faf9f5fa52f832db1a99b4c0c91cb8" args="" -->
+static const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHelper.html#a13faf9f5fa52f832db1a99b4c0c91cb8">PI</a> = 3.14159265</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">PI. <br/></td></tr>
 </table>
 <hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a1c444bceb723964a341b1c8b2bd2f95c"></a><!-- doxytag: member="Helper::makeWidgetLarge" ref="a1c444bceb723964a341b1c8b2bd2f95c" args="(QWidget *widget)" -->
@@ -109,6 +117,12 @@ Static Public Member Functions</h2></td></tr>
 <div class="memdoc">
 
 <p>Makes given widget large. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">widget</td><td>Widget whose size to change</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Makes the given widget large. </p>
 
 </div>
@@ -129,7 +143,40 @@ Static Public Member Functions</h2></td></tr>
 <div class="memdoc">
 
 <p>Makes given widget small. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">widget</td><td>Widget whose size to change</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Makes the given widget small. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad085317d0b7ad0e5ac3d08b559a7015f"></a><!-- doxytag: member="Helper::toRadians" ref="ad085317d0b7ad0e5ac3d08b559a7015f" args="(double degrees)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classHelper.html#ad085317d0b7ad0e5ac3d08b559a7015f">Helper::toRadians</a> </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>degrees</em></td><td>)</td>
+          <td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Takes an angle in degrees, turns it into radians. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">degrees</td><td>Angle in degrees </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Angle in radians</dd></dl>
+<p>Converts angle from degrees to radians. </p>
 
 </div>
 </div>
@@ -143,7 +190,7 @@ Static Public Member Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -155,7 +202,7 @@ Static Public Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 28 2017 15:33:41 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 16 2017 21:38:31 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

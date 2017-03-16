@@ -1,0 +1,171 @@
+\hypertarget{classGame1Scene}{\section{\-Game1\-Scene \-Class \-Reference}
+\label{classGame1Scene}\index{\-Game1\-Scene@{\-Game1\-Scene}}
+}
+\subsection*{\-Public \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGame1Scene_a78806ef4597b5770184b46c194ff95c7}{move\-\_\-line} ()
+\begin{DoxyCompactList}\small\item\em \-Move sheep in the line according to a straight line then circle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Signals}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classGame1Scene_a5dd2bbbbd2585ad528766db8b74c4534}{void \hyperlink{classGame1Scene_a5dd2bbbbd2585ad528766db8b74c4534}{\-Done} (bool)}\label{classGame1Scene_a5dd2bbbbd2585ad528766db8b74c4534}
+
+\begin{DoxyCompactList}\small\item\em \-Signals \hyperlink{classGame1}{\-Game1} that the game is over. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGame1Scene_a9583982b66f78ed0dbca103ba2e26d77}{\-Game1\-Scene} (int level, \-Q\-Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \-Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classGame1Scene_a810e661e0de4105509207c86bc35cbe2}{$\sim$\-Game1\-Scene} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classGame1Scene_a3f20ac9bd39e4506c1dca07428a7e1b2}{mouse\-Press\-Event} (\-Q\-Graphics\-Scene\-Mouse\-Event $\ast$)
+\begin{DoxyCompactList}\small\item\em \-Adjusts focus. \end{DoxyCompactList}\item 
+void \hyperlink{classGame1Scene_ad6356f0a62d21fefd26110d6ea4ab10a}{move\-Current\-Sheep} (bool to\-Right)
+\begin{DoxyCompactList}\small\item\em \-Moves sheep with rotating cannon. \end{DoxyCompactList}\item 
+void \hyperlink{classGame1Scene_abd59b6c83eb85402d1f07ad06728f05b}{game\-Over} (bool win)
+\begin{DoxyCompactList}\small\item\em \-Stops movement of the sheep and triggers finishing the game. \end{DoxyCompactList}\item 
+void \hyperlink{classGame1Scene_a82ce3eadf3a51778be131f8b92632991}{fire\-Sheep} ()
+\begin{DoxyCompactList}\small\item\em \-Fires the sheep. \end{DoxyCompactList}\item 
+bool \hyperlink{classGame1Scene_ac171b3011a3526480c9483b2a486a984}{collides\-With\-Sheep\-In\-Line} (\-Q\-Graphics\-Item $\ast$item)
+\begin{DoxyCompactList}\small\item\em \-Checks the collision list of the item for a sheep in the sheep list. \end{DoxyCompactList}\item 
+int \hyperlink{classGame1Scene_a8698a81a65f06e6b07cdf1da92ba9d22}{get\-Score} () const 
+\begin{DoxyCompactList}\small\item\em \-Returns the current player score. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classGame1Scene_a9583982b66f78ed0dbca103ba2e26d77}{\index{\-Game1\-Scene@{\-Game1\-Scene}!\-Game1\-Scene@{\-Game1\-Scene}}
+\index{\-Game1\-Scene@{\-Game1\-Scene}!Game1Scene@{\-Game1\-Scene}}
+\subsubsection[{\-Game1\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game1\-Scene\-::\-Game1\-Scene} (
+\begin{DoxyParamCaption}
+\item[{int}]{level, }
+\item[{\-Q\-Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classGame1Scene_a9583982b66f78ed0dbca103ba2e26d77}
+
+
+\-Constructor. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em level} & \-Level of the game\\
+\hline
+\end{DoxyParams}
+\-Initializes variables and connections. \hypertarget{classGame1Scene_a810e661e0de4105509207c86bc35cbe2}{\index{\-Game1\-Scene@{\-Game1\-Scene}!$\sim$\-Game1\-Scene@{$\sim$\-Game1\-Scene}}
+\index{$\sim$\-Game1\-Scene@{$\sim$\-Game1\-Scene}!Game1Scene@{\-Game1\-Scene}}
+\subsubsection[{$\sim$\-Game1\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game1\-Scene\-::$\sim$\-Game1\-Scene} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classGame1Scene_a810e661e0de4105509207c86bc35cbe2}
+
+
+\-Destructor. 
+
+\-Frees allocated memory. 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classGame1Scene_ac171b3011a3526480c9483b2a486a984}{\index{\-Game1\-Scene@{\-Game1\-Scene}!collides\-With\-Sheep\-In\-Line@{collides\-With\-Sheep\-In\-Line}}
+\index{collides\-With\-Sheep\-In\-Line@{collides\-With\-Sheep\-In\-Line}!Game1Scene@{\-Game1\-Scene}}
+\subsubsection[{collides\-With\-Sheep\-In\-Line}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Game1\-Scene\-::collides\-With\-Sheep\-In\-Line} (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Graphics\-Item $\ast$}]{item}
+\end{DoxyParamCaption}
+)}}\label{classGame1Scene_ac171b3011a3526480c9483b2a486a984}
+
+
+\-Checks the collision list of the item for a sheep in the sheep list. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em item} & \-Pointer to item to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Whether the given item collides with a sheep in the list
+\end{DoxyReturn}
+\-Returns whether the given item collides with a sheep in the line. \hypertarget{classGame1Scene_a82ce3eadf3a51778be131f8b92632991}{\index{\-Game1\-Scene@{\-Game1\-Scene}!fire\-Sheep@{fire\-Sheep}}
+\index{fire\-Sheep@{fire\-Sheep}!Game1Scene@{\-Game1\-Scene}}
+\subsubsection[{fire\-Sheep}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-Scene\-::fire\-Sheep} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame1Scene_a82ce3eadf3a51778be131f8b92632991}
+
+
+\-Fires the sheep. 
+
+\-Releases the sheep and makes it move in a straight line. \hypertarget{classGame1Scene_abd59b6c83eb85402d1f07ad06728f05b}{\index{\-Game1\-Scene@{\-Game1\-Scene}!game\-Over@{game\-Over}}
+\index{game\-Over@{game\-Over}!Game1Scene@{\-Game1\-Scene}}
+\subsubsection[{game\-Over}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-Scene\-::game\-Over} (
+\begin{DoxyParamCaption}
+\item[{bool}]{win}
+\end{DoxyParamCaption}
+)}}\label{classGame1Scene_abd59b6c83eb85402d1f07ad06728f05b}
+
+
+\-Stops movement of the sheep and triggers finishing the game. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em win} & \-Indicates if the game has been won\\
+\hline
+\end{DoxyParams}
+\-Ends the game \hypertarget{classGame1Scene_a8698a81a65f06e6b07cdf1da92ba9d22}{\index{\-Game1\-Scene@{\-Game1\-Scene}!get\-Score@{get\-Score}}
+\index{get\-Score@{get\-Score}!Game1Scene@{\-Game1\-Scene}}
+\subsubsection[{get\-Score}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Game1\-Scene\-::get\-Score} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classGame1Scene_a8698a81a65f06e6b07cdf1da92ba9d22}
+
+
+\-Returns the current player score. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Current player score
+\end{DoxyReturn}
+\-Returns the player score for the current game. \-For each destroyed sheep, the player is awarded 10 points. \-When the player wins the game, they are awarded m\-\_\-score\-Display-\/$>$display(m\-\_\-score); 1 point per remaining sheep in-\/line move. \hypertarget{classGame1Scene_a3f20ac9bd39e4506c1dca07428a7e1b2}{\index{\-Game1\-Scene@{\-Game1\-Scene}!mouse\-Press\-Event@{mouse\-Press\-Event}}
+\index{mouse\-Press\-Event@{mouse\-Press\-Event}!Game1Scene@{\-Game1\-Scene}}
+\subsubsection[{mouse\-Press\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-Scene\-::mouse\-Press\-Event} (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Graphics\-Scene\-Mouse\-Event $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{classGame1Scene_a3f20ac9bd39e4506c1dca07428a7e1b2}
+
+
+\-Adjusts focus. 
+
+\-Sets focus on the cannon \hypertarget{classGame1Scene_a78806ef4597b5770184b46c194ff95c7}{\index{\-Game1\-Scene@{\-Game1\-Scene}!move\-\_\-line@{move\-\_\-line}}
+\index{move\-\_\-line@{move\-\_\-line}!Game1Scene@{\-Game1\-Scene}}
+\subsubsection[{move\-\_\-line}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-Scene\-::move\-\_\-line} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}\label{classGame1Scene_a78806ef4597b5770184b46c194ff95c7}
+
+
+\-Move sheep in the line according to a straight line then circle. 
+
+\-Moves the sheep in the line according to their position on the screen \hypertarget{classGame1Scene_ad6356f0a62d21fefd26110d6ea4ab10a}{\index{\-Game1\-Scene@{\-Game1\-Scene}!move\-Current\-Sheep@{move\-Current\-Sheep}}
+\index{move\-Current\-Sheep@{move\-Current\-Sheep}!Game1Scene@{\-Game1\-Scene}}
+\subsubsection[{move\-Current\-Sheep}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-Scene\-::move\-Current\-Sheep} (
+\begin{DoxyParamCaption}
+\item[{bool}]{to\-Right}
+\end{DoxyParamCaption}
+)}}\label{classGame1Scene_ad6356f0a62d21fefd26110d6ea4ab10a}
+
+
+\-Moves sheep with rotating cannon. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em to\-Right} & \-Indicates the direction of the cannon move\\
+\hline
+\end{DoxyParams}
+\-Moves current sheep. \-Called when the cannon rotates. 
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+game1/\hyperlink{game1scene_8h}{game1scene.\-h}\item 
+game1/\hyperlink{game1scene_8cpp}{game1scene.\-cpp}\end{DoxyCompactItemize}

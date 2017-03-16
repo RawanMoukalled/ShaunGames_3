@@ -18,6 +18,8 @@ class Sheep1 : public QObject, public QGraphicsPixmapItem
 public:
     /**
     * \brief Constructor
+    * \param number Sheep number
+    * \param inLine Whether sheep is in line
     */
     explicit Sheep1(int number, bool inLine, QObject *parent = 0);
 
@@ -28,11 +30,13 @@ public:
 
     /**
     * \brief Gets the angle of the sheep in degrees
+    * \returns The angle of the sheep in the circle
     */
     double getAngle() const;
 
     /**
     * \brief Sets the angle of the sheep in degrees
+    * \param angle The angle of the sheep in the circle
     */
     void setAngle(double angle);
 
@@ -44,11 +48,13 @@ public:
 
     /**
     * \brief Changes the status of the sheep as in or out of the moving line
+    * \param inLine Status of the sheep (inside or outside the line)
     */
     void setInLine(bool inLine);
 
     /**
     * \brief Fires the sheep in a straight line
+    * \param angle Angle at which to fire the sheep
     */
     void fire(double angle);
 
@@ -67,6 +73,7 @@ public:
 
     /**
     * \brief Returns the sheep number
+    * \returns Sheep number
     */
     int getNumber() const;
 

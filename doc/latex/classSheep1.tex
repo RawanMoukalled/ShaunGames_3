@@ -1,0 +1,229 @@
+\hypertarget{classSheep1}{\section{\-Sheep1 \-Class \-Reference}
+\label{classSheep1}\index{\-Sheep1@{\-Sheep1}}
+}
+\subsection*{\-Public \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSheep1_a1d152e5c8c94201d057c40a63f7ec33b}{fired\-Move} ()
+\begin{DoxyCompactList}\small\item\em \-Moves the sheep in the direction of the firing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSheep1_ac421bb46b209fc0c2a198d91a07ebfff}{\-Sheep1} (int number, bool in\-Line, \-Q\-Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \-Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classSheep1_a2622bc6b1343023ec74412b811f6531c}{$\sim$\-Sheep1} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\item 
+double \hyperlink{classSheep1_ab0e6c2a234909380c689e8588d7f6cfb}{get\-Angle} () const 
+\begin{DoxyCompactList}\small\item\em \-Gets the angle of the sheep in degrees. \end{DoxyCompactList}\item 
+void \hyperlink{classSheep1_a1644fdc3958aa506c792e5bf0e1ec964}{set\-Angle} (double angle)
+\begin{DoxyCompactList}\small\item\em \-Sets the angle of the sheep in degrees. \end{DoxyCompactList}\item 
+bool \hyperlink{classSheep1_a5bfd6e9f199c39fbc6daa3a679905653}{is\-In\-Line} () const 
+\begin{DoxyCompactList}\small\item\em \-Checks whether the sheep is part of the moving line. \end{DoxyCompactList}\item 
+void \hyperlink{classSheep1_ad5902cd1b715217e0bff1803c67e7184}{set\-In\-Line} (bool in\-Line)
+\begin{DoxyCompactList}\small\item\em \-Changes the status of the sheep as in or out of the moving line. \end{DoxyCompactList}\item 
+void \hyperlink{classSheep1_abe21e78851d4df2fc7e989c7f54121fb}{fire} (double angle)
+\begin{DoxyCompactList}\small\item\em \-Fires the sheep in a straight line. \end{DoxyCompactList}\item 
+void \hyperlink{classSheep1_af82457038ce2bdae2cb85b09e093b8fe}{move\-In\-Line} (double distance)
+\begin{DoxyCompactList}\small\item\em \-Moves the sheep in line by given distance. \end{DoxyCompactList}\item 
+double \hyperlink{classSheep1_aa25f6b89d1a6de8f0c0afd7885176777}{in\-Line\-Distance\-To} (const \hyperlink{classSheep1}{\-Sheep1} $\ast$other) const 
+\begin{DoxyCompactList}\small\item\em \-Returns the in-\/line distance between object and given sheep. \end{DoxyCompactList}\item 
+int \hyperlink{classSheep1_a67846c27af775696140663a6b39da7d2}{get\-Number} () const 
+\begin{DoxyCompactList}\small\item\em \-Returns the sheep number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Static \-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classSheep1_aa2a9a9c68c9a18a1eeaa732badfcea82}{get\-Random\-Sheep\-Number} ()
+\begin{DoxyCompactList}\small\item\em \-Returns a number between 1 and 9. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classSheep1_ac421bb46b209fc0c2a198d91a07ebfff}{\index{\-Sheep1@{\-Sheep1}!\-Sheep1@{\-Sheep1}}
+\index{\-Sheep1@{\-Sheep1}!Sheep1@{\-Sheep1}}
+\subsubsection[{\-Sheep1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Sheep1\-::\-Sheep1} (
+\begin{DoxyParamCaption}
+\item[{int}]{number, }
+\item[{bool}]{in\-Line, }
+\item[{\-Q\-Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classSheep1_ac421bb46b209fc0c2a198d91a07ebfff}
+
+
+\-Constructor. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em number} & \-Sheep number \\
+\hline
+{\em in\-Line} & \-Whether sheep is in line\\
+\hline
+\end{DoxyParams}
+\-Sets the properties of the sheep. \hypertarget{classSheep1_a2622bc6b1343023ec74412b811f6531c}{\index{\-Sheep1@{\-Sheep1}!$\sim$\-Sheep1@{$\sim$\-Sheep1}}
+\index{$\sim$\-Sheep1@{$\sim$\-Sheep1}!Sheep1@{\-Sheep1}}
+\subsubsection[{$\sim$\-Sheep1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Sheep1\-::$\sim$\-Sheep1} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classSheep1_a2622bc6b1343023ec74412b811f6531c}
+
+
+\-Destructor. 
+
+\-Frees allocated memory. 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classSheep1_abe21e78851d4df2fc7e989c7f54121fb}{\index{\-Sheep1@{\-Sheep1}!fire@{fire}}
+\index{fire@{fire}!Sheep1@{\-Sheep1}}
+\subsubsection[{fire}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Sheep1\-::fire} (
+\begin{DoxyParamCaption}
+\item[{double}]{angle}
+\end{DoxyParamCaption}
+)}}\label{classSheep1_abe21e78851d4df2fc7e989c7f54121fb}
+
+
+\-Fires the sheep in a straight line. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em angle} & \-Angle at which to fire the sheep\\
+\hline
+\end{DoxyParams}
+\-Fires sheep at an angle. \-Called when the user fires the cannon. \hypertarget{classSheep1_a1d152e5c8c94201d057c40a63f7ec33b}{\index{\-Sheep1@{\-Sheep1}!fired\-Move@{fired\-Move}}
+\index{fired\-Move@{fired\-Move}!Sheep1@{\-Sheep1}}
+\subsubsection[{fired\-Move}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Sheep1\-::fired\-Move} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}\label{classSheep1_a1d152e5c8c94201d057c40a63f7ec33b}
+
+
+\-Moves the sheep in the direction of the firing. 
+
+\-Moves the sheep in the distance of the firing of the cannon. \hypertarget{classSheep1_ab0e6c2a234909380c689e8588d7f6cfb}{\index{\-Sheep1@{\-Sheep1}!get\-Angle@{get\-Angle}}
+\index{get\-Angle@{get\-Angle}!Sheep1@{\-Sheep1}}
+\subsubsection[{get\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Sheep1\-::get\-Angle} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSheep1_ab0e6c2a234909380c689e8588d7f6cfb}
+
+
+\-Gets the angle of the sheep in degrees. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The angle of the sheep in the circle 
+\end{DoxyReturn}
+\hypertarget{classSheep1_a67846c27af775696140663a6b39da7d2}{\index{\-Sheep1@{\-Sheep1}!get\-Number@{get\-Number}}
+\index{get\-Number@{get\-Number}!Sheep1@{\-Sheep1}}
+\subsubsection[{get\-Number}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Sheep1\-::get\-Number} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSheep1_a67846c27af775696140663a6b39da7d2}
+
+
+\-Returns the sheep number. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Sheep number 
+\end{DoxyReturn}
+\hypertarget{classSheep1_aa2a9a9c68c9a18a1eeaa732badfcea82}{\index{\-Sheep1@{\-Sheep1}!get\-Random\-Sheep\-Number@{get\-Random\-Sheep\-Number}}
+\index{get\-Random\-Sheep\-Number@{get\-Random\-Sheep\-Number}!Sheep1@{\-Sheep1}}
+\subsubsection[{get\-Random\-Sheep\-Number}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Sheep1\-::get\-Random\-Sheep\-Number} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classSheep1_aa2a9a9c68c9a18a1eeaa732badfcea82}
+
+
+\-Returns a number between 1 and 9. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Number between 1 and 9
+\end{DoxyReturn}
+\-Returns a random sheep number between 1 and 9. \hypertarget{classSheep1_aa25f6b89d1a6de8f0c0afd7885176777}{\index{\-Sheep1@{\-Sheep1}!in\-Line\-Distance\-To@{in\-Line\-Distance\-To}}
+\index{in\-Line\-Distance\-To@{in\-Line\-Distance\-To}!Sheep1@{\-Sheep1}}
+\subsubsection[{in\-Line\-Distance\-To}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Sheep1\-::in\-Line\-Distance\-To} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Sheep1} $\ast$}]{other}
+\end{DoxyParamCaption}
+) const}}\label{classSheep1_aa25f6b89d1a6de8f0c0afd7885176777}
+
+
+\-Returns the in-\/line distance between object and given sheep. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em other} & \-Other sheep \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Distance in pixels
+\end{DoxyReturn}
+\-Calculates the distance between the two in-\/line sheep. \hypertarget{classSheep1_a5bfd6e9f199c39fbc6daa3a679905653}{\index{\-Sheep1@{\-Sheep1}!is\-In\-Line@{is\-In\-Line}}
+\index{is\-In\-Line@{is\-In\-Line}!Sheep1@{\-Sheep1}}
+\subsubsection[{is\-In\-Line}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Sheep1\-::is\-In\-Line} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classSheep1_a5bfd6e9f199c39fbc6daa3a679905653}
+
+
+\-Checks whether the sheep is part of the moving line. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Whether sheep is in line 
+\end{DoxyReturn}
+\hypertarget{classSheep1_af82457038ce2bdae2cb85b09e093b8fe}{\index{\-Sheep1@{\-Sheep1}!move\-In\-Line@{move\-In\-Line}}
+\index{move\-In\-Line@{move\-In\-Line}!Sheep1@{\-Sheep1}}
+\subsubsection[{move\-In\-Line}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Sheep1\-::move\-In\-Line} (
+\begin{DoxyParamCaption}
+\item[{double}]{distance}
+\end{DoxyParamCaption}
+)}}\label{classSheep1_af82457038ce2bdae2cb85b09e093b8fe}
+
+
+\-Moves the sheep in line by given distance. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em distance} & \-Distance by which to move the sheep in pixels\\
+\hline
+\end{DoxyParams}
+\-Moves sheep in line by given distance. \hypertarget{classSheep1_a1644fdc3958aa506c792e5bf0e1ec964}{\index{\-Sheep1@{\-Sheep1}!set\-Angle@{set\-Angle}}
+\index{set\-Angle@{set\-Angle}!Sheep1@{\-Sheep1}}
+\subsubsection[{set\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Sheep1\-::set\-Angle} (
+\begin{DoxyParamCaption}
+\item[{double}]{angle}
+\end{DoxyParamCaption}
+)}}\label{classSheep1_a1644fdc3958aa506c792e5bf0e1ec964}
+
+
+\-Sets the angle of the sheep in degrees. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em angle} & \-The angle of the sheep in the circle \\
+\hline
+\end{DoxyParams}
+\hypertarget{classSheep1_ad5902cd1b715217e0bff1803c67e7184}{\index{\-Sheep1@{\-Sheep1}!set\-In\-Line@{set\-In\-Line}}
+\index{set\-In\-Line@{set\-In\-Line}!Sheep1@{\-Sheep1}}
+\subsubsection[{set\-In\-Line}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Sheep1\-::set\-In\-Line} (
+\begin{DoxyParamCaption}
+\item[{bool}]{in\-Line}
+\end{DoxyParamCaption}
+)}}\label{classSheep1_ad5902cd1b715217e0bff1803c67e7184}
+
+
+\-Changes the status of the sheep as in or out of the moving line. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em in\-Line} & \-Status of the sheep (inside or outside the line) \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+game1/\hyperlink{sheep1_8h}{sheep1.\-h}\item 
+game1/\hyperlink{sheep1_8cpp}{sheep1.\-cpp}\end{DoxyCompactItemize}

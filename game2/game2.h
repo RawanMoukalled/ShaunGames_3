@@ -34,9 +34,9 @@ public slots:
     void goToMainMenu();
 
 private:
-    QLabel *m_title;
-    QPushButton *m_exit;
-    QVBoxLayout *m_Game2Layout;
+    QLabel *m_title; ///< Game title
+    QPushButton *m_exit; ///< Button to save and exit
+    QVBoxLayout *m_Game2Layout; ///< Layout of widget
 
     /**
     * \brief Sets the different graphic items in one layout for the game
