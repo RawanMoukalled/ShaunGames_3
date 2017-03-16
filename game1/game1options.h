@@ -48,6 +48,7 @@ public slots:
 
     /**
     * \brief Takes the user to game 1
+    * \param The level of the game
     */
     void gotoGame1(int level);
     

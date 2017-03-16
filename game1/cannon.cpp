@@ -6,7 +6,6 @@
 * \brief Contains Cannon class definition
 */
 
-
 /**
 * Sets the cannonimage and initializes variables.
 */

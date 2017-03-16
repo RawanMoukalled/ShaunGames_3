@@ -4,6 +4,11 @@
 #include <QString>
 
 /**
+* \file sheep1.cpp
+* \brief Contains Sheep1 class definition
+*/
+
+/**
 * Sets the properties of the sheep.
 */
 Sheep1::Sheep1(int number, bool inLine, QObject *parent) :

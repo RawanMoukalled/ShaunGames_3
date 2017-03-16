@@ -38,11 +38,13 @@ public:
 
     /**
     * \brief Moves sheep with rotating cannon
+    * \param Indicates the direction of the cannon move
     */
     void moveCurrentSheep(bool toRight);
 
     /**
     * \brief Stops movement of the sheep and triggers finishing the game
+    * \param Indicates if the game has been won
     */
     void gameOver(bool win);
 

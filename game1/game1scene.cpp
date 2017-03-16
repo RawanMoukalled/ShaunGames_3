@@ -5,6 +5,11 @@
 #include "game1options.h"
 
 /**
+* \file game1scene.cpp
+* \brief Contains Game1Scene class definition
+*/
+
+/**
 * Initializes variables and connections.
 */
 Game1Scene::Game1Scene(int level, QObject *parent) :
@@ -83,10 +88,16 @@ Game1Scene::~Game1Scene() {
     }
 }
 
+/**
+* Sets focus on the cannon
+*/
 void Game1Scene::mousePressEvent(QGraphicsSceneMouseEvent *) {
     m_cannon->setFocus();
 }
 
+/**
+* Ends the game
+*/
 void Game1Scene::gameOver(bool win) {
     m_gameOverPicture = new GameOver(win);
 

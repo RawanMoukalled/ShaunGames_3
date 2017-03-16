@@ -29,6 +29,7 @@ public:
 
     /**
     * \brief Load new game
+    * \param Indicates if the level is the same
     */
     void loadNewGame(bool sameLevel);
     
@@ -42,6 +43,7 @@ public slots:
 
     /**
     * \brief Slot to handle ending the game once it's over
+    * \param Indicates if the user has won the game
     */
     void endGame(bool win);
 

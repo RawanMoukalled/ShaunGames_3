@@ -17,6 +17,7 @@ class GameOver : public QObject, public QGraphicsPixmapItem
 public:
     /**
     * \brief Default constructor
+    * \param Indicates if the game has been won
     */
     explicit GameOver(bool win, QObject *parent = 0);
 
