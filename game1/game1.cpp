@@ -12,7 +12,7 @@
 * and connects buttons to their slots.
 */
 Game1::Game1(int level, QWidget *parent) :
-    QWidget(parent)
+    QWidget(parent), m_level(level)
 {
     setFixedSize(600,600);
 
@@ -23,7 +23,6 @@ Game1::Game1(int level, QWidget *parent) :
     Helper::makeWidgetLarge(m_title);
     Helper::makeWidgetSmall(m_exit);
 
-    m_level = level;
     m_gameScene = new Game1Scene(level);
     m_gameView = new QGraphicsView;
 

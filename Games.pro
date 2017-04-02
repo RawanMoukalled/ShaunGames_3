@@ -17,6 +17,8 @@ SOURCES += \
     game2/game2options.cpp \
     game3/game3options.cpp \
     game2/game2scene.cpp
+    game3/game3scene.cpp \
+    game3/dot.cpp
 
 HEADERS += \
     myaccount.h \
@@ -36,6 +38,9 @@ HEADERS += \
     game2/game2options.h \
     game3/game3options.h \
     game2/game2scene.h \
-    difficulty.h
+    difficulty.h \
+    game3/size.h \
+    game3/game3scene.h \
+    game3/dot.h
 
 OTHER_FILES +=
