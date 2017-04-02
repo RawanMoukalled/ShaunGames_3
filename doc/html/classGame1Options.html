@@ -78,7 +78,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-slots">Public Slots</a> &#124;
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Game1Options Class Reference</div>  </div>
 </div><!--header-->
@@ -90,12 +91,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Slots</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame1Options.html#a3222e0a22e8ed7deb0ae7ba05677bf8d">gotoGameMainMenu</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the user to the game main menu.  <a href="#a3222e0a22e8ed7deb0ae7ba05677bf8d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame1Options.html#aac8c0fd1521b7c7ee17144ca265a80a2">gotoGame1</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the user to game 1.  <a href="#aac8c0fd1521b7c7ee17144ca265a80a2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame1Options.html#a24872ff9bd747ce5fa184cd876d1073a">gotoGame1</a> (int level)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the user to game 1.  <a href="#a24872ff9bd747ce5fa184cd876d1073a"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame1Options.html#a368eef646eb49bdd45a8c04e00bdc45c">Game1Options</a> (QWidget *parent=0)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a368eef646eb49bdd45a8c04e00bdc45c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame1Options.html#ae409fa563f0e6c89e0af3786614d6265">~Game1Options</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ae409fa563f0e6c89e0af3786614d6265"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame1Options.html#ac2709ba618a4f81b2669685a7720930f">getNumberOfUnlockedLevels</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of levels in game 1 that the user has unlocked.  <a href="#ac2709ba618a4f81b2669685a7720930f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame1Options.html#a17769cad0373a80bf26e81a91d1bc164">unlockExtraLevel</a> (int currLevel)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlocks one new game 1 level if appropriate.  <a href="#a17769cad0373a80bf26e81a91d1bc164"></a><br/></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a368eef646eb49bdd45a8c04e00bdc45c"></a><!-- doxytag: member="Game1Options::Game1Options" ref="a368eef646eb49bdd45a8c04e00bdc45c" args="(QWidget *parent=0)" -->
@@ -118,15 +127,55 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="aac8c0fd1521b7c7ee17144ca265a80a2"></a><!-- doxytag: member="Game1Options::gotoGame1" ref="aac8c0fd1521b7c7ee17144ca265a80a2" args="()" -->
+<a class="anchor" id="ae409fa563f0e6c89e0af3786614d6265"></a><!-- doxytag: member="Game1Options::~Game1Options" ref="ae409fa563f0e6c89e0af3786614d6265" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classGame1Options.html#aac8c0fd1521b7c7ee17144ca265a80a2">Game1Options::gotoGame1</a> </td>
+          <td class="memname"><a class="el" href="classGame1Options.html#ae409fa563f0e6c89e0af3786614d6265">Game1Options::~Game1Options</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Destructor. </p>
+<p>Frees allocated memory </p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ac2709ba618a4f81b2669685a7720930f"></a><!-- doxytag: member="Game1Options::getNumberOfUnlockedLevels" ref="ac2709ba618a4f81b2669685a7720930f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classGame1Options.html#ac2709ba618a4f81b2669685a7720930f">Game1Options::getNumberOfUnlockedLevels</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns the number of levels in game 1 that the user has unlocked. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Number of levels</dd></dl>
+<p>Returns the number of levels that the user has unlocked. </p>
+
+</div>
+</div>
+<a class="anchor" id="a24872ff9bd747ce5fa184cd876d1073a"></a><!-- doxytag: member="Game1Options::gotoGame1" ref="a24872ff9bd747ce5fa184cd876d1073a" args="(int level)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGame1Options.html#a24872ff9bd747ce5fa184cd876d1073a">Game1Options::gotoGame1</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em></td><td>)</td>
           <td><code> [slot]</code></td>
         </tr>
       </table>
@@ -134,6 +183,12 @@ Public Member Functions</h2></td></tr>
 <div class="memdoc">
 
 <p>Takes the user to game 1. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">level</td><td>The level of the game</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Takes the user to game 1. Called after clicking any level button. </p>
 
 </div>
@@ -157,9 +212,35 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a17769cad0373a80bf26e81a91d1bc164"></a><!-- doxytag: member="Game1Options::unlockExtraLevel" ref="a17769cad0373a80bf26e81a91d1bc164" args="(int currLevel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGame1Options.html#a17769cad0373a80bf26e81a91d1bc164">Game1Options::unlockExtraLevel</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>currLevel</em></td><td>)</td>
+          <td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Unlocks one new game 1 level if appropriate. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">currLevel</td><td>Level that was just won</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Unlocks a new level if the user has just won the last unlocked level. Called after a user wins a certain level. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="game1options_8h_source.html">game1options.h</a></li>
-<li><a class="el" href="game1options_8cpp.html">game1options.cpp</a></li>
+<li>game1/<a class="el" href="game1options_8h_source.html">game1options.h</a></li>
+<li>game1/<a class="el" href="game1options_8cpp.html">game1options.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- window showing the filter options -->
@@ -167,7 +248,7 @@ Public Member Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -179,7 +260,7 @@ Public Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 28 2017 15:33:41 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 16 2017 21:38:31 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

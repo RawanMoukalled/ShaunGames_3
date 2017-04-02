@@ -5,32 +5,73 @@
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{classGame1_ad2deb82e0e796476d4e872b35b18298a}{go\-To\-Main\-Menu} ()
-\begin{DoxyCompactList}\small\item\em \-Slot to go back to the games main menu when pressing \-Exit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \-Slot to go back to the games main menu when pressing \-Exit. \end{DoxyCompactList}\item 
+void \hyperlink{classGame1_a77d143d518941d661ed7ed58d7709eb3}{end\-Game} (bool win)
+\begin{DoxyCompactList}\small\item\em \-Slot to handle ending the game once it's over. \end{DoxyCompactList}\item 
+void \hyperlink{classGame1_ae77aa2b2516135ecaa1667c8d3edc7c4}{replay} ()
+\begin{DoxyCompactList}\small\item\em \-Reloads the game with the same level. \end{DoxyCompactList}\item 
+void \hyperlink{classGame1_a556cb1f167454f0b668b706da20d403f}{next} ()
+\begin{DoxyCompactList}\small\item\em \-Proceed to the next level. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{\-Public \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classGame1_af20f85d4b8edb39251487b1ab025fd8c}{\-Game1} (\-Q\-Widget $\ast$parent=0)
-\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\hyperlink{classGame1_a8f936cce407e67e38223ce348c97f027}{\-Game1} (int level, \-Q\-Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \-Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classGame1_aa498b4499c4032cc7a65cc7755b1d3be}{$\sim$\-Game1} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classGame1_a5c85823c0c4c44e22bfa66146d04fcac}{load\-New\-Game} (bool same\-Level)
+\begin{DoxyCompactList}\small\item\em \-Load new game. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Constructor \& \-Destructor \-Documentation}
-\hypertarget{classGame1_af20f85d4b8edb39251487b1ab025fd8c}{\index{\-Game1@{\-Game1}!\-Game1@{\-Game1}}
+\hypertarget{classGame1_a8f936cce407e67e38223ce348c97f027}{\index{\-Game1@{\-Game1}!\-Game1@{\-Game1}}
 \index{\-Game1@{\-Game1}!Game1@{\-Game1}}
 \subsubsection[{\-Game1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game1\-::\-Game1} (
 \begin{DoxyParamCaption}
+\item[{int}]{level, }
 \item[{\-Q\-Widget $\ast$}]{parent = {\ttfamily 0}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classGame1_af20f85d4b8edb39251487b1ab025fd8c}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classGame1_a8f936cce407e67e38223ce348c97f027}
 
 
-\-Default constructor. 
+\-Constructor. 
 
-\-Constructor for \-Sheep \-Line.
 
-\-Sets the size of the window, initializes the graphic items, sets the layouts and connects buttons to their slots 
+\begin{DoxyParams}{\-Parameters}
+{\em level} & \-Game level\\
+\hline
+\end{DoxyParams}
+\-Sets the size of the window, initializes the graphic items, sets the layouts and connects buttons to their slots. \hypertarget{classGame1_aa498b4499c4032cc7a65cc7755b1d3be}{\index{\-Game1@{\-Game1}!$\sim$\-Game1@{$\sim$\-Game1}}
+\index{$\sim$\-Game1@{$\sim$\-Game1}!Game1@{\-Game1}}
+\subsubsection[{$\sim$\-Game1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game1\-::$\sim$\-Game1} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classGame1_aa498b4499c4032cc7a65cc7755b1d3be}
+
+
+\-Destructor. 
+
+\-Frees allocated memory 
 
 \subsection{\-Member \-Function \-Documentation}
-\hypertarget{classGame1_ad2deb82e0e796476d4e872b35b18298a}{\index{\-Game1@{\-Game1}!go\-To\-Main\-Menu@{go\-To\-Main\-Menu}}
+\hypertarget{classGame1_a77d143d518941d661ed7ed58d7709eb3}{\index{\-Game1@{\-Game1}!end\-Game@{end\-Game}}
+\index{end\-Game@{end\-Game}!Game1@{\-Game1}}
+\subsubsection[{end\-Game}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-::end\-Game} (
+\begin{DoxyParamCaption}
+\item[{bool}]{win}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}\label{classGame1_a77d143d518941d661ed7ed58d7709eb3}
+
+
+\-Slot to handle ending the game once it's over. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em win} & \-Indicates if the user has won the game\\
+\hline
+\end{DoxyParams}
+\-Removes the save and exit button and adds the go back and replay buttons along with their connections \hypertarget{classGame1_ad2deb82e0e796476d4e872b35b18298a}{\index{\-Game1@{\-Game1}!go\-To\-Main\-Menu@{go\-To\-Main\-Menu}}
 \index{go\-To\-Main\-Menu@{go\-To\-Main\-Menu}!Game1@{\-Game1}}
 \subsubsection[{go\-To\-Main\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-::go\-To\-Main\-Menu} (
 \begin{DoxyParamCaption}
@@ -41,9 +82,47 @@ void \hyperlink{classGame1_ad2deb82e0e796476d4e872b35b18298a}{go\-To\-Main\-Menu
 
 \-Slot to go back to the games main menu when pressing \-Exit. 
 
-\-Goes to the main menu of \-Sheep \-Line. 
+\-Goes to the main menu of \-Sheep \-Line \hypertarget{classGame1_a5c85823c0c4c44e22bfa66146d04fcac}{\index{\-Game1@{\-Game1}!load\-New\-Game@{load\-New\-Game}}
+\index{load\-New\-Game@{load\-New\-Game}!Game1@{\-Game1}}
+\subsubsection[{load\-New\-Game}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-::load\-New\-Game} (
+\begin{DoxyParamCaption}
+\item[{bool}]{same\-Level}
+\end{DoxyParamCaption}
+)}}\label{classGame1_a5c85823c0c4c44e22bfa66146d04fcac}
+
+
+\-Load new game. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em same\-Level} & \-Indicates if the level is the same\\
+\hline
+\end{DoxyParams}
+\-Loads a new game of either the same level or the next \hypertarget{classGame1_a556cb1f167454f0b668b706da20d403f}{\index{\-Game1@{\-Game1}!next@{next}}
+\index{next@{next}!Game1@{\-Game1}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-::next} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}\label{classGame1_a556cb1f167454f0b668b706da20d403f}
+
+
+\-Proceed to the next level. 
+
+\-Proceed to the next level \hypertarget{classGame1_ae77aa2b2516135ecaa1667c8d3edc7c4}{\index{\-Game1@{\-Game1}!replay@{replay}}
+\index{replay@{replay}!Game1@{\-Game1}}
+\subsubsection[{replay}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-::replay} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}\label{classGame1_ae77aa2b2516135ecaa1667c8d3edc7c4}
+
+
+\-Reloads the game with the same level. 
+
+\-Loads a new instance of the \hyperlink{classGame1}{\-Game1} \-Scene 
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{game1_8h}{game1.\-h}\item 
-\hyperlink{game1_8cpp}{game1.\-cpp}\end{DoxyCompactItemize}
+game1/\hyperlink{game1_8h}{game1.\-h}\item 
+game1/\hyperlink{game1_8cpp}{game1.\-cpp}\end{DoxyCompactItemize}

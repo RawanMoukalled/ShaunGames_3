@@ -90,34 +90,104 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Slots</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame1.html#ad2deb82e0e796476d4e872b35b18298a">goToMainMenu</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot to go back to the games main menu when pressing Exit.  <a href="#ad2deb82e0e796476d4e872b35b18298a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame1.html#a77d143d518941d661ed7ed58d7709eb3">endGame</a> (bool win)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot to handle ending the game once it's over.  <a href="#a77d143d518941d661ed7ed58d7709eb3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame1.html#ae77aa2b2516135ecaa1667c8d3edc7c4">replay</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reloads the game with the same level.  <a href="#ae77aa2b2516135ecaa1667c8d3edc7c4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame1.html#a556cb1f167454f0b668b706da20d403f">next</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Proceed to the next level.  <a href="#a556cb1f167454f0b668b706da20d403f"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame1.html#af20f85d4b8edb39251487b1ab025fd8c">Game1</a> (QWidget *parent=0)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#af20f85d4b8edb39251487b1ab025fd8c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame1.html#a8f936cce407e67e38223ce348c97f027">Game1</a> (int level, QWidget *parent=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a8f936cce407e67e38223ce348c97f027"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame1.html#aa498b4499c4032cc7a65cc7755b1d3be">~Game1</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#aa498b4499c4032cc7a65cc7755b1d3be"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame1.html#a5c85823c0c4c44e22bfa66146d04fcac">loadNewGame</a> (bool sameLevel)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Load new game.  <a href="#a5c85823c0c4c44e22bfa66146d04fcac"></a><br/></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="af20f85d4b8edb39251487b1ab025fd8c"></a><!-- doxytag: member="Game1::Game1" ref="af20f85d4b8edb39251487b1ab025fd8c" args="(QWidget *parent=0)" -->
+<a class="anchor" id="a8f936cce407e67e38223ce348c97f027"></a><!-- doxytag: member="Game1::Game1" ref="a8f936cce407e67e38223ce348c97f027" args="(int level, QWidget *parent=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classGame1.html#af20f85d4b8edb39251487b1ab025fd8c">Game1::Game1</a> </td>
+          <td class="memname"><a class="el" href="classGame1.html#a8f936cce407e67e38223ce348c97f027">Game1::Game1</a> </td>
           <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">QWidget *&#160;</td>
-          <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
-          <td><code> [explicit]</code></td>
+          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [explicit]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Default constructor. </p>
-<p>Constructor for Sheep Line.</p>
-<p>Sets the size of the window, initializes the graphic items, sets the layouts and connects buttons to their slots </p>
+<p>Constructor. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">level</td><td>Game level</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Sets the size of the window, initializes the graphic items, sets the layouts and connects buttons to their slots. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa498b4499c4032cc7a65cc7755b1d3be"></a><!-- doxytag: member="Game1::~Game1" ref="aa498b4499c4032cc7a65cc7755b1d3be" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGame1.html#aa498b4499c4032cc7a65cc7755b1d3be">Game1::~Game1</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Destructor. </p>
+<p>Frees allocated memory </p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a77d143d518941d661ed7ed58d7709eb3"></a><!-- doxytag: member="Game1::endGame" ref="a77d143d518941d661ed7ed58d7709eb3" args="(bool win)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGame1.html#a77d143d518941d661ed7ed58d7709eb3">Game1::endGame</a> </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>win</em></td><td>)</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Slot to handle ending the game once it's over. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Indicates if the user has won the game</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Removes the save and exit button and adds the go back and replay buttons along with their connections </p>
+
+</div>
+</div>
 <a class="anchor" id="ad2deb82e0e796476d4e872b35b18298a"></a><!-- doxytag: member="Game1::goToMainMenu" ref="ad2deb82e0e796476d4e872b35b18298a" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -133,13 +203,77 @@ Public Member Functions</h2></td></tr>
 <div class="memdoc">
 
 <p>Slot to go back to the games main menu when pressing Exit. </p>
-<p>Goes to the main menu of Sheep Line. </p>
+<p>Goes to the main menu of Sheep Line </p>
+
+</div>
+</div>
+<a class="anchor" id="a5c85823c0c4c44e22bfa66146d04fcac"></a><!-- doxytag: member="Game1::loadNewGame" ref="a5c85823c0c4c44e22bfa66146d04fcac" args="(bool sameLevel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGame1.html#a5c85823c0c4c44e22bfa66146d04fcac">Game1::loadNewGame</a> </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sameLevel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Load new game. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sameLevel</td><td>Indicates if the level is the same</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Loads a new game of either the same level or the next </p>
+
+</div>
+</div>
+<a class="anchor" id="a556cb1f167454f0b668b706da20d403f"></a><!-- doxytag: member="Game1::next" ref="a556cb1f167454f0b668b706da20d403f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGame1.html#a556cb1f167454f0b668b706da20d403f">Game1::next</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Proceed to the next level. </p>
+<p>Proceed to the next level </p>
+
+</div>
+</div>
+<a class="anchor" id="ae77aa2b2516135ecaa1667c8d3edc7c4"></a><!-- doxytag: member="Game1::replay" ref="ae77aa2b2516135ecaa1667c8d3edc7c4" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGame1.html#ae77aa2b2516135ecaa1667c8d3edc7c4">Game1::replay</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reloads the game with the same level. </p>
+<p>Loads a new instance of the <a class="el" href="classGame1.html">Game1</a> Scene </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="game1_8h_source.html">game1.h</a></li>
-<li><a class="el" href="game1_8cpp.html">game1.cpp</a></li>
+<li>game1/<a class="el" href="game1_8h_source.html">game1.h</a></li>
+<li>game1/<a class="el" href="game1_8cpp.html">game1.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- window showing the filter options -->
@@ -147,7 +281,7 @@ Public Member Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -159,7 +293,7 @@ Public Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 28 2017 15:33:41 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 16 2017 21:38:31 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

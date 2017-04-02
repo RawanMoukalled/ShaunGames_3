@@ -81,15 +81,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 This is the complete list of members for <a class="el" href="classGame1.html">Game1</a>, including all inherited members.<table>
-  <tr class="memlist"><td><a class="el" href="classGame1.html#af20f85d4b8edb39251487b1ab025fd8c">Game1</a>(QWidget *parent=0)</td><td><a class="el" href="classGame1.html">Game1</a></td><td><code> [explicit]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classGame1.html#a77d143d518941d661ed7ed58d7709eb3">endGame</a>(bool win)</td><td><a class="el" href="classGame1.html">Game1</a></td><td><code> [slot]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classGame1.html#a8f936cce407e67e38223ce348c97f027">Game1</a>(int level, QWidget *parent=0)</td><td><a class="el" href="classGame1.html">Game1</a></td><td><code> [explicit]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classGame1.html#ad2deb82e0e796476d4e872b35b18298a">goToMainMenu</a>()</td><td><a class="el" href="classGame1.html">Game1</a></td><td><code> [slot]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classGame1.html#a5c85823c0c4c44e22bfa66146d04fcac">loadNewGame</a>(bool sameLevel)</td><td><a class="el" href="classGame1.html">Game1</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classGame1.html#a556cb1f167454f0b668b706da20d403f">next</a>()</td><td><a class="el" href="classGame1.html">Game1</a></td><td><code> [slot]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classGame1.html#ae77aa2b2516135ecaa1667c8d3edc7c4">replay</a>()</td><td><a class="el" href="classGame1.html">Game1</a></td><td><code> [slot]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classGame1.html#aa498b4499c4032cc7a65cc7755b1d3be">~Game1</a>()</td><td><a class="el" href="classGame1.html">Game1</a></td><td><code> [virtual]</code></td></tr>
 </table></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -101,7 +106,7 @@ This is the complete list of members for <a class="el" href="classGame1.html">Ga
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 28 2017 15:33:41 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 16 2017 21:38:31 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

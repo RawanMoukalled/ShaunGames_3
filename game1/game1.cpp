@@ -119,6 +119,9 @@ void Game1::next() {
     loadNewGame(false);
 }
 
+/**
+* Loads a new game of either the same level or the next
+*/
 void Game1::loadNewGame(bool sameLevel) {
     if(!sameLevel) {
         m_level++;

@@ -16,11 +16,13 @@ class Helper
 public:
     /**
     * \brief Makes given widget small
+    * \param widget Widget whose size to change
     */
     static void makeWidgetSmall(QWidget *widget);
 
     /**
     * \brief Makes given widget large
+    * \param widget Widget whose size to change
     */
     static void makeWidgetLarge(QWidget *widget);
 

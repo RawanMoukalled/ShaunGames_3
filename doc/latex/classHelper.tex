@@ -7,7 +7,15 @@
 static void \hyperlink{classHelper_a2eeb1ba71a75f4d0f59c6efdd429a1b7}{make\-Widget\-Small} (\-Q\-Widget $\ast$widget)
 \begin{DoxyCompactList}\small\item\em \-Makes given widget small. \end{DoxyCompactList}\item 
 static void \hyperlink{classHelper_a1c444bceb723964a341b1c8b2bd2f95c}{make\-Widget\-Large} (\-Q\-Widget $\ast$widget)
-\begin{DoxyCompactList}\small\item\em \-Makes given widget large. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \-Makes given widget large. \end{DoxyCompactList}\item 
+static double \hyperlink{classHelper_ad085317d0b7ad0e5ac3d08b559a7015f}{to\-Radians} (double degrees)
+\begin{DoxyCompactList}\small\item\em \-Takes an angle in degrees, turns it into radians. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Static \-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classHelper_a13faf9f5fa52f832db1a99b4c0c91cb8}{static const double \hyperlink{classHelper_a13faf9f5fa52f832db1a99b4c0c91cb8}{\-P\-I} = 3.\-14159265}\label{classHelper_a13faf9f5fa52f832db1a99b4c0c91cb8}
+
+\begin{DoxyCompactList}\small\item\em \-P\-I. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Member \-Function \-Documentation}
@@ -22,6 +30,11 @@ static void \hyperlink{classHelper_a1c444bceb723964a341b1c8b2bd2f95c}{make\-Widg
 
 \-Makes given widget large. 
 
+
+\begin{DoxyParams}{\-Parameters}
+{\em widget} & \-Widget whose size to change\\
+\hline
+\end{DoxyParams}
 \-Makes the given widget large. \hypertarget{classHelper_a2eeb1ba71a75f4d0f59c6efdd429a1b7}{\index{\-Helper@{\-Helper}!make\-Widget\-Small@{make\-Widget\-Small}}
 \index{make\-Widget\-Small@{make\-Widget\-Small}!Helper@{\-Helper}}
 \subsubsection[{make\-Widget\-Small}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-::make\-Widget\-Small} (
@@ -33,7 +46,31 @@ static void \hyperlink{classHelper_a1c444bceb723964a341b1c8b2bd2f95c}{make\-Widg
 
 \-Makes given widget small. 
 
-\-Makes the given widget small. 
+
+\begin{DoxyParams}{\-Parameters}
+{\em widget} & \-Widget whose size to change\\
+\hline
+\end{DoxyParams}
+\-Makes the given widget small. \hypertarget{classHelper_ad085317d0b7ad0e5ac3d08b559a7015f}{\index{\-Helper@{\-Helper}!to\-Radians@{to\-Radians}}
+\index{to\-Radians@{to\-Radians}!Helper@{\-Helper}}
+\subsubsection[{to\-Radians}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Helper\-::to\-Radians} (
+\begin{DoxyParamCaption}
+\item[{double}]{degrees}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelper_ad085317d0b7ad0e5ac3d08b559a7015f}
+
+
+\-Takes an angle in degrees, turns it into radians. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em degrees} & \-Angle in degrees \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Angle in radians
+\end{DoxyReturn}
+\-Converts angle from degrees to radians. 
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

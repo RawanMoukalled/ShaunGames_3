@@ -34,11 +34,11 @@ public slots:
     void goToGames();
 
 private:
-    QLabel *m_title;//<Title of the page
-    QPushButton *m_backToGamesButton; //<Button to go back to the games selection window
+    QLabel *m_title; ///< Title of the page
+    QPushButton *m_backToGamesButton; ///< Button to go back to the games selection window
 
-    QVBoxLayout *m_myAccountLayout; //<Layout of the my account page
-    QLabel *m_performance; //< Image representing the history performance of the signed in user
+    QVBoxLayout *m_myAccountLayout; ///< Layout of the my account page
+    QLabel *m_performance; ///< Image representing the history performance of the signed in user
 
     /**
     * \brief Sets the layout for the My Account page

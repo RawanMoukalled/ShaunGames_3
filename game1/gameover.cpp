@@ -1,5 +1,13 @@
 #include "gameover.h"
 
+/**
+* \file gameover.cpp
+* \brief Contains GameOver class definition
+*/
+
+/**
+* Sets origin of the image depending on win state.
+*/
 GameOver::GameOver(bool win, QObject *parent) :
     QObject(parent)
 {
@@ -13,5 +21,8 @@ GameOver::GameOver(bool win, QObject *parent) :
     setZValue(2);
 }
 
+/**
+* Frees allocated memory.
+*/
 GameOver::~GameOver() {
 }

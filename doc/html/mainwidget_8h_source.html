@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Group 3 Project: mainwidget.h Source File</title>
+<title>Group 3 Project: gui/mainwidget.h Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -75,76 +75,71 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">mainwidget.h</div>  </div>
+<div class="title">gui/mainwidget.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="mainwidget_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef MAINSCENE_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define MAINSCENE_H</span>
+<a href="mainwidget_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef MAINWIDGET_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define MAINWIDGET_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QWidget&gt;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QLineEdit&gt;</span>
-<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;QLabel&gt;</span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;QHBoxLayout&gt;</span>
-<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;QVBoxLayout&gt;</span>
-<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;QGridLayout&gt;</span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;QPushButton&gt;</span>
-<a name="l00011"></a>00011 
-<a name="l00020"></a><a class="code" href="classMainWidget.html">00020</a> <span class="keyword">class </span><a class="code" href="classMainWidget.html">MainWidget</a> : <span class="keyword">public</span> QWidget
-<a name="l00021"></a>00021 {
-<a name="l00022"></a>00022     Q_OBJECT
-<a name="l00023"></a>00023 <span class="keyword">public</span>:
-<a name="l00027"></a>00027     <span class="keyword">explicit</span> <a class="code" href="classMainWidget.html#a326fee5088b7cebaa102ed5332dd59ee" title="Default constructor.">MainWidget</a>(QWidget *parent = 0);
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029 signals:
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="keyword">public</span> slots:
-<a name="l00032"></a>00032     <span class="keywordtype">void</span> goToGameSelection();
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034 
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QtGui&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00014"></a><a class="code" href="classMainWidget.html">00014</a> <span class="keyword">class </span><a class="code" href="classMainWidget.html">MainWidget</a> : <span class="keyword">public</span> QWidget
+<a name="l00015"></a>00015 {
+<a name="l00016"></a>00016     Q_OBJECT
+<a name="l00017"></a>00017 <span class="keyword">public</span>:
+<a name="l00021"></a>00021     <span class="keyword">explicit</span> <a class="code" href="classMainWidget.html#a326fee5088b7cebaa102ed5332dd59ee" title="Default constructor.">MainWidget</a>(QWidget *parent = 0);
+<a name="l00022"></a>00022 
+<a name="l00026"></a>00026     <span class="keyword">virtual</span> <a class="code" href="classMainWidget.html#add21c63f8e799303a21a69da3d288c2f" title="Destructor.">~MainWidget</a>();
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 signals:
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="keyword">public</span> slots:
+<a name="l00034"></a>00034     <span class="keywordtype">void</span> <a class="code" href="classMainWidget.html#a438fbcb90c6dcb9301d70c5b34d98900" title="Slot that closes widget and opens the game selection menu.">goToGameSelection</a>();
 <a name="l00035"></a>00035 
-<a name="l00036"></a>00036 <span class="keyword">private</span>:
-<a name="l00037"></a>00037     QPushButton *m_guestSignIn;  
-<a name="l00038"></a>00038     QPushButton *m_signIn; 
-<a name="l00039"></a>00039     QPushButton *m_signUp; 
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041     QLineEdit *m_existingUsernameEdit; 
-<a name="l00042"></a>00042     QLabel *m_existingUsernameLabel; 
-<a name="l00043"></a>00043     QLineEdit *m_existingPasswordEdit; 
-<a name="l00044"></a>00044     QLabel *m_existingPasswordLabel; 
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046     QLineEdit *m_firstNameEdit; 
-<a name="l00047"></a>00047     QLabel *m_firstNameLabel; 
-<a name="l00048"></a>00048     QLineEdit *m_lastNameEdit; 
-<a name="l00049"></a>00049     QLabel *m_lastNameLabel; 
-<a name="l00050"></a>00050     QLineEdit *m_usernameEdit; 
-<a name="l00051"></a>00051     QLabel *m_usernameLabel; 
-<a name="l00052"></a>00052     QLineEdit *m_passwordEdit; 
-<a name="l00053"></a>00053     QLabel *m_passwordLabel; 
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055     QVBoxLayout *m_mainLayout; 
-<a name="l00056"></a>00056     QHBoxLayout *m_userLayout; 
-<a name="l00057"></a>00057     QGridLayout *m_signInLayout; 
-<a name="l00058"></a>00058     QGridLayout *m_signUpLayout; 
-<a name="l00059"></a>00059 
-<a name="l00063"></a>00063     <span class="keywordtype">void</span> setSignInLayout();
-<a name="l00064"></a>00064 
-<a name="l00068"></a>00068     <span class="keywordtype">void</span> setSignUpLayout();
-<a name="l00069"></a>00069 
-<a name="l00073"></a>00073     <span class="keywordtype">void</span> setUserLayout();
-<a name="l00074"></a>00074 
-<a name="l00078"></a>00078     <span class="keywordtype">void</span> setMainLayout();
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080     <span class="keywordtype">void</span> setConnections();
-<a name="l00081"></a>00081 };
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083 <span class="preprocessor">#endif // MAINSCENE_H</span>
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 <span class="keyword">private</span>:
+<a name="l00038"></a>00038     QPushButton *m_guestSignIn;  
+<a name="l00039"></a>00039     QPushButton *m_signIn; 
+<a name="l00040"></a>00040     QPushButton *m_signUp; 
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042     QLineEdit *m_existingUsernameEdit; 
+<a name="l00043"></a>00043     QLabel *m_existingUsernameLabel; 
+<a name="l00044"></a>00044     QLineEdit *m_existingPasswordEdit; 
+<a name="l00045"></a>00045     QLabel *m_existingPasswordLabel; 
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047     QLineEdit *m_firstNameEdit; 
+<a name="l00048"></a>00048     QLabel *m_firstNameLabel; 
+<a name="l00049"></a>00049     QLineEdit *m_lastNameEdit; 
+<a name="l00050"></a>00050     QLabel *m_lastNameLabel; 
+<a name="l00051"></a>00051     QLineEdit *m_usernameEdit; 
+<a name="l00052"></a>00052     QLabel *m_usernameLabel; 
+<a name="l00053"></a>00053     QLineEdit *m_passwordEdit; 
+<a name="l00054"></a>00054     QLabel *m_passwordLabel; 
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056     QVBoxLayout *m_mainLayout; 
+<a name="l00057"></a>00057     QHBoxLayout *m_userLayout; 
+<a name="l00058"></a>00058     QGridLayout *m_signInLayout; 
+<a name="l00059"></a>00059     QGridLayout *m_signUpLayout; 
+<a name="l00060"></a>00060 
+<a name="l00064"></a>00064     <span class="keywordtype">void</span> setSignInLayout();
+<a name="l00065"></a>00065 
+<a name="l00069"></a>00069     <span class="keywordtype">void</span> setSignUpLayout();
+<a name="l00070"></a>00070 
+<a name="l00074"></a>00074     <span class="keywordtype">void</span> setUserLayout();
+<a name="l00075"></a>00075 
+<a name="l00079"></a>00079     <span class="keywordtype">void</span> setMainLayout();
+<a name="l00080"></a>00080 
+<a name="l00084"></a>00084     <span class="keywordtype">void</span> setConnections();
+<a name="l00085"></a>00085 };
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 <span class="preprocessor">#endif // MAINWIDGET_H</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -156,7 +151,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 28 2017 15:33:41 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 16 2017 21:38:31 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

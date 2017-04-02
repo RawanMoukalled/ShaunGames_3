@@ -28,6 +28,9 @@ public:
 signals:
 
 public slots:
+    /**
+    * \brief Slot that closes widget and opens the game selection menu
+    */
     void goToGameSelection();
 
 private:
@@ -75,7 +78,7 @@ private:
     void setMainLayout();
 
     /**
-    * \brief Sets the connections
+    * \brief Sets the connections for the widget
     */
     void setConnections();
 };

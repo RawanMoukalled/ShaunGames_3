@@ -5,7 +5,7 @@
 * \mainpage EECE 435L Games Project
 * \author Rita Aoun
 * \author Rawan Moukalled
-* \date 28-2-2017
+* \date 16-3-2017
 *
 * Runs the application.
 */
