@@ -20,7 +20,10 @@ SOURCES += \
     game3/game3scene.cpp \
     game3/dot.cpp \
     game2/tile.cpp \
-    game2/sheep2.cpp
+    game2/sheep2.cpp \
+    game3/horizontalline.cpp \
+    game3/verticalline.cpp \
+    game3/box.cpp
 
 HEADERS += \
     myaccount.h \
@@ -45,6 +48,9 @@ HEADERS += \
     game3/game3scene.h \
     game3/dot.h \
     game2/tile.h \
-    game2/sheep2.h
+    game2/sheep2.h \
+    game3/horizontalline.h \
+    game3/verticalline.h \
+    game3/box.h
 
 OTHER_FILES +=
