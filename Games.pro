@@ -35,6 +35,10 @@ HEADERS += \
     game1/gameover.h \
     game2/game2options.h \
     game3/game3options.h \
+<<<<<<< HEAD
     game2/game2scene.h
+=======
+    difficulty.h
+>>>>>>> c430d2abf76744d55985085c38bbd1895aefdeca
 
 OTHER_FILES +=

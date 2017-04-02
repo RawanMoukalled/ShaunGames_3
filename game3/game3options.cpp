@@ -13,7 +13,7 @@
 * Also initializes connections.
 */
 Game3Options::Game3Options(QWidget *parent) :
-    QWidget(parent)
+    QWidget(parent), m_level(NONE), m_size(-1)
 {
     setFixedSize(600,600);
     m_instructions = new QLabel("Please pick a level:");
@@ -23,6 +23,10 @@ Game3Options::Game3Options(QWidget *parent) :
     m_moderate = new QPushButton("Moderate");
     m_hard = new QPushButton("Hard");
 
+    m_sizeFour = new QPushButton("4x4");
+    m_sizeEight = new QPushButton("8x8");
+    m_sizeSixteen = new QPushButton("16x16");
+
     Helper::makeWidgetLarge(m_easy);
     m_easy->setFixedHeight(50);
     Helper::makeWidgetLarge(m_moderate);
@@ -30,19 +34,38 @@ Game3Options::Game3Options(QWidget *parent) :
     Helper::makeWidgetLarge(m_hard);
     m_hard->setFixedHeight(50);
 
+    Helper::makeWidgetLarge(m_sizeFour);
+    m_sizeFour->setFixedHeight(50);
+    Helper::makeWidgetLarge(m_sizeEight);
+    m_sizeEight->setFixedHeight(50);
+    Helper::makeWidgetLarge(m_sizeSixteen);
+    m_sizeSixteen->setFixedHeight(50);
+
+    m_play = new QPushButton("Play");
+    m_play->setDisabled(true);
+    Helper::makeWidgetLarge(m_play);
+    m_play->setFixedHeight(50);
+
     m_back = new QPushButton("Back to Game Menu");
     m_back->setFixedWidth(200);
     Helper::makeWidgetSmall(m_back);
 
     m_mainLayout = new QVBoxLayout;
     m_levelLayout = new QHBoxLayout;
+    m_sizeLayout = new QHBoxLayout;
 
     setMainLayout();
     setLayout(m_mainLayout);
 
-    QObject::connect(m_easy, SIGNAL(clicked()), this, SLOT(gotoGame()));
-    QObject::connect(m_moderate, SIGNAL(clicked()), this, SLOT(gotoGame()));
-    QObject::connect(m_hard, SIGNAL(clicked()), this, SLOT(gotoGame()));
+    QObject::connect(m_easy, SIGNAL(clicked()), this, SLOT(setEasy()));
+    QObject::connect(m_moderate, SIGNAL(clicked()), this, SLOT(setModerate()));
+    QObject::connect(m_hard, SIGNAL(clicked()), this, SLOT(setHard()));
+
+    QObject::connect(m_sizeFour, SIGNAL(clicked()), this, SLOT(setSizeFour()));
+    QObject::connect(m_sizeEight, SIGNAL(clicked()), this, SLOT(setSizeEight()));
+    QObject::connect(m_sizeSixteen, SIGNAL(clicked()), this, SLOT(setSizeSixteen()));
+
+    QObject::connect(m_play, SIGNAL(clicked()), this, SLOT(gotoGame()));
     QObject::connect(m_back, SIGNAL(clicked()), this, SLOT(gotoGameMainMenu()));
 }
 
@@ -54,9 +77,14 @@ Game3Options::~Game3Options() {
     delete m_easy;
     delete m_moderate;
     delete m_hard;
+    delete m_sizeFour;
+    delete m_sizeEight;
+    delete m_sizeSixteen;
+    delete m_play;
     delete m_back;
     delete m_mainLayout;
     delete m_levelLayout;
+    delete m_sizeLayout;
 
     for (QVector<QSpacerItem*>::iterator sp=m_spacerItems.begin(); sp!=m_spacerItems.end(); ++sp) {
         delete *sp;
@@ -84,18 +112,73 @@ void Game3Options::gotoGameMainMenu() {
 }
 
 /**
+* Sets the game difficulty to Easy.
+* Called after clicking the corresponding button.
+*/
+void Game3Options::setEasy() {
+
+}
+
+/**
+* Sets the game difficulty to Moderate.
+* Called after clicking the corresponding button.
+*/
+void Game3Options::setModerate() {
+
+}
+
+/**
+* Sets the game difficulty to Hard.
+* Called after clicking the corresponding button.
+*/
+void Game3Options::setHard() {
+
+}
+
+/**
+* Sets the game size to 4x4.
+* Called after clicking the corresponding button.
+*/
+void Game3Options::setSizeFour() {
+
+}
+
+/**
+* Sets the game size to 8x8.
+* Called after clicking the corresponding button.
+*/
+void Game3Options::setSizeEight() {
+
+}
+
+/**
+* Sets the game size to 16x16.
+* Called after clicking the corresponding button.
+*/
+void Game3Options::setSizeSixteen() {
+
+}
+
+/**
 * Sets the overall layout of the window.
 */
 void Game3Options::setMainLayout() {
     m_mainLayout->addWidget(m_instructions);
     setLevelLayout();
     m_mainLayout->addItem(m_levelLayout);
+
+    setSizeLayout();
+    m_mainLayout->addItem(m_sizeLayout);
+
+    m_mainLayout->addWidget(m_play);
+
     QSpacerItem *sp = new QSpacerItem(20,30);
     m_spacerItems.push_back(sp);
     m_mainLayout->addItem(sp);
     m_mainLayout->addWidget(m_back);
 
     m_mainLayout->setAlignment(m_instructions, Qt::AlignCenter);
+    m_mainLayout->setAlignment(m_play, Qt::AlignCenter);
     m_mainLayout->setAlignment(m_back, Qt::AlignCenter);
 }
 
@@ -121,4 +204,28 @@ void Game3Options::setLevelLayout() {
     sp = new QSpacerItem(100,100);
     m_spacerItems.push_back(sp);
     m_levelLayout->addItem(sp);
+}
+
+/**
+* Sets the layout of the size buttons.
+*/
+void Game3Options::setSizeLayout() {
+    QSpacerItem *sp = new QSpacerItem(100,100);
+    m_spacerItems.push_back(sp);
+    m_sizeLayout->addItem(sp);
+    m_sizeLayout->addWidget(m_sizeFour);
+
+    sp = new QSpacerItem(20,20);
+    m_spacerItems.push_back(sp);
+    m_sizeLayout->addItem(sp);
+    m_sizeLayout->addWidget(m_sizeEight);
+
+    sp = new QSpacerItem(20,20);
+    m_spacerItems.push_back(sp);
+    m_sizeLayout->addItem(sp);
+    m_sizeLayout->addWidget(m_sizeSixteen);
+
+    sp = new QSpacerItem(100,100);
+    m_spacerItems.push_back(sp);
+    m_sizeLayout->addItem(sp);
 }
