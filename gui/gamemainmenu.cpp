@@ -2,6 +2,7 @@
 #include "helper.h"
 #include "game1/game1options.h"
 #include "game2/game2options.h"
+#include "game3/game3options.h"
 #include "gui/gameselection.h"
 
 /**
@@ -96,8 +97,12 @@ void GameMainMenu::gotoGameOptions() {
         Game1Options *op = new Game1Options();
         op->show();
     }
+    else if (m_gameChoice == 2){
+        Game2Options *op = new Game2Options();
+        op->show();
+    }
     else {
-        Game2Options *op = new Game2Options(m_gameChoice);
+        Game3Options *op = new Game3Options();
         op->show();
     }
     this->close();

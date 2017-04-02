@@ -1,30 +1,31 @@
-#ifndef GAME2OPTIONS_H
-#define GAME2OPTIONS_H
+#ifndef GAME3OPTIONS_H
+#define GAME3OPTIONS_H
 
 #include <QtGui>
 
 /**
-* \file game2options.h
-* \brief Game2Options class
+* \file game3options.h
+* \brief Game3Options class
 *
-* This is the options page for game 2, where the user can choose the level with which to start the game.
+* This is the options page for game 3, where the user can choose the level and size with which to start the game.
 * Levels are: Easy, Moderate and Hard.
+*
 * \author Rita Aoun
 * \author Rawan Moukalled
 */
-class Game2Options : public QWidget
+class Game3Options : public QWidget
 {
     Q_OBJECT
 public:
     /**
     * \brief Constructor
     */
-    explicit Game2Options(QWidget *parent = 0);
+    explicit Game3Options(QWidget *parent = 0);
 
     /**
     * \brief Destructor
     */
-    virtual ~Game2Options();
+    virtual ~Game3Options();
     
 signals:
     
@@ -35,7 +36,7 @@ public slots:
     void gotoGameMainMenu();
 
     /**
-    * \brief Takes the user to game 2
+    * \brief Takes the user to game 3
     */
     void gotoGame();
 
@@ -59,4 +60,4 @@ private:
     void setLevelLayout();
 };
 
-#endif // GAME2OPTIONS_H
+#endif // GAME3OPTIONS_H

@@ -1,18 +1,18 @@
-#include "game2/game2options.h"
+#include "game3options.h"
 #include "helper.h"
-#include "game2/game2.h"
+#include "game3/game3.h"
 #include "gui/gamemainmenu.h"
 
 /**
-* \file game2options.cpp
-* \brief Contains Game2Options class definition
+* \file game3options.cpp
+* \brief Contains Game3Options class definition
 */
 
 /**
 * Initializes all buttons and text and shows them on the screen.
 * Also initializes connections.
 */
-Game2Options::Game2Options(QWidget *parent) :
+Game3Options::Game3Options(QWidget *parent) :
     QWidget(parent)
 {
     setFixedSize(600,600);
@@ -49,7 +49,7 @@ Game2Options::Game2Options(QWidget *parent) :
 /**
 * Frees allocated memory.
 */
-Game2Options::~Game2Options() {
+Game3Options::~Game3Options() {
     delete m_instructions;
     delete m_easy;
     delete m_moderate;
@@ -60,21 +60,21 @@ Game2Options::~Game2Options() {
 }
 
 /**
-* Takes the user to game 2.
+* Takes the user to game 3.
 * Called after clicking any level button.
 */
-void Game2Options::gotoGame() {
-    Game2 *g = new Game2;
+void Game3Options::gotoGame() {
+    Game3 *g = new Game3;
     g->show();
     this->close();
 }
 
 /**
-* Takes the user to the game main menu that corresponds to game 2.
+* Takes the user to the game main menu that corresponds to game 3.
 * Called after clicking the corresponding button.
 */
-void Game2Options::gotoGameMainMenu() {
-    GameMainMenu *m = new GameMainMenu(2);
+void Game3Options::gotoGameMainMenu() {
+    GameMainMenu *m = new GameMainMenu(3);
     m->show();
     this->close();
 }
@@ -82,7 +82,7 @@ void Game2Options::gotoGameMainMenu() {
 /**
 * Sets the overall layout of the window.
 */
-void Game2Options::setMainLayout() {
+void Game3Options::setMainLayout() {
     m_mainLayout->addWidget(m_instructions);
     setLevelLayout();
     m_mainLayout->addItem(m_levelLayout);
@@ -96,7 +96,7 @@ void Game2Options::setMainLayout() {
 /**
 * Sets the layout of the level buttons.
 */
-void Game2Options::setLevelLayout() {
+void Game3Options::setLevelLayout() {
     m_levelLayout->addItem(new QSpacerItem(100,100));
     m_levelLayout->addWidget(m_easy);
     m_levelLayout->addItem(new QSpacerItem(20,20));
