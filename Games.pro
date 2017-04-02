@@ -17,7 +17,10 @@ SOURCES += \
     game2/game2options.cpp \
     game3/game3options.cpp \
     game3/game3scene.cpp \
-    game3/dot.cpp
+    game3/dot.cpp \
+    game3/horizontalline.cpp \
+    game3/verticalline.cpp \
+    game3/box.cpp
 
 HEADERS += \
     myaccount.h \
@@ -39,6 +42,9 @@ HEADERS += \
     difficulty.h \
     game3/size.h \
     game3/game3scene.h \
-    game3/dot.h
+    game3/dot.h \
+    game3/horizontalline.h \
+    game3/verticalline.h \
+    game3/box.h
 
 OTHER_FILES +=
