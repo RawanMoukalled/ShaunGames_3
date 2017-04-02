@@ -3,6 +3,7 @@
 
 #include <QtGui>
 #include "difficulty.h"
+#include "game3/size.h"
 
 /**
 * \file game3options.h
@@ -79,7 +80,7 @@ private:
     QPushButton *m_moderate; ///< Allows the user to pick the "Medium" level
     QPushButton *m_hard; ///< Allows the user to pick the "Hard" level
 
-    int m_size;
+    Size m_size;
     QPushButton *m_sizeFour; ///< Allows the user to pick the 4x4 size
     QPushButton *m_sizeEight; ///< Allows the user to pick the 8x8 size
     QPushButton *m_sizeSixteen; ///< Allows the user to pick the 16x16 size

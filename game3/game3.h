@@ -2,6 +2,8 @@
 #define GAME3_H
 
 #include <QtGui>
+#include "difficulty.h"
+#include "game3/size.h"
 
 /**
 * \file game3.h
@@ -18,7 +20,7 @@ public:
     /**
     * \brief Default constructor
     */
-    explicit Game3(QWidget *parent = 0);
+    explicit Game3(Difficulty difficulty, Size size, QWidget *parent = 0);
 
     /**
     * \brief Destrucor

@@ -13,7 +13,7 @@
 * Also initializes connections.
 */
 Game3Options::Game3Options(QWidget *parent) :
-    QWidget(parent), m_level(NONE), m_size(-1)
+    QWidget(parent), m_level(NO_DIFFICULTY), m_size(NO_SIZE)
 {
     setFixedSize(600,600);
     m_instructions = new QLabel("Please pick a level:");
@@ -96,7 +96,7 @@ Game3Options::~Game3Options() {
 * Called after clicking any level button.
 */
 void Game3Options::gotoGame() {
-    Game3 *g = new Game3;
+    Game3 *g = new Game3(m_level, m_size);
     g->show();
     this->close();
 }
@@ -116,7 +116,14 @@ void Game3Options::gotoGameMainMenu() {
 * Called after clicking the corresponding button.
 */
 void Game3Options::setEasy() {
+    m_easy->setDisabled(true);
+    m_moderate->setEnabled(true);
+    m_hard->setEnabled(true);
+    m_level = EASY;
 
+    if (m_size != NO_SIZE)  {
+        m_play->setEnabled(true);
+    }
 }
 
 /**
@@ -124,7 +131,14 @@ void Game3Options::setEasy() {
 * Called after clicking the corresponding button.
 */
 void Game3Options::setModerate() {
+    m_moderate->setDisabled(true);
+    m_easy->setEnabled(true);
+    m_hard->setEnabled(true);
+    m_level = MODERATE;
 
+    if (m_size != NO_SIZE)  {
+        m_play->setEnabled(true);
+    }
 }
 
 /**
@@ -132,7 +146,14 @@ void Game3Options::setModerate() {
 * Called after clicking the corresponding button.
 */
 void Game3Options::setHard() {
+    m_hard->setDisabled(true);
+    m_easy->setEnabled(true);
+    m_moderate->setEnabled(true);
+    m_level = HARD;
 
+    if (m_size != NO_SIZE)  {
+        m_play->setEnabled(true);
+    }
 }
 
 /**
@@ -140,7 +161,14 @@ void Game3Options::setHard() {
 * Called after clicking the corresponding button.
 */
 void Game3Options::setSizeFour() {
+    m_sizeFour->setDisabled(true);
+    m_sizeEight->setEnabled(true);
+    m_sizeSixteen->setEnabled(true);
+    m_size = FOURBYFOUR;
 
+    if (m_level != NO_DIFFICULTY)  {
+        m_play->setEnabled(true);
+    }
 }
 
 /**
@@ -148,7 +176,14 @@ void Game3Options::setSizeFour() {
 * Called after clicking the corresponding button.
 */
 void Game3Options::setSizeEight() {
+    m_sizeEight->setDisabled(true);
+    m_sizeFour->setEnabled(true);
+    m_sizeSixteen->setEnabled(true);
+    m_size = EIGHTBYEIGHT;
 
+    if (m_level != NO_DIFFICULTY)  {
+        m_play->setEnabled(true);
+    }
 }
 
 /**
@@ -156,7 +191,14 @@ void Game3Options::setSizeEight() {
 * Called after clicking the corresponding button.
 */
 void Game3Options::setSizeSixteen() {
+    m_sizeSixteen->setDisabled(true);
+    m_sizeEight->setEnabled(true);
+    m_sizeFour->setEnabled(true);
+    m_size = SIXTEENBYSIXTEEN;
 
+    if (m_level != NO_DIFFICULTY)  {
+        m_play->setEnabled(true);
+    }
 }
 
 /**

@@ -1,0 +1,8 @@
+#ifndef SIZE_H
+#define SIZE_H
+
+enum Size {
+    NO_SIZE, FOURBYFOUR, EIGHTBYEIGHT, SIXTEENBYSIXTEEN, SIZE_END
+};
+
+#endif // SIZE_H

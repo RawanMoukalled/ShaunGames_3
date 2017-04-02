@@ -34,6 +34,7 @@ HEADERS += \
     game1/gameover.h \
     game2/game2options.h \
     game3/game3options.h \
-    difficulty.h
+    difficulty.h \
+    game3/size.h
 
 OTHER_FILES +=
