@@ -1,6 +1,8 @@
 #include <QApplication>
 #include "gui/mainwidget.h"
 
+#include "game3/game3options.h"
+
 /**
 * \mainpage EECE 435L Games Project
 * \author Rita Aoun
@@ -12,8 +14,11 @@
 int main(int argc, char **argv) {
     QApplication app(argc, argv);
 
-    MainWidget *mainWidget = new MainWidget;
-    mainWidget->show();
+    //MainWidget *mainWidget = new MainWidget;
+    //mainWidget->show();
+
+    Game3Options *o = new Game3Options;
+    o->show();
 
     return app.exec();
 }

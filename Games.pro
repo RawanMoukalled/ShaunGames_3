@@ -33,6 +33,7 @@ HEADERS += \
     game1/barn.h \
     game1/gameover.h \
     game2/game2options.h \
-    game3/game3options.h
+    game3/game3options.h \
+    difficulty.h
 
 OTHER_FILES +=
