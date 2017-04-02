@@ -3,6 +3,7 @@
 
 #include <QGraphicsScene>
 #include "difficulty.h"
+#include "game2/tile.h"
 
 class Game2Scene : public QGraphicsScene
 {
@@ -19,6 +20,8 @@ public slots:
 private:
     Difficulty m_difficulty; ///< Current difficulty of the scene
     int m_score; ///< Game score;
+    QVector< QVector< Tile* > > m_tiles; ///< 2D Vector of the tiles making up the grid
+
     
 };
 

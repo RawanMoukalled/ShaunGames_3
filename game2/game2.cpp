@@ -54,7 +54,7 @@ Game2::~Game2() {
 void Game2::setGame2Layout() {
     m_gameScene->setSceneRect(0,0,575,505);
     m_gameView->setScene(m_gameScene);
-    m_gameView->setBackgroundBrush(QBrush(QImage("pictures/grass.jpg").scaledToHeight(550)));
+    m_gameView->setBackgroundBrush(QBrush(QImage("pictures/brown_bg.png").scaledToHeight(550)));
     m_gameView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_gameView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 

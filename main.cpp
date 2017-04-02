@@ -2,6 +2,7 @@
 #include "gui/mainwidget.h"
 
 #include "game3/game3options.h"
+#include "game2/game2options.h"
 
 /**
 * \mainpage EECE 435L Games Project
@@ -17,7 +18,7 @@ int main(int argc, char **argv) {
     //MainWidget *mainWidget = new MainWidget;
     //mainWidget->show();
 
-    Game3Options *o = new Game3Options;
+    Game2Options *o = new Game2Options;
     o->show();
 
     return app.exec();
