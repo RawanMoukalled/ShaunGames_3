@@ -1,7 +1,7 @@
 #include "gui/gamemainmenu.h"
 #include "helper.h"
 #include "game1/game1options.h"
-#include "games23options.h"
+#include "game2/game2options.h"
 #include "gui/gameselection.h"
 
 /**
@@ -97,7 +97,7 @@ void GameMainMenu::gotoGameOptions() {
         op->show();
     }
     else {
-        Games23Options *op = new Games23Options(m_gameChoice);
+        Game2Options *op = new Game2Options(m_gameChoice);
         op->show();
     }
     this->close();

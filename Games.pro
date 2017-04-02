@@ -2,7 +2,6 @@ SOURCES += \
     main.cpp \
     myaccount.cpp \
     helper.cpp \
-    games23options.cpp \
     game2/game2.cpp \
     game1/game1options.cpp \
     game1/game1.cpp \
@@ -14,12 +13,12 @@ SOURCES += \
     game1/game1scene.cpp \
     game1/sheep1.cpp \
     game1/barn.cpp \
-    game1/gameover.cpp
+    game1/gameover.cpp \
+    game2/game2options.cpp
 
 HEADERS += \
     myaccount.h \
     helper.h \
-    games23options.h \
     game2/game2.h \
     game1/game1options.h \
     game1/game1.h \
@@ -31,6 +30,7 @@ HEADERS += \
     game1/game1scene.h \
     game1/sheep1.h \
     game1/barn.h \
-    game1/gameover.h
+    game1/gameover.h \
+    game2/game2options.h
 
 OTHER_FILES +=

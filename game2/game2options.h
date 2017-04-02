@@ -1,30 +1,30 @@
-#ifndef GAMES23OPTIONS_H
-#define GAMES23OPTIONS_H
+#ifndef GAME2OPTIONS_H
+#define GAME2OPTIONS_H
 
 #include <QtGui>
 
 /**
-* \file games23options.h
-* \brief Games23Options class
+* \file game2options.h
+* \brief Game2Options class
 *
 * This is the options page for games 2 and 3, where the user can choose the level with which to start the game.
 * Levels are: Easy, Medium and Hard.
 * \author Rita Aoun
 * \author Rawan Moukalled
 */
-class Games23Options : public QWidget
+class Game2Options : public QWidget
 {
     Q_OBJECT
 public:
     /**
     * \brief Constructor
     */
-    explicit Games23Options(int gameNumber, QWidget *parent = 0);
+    explicit Game2Options(int gameNumber, QWidget *parent = 0);
 
     /**
     * \brief Destructor
     */
-    virtual ~Games23Options();
+    virtual ~Game2Options();
     
 signals:
     
@@ -60,4 +60,4 @@ private:
     void setLevelLayout();
 };
 
-#endif // GAMES23OPTIONS_H
+#endif // GAME2OPTIONS_H

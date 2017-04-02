@@ -1,19 +1,19 @@
-#include "games23options.h"
+#include "game2/game2options.h"
 #include "helper.h"
 #include "game2/game2.h"
 #include "game3/game3.h"
 #include "gui/gamemainmenu.h"
 
 /**
-* \file games23options.cpp
-* \brief Contains Games23Options class definition
+* \file game2options.cpp
+* \brief Contains Game2Options class definition
 */
 
 /**
 * Initializes all buttons and text and shows them on the screen.
 * Also initializes connections.
 */
-Games23Options::Games23Options(int gameNumber, QWidget *parent) :
+Game2Options::Game2Options(int gameNumber, QWidget *parent) :
     QWidget(parent), m_gameNumber(gameNumber)
 {
     setFixedSize(600,600);
@@ -50,7 +50,7 @@ Games23Options::Games23Options(int gameNumber, QWidget *parent) :
 /**
 * Frees allocated memory.
 */
-Games23Options::~Games23Options() {
+Game2Options::~Game2Options() {
     delete m_instructions;
     delete m_easy;
     delete m_medium;
@@ -64,7 +64,7 @@ Games23Options::~Games23Options() {
 * Takes the user to game 2 or 3, depending on his/her initial selection.
 * Called after clicking any level button.
 */
-void Games23Options::gotoGame() {
+void Game2Options::gotoGame() {
     if (m_gameNumber==2) {
         Game2 *g = new Game2;
         g->show();
@@ -80,7 +80,7 @@ void Games23Options::gotoGame() {
 * Takes the user to the game main menu that corresponds to game 2 or 3.
 * Called after clicking the corresponding button.
 */
-void Games23Options::gotoGameMainMenu() {
+void Game2Options::gotoGameMainMenu() {
     GameMainMenu *m = new GameMainMenu(m_gameNumber);
     m->show();
     this->close();
@@ -89,7 +89,7 @@ void Games23Options::gotoGameMainMenu() {
 /**
 * Sets the overall layout of the window.
 */
-void Games23Options::setMainLayout() {
+void Game2Options::setMainLayout() {
     m_mainLayout->addWidget(m_instructions);
     setLevelLayout();
     m_mainLayout->addItem(m_levelLayout);
@@ -103,7 +103,7 @@ void Games23Options::setMainLayout() {
 /**
 * Sets the layout of the level buttons.
 */
-void Games23Options::setLevelLayout() {
+void Game2Options::setLevelLayout() {
     m_levelLayout->addItem(new QSpacerItem(100,100));
     m_levelLayout->addWidget(m_easy);
     m_levelLayout->addItem(new QSpacerItem(20,20));
