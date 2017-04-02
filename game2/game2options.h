@@ -2,6 +2,7 @@
 #define GAME2OPTIONS_H
 
 #include <QtGui>
+#include "difficulty.h"
 
 /**
 * \file game2options.h
@@ -37,7 +38,7 @@ public slots:
     /**
     * \brief Takes the user to game 2
     */
-    void gotoGame2(int level);
+    void gotoGame2(int difficulty);
 
 private:
     QLabel *m_instructions; ///< Asks the user to pick a level
