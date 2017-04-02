@@ -62,6 +62,8 @@ private:
     QGridLayout *m_levelLayout; ///< Layout of the level buttons
     QSignalMapper *m_signalMapper; ///< Maps signals to slots to allow for level selection to be passed
 
+    QVector<QSpacerItem*> m_spacerItems; ///< Vector of used spacer items
+
     /**
     * \brief Sets the main layout of the widget
     */

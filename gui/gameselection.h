@@ -70,6 +70,8 @@ private:
     QGridLayout *m_gamesListLayout; //<Layout of the buttons representing the games
     QHBoxLayout *m_linksListLayout; //<Layout of the log out and my account buttons
 
+    QVector<QSpacerItem*> m_spacerItems; ///< Vector of used spacer items
+
     /**
     * \brief Sets the layout for the full game selection menu
     */

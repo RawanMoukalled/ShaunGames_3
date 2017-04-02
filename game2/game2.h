@@ -38,6 +38,8 @@ private:
     QPushButton *m_exit; ///< Button to save and exit
     QVBoxLayout *m_Game2Layout; ///< Layout of widget
 
+    QVector<QSpacerItem*> m_spacerItems; ///< Vector of used spacer items
+
     /**
     * \brief Sets the different graphic items in one layout for the game
     */

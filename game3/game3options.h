@@ -49,6 +49,8 @@ private:
     QVBoxLayout *m_mainLayout; ///< Main layout of the page
     QHBoxLayout *m_levelLayout; ///< Layout of the level buttons
 
+    QVector<QSpacerItem*> m_spacerItems; ///< Vector of used spacer items
+
     /**
     * \brief Sets the main layout of the widget
     */

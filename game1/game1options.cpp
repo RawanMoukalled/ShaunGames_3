@@ -54,6 +54,10 @@ Game1Options::~Game1Options() {
     delete m_mainLayout;
     delete m_levelLayout;
     delete m_signalMapper;
+
+    for (QVector<QSpacerItem*>::iterator sp=m_spacerItems.begin(); sp!=m_spacerItems.end(); ++sp) {
+        delete *sp;
+    }
 }
 
 /**
@@ -115,7 +119,9 @@ void Game1Options::setMainLayout() {
     m_mainLayout->addWidget(m_instructions);
     setLevelLayout();
     m_mainLayout->addItem(m_levelLayout);
-    m_mainLayout->addItem(new QSpacerItem(20,30));
+    QSpacerItem *sp = new QSpacerItem(100,100);
+    m_spacerItems.push_back(sp);
+    m_mainLayout->addItem(sp);
     m_mainLayout->addWidget(m_back);
 
     m_mainLayout->setAlignment(m_instructions, Qt::AlignCenter);
@@ -126,13 +132,17 @@ void Game1Options::setMainLayout() {
 * Sets the layout of the level buttons.
 */
 void Game1Options::setLevelLayout() {
-    m_levelLayout->addItem(new QSpacerItem(100,100),0,0,5,1);
+    QSpacerItem *sp = new QSpacerItem(100,100);
+    m_spacerItems.push_back(sp);
+    m_levelLayout->addItem(sp,0,0,5,1);
     for (int i=0; i<5; ++i) {
         for (int j=0; j<5; ++j) {
             m_levelLayout->addWidget(m_levels[i*5+j],i,j+1);
         }
     }
-    m_levelLayout->addItem(new QSpacerItem(100,100),0,6,5,1);
+    sp = new QSpacerItem(100,100);
+    m_spacerItems.push_back(sp);
+    m_levelLayout->addItem(sp,0,6,5,1);
 }
 
 int Game1Options::m_numberOfUnlockedLevels(1);

@@ -66,6 +66,10 @@ GameSelection::~GameSelection() {
     delete m_gamesListLayout;
     delete m_linksListLayout;
     delete m_gameSelectionFullLayout;
+
+    for (QVector<QSpacerItem*>::iterator sp=m_spacerItems.begin(); sp!=m_spacerItems.end(); ++sp) {
+        delete *sp;
+    }
 }
 
 /**
@@ -78,7 +82,9 @@ void GameSelection::setGamesSelectionFullLayout() {
     m_gameSelectionFullLayout->addWidget(m_title);
     m_gameSelectionFullLayout->addItem(m_gamesListLayout);
 
-    m_gameSelectionFullLayout->addItem(new QSpacerItem(600,50));
+    QSpacerItem *sp = new QSpacerItem(600,50);
+    m_spacerItems.push_back(sp);
+    m_gameSelectionFullLayout->addItem(sp);
     m_gameSelectionFullLayout->addItem(m_linksListLayout);
 
     m_gameSelectionFullLayout->setAlignment(m_title, Qt::AlignHCenter);
@@ -98,11 +104,19 @@ void GameSelection::setLinksListLayout() {
 */
 void GameSelection::setGamesListLayout() {
     m_gamesListLayout->addWidget(m_game1,0,0);
-    m_gamesListLayout->addItem(new QSpacerItem(200,200),0,1);
+    QSpacerItem *sp = new QSpacerItem(200,200);
+    m_spacerItems.push_back(sp);
+    m_gamesListLayout->addItem(sp,0,1);
+
     m_gamesListLayout->addWidget(m_game2,0,2);
-    m_gamesListLayout->addItem(new QSpacerItem(200,200),1,0);
+    sp = new QSpacerItem(200,200);
+    m_spacerItems.push_back(sp);
+    m_gamesListLayout->addItem(sp,1,0);
     m_gamesListLayout->addWidget(m_game3,1,1);
-    m_gamesListLayout->addItem(new QSpacerItem(200,200),1,1);
+
+    sp = new QSpacerItem(200,200);
+    m_spacerItems.push_back(sp);
+    m_gamesListLayout->addItem(sp,1,1);
     m_gamesListLayout->setMargin(50);
 }
 

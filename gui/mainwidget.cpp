@@ -66,6 +66,10 @@ MainWidget::~MainWidget() {
     delete m_userLayout;
     delete m_signInLayout;
     delete m_signUpLayout;
+
+    for (QVector<QSpacerItem*>::iterator sp=m_spacerItems.begin(); sp!=m_spacerItems.end(); ++sp) {
+        delete *sp;
+    }
 }
 
 /**
@@ -101,7 +105,10 @@ void MainWidget::setUserLayout() {
     setSignInLayout();
     setSignUpLayout();
     m_userLayout->addItem(m_signInLayout);
-    m_userLayout->addItem(new QSpacerItem(50,10));
+
+    QSpacerItem *sp = new QSpacerItem(50,10);
+    m_spacerItems.push_back(sp);
+    m_userLayout->addItem(sp);
     m_userLayout->addItem(m_signUpLayout);
 }
 

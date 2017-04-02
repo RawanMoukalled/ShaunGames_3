@@ -57,6 +57,8 @@ private:
     QGridLayout *m_signInLayout; ///< Layout of the sign in box
     QGridLayout *m_signUpLayout; ///< Layout of the sign up box
 
+    QVector<QSpacerItem*> m_spacerItems; ///< Vector of used spacer items
+
     /**
     * \brief Sets the sign in box layout
     */

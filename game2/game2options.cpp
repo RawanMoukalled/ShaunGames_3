@@ -57,6 +57,10 @@ Game2Options::~Game2Options() {
     delete m_back;
     delete m_mainLayout;
     delete m_levelLayout;
+
+    for (QVector<QSpacerItem*>::iterator sp=m_spacerItems.begin(); sp!=m_spacerItems.end(); ++sp) {
+        delete *sp;
+    }
 }
 
 /**
@@ -86,7 +90,9 @@ void Game2Options::setMainLayout() {
     m_mainLayout->addWidget(m_instructions);
     setLevelLayout();
     m_mainLayout->addItem(m_levelLayout);
-    m_mainLayout->addItem(new QSpacerItem(20,30));
+    QSpacerItem *sp = new QSpacerItem(20,30);
+    m_spacerItems.push_back(sp);
+    m_mainLayout->addItem(sp);
     m_mainLayout->addWidget(m_back);
 
     m_mainLayout->setAlignment(m_instructions, Qt::AlignCenter);
@@ -97,11 +103,22 @@ void Game2Options::setMainLayout() {
 * Sets the layout of the level buttons.
 */
 void Game2Options::setLevelLayout() {
-    m_levelLayout->addItem(new QSpacerItem(100,100));
+    QSpacerItem *sp = new QSpacerItem(100,100);
+    m_spacerItems.push_back(sp);
+    m_levelLayout->addItem(sp);
     m_levelLayout->addWidget(m_easy);
-    m_levelLayout->addItem(new QSpacerItem(20,20));
+
+    sp = new QSpacerItem(20,20);
+    m_spacerItems.push_back(sp);
+    m_levelLayout->addItem(sp);
     m_levelLayout->addWidget(m_moderate);
-    m_levelLayout->addItem(new QSpacerItem(20,20));
+
+    sp = new QSpacerItem(20,20);
+    m_spacerItems.push_back(sp);
+    m_levelLayout->addItem(sp);
     m_levelLayout->addWidget(m_hard);
-    m_levelLayout->addItem(new QSpacerItem(100,100));
+
+    sp = new QSpacerItem(100,100);
+    m_spacerItems.push_back(sp);
+    m_levelLayout->addItem(sp);
 }

@@ -36,6 +36,10 @@ Game2::~Game2() {
     delete m_title;
     delete m_Game2Layout;
     delete m_exit;
+
+    for (QVector<QSpacerItem*>::iterator sp=m_spacerItems.begin(); sp!=m_spacerItems.end(); ++sp) {
+        delete *sp;
+    }
 }
 
 /**
