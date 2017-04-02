@@ -37,7 +37,7 @@ public slots:
     /**
     * \brief Takes the user to game 2
     */
-    void gotoGame();
+    void gotoGame2(int level);
 
 private:
     QLabel *m_instructions; ///< Asks the user to pick a level
@@ -47,6 +47,7 @@ private:
     QPushButton *m_back; ///< Allows the user to go back to the game main menu
     QVBoxLayout *m_mainLayout; ///< Main layout of the page
     QHBoxLayout *m_levelLayout; ///< Layout of the level buttons
+    QSignalMapper *m_signalMapper; ///< Maps signals to slots to allow for level selection to be passed
 
     QVector<QSpacerItem*> m_spacerItems; ///< Vector of used spacer items
 
@@ -59,6 +60,11 @@ private:
     * \brief Sets the layout of the level buttons
     */
     void setLevelLayout();
+
+    /**
+    * \brief Sets the connections of the difficulty buttons
+    */
+    void setConnections();
 };
 
 #endif // GAME2OPTIONS_H

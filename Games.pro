@@ -15,7 +15,8 @@ SOURCES += \
     game1/barn.cpp \
     game1/gameover.cpp \
     game2/game2options.cpp \
-    game3/game3options.cpp
+    game3/game3options.cpp \
+    game2/game2scene.cpp
 
 HEADERS += \
     myaccount.h \
@@ -33,6 +34,7 @@ HEADERS += \
     game1/barn.h \
     game1/gameover.h \
     game2/game2options.h \
-    game3/game3options.h
+    game3/game3options.h \
+    game2/game2scene.h
 
 OTHER_FILES +=

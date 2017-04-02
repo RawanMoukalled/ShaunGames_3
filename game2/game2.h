@@ -18,7 +18,7 @@ public:
     /**
     * \brief Default constructor
     */
-    explicit Game2(QWidget *parent = 0);
+    explicit Game2(int level, QWidget *parent = 0);
 
     /**
     * \brief Destructor
@@ -37,6 +37,7 @@ private:
     QLabel *m_title; ///< Game title
     QPushButton *m_exit; ///< Button to save and exit
     QVBoxLayout *m_Game2Layout; ///< Layout of widget
+    int m_level; ///< Level selected
 
     QVector<QSpacerItem*> m_spacerItems; ///< Vector of used spacer items
 

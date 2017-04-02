@@ -11,7 +11,7 @@
 * Sets the size of the window, initializes the graphic items, sets the layouts
 * and connects buttons to their slots.
 */
-Game2::Game2(QWidget *parent) :
+Game2::Game2(int level, QWidget *parent) :
     QWidget(parent)
 {
     setFixedSize(600,600);
@@ -21,6 +21,8 @@ Game2::Game2(QWidget *parent) :
 
     Helper::makeWidgetLarge(m_title);
     Helper::makeWidgetSmall(m_exit);
+
+    m_level = level;
 
     setGame2Layout();
     setLayout(m_Game2Layout);
