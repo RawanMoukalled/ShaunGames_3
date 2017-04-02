@@ -16,6 +16,7 @@ SOURCES += \
     game1/gameover.cpp \
     game2/game2options.cpp \
     game3/game3options.cpp \
+    game2/game2scene.cpp
     game3/game3scene.cpp \
     game3/dot.cpp \
     game3/horizontalline.cpp \
@@ -39,6 +40,7 @@ HEADERS += \
     game1/gameover.h \
     game2/game2options.h \
     game3/game3options.h \
+    game2/game2scene.h \
     difficulty.h \
     game3/size.h \
     game3/game3scene.h \

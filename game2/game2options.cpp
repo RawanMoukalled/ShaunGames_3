@@ -40,10 +40,7 @@ Game2Options::Game2Options(QWidget *parent) :
     setMainLayout();
     setLayout(m_mainLayout);
 
-    QObject::connect(m_easy, SIGNAL(clicked()), this, SLOT(gotoGame()));
-    QObject::connect(m_moderate, SIGNAL(clicked()), this, SLOT(gotoGame()));
-    QObject::connect(m_hard, SIGNAL(clicked()), this, SLOT(gotoGame()));
-    QObject::connect(m_back, SIGNAL(clicked()), this, SLOT(gotoGameMainMenu()));
+    setConnections();
 }
 
 /**
@@ -67,8 +64,8 @@ Game2Options::~Game2Options() {
 * Takes the user to game 2.
 * Called after clicking any level button.
 */
-void Game2Options::gotoGame() {
-    Game2 *g = new Game2;
+void Game2Options::gotoGame2(int difficulty) {
+    Game2 *g = new Game2(static_cast<Difficulty>(difficulty));
     g->show();
     this->close();
 }
@@ -81,6 +78,23 @@ void Game2Options::gotoGameMainMenu() {
     GameMainMenu *m = new GameMainMenu(2);
     m->show();
     this->close();
+}
+
+void Game2Options::setConnections() {
+    m_signalMapper = new QSignalMapper(this);
+
+    QObject::connect(m_easy, SIGNAL(clicked()), m_signalMapper, SLOT(map()));
+    m_signalMapper->setMapping(m_easy, EASY);
+
+    QObject::connect(m_moderate, SIGNAL(clicked()), m_signalMapper, SLOT(map()));
+    m_signalMapper->setMapping(m_moderate, MODERATE);
+
+    QObject::connect(m_hard, SIGNAL(clicked()), m_signalMapper, SLOT(map()));
+    m_signalMapper->setMapping(m_hard, HARD);
+
+    QObject::connect(m_signalMapper, SIGNAL(mapped(int)), this, SLOT(gotoGame2(int)));
+
+    QObject::connect(m_back, SIGNAL(clicked()), this, SLOT(gotoGameMainMenu()));
 }
 
 /**

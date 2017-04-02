@@ -2,6 +2,8 @@
 #define GAME2_H
 
 #include <QtGui>
+#include "difficulty.h"
+#include "game2/game2scene.h"
 
 /**
 * \file game2.h
@@ -18,7 +20,7 @@ public:
     /**
     * \brief Default constructor
     */
-    explicit Game2(QWidget *parent = 0);
+    explicit Game2(Difficulty difficulty, QWidget *parent = 0);
 
     /**
     * \brief Destructor
@@ -37,6 +39,11 @@ private:
     QLabel *m_title; ///< Game title
     QPushButton *m_exit; ///< Button to save and exit
     QVBoxLayout *m_Game2Layout; ///< Layout of widget
+
+    QGraphicsView *m_gameView; ///< Game view that has the game scene
+    Game2Scene *m_gameScene; ///< Game 2 scene
+
+    Difficulty m_difficulty; ///< Difficulty selected
 
     QVector<QSpacerItem*> m_spacerItems; ///< Vector of used spacer items
 
