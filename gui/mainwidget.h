@@ -30,8 +30,6 @@ signals:
 public slots:
     void goToGameSelection();
 
-
-
 private:
     QPushButton *m_guestSignIn;  ///< Button for signing in as guest
     QPushButton *m_signIn; ///< Button for signing in for existing users
@@ -76,6 +74,9 @@ private:
     */
     void setMainLayout();
 
+    /**
+    * \brief Sets the connections
+    */
     void setConnections();
 };
 
