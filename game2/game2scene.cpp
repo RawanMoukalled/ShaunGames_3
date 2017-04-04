@@ -25,14 +25,6 @@ Game2Scene::Game2Scene(Difficulty difficulty, QObject *parent) :
     placeSheepInitial();
 
 
-//    QVector< Tile* >* test = getNeighbors(tileAt(11,11));
-//    qDebug()<<test->size();
-//    QVector< Tile* >::iterator in;
-//    for (in = test->begin(); in != test->end(); ++in)  {
-//        qDebug()<< (*in)->getRow() << "," << (*in)->getCol();
-
-//    }
-
 }
 
 QVector<int> Game2Scene::tilesToBlock() {
@@ -115,11 +107,11 @@ void Game2Scene::placeSheepInitial() {
         sheep_tile = (m_tiles.at(row)).at(col);
     } while(sheep_tile->isBlocked());
 
-    sheep = new Sheep2(row, col);
+    m_sheep = new Sheep2(row, col);
 
-    sheep->setPos(sheep_tile->x(), sheep_tile->y());
+    m_sheep->setPos(sheep_tile->x(), sheep_tile->y());
     sheep_tile->setHasSheep(true);
-    addItem(sheep);
+    addItem(m_sheep);
 }
 
 QVector< Tile* > * Game2Scene::getNeighbors(Tile * center) {
@@ -205,7 +197,13 @@ QVector< Tile* > * Game2Scene::getNeighbors(Tile * center) {
 }
 
 void Game2Scene::resetVisited() {
-
+    QVector< QVector< Tile*> >::iterator row;
+    for (row = m_tiles.begin(); row != m_tiles.end(); ++row) {
+        QVector< Tile*>::iterator tile;
+        for (tile = (*row).begin(); tile != (*row).end(); ++tile) {
+            (*tile)->setVisited(false);
+        }
+    }
 }
 
 Tile* Game2Scene::tileAt(int i, int j) {
@@ -213,19 +211,26 @@ Tile* Game2Scene::tileAt(int i, int j) {
 }
 
 // reset visited before calling
-//bool Game2Scene::win(Tile * tile) {
-//    QVector<Tile*> * neighbors = getNeighbors(tile);
-//    QVector< Tile* >::iterator neighbor;
+bool Game2Scene::win(Tile * tile) {
+    QVector<Tile*> * neighbors = getNeighbors(tile);
 
-//    for (neighbor = neighbors->begin(); neighbor != neighbors->end(); ++neighbor)  {
-//        if (!(*neighbor)->isBlocked()) {
-//            if ((*neighbor)->isBorder()) {
-//                return false;
-//            }
-//            if (!(*neighbor)->isVisited()) {
-//                win(*neighbor);
-//            }
-//        }
-//    }
-//    return true;
-//}
+    QVector< Tile* >::iterator neighbor;
+    for (neighbor = neighbors->begin(); neighbor != neighbors->end(); ++neighbor)  {
+        if (!(*neighbor)->isBlocked()) {
+            if ((*neighbor)->isBorder()) {
+                return false;
+            }
+            if (!(*neighbor)->isVisited()) {
+                (*neighbor)->setVisited(true);
+                if (!win(*neighbor)) {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+Sheep2* Game2Scene::getSheep() {
+    return m_sheep;
+}

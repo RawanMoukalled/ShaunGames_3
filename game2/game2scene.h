@@ -31,8 +31,9 @@ public:
     void resetVisited();
     Tile* tileAt(int i, int j);
     //virtual ~Game2Scene();
-    //bool win(Tile * tile);
-    
+    bool win(Tile * tile);
+    Sheep2* getSheep();
+
 signals:
     
 public slots:
@@ -41,7 +42,7 @@ private:
     Difficulty m_difficulty; ///< Current difficulty of the scene
     int m_score; ///< Game score;
     QVector< QVector< Tile* > > m_tiles; ///< 2D Vector of the tiles making up the grid
-    Sheep2 * sheep; ///< The sheep that is trying to escape
+    Sheep2 * m_sheep; ///< The sheep that is trying to escape
     int m_block_count; ///< number of blocks on the grid
 
 
