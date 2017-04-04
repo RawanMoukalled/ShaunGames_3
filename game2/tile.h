@@ -17,7 +17,8 @@ public:
     int getRow();
     int getCol();
     bool isBorder();
-
+    void setVisited(bool visit);
+    bool isVisited();
 
 signals:
     
@@ -28,6 +29,7 @@ private:
     bool m_hasSheep; ///< Indicates if the sheep is currently placed on it
     int m_row; ///< Indicates the row of the tile
     int m_col; ///< Indicates the column of the tile
+    bool m_visited; ///< Indicates if the current tile has been visited in the search for path to border
 };
 
 #endif // TILE_H
