@@ -33,7 +33,7 @@ void Box::drawShaun() {
 */
 void Box::drawBitzer() {
     setPixmap(QPixmap("pictures/Bitzer.png"));
-    setScale(0.1);
+    setScale(0.09);
 }
 
 /**
