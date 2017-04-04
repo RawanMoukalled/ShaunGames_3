@@ -33,6 +33,9 @@ public:
     //virtual ~Game2Scene();
     bool win(Tile * tile);
     Sheep2* getSheep();
+    void moveSheep();
+    bool getUserTurn();
+    void setUserTurn(bool userTurn);
 
 signals:
     
@@ -44,7 +47,7 @@ private:
     QVector< QVector< Tile* > > m_tiles; ///< 2D Vector of the tiles making up the grid
     Sheep2 * m_sheep; ///< The sheep that is trying to escape
     int m_block_count; ///< number of blocks on the grid
-
+    bool m_user_turn;
 
     
 };

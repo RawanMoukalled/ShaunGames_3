@@ -21,6 +21,8 @@ Game2Scene::Game2Scene(Difficulty difficulty, QObject *parent) :
         m_block_count = 5;
     }
 
+    m_user_turn = true;
+
     placeTiles();
     placeSheepInitial();
 
@@ -234,3 +236,29 @@ bool Game2Scene::win(Tile * tile) {
 Sheep2* Game2Scene::getSheep() {
     return m_sheep;
 }
+
+void Game2Scene::moveSheep() {
+    if(!m_user_turn) {
+
+        //move randomly
+        if(m_difficulty == EASY) {
+            //pick a random non blocked neighbor and move to it
+            QVector< Tile* > * neighbors = getNeighbors(tileAt(m_sheep->getRow(), m_sheep->getCol()));
+            int index = rand()%(neighbors->size());
+            //Tile * next = neighbors->at(index);
+            //placeSheep(next->getRow(), next->getCol());
+        }
+    }
+}
+
+bool Game2Scene::getUserTurn() {
+    return m_user_turn;
+}
+
+void Game2Scene::setUserTurn(bool userTurn) {
+    m_user_turn = userTurn;
+}
+
+//void Game2Scene::placeSheep(int i, int j) {
+
+//}

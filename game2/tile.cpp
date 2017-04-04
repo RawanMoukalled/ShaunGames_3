@@ -84,3 +84,4 @@ void Tile::setVisited(bool visit) {
 bool Tile::isVisited() {
     return m_visited;
 }
+
