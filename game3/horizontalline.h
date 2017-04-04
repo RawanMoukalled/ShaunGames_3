@@ -1,7 +1,7 @@
 #ifndef HORIZONTALLINE_H
 #define HORIZONTALLINE_H
 
-#include <QtGui>
+#include "game3/line.h"
 #include "game3/box.h"
 
 /**
@@ -12,7 +12,7 @@
 * \author Rita Aoun
 * \author Rawan Moukalled
 */
-class HorizontalLine : public QObject, public QGraphicsPixmapItem
+class HorizontalLine : public Line
 {
     Q_OBJECT
 public:
@@ -32,6 +32,13 @@ public:
     * \brief Makes the line grey
     */
     void turnGrey();
+
+    /**
+    * \brief Called when a line is selected
+    * \param userTurn Whether it is the user's turn
+    * \returns Whether it is still the player's turn
+    */
+    bool playTurn(bool userTurn);
     
 signals:
     

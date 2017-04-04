@@ -9,9 +9,9 @@
 * Sets VerticalLine properties.
 */
 VerticalLine::VerticalLine(Box *left, Box *right, QObject *parent) :
-    QObject(parent), m_left(left), m_right(right)
+    Line(parent), m_left(left), m_right(right)
 {
-    setPixmap(QPixmap("pictures/Lines/vertical_red.png"));
+    setPixmap(QPixmap("pictures/Lines/vertical_transparent.png"));
     setZValue(2);
 }
 
@@ -25,5 +25,40 @@ VerticalLine::~VerticalLine() {
 * Changes the object image to make it grey.
 */
 void VerticalLine::turnGrey() {
-    setPixmap(QPixmap("pictures/Lines/horizontal_grey.png"));
+    setPixmap(QPixmap("pictures/Lines/vertical_grey.png"));
 }
+
+/**
+* Called when a line is drawn. Returns whether it is still the same player's turn.
+*/
+bool VerticalLine::playTurn(bool userTurn) {
+    draw();
+    setPixmap(QPixmap("pictures/Lines/vertical_red.png"));
+    bool keepTurn = false;
+    if (m_left != NULL) {
+        m_left->setRight();
+        if (m_left->isClosed()) {
+            keepTurn = true;
+            if (userTurn) {
+                m_left->drawBitzer();
+            }
+            else {
+                m_left->drawShaun();
+            }
+        }
+    }
+    if (m_right != NULL) {
+        m_right->setLeft();
+        if (m_right->isClosed()) {
+            keepTurn = true;
+            if (userTurn) {
+                m_right->drawBitzer();
+            }
+            else {
+                m_right->drawShaun();
+            }
+        }
+    }
+    return keepTurn;
+}
+

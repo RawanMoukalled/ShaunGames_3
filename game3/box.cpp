@@ -25,7 +25,7 @@ Box::~Box() {
 */
 void Box::drawShaun() {
     setPixmap(QPixmap("pictures/shaun.png"));
-    setScale(0.12);
+    setScale(0.1);
 }
 
 /**
@@ -33,5 +33,40 @@ void Box::drawShaun() {
 */
 void Box::drawBitzer() {
     setPixmap(QPixmap("pictures/Bitzer.png"));
-    setScale(0.05);
+    setScale(0.09);
+}
+
+/**
+* Marks that the top of the box has been drawn.
+*/
+void Box::setAbove() {
+    m_above = true;
+}
+
+/**
+* Marks that the left of the box has been drawn.
+*/
+void Box::setLeft() {
+    m_left = true;
+}
+
+/**
+* Marks that the bottom of the box has been drawn.
+*/
+void Box::setUnder() {
+    m_under = true;
+}
+
+/**
+* Marks that the right of the box has been drawn.
+*/
+void Box::setRight() {
+    m_right = true;
+}
+
+/**
+* Checks if the box has been closed.
+*/
+bool Box::isClosed() {
+    return m_above && m_left && m_under && m_right;
 }

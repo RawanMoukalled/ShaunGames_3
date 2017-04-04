@@ -49,7 +49,7 @@ GameMainMenu::GameMainMenu(int gameChoice, QWidget *parent) :
                                     "Objective: This is a two-player game, where each takes turn "
                                     "adding a single horizontal or vertical line between two "
                                     "unjoined adjacent nodes. The player who closes the most "
-                                    "boxes wins the game.");
+                                    "boxes wins the game. You are Bitzer and the computer is Shaun.");
     }
 
     m_back = new QPushButton("Back to Game Selection Menu");

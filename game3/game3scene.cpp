@@ -1,8 +1,9 @@
 #include "game3scene.h"
 
 Game3Scene::Game3Scene(Difficulty difficulty, Size size, QObject *parent) :
-    QGraphicsScene(parent), m_difficulty(difficulty), m_size(size), m_dots(size+1),
-    m_horizontalLines(size+1), m_verticalLines(size), m_boxes(size)
+    QGraphicsScene(parent), m_difficulty(difficulty), m_size(size), m_userTurn(true),
+    m_dots(size+1), m_horizontalLines(size+1), m_verticalLines(size), m_boxes(size),
+    m_newLines()
 {
     int firstX, firstY;
     if (size == FOURBYFOUR) {
@@ -61,21 +62,102 @@ Game3Scene::Game3Scene(Difficulty difficulty, Size size, QObject *parent) :
             }
         }
     }
+
+    m_delay = new QTimer(this);
+    connect(m_delay, SIGNAL(timeout()), this, SLOT(computerMove()));
 }
 
 /**
 * Frees allocated memory.
 */
 Game3Scene::~Game3Scene() {
+    for (int i=0; i<m_size; ++i) {
+        for (int j=0; j<m_size; ++j) {
+            delete m_boxes[i][j];
+        }
+    }
     for (int i=0; i<=m_size; ++i) {
         for (int j=0; j<=m_size; ++j) {
             delete m_dots[i][j];
-            if (i != m_size-1) {
+            if (j != m_size) {
                 delete m_horizontalLines[i][j];
             }
-            if (j != m_size-1) {
+            if (i != m_size) {
                 delete m_verticalLines[i][j];
             }
         }
     }
+}
+
+/**
+* Starts a delay to call computerMove().
+*/
+void Game3Scene::computerTurn() {
+    m_userTurn = false;
+    m_delay->start(1000);
+}
+
+/**
+* Returns whether it is the user's turn to play.
+*/
+bool Game3Scene::isUserTurn() {
+    return m_userTurn;
+}
+
+/**
+* Picks a line to select according to difficulty, and plays the turn.
+*/
+void Game3Scene::computerMove() {
+    m_delay->stop();
+    static bool firstTime(true);
+    if (firstTime) {
+        clearNewLines();
+        firstTime = false;
+    }
+    Line *line;
+    if (m_difficulty == EASY) {
+        do {
+            int row = rand() % m_size;
+            int col = rand() % m_size;
+            if (rand() % 2 == 0) {
+                line = m_horizontalLines[row][col];
+            }
+            else {
+                line = m_verticalLines[row][col];
+            }
+        }
+        while (line->isDrawn());
+    }
+    else if (m_difficulty == MODERATE) {
+
+    }
+    else {
+
+    }
+
+    m_newLines.push_back(line);
+    if (line->playTurn(false)) {
+        computerTurn();
+    }
+    else {
+        m_userTurn = true;
+        firstTime = true;
+    }
+}
+
+/**
+* Remembers newly drawn line so it can be turned grey later.
+*/
+void Game3Scene::addNewlyDrawnLine(Line *line) {
+    m_newLines.push_back(line);
+}
+
+/**
+* Clears new lines by turning them grey and removing them from the vector.
+*/
+void Game3Scene::clearNewLines() {
+    for (QVector<Line*>::iterator it = m_newLines.begin(); it != m_newLines.end(); ++it) {
+        (*it)->turnGrey();
+    }
+    m_newLines.erase(m_newLines.begin(), m_newLines.end());
 }
