@@ -34,6 +34,32 @@ public:
     * \brief Sets pixmap to Bitzer
     */
     void drawBitzer();
+
+    /**
+    * \brief Marks that the top of the box has been drawn
+    */
+    void setAbove();
+
+    /**
+    * \brief Marks that the left of the box has been drawn
+    */
+    void setLeft();
+
+    /**
+    * \brief Marks that the bottom of the box has been drawn
+    */
+    void setUnder();
+
+    /**
+    * \brief Marks that the right of the box has been drawn
+    */
+    void setRight();
+
+    /**
+    * \brief Checks if the box has been closed
+    * \returns Whether the box has been closed
+    */
+    bool isClosed();
     
 signals:
     

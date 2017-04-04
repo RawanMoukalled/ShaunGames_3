@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
     //MainWidget *mainWidget = new MainWidget;
     //mainWidget->show();
 
-    Game2Options *o = new Game2Options;
+    Game3Options *o = new Game3Options;
     o->show();
 
     return app.exec();
