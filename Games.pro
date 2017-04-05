@@ -13,7 +13,6 @@ SOURCES += \
     game1/game1scene.cpp \
     game1/sheep1.cpp \
     game1/barn.cpp \
-    game1/gameover.cpp \
     game2/game2options.cpp \
     game3/game3options.cpp \
     game2/game2scene.cpp \
@@ -24,7 +23,8 @@ SOURCES += \
     game3/horizontalline.cpp \
     game3/verticalline.cpp \
     game3/box.cpp \
-    game3/line.cpp
+    game3/line.cpp \
+    gameover.cpp
 
 HEADERS += \
     myaccount.h \
@@ -40,7 +40,6 @@ HEADERS += \
     game1/game1scene.h \
     game1/sheep1.h \
     game1/barn.h \
-    game1/gameover.h \
     game2/game2options.h \
     game3/game3options.h \
     game2/game2scene.h \
@@ -53,6 +52,7 @@ HEADERS += \
     game3/horizontalline.h \
     game3/verticalline.h \
     game3/box.h \
-    game3/line.h
+    game3/line.h \
+    gameover.h
 
 OTHER_FILES +=

@@ -1,4 +1,5 @@
 #include "verticalline.h"
+#include "game3/game3scene.h"
 
 /**
 * \file verticalline.cpp
@@ -35,15 +36,18 @@ bool VerticalLine::playTurn(bool userTurn) {
     draw();
     setPixmap(QPixmap("pictures/Lines/vertical_red.png"));
     bool keepTurn = false;
+    Game3Scene *s = static_cast<Game3Scene*>(scene());
     if (m_left != NULL) {
         m_left->setRight();
         if (m_left->isClosed()) {
             keepTurn = true;
             if (userTurn) {
                 m_left->drawBitzer();
+                s->closeBoxByUser();
             }
             else {
                 m_left->drawShaun();
+                s->closeBoxByComputer();
             }
         }
     }
@@ -53,12 +57,23 @@ bool VerticalLine::playTurn(bool userTurn) {
             keepTurn = true;
             if (userTurn) {
                 m_right->drawBitzer();
+                s->closeBoxByUser();
             }
             else {
                 m_right->drawShaun();
+                s->closeBoxByComputer();
             }
         }
     }
-    return keepTurn;
+
+    if (s->noMoreMoves()) {
+        s->gameOver();
+        // If it is the user's turn, keep it that way
+        // Else, change turns and make it the user's turn
+        return userTurn;
+    }
+    else {
+        return keepTurn;
+    }
 }
 

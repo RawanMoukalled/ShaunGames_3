@@ -1,6 +1,14 @@
 #include "line.h"
 #include "game3/game3scene.h"
 
+/**
+* \file line.cpp
+* \brief Contains Line class definition
+*/
+
+/**
+* Initializes the object and marks it as not drawn.
+*/
 Line::Line(QObject *parent) :
     QObject(parent), m_drawn(false)
 {
