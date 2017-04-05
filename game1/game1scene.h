@@ -7,7 +7,7 @@
 #include "game1/cannon.h"
 #include "game1/sheep1.h"
 #include "game1/barn.h"
-#include "game1/gameover.h"
+#include "gameover.h"
 
 /**
 * \file game1scene.h

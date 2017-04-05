@@ -10,7 +10,7 @@
 * \brief Game3Options class
 *
 * This is the options page for game 3, where the user can choose the level and size with which to start the game.
-* Levels are: Easy, Moderate and Hard.
+* Levels are: Easy, Moderate and Hard. Sizes are: 4x4, 8x8, 16x16.
 *
 * \author Rita Aoun
 * \author Rawan Moukalled

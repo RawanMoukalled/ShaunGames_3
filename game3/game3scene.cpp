@@ -1,9 +1,17 @@
 #include "game3scene.h"
 
+/**
+* \file game3scene.cpp
+* \brief Contains Game3Scene class definition
+*/
+
+/**
+* Initializes the difficulty, size, dots, lines and boxes of the game.
+*/
 Game3Scene::Game3Scene(Difficulty difficulty, Size size, QObject *parent) :
-    QGraphicsScene(parent), m_difficulty(difficulty), m_size(size), m_userTurn(true),
-    m_dots(size+1), m_horizontalLines(size+1), m_verticalLines(size), m_boxes(size),
-    m_newLines()
+    QGraphicsScene(parent), m_difficulty(difficulty), m_size(size), m_userTurn(true), m_boxesClosedByUser(0),
+    m_boxesClosedByComputer(0), m_dots(size+1), m_horizontalLines(size+1), m_verticalLines(size), m_boxes(size),
+    m_unmarkedLines(), m_newLines()
 {
     int firstX, firstY;
     if (size == FOURBYFOUR) {
@@ -45,6 +53,7 @@ Game3Scene::Game3Scene(Difficulty difficulty, Size size, QObject *parent) :
                 }
                 m_horizontalLines[i][j]->setPos(firstX+7+j*30,firstY+4+i*30);
                 addItem(m_horizontalLines[i][j]);
+                m_unmarkedLines.push_back(m_horizontalLines[i][j]);
             }
 
             if (i != size) {
@@ -59,6 +68,7 @@ Game3Scene::Game3Scene(Difficulty difficulty, Size size, QObject *parent) :
                 }
                 m_verticalLines[i][j]->setPos(firstX+5+j*30,firstY+4+i*30);
                 addItem(m_verticalLines[i][j]);
+                m_unmarkedLines.push_back(m_verticalLines[i][j]);
             }
         }
     }
@@ -116,26 +126,17 @@ void Game3Scene::computerMove() {
     }
     Line *line;
     if (m_difficulty == EASY) {
-        do {
-            int row = rand() % m_size;
-            int col = rand() % m_size;
-            if (rand() % 2 == 0) {
-                line = m_horizontalLines[row][col];
-            }
-            else {
-                line = m_verticalLines[row][col];
-            }
-        }
-        while (line->isDrawn());
+        line = m_unmarkedLines[rand() % m_unmarkedLines.size()];
     }
+    // TODO: Moderate and Hard algorithms
     else if (m_difficulty == MODERATE) {
-
+        line = m_unmarkedLines[rand() % m_unmarkedLines.size()];
     }
     else {
-
+        line = m_unmarkedLines[rand() % m_unmarkedLines.size()];
     }
 
-    m_newLines.push_back(line);
+    addNewlyDrawnLine(line);
     if (line->playTurn(false)) {
         computerTurn();
     }
@@ -147,9 +148,12 @@ void Game3Scene::computerMove() {
 
 /**
 * Remembers newly drawn line so it can be turned grey later.
+* Also removes the line from the list of unmarked lines.
 */
 void Game3Scene::addNewlyDrawnLine(Line *line) {
     m_newLines.push_back(line);
+    int i = m_unmarkedLines.indexOf(line);
+    m_unmarkedLines.remove(i);
 }
 
 /**
@@ -160,4 +164,35 @@ void Game3Scene::clearNewLines() {
         (*it)->turnGrey();
     }
     m_newLines.erase(m_newLines.begin(), m_newLines.end());
+}
+
+/**
+* Ends the game.
+*/
+void Game3Scene::gameOver() {
+    m_gameOverPicture = new GameOver(m_boxesClosedByUser > m_boxesClosedByComputer);
+    addItem(m_gameOverPicture);
+
+    emit done();
+}
+
+/**
+* Returns whether there are any unmarked lines left.
+*/
+bool Game3Scene::noMoreMoves() {
+    return m_unmarkedLines.empty();
+}
+
+/**
+* \brief Declares one more box as closed by user
+*/
+void Game3Scene::closeBoxByUser() {
+    ++m_boxesClosedByUser;
+}
+
+/**
+* \brief Declares one more box as closed by computer
+*/
+void Game3Scene::closeBoxByComputer() {
+    ++m_boxesClosedByComputer;
 }

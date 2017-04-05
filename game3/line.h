@@ -3,6 +3,16 @@
 
 #include <QtGui>
 
+/**
+* \file line.h
+* \brief Line class
+*
+* Line is an interface for vertical and horizontal lines.
+* It implements the on-click reaction of lines and it remembers whether a line has been clicked before.
+*
+* \author Rita Aoun
+* \author Rawan Moukalled
+*/
 class Line : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT

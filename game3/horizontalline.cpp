@@ -1,4 +1,5 @@
 #include "horizontalline.h"
+#include "game3/game3scene.h"
 
 /**
 * \file horizontalline.cpp
@@ -35,15 +36,18 @@ bool HorizontalLine::playTurn(bool userTurn) {
     draw();
     setPixmap(QPixmap("pictures/Lines/horizontal_red.png"));
     bool keepTurn = false;
+    Game3Scene *s = static_cast<Game3Scene*>(scene());
     if (m_above != NULL) {
         m_above->setUnder();
         if (m_above->isClosed()) {
             keepTurn = true;
             if (userTurn) {
                 m_above->drawBitzer();
+                s->closeBoxByUser();
             }
             else {
                 m_above->drawShaun();
+                s->closeBoxByComputer();
             }
         }
     }
@@ -53,11 +57,22 @@ bool HorizontalLine::playTurn(bool userTurn) {
             keepTurn = true;
             if (userTurn) {
                 m_under->drawBitzer();
+                s->closeBoxByUser();
             }
             else {
                 m_under->drawShaun();
+                s->closeBoxByComputer();
             }
         }
     }
-    return keepTurn;
+
+    if (s->noMoreMoves()) {
+        s->gameOver();
+        // If it is the user's turn, keep it that way
+        // Else, change turns and make it the user's turn
+        return userTurn;
+    }
+    else {
+        return keepTurn;
+    }
 }
