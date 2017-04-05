@@ -7,7 +7,7 @@
 */
 
 /**
-* Places the items on the scene
+* Places the items on the scene and sets the user turn
 */
 Game2Scene::Game2Scene(Difficulty difficulty, QObject *parent) :
     QGraphicsScene(parent), m_difficulty(difficulty), m_score(0)
@@ -27,8 +27,13 @@ Game2Scene::Game2Scene(Difficulty difficulty, QObject *parent) :
     placeSheepInitial();
 
 
+
+
 }
 
+/**
+* chooses distinct random tiles to flag for blocking initially at the start of the game
+*/
 QVector<int> Game2Scene::tilesToBlock() {
     //flag some tiles as blocked initially
 
@@ -55,6 +60,9 @@ QVector<int> Game2Scene::tilesToBlock() {
     return flagged;
 }
 
+/**
+* Places the tiles on the grid of the game
+*/
 void Game2Scene::placeTiles() {
 
     QVector<int> flagged = tilesToBlock();
@@ -99,6 +107,9 @@ void Game2Scene::placeTiles() {
     }
 }
 
+/**
+* Chooses a random tile to place the sheep on at the beginning of the game
+*/
 void Game2Scene::placeSheepInitial() {
     int row, col;
     //place sheep on a tile that is not blocked
@@ -109,13 +120,32 @@ void Game2Scene::placeSheepInitial() {
         sheep_tile = (m_tiles.at(row)).at(col);
     } while(sheep_tile->isBlocked());
 
-    m_sheep = new Sheep2(row, col);
+    m_sheep = new Sheep2(sheep_tile);
 
-    m_sheep->setPos(sheep_tile->x(), sheep_tile->y());
-    sheep_tile->setHasSheep(true);
+    //m_sheep->setPos(sheep_tile->x(), sheep_tile->y());
     addItem(m_sheep);
 }
 
+/**
+* Checks for each element in the list the block status and only
+* returns the free ones
+*/
+QVector< Tile* > * Game2Scene::getNonBlocked(QVector<Tile*> * tiles) {
+    QVector< Tile* > * unblocked = new QVector< Tile* >;
+
+    QVector< Tile* >::iterator it;
+    for(it = tiles->begin(); it != tiles->end(); ++it) {
+        if(!(*it)->isBlocked()) {
+            unblocked->push_back((*it));
+        }
+    }
+
+    return unblocked;
+}
+
+/**
+* Gets for the given tile the left, right, upper and bottom neighbors
+*/
 QVector< Tile* > * Game2Scene::getNeighbors(Tile * center) {
   QVector< Tile* > * neighbors = new QVector< Tile* >;
 
@@ -198,6 +228,9 @@ QVector< Tile* > * Game2Scene::getNeighbors(Tile * center) {
   return neighbors;
 }
 
+/**
+* Resets the status of the grid tiles as not visited
+*/
 void Game2Scene::resetVisited() {
     QVector< QVector< Tile*> >::iterator row;
     for (row = m_tiles.begin(); row != m_tiles.end(); ++row) {
@@ -208,11 +241,17 @@ void Game2Scene::resetVisited() {
     }
 }
 
+/**
+* Gets the tile at the given indices
+*/
 Tile* Game2Scene::tileAt(int i, int j) {
     return (m_tiles.at(i)).at(j);
 }
 
-// reset visited before calling
+/**
+* Determines a win by checking if from the current sheep position
+* it's possible to get to the border without encountering a blocked tile
+*/
 bool Game2Scene::win(Tile * tile) {
     QVector<Tile*> * neighbors = getNeighbors(tile);
 
@@ -233,32 +272,43 @@ bool Game2Scene::win(Tile * tile) {
     return true;
 }
 
+/**
+* Retrieves the sheep
+*/
 Sheep2* Game2Scene::getSheep() {
     return m_sheep;
 }
 
+/**
+* Moves the sheep according to the difficulty when it's the
+* computer's turn
+*/
 void Game2Scene::moveSheep() {
     if(!m_user_turn) {
 
         //move randomly
         if(m_difficulty == EASY) {
             //pick a random non blocked neighbor and move to it
-            QVector< Tile* > * neighbors = getNeighbors(tileAt(m_sheep->getRow(), m_sheep->getCol()));
+            QVector< Tile* > * neighbors = getNonBlocked(getNeighbors(m_sheep->getCurrent()));
             int index = rand()%(neighbors->size());
-            //Tile * next = neighbors->at(index);
-            //placeSheep(next->getRow(), next->getCol());
+            m_sheep->setCurrent(neighbors->at(index));
         }
+
+        m_user_turn = true;
     }
 }
 
+/**
+* Retrieves the value that indicates if it's the user's turn
+*/
 bool Game2Scene::getUserTurn() {
     return m_user_turn;
 }
 
+/**
+* Sets the user's turn as true or false
+*/
 void Game2Scene::setUserTurn(bool userTurn) {
     m_user_turn = userTurn;
 }
 
-//void Game2Scene::placeSheep(int i, int j) {
-
-//}

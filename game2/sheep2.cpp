@@ -5,20 +5,35 @@
 * \brief Contains the Sheep class
 */
 
-Sheep2::Sheep2(int row, int col, QObject *parent) :
+/**
+* Initializes the sheep position and picture
+*/
+Sheep2::Sheep2(Tile * tile, QObject *parent) :
     QObject(parent)
 {
     setPixmap(QPixmap("pictures/sheep.png"));
     setScale(0.15);
 
-    m_row = row;
-    m_col = col;
+    m_tile = NULL;
+    setCurrent(tile);
 }
 
-int Sheep2::getRow() {
-    return m_row;
+/**
+* Unsets current tile and sets the argument tile as current
+*/
+void Sheep2::setCurrent(Tile * tile) {
+    if(m_tile != NULL) {
+      m_tile->setHasSheep(false);
+    }
+    m_tile = tile;
+    m_tile->setHasSheep(true);
+    this->setPos(m_tile->x(), m_tile->y());
 }
 
-int Sheep2::getCol() {
-    return m_col;
+/**
+* Gets the current tile of the sheep
+*/
+Tile* Sheep2::getCurrent() {
+    return m_tile;
 }
+

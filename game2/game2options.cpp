@@ -80,6 +80,9 @@ void Game2Options::gotoGameMainMenu() {
     this->close();
 }
 
+/**
+* Connects the difficulty buttons to the new game 2.
+*/
 void Game2Options::setConnections() {
     m_signalMapper = new QSignalMapper(this);
 

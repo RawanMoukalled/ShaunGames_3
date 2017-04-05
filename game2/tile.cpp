@@ -43,18 +43,23 @@ void Tile::setHasSheep(bool placed) {
 
 void Tile::mousePressEvent(QGraphicsSceneMouseEvent *event) {
     if(event->button() == Qt::LeftButton) {
-
-        if(m_hasSheep == false && m_blocked == false) {
+        //get the game scene
+        Game2Scene *sc = static_cast<Game2Scene*>(scene());
+        if(m_hasSheep == false && m_blocked == false && sc->getUserTurn()) {
             setBlock(true);
 
-            Game2Scene *sc = static_cast<Game2Scene*>(scene());
+            //check if the user has won
             sc->resetVisited();
             Sheep2 * scene_sheep = sc->getSheep();
-            if( sc->win( sc->tileAt( scene_sheep->getRow(), scene_sheep->getCol() ) ) ){
+            if( sc->win( scene_sheep->getCurrent() ) ){
                 qDebug()<<"win";
             } else {
                 qDebug()<<"still losin";
             }
+
+            sc->setUserTurn(false);
+            sc->moveSheep();
+
         }
     }
 }
