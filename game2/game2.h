@@ -35,6 +35,16 @@ public slots:
     */
     void goToMainMenu();
 
+    /**
+    * \brief removes save and exit button and adds replay and back buttons
+    */
+    void endGame();
+
+    /**
+    * \brief removes save and exit button and adds replay and back buttons
+    */
+    void replay();
+
 private:
     QLabel *m_title; ///< Game title
     QPushButton *m_exit; ///< Button to save and exit
@@ -46,6 +56,9 @@ private:
     Difficulty m_difficulty; ///< Difficulty selected
 
     QVector<QSpacerItem*> m_spacerItems; ///< Vector of used spacer items
+
+    QPushButton *m_goBack; ///< Button to go back to game menu
+    QPushButton *m_replay; ///< Button to replay the game
 
     /**
     * \brief Sets the different graphic items in one layout for the game

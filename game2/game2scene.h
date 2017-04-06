@@ -6,6 +6,7 @@
 #include "difficulty.h"
 #include "game2/tile.h"
 #include "game2/sheep2.h"
+#include "gameover.h"
 
 /**
 * \file game2scene.h
@@ -24,6 +25,11 @@ public:
     * \brief Default constructor
     */
     explicit Game2Scene(Difficulty difficulty, QObject *parent = 0);
+
+    /**
+    * Destructor
+    */
+    virtual ~Game2Scene();
 
     /**
     * \brief Sets the layout of the level buttons
@@ -75,11 +81,6 @@ public:
     Sheep2* getSheep();
 
     /**
-    * \brief moves the sheep according to the difficulty of the game
-    */
-    void moveSheep();
-
-    /**
     * \brief retrieves whether or not it is the user's turn
     * \returns boolean indicating if it's the user's turn
     */
@@ -98,12 +99,47 @@ public:
     */
     QVector< Tile* > * getNonBlocked(QVector< Tile* > * tiles);
 
+    /**
+    * \brief delays the computer turn
+    */
+    void computerTurn();
 
-    //virtual ~Game2Scene();
+    /**
+    * \brief Ends the game
+    * \param win whether or not the user won
+    */
+    void gameOver(bool win);
+
+    /**
+    * \brief Increments the number of blocks on click of a tile
+    */
+    void incrementBlockCount();
+
+    /**
+    * \brief retrieves the lcd display
+    * \returns the lcd display
+    */
+    QLCDNumber* getScoreDisplay();
+
+    /**
+    * \brief retrieves the number of blocked tiles
+    * \returns number of blocked tiles
+    */
+    int getBlockCount();
+
 
 signals:
+    /**
+    * \brief Signal sent to game2 to show that the game has ended
+    */
+    void Done();
     
 public slots:
+    /**
+    * \brief moves the sheep according to the difficulty of the game
+    */
+    void moveSheep();
+
 
 private:
     Difficulty m_difficulty; ///< Current difficulty of the scene
@@ -112,7 +148,9 @@ private:
     Sheep2 * m_sheep; ///< The sheep that is trying to escape
     int m_block_count; ///< number of blocks on the grid
     bool m_user_turn; ///< state of the user's turn
-
+    QTimer *m_delay; ///< Delay on computer's turn
+    GameOver *m_gameOverPicture; ///< Picture to be overlayed on the screen when game is over
+    QLCDNumber *m_scoreDisplay; ///< LCD that displays the score
     
 };
 

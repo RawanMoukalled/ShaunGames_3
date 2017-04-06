@@ -47,18 +47,18 @@ void Tile::mousePressEvent(QGraphicsSceneMouseEvent *event) {
         Game2Scene *sc = static_cast<Game2Scene*>(scene());
         if(m_hasSheep == false && m_blocked == false && sc->getUserTurn()) {
             setBlock(true);
-
+            sc->incrementBlockCount();
+            sc->getScoreDisplay()->display(1000.0/sc->getBlockCount());
             //check if the user has won
             sc->resetVisited();
             Sheep2 * scene_sheep = sc->getSheep();
             if( sc->win( scene_sheep->getCurrent() ) ){
-                qDebug()<<"win";
+                sc->gameOver(true);
             } else {
-                qDebug()<<"still losin";
+                sc->computerTurn();
             }
 
-            sc->setUserTurn(false);
-            sc->moveSheep();
+
 
         }
     }

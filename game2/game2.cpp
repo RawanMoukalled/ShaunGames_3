@@ -30,6 +30,7 @@ Game2::Game2(Difficulty difficulty, QWidget *parent) :
     setLayout(m_Game2Layout);
 
     QObject::connect(m_exit, SIGNAL(clicked()), SLOT(goToMainMenu()));
+    QObject::connect(m_gameScene, SIGNAL(Done()),SLOT(endGame()));
 
 }
 
@@ -73,4 +74,52 @@ void Game2::goToMainMenu() {
     GameMainMenu *menu = new GameMainMenu(2);
     menu->show();
     close();
+}
+
+/**
+* Reloads game
+*/
+void Game2::replay() {
+    delete m_gameScene;
+    m_gameScene = new Game2Scene(m_difficulty);
+    m_gameView->setScene(m_gameScene);
+    m_gameScene->setSceneRect(0,0,575,505);
+    m_gameView->setBackgroundBrush(QBrush(QImage("pictures/brown_bg.png").scaledToHeight(550)));
+    m_gameView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_gameView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+
+    m_Game2Layout->removeWidget(m_goBack);
+    delete m_goBack;
+
+    m_Game2Layout->removeWidget(m_replay);
+    delete m_replay;
+
+    m_exit = new QPushButton("Save and Exit");
+    m_Game2Layout->addWidget(m_exit);
+    m_Game2Layout->setAlignment(m_exit, Qt::AlignHCenter);
+    QObject::connect(m_exit, SIGNAL(clicked()), SLOT(goToMainMenu()));
+    QObject::connect(m_gameScene, SIGNAL(Done()),SLOT(endGame()));
+}
+
+/**
+* Removes the save and exitbutton and adds the go back and replay
+* buttons along with their connections
+*/
+void Game2::endGame() {
+    m_goBack = new QPushButton("Go Back");
+    m_replay = new QPushButton("Replay");
+
+    m_Game2Layout->removeWidget(m_exit);
+    delete m_exit;
+    m_exit = NULL;
+
+    m_Game2Layout->addWidget(m_goBack);
+    m_Game2Layout->addWidget(m_replay);
+
+    m_Game2Layout->setAlignment(m_goBack, Qt::AlignHCenter);
+    m_Game2Layout->setAlignment(m_replay, Qt::AlignHCenter);
+
+    QObject::connect(m_goBack, SIGNAL(clicked()), SLOT(goToMainMenu()));
+    QObject::connect(m_replay, SIGNAL(clicked()), SLOT(replay()));
 }

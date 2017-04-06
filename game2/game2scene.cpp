@@ -21,14 +21,48 @@ Game2Scene::Game2Scene(Difficulty difficulty, QObject *parent) :
         m_block_count = 5;
     }
 
+    m_scoreDisplay = new QLCDNumber(4);
+
+    addWidget(m_scoreDisplay);
+    m_scoreDisplay->move(250,480);
+
+    QPalette lcdPalette = m_scoreDisplay->palette();
+    lcdPalette.setColor(QPalette::Background, QColor(170, 255, 0));
+    lcdPalette.setColor(QPalette::WindowText, QColor(85, 85, 255));
+    lcdPalette.setColor(QPalette::Light, QColor(255, 0, 0));
+    lcdPalette.setColor(QPalette::Dark, QColor(255, 0, 0));
+
+    m_scoreDisplay->setPalette(lcdPalette);
+    m_scoreDisplay->display(1000.0/m_block_count);
+
+    m_gameOverPicture = NULL;
     m_user_turn = true;
 
     placeTiles();
     placeSheepInitial();
 
+    m_delay = new QTimer(this);
+    connect(m_delay, SIGNAL(timeout()), this, SLOT(moveSheep()));
 
 
+}
 
+/**
+* Frees allocated memory
+*/
+Game2Scene::~Game2Scene() {
+
+    for (QVector< QVector< Tile* > >::iterator row=m_tiles.begin(); row!=m_tiles.end(); ++row) {
+        for(QVector< Tile* >::iterator tile = (*row).begin(); tile!=(*row).end(); ++tile){
+            delete *tile;
+        }
+    }
+
+    delete m_sheep;
+    delete m_delay;
+    if(m_gameOverPicture != NULL) {
+        delete m_gameOverPicture;
+    }
 }
 
 /**
@@ -280,11 +314,19 @@ Sheep2* Game2Scene::getSheep() {
 }
 
 /**
+* Starts the timer to delay the computer move
+*/
+void Game2Scene::computerTurn() {
+    m_user_turn = false;
+    m_delay->start(500);
+}
+
+/**
 * Moves the sheep according to the difficulty when it's the
 * computer's turn
 */
 void Game2Scene::moveSheep() {
-    if(!m_user_turn) {
+    if(!m_user_turn && !m_sheep->getCurrent()->isBorder()) {
 
         //move randomly
         if(m_difficulty == EASY) {
@@ -294,7 +336,23 @@ void Game2Scene::moveSheep() {
             m_sheep->setCurrent(neighbors->at(index));
         }
 
-        m_user_turn = true;
+        else if(m_difficulty == MODERATE) {
+
+        }
+
+        else if(m_difficulty == HARD) {
+
+
+        }
+
+        if(m_sheep->getCurrent()->isBorder()){
+            //lost
+            gameOver(false);
+        } else {
+          m_user_turn = true;
+        }
+
+
     }
 }
 
@@ -312,3 +370,29 @@ void Game2Scene::setUserTurn(bool userTurn) {
     m_user_turn = userTurn;
 }
 
+void Game2Scene::gameOver(bool win) {
+    m_gameOverPicture = new GameOver(win);
+    addItem(m_gameOverPicture);
+    emit Done();
+}
+
+/**
+* Increments the number of blocks by one on click of a tile
+*/
+void Game2Scene::incrementBlockCount() {
+    m_block_count++;
+}
+
+/**
+* Returns the score lcd
+*/
+QLCDNumber* Game2Scene::getScoreDisplay() {
+    return m_scoreDisplay;
+}
+
+/**
+* Returns the number of blocked tiles
+*/
+int Game2Scene::getBlockCount() {
+    return m_block_count;
+}
