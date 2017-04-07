@@ -31,18 +31,34 @@ public:
 signals:
 
 public slots:
+
+    /**
+    * \brief Removes save and exit button and adds replay and back buttons
+    */
+    void endGame();
+
+    /**
+    * \brief Removes save and exit button and adds replay and back buttons
+    */
+    void replay();
+
     /**
     * \brief Slot to go back to the games main menu when pressing Exit
     */
     void goToMainMenu();
 
 private:
+    const Difficulty m_difficulty;
+    const Size m_size;
     QLabel *m_title; ///< Game title
     QPushButton *m_exit; ///< Button to save and exit
     QVBoxLayout *m_Game3Layout; ///< Layout of widget
 
     QGraphicsView *m_gameView; ///< Game view that has the game scene
     Game3Scene *m_gameScene; ///< Game3 scene
+
+    QPushButton *m_goBack; ///< Button to go back to game menu
+    QPushButton *m_replay; ///< Button to replay the game
 
     /**
     * \brief Sets the different graphic items in one layout for the game

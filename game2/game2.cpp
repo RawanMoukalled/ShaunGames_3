@@ -40,12 +40,15 @@ Game2::Game2(Difficulty difficulty, QWidget *parent) :
 Game2::~Game2() {
     delete m_title;
     delete m_Game2Layout;
-    delete m_exit;
     delete m_gameScene;
     delete m_gameView;
 
-    for (QVector<QSpacerItem*>::iterator sp=m_spacerItems.begin(); sp!=m_spacerItems.end(); ++sp) {
-        delete *sp;
+    if (m_exit != NULL) {
+        delete m_exit;
+    }
+    else {
+        delete m_goBack;
+        delete m_replay;
     }
 }
 
