@@ -81,6 +81,31 @@ public:
     */
     bool isVisited();
 
+    /**
+    * \brief Retrieves the distance to the sheep so far
+    * \returns The distance to the sheep
+    */
+    int getDistance();
+
+    /**
+    * \brief Sets the distance to the sheep
+    * \param The distance to the sheep
+    */
+    void setDistance(int distance);
+
+    /**
+    * \brief Retrieves the previous tile
+    * \returns The previous tile
+    */
+    Tile* getPrev();
+
+    /**
+    * \brief Sets the previous tile
+    * \param tile The tile to be set as previous
+    */
+    void setPrev(Tile* tile);
+
+
 signals:
     
 public slots:
@@ -91,6 +116,10 @@ private:
     int m_row; ///< Indicates the row of the tile
     int m_col; ///< Indicates the column of the tile
     bool m_visited; ///< Indicates if the current tile has been visited in the search for path to border
+
+    int m_distance; ///< Distance to the sheep
+    Tile* m_prevTile;  ///< Previous tile in the distance computation
+
 };
 
 #endif // TILE_H

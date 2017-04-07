@@ -1,5 +1,4 @@
 #include "game2scene.h"
-#include <algorithm>
 #include <climits>
 
 /**
@@ -8,7 +7,7 @@
 */
 
 /**
-* Places the items on the scene and sets the user turn
+* Places the items on the scene and sets the user turn.
 */
 Game2Scene::Game2Scene(Difficulty difficulty, QObject *parent) :
     QGraphicsScene(parent), m_difficulty(difficulty), m_score(0)
@@ -25,7 +24,7 @@ Game2Scene::Game2Scene(Difficulty difficulty, QObject *parent) :
     m_scoreDisplay = new QLCDNumber(4);
 
     addWidget(m_scoreDisplay);
-    m_scoreDisplay->move(250,480);
+    m_scoreDisplay->move(250,5);
 
     QPalette lcdPalette = m_scoreDisplay->palette();
     lcdPalette.setColor(QPalette::Background, QColor(170, 255, 0));
@@ -49,7 +48,7 @@ Game2Scene::Game2Scene(Difficulty difficulty, QObject *parent) :
 }
 
 /**
-* Frees allocated memory
+* Frees allocated memory.
 */
 Game2Scene::~Game2Scene() {
     for (QVector< QVector< Tile* > >::iterator row=m_tiles.begin(); row!=m_tiles.end(); ++row) {
@@ -67,7 +66,7 @@ Game2Scene::~Game2Scene() {
 }
 
 /**
-* chooses distinct random tiles to flag for blocking initially at the start of the game
+* chooses distinct random tiles to flag for blocking initially at the start of the game.
 */
 QVector<int> Game2Scene::tilesToBlock() {
     //flag some tiles as blocked initially
@@ -96,10 +95,9 @@ QVector<int> Game2Scene::tilesToBlock() {
 }
 
 /**
-* Places the tiles on the grid of the game
+* Places the tiles on the grid of the game.
 */
 void Game2Scene::placeTiles() {
-
     QVector<int> flagged = tilesToBlock();
     bool even = false; //to alternate between 12 and 13
     int column_size;
@@ -131,7 +129,7 @@ void Game2Scene::placeTiles() {
                 tile = new Tile(false, i, j);
             }
 
-            tile->setPos(offset + j*left,i*top);
+            tile->setPos(offset + j*left,30+i*top);
             row.push_back(tile);
             addItem(tile);
             count++;
@@ -143,26 +141,25 @@ void Game2Scene::placeTiles() {
 }
 
 /**
-* Chooses a random tile to place the sheep on at the beginning of the game
+* Chooses a random tile to place the sheep on at the beginning of the game.
 */
 void Game2Scene::placeSheepInitial() {
     int row, col;
     //place sheep on a tile that is not blocked
     Tile * sheep_tile;
     do{
-        row = rand()%3 + 2;
-        col = rand()%3 +3;
+        row = rand()%2 + 5;
+        col = rand()%2 +5;
         sheep_tile = (m_tiles.at(row)).at(col);
     } while(sheep_tile->isBlocked());
 
     m_sheep = new Sheep2(sheep_tile);
 
-    //m_sheep->setPos(sheep_tile->x(), sheep_tile->y());
     addItem(m_sheep);
 }
 
 /**
-* Gets for the given tile the left, right, upper and bottom neighbors
+* Gets for the given tile the left, right, upper and bottom neighbors.
 */
 QVector< Tile* > * Game2Scene::getNeighbors(Tile * center) {
   QVector< Tile* > * neighbors = new QVector< Tile* >;
@@ -184,6 +181,7 @@ QVector< Tile* > * Game2Scene::getNeighbors(Tile * center) {
       }
   }
 
+
   //on row with 13 columns
   if(i % 2 == 0) {
       //right
@@ -194,12 +192,14 @@ QVector< Tile* > * Game2Scene::getNeighbors(Tile * center) {
           }
       }
 
-
       //top right and top left
       if(i != 0) {
-          topRight = (m_tiles.at(i-1)).at(j);
-          if (!topRight->isBlocked()) {
-                neighbors->push_back(topRight);
+          if (j != 12)
+          {
+              topRight = (m_tiles.at(i-1)).at(j);
+              if (!topRight->isBlocked()) {
+                    neighbors->push_back(topRight);
+              }
           }
           if(j != 0) {
               topLeft = (m_tiles.at(i-1)).at(j-1);
@@ -266,7 +266,7 @@ QVector< Tile* > * Game2Scene::getNeighbors(Tile * center) {
 }
 
 /**
-* Resets the status of the grid tiles as not visited
+* Resets the status of the grid tiles as not visited.
 */
 void Game2Scene::resetVisited() {
     QVector< QVector< Tile*> >::iterator row;
@@ -276,10 +276,11 @@ void Game2Scene::resetVisited() {
             (*tile)->setVisited(false);
         }
     }
+    m_sheep->getCurrent()->setVisited(true);
 }
 
 /**
-* Resets the status of the grid tiles as having infinite distance to the sheep
+* Resets the status of the grid tiles as having infinite distance to the sheep.
 */
 void Game2Scene::resetDistances() {
     QVector< QVector< Tile*> >::iterator row;
@@ -289,10 +290,11 @@ void Game2Scene::resetDistances() {
             (*tile)->setDistance(INT_MAX);
         }
     }
+    m_sheep->getCurrent()->setDistance(0);
 }
 
 /**
-* Resets the status of the grid tiles as having their previous tile NULL
+* Resets the status of the grid tiles as having their previous tile NULL.
 */
 void Game2Scene::resetPrevious() {
     QVector< QVector< Tile*> >::iterator row;
@@ -305,7 +307,7 @@ void Game2Scene::resetPrevious() {
 }
 
 /**
-* Gets the tile at the given indices
+* Gets the tile at the given indices.
 */
 Tile* Game2Scene::tileAt(int i, int j) {
     return (m_tiles.at(i)).at(j);
@@ -313,7 +315,7 @@ Tile* Game2Scene::tileAt(int i, int j) {
 
 /**
 * Determines a win by checking if from the current sheep position
-* it's possible to get to the border without encountering a blocked tile
+* it's possible to get to the border without encountering a blocked tile.
 */
 bool Game2Scene::win(Tile * tile) {
     QVector<Tile*> * neighbors = getNeighbors(tile);
@@ -321,27 +323,30 @@ bool Game2Scene::win(Tile * tile) {
     QVector< Tile* >::iterator neighbor;
     for (neighbor = neighbors->begin(); neighbor != neighbors->end(); ++neighbor)  {
         if ((*neighbor)->isBorder()) {
+            delete neighbors;
             return false;
         }
         if (!(*neighbor)->isVisited()) {
             (*neighbor)->setVisited(true);
             if (!win(*neighbor)) {
+                delete neighbors;
                 return false;
             }
         }
     }
+    delete neighbors;
     return true;
 }
 
 /**
-* Retrieves the sheep
+* Retrieves the sheep.
 */
 Sheep2* Game2Scene::getSheep() {
     return m_sheep;
 }
 
 /**
-* Starts the timer to delay the computer move
+* Starts the timer to delay the computer move.
 */
 void Game2Scene::computerTurn() {
     m_user_turn = false;
@@ -350,42 +355,48 @@ void Game2Scene::computerTurn() {
 
 /**
 * Moves the sheep according to the difficulty when it's the
-* computer's turn
+* computer's turn.
 */
 void Game2Scene::moveSheep() {
-    if(!m_user_turn && !m_sheep->getCurrent()->isBorder()) {
+    m_delay->stop();
+    Tile *next;
+    //move randomly
+    if(m_difficulty == EASY) {
+        //pick a random non blocked neighbor and move to it
+        QVector< Tile* > * neighbors = getNeighbors(m_sheep->getCurrent());
+        int index = rand()%(neighbors->size());
+        next = neighbors->at(index);
+        delete neighbors;
+    }
 
-        //move randomly
-        if(m_difficulty == EASY) {
+    else if(m_difficulty == MODERATE) {
+        if (rand()%2 == 0) {
             //pick a random non blocked neighbor and move to it
             QVector< Tile* > * neighbors = getNeighbors(m_sheep->getCurrent());
             int index = rand()%(neighbors->size());
-            m_sheep->setCurrent(neighbors->at(index));
+            next = neighbors->at(index);
+            delete neighbors;
         }
-
-        else if(m_difficulty == MODERATE) {
-
-
+        else {
+            next = findNextTile();
         }
+    }
 
-        else if(m_difficulty == HARD) {
+    else {
+        next = findNextTile();
+    }
+    m_sheep->setCurrent(next);
 
-
-        }
-
-        if(m_sheep->getCurrent()->isBorder()){
-            //lost
-            gameOver(false);
-        } else {
-          m_user_turn = true;
-        }
-
-
+    if(m_sheep->getCurrent()->isBorder()){
+        //lost
+        gameOver(false);
+    } else {
+        m_user_turn = true;
     }
 }
 
 /**
-* Retrieves the value that indicates if it's the user's turn
+* Retrieves the value that indicates if it's the user's turn.
 */
 bool Game2Scene::getUserTurn() {
     return m_user_turn;
@@ -405,7 +416,7 @@ void Game2Scene::gameOver(bool win) {
 }
 
 /**
-* Increments the number of blocks by one on click of a tile
+* Increments the number of blocks by one on click of a tile.
 */
 void Game2Scene::decrementScore() {
     m_score-=10;
@@ -435,17 +446,18 @@ Tile *Game2Scene::findNextTile() {
     resetPrevious();
     computeDistances(m_sheep->getCurrent());
 
-    QVector<Tile*> borders = getNonBlockedBorders();
-    Tile *min = *borders.begin();
-    for (QVector< QVector< Tile* > >::iterator tile=borders.begin()+1; tile!=m_tiles.end(); ++tile) {
+    QVector<Tile*> *borders = getNonBlockedBorders();
+    Tile *min = *borders->begin();
+    for (QVector<Tile*>::iterator tile=borders->begin()+1; tile!=borders->end(); ++tile) {
         if ((*tile)->getDistance() < min->getDistance()) {
             min = *tile;
         }
     }
 
-    while (min->getPrev() != NULL) {
+    while (min->getPrev()->getPrev() != NULL) {
         min = min->getPrev();
     }
+    delete borders;
     return min;
 }
 
@@ -454,7 +466,7 @@ Tile *Game2Scene::findNextTile() {
 */
 void Game2Scene::computeDistances(Tile *current) {
     static QQueue<Tile*> queue;
-    QVector<Tile*> neighbors = getNeighbors(current);
+    QVector<Tile*> *neighbors = getNeighbors(current);
 
     for (QVector< Tile* >::iterator neighbor = neighbors->begin(); neighbor != neighbors->end(); ++neighbor) {
         if (!(*neighbor)->isVisited()) {
@@ -464,7 +476,25 @@ void Game2Scene::computeDistances(Tile *current) {
             queue.append(*neighbor);
         }
     }
+    delete neighbors;
     while (!queue.empty()) {
         computeDistances(queue.dequeue());
     }
+}
+
+/**
+* Retrieves the non blocked border tiles.
+*/
+QVector< Tile* > *Game2Scene::getNonBlockedBorders() {
+    QVector< Tile* > *borders = new QVector<Tile*>();
+
+    for (QVector< QVector< Tile* > >::iterator row=m_tiles.begin(); row!=m_tiles.end(); ++row) {
+        for(QVector< Tile* >::iterator tile = (*row).begin(); tile!=(*row).end(); ++tile){
+            if ((*tile)->isBorder()) {
+                borders->push_back(*tile);
+            }
+        }
+    }
+
+    return borders;
 }

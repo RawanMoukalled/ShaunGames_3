@@ -2,6 +2,9 @@
 #include "game2scene.h"
 #include "sheep2.h"
 
+/**
+* Sets the block status, scale and initializes indices.
+*/
 Tile::Tile(bool block, int row, int col, QObject *parent) :
     QObject(parent)
 {
@@ -11,14 +14,17 @@ Tile::Tile(bool block, int row, int col, QObject *parent) :
     m_row = row;
     m_col = col;
     m_visited = false;
-}
-
-Tile::~Tile() {
-
+    m_prevTile = NULL;
 }
 
 /**
-* Marks tile as selected and adds border to it
+* Frees allocated memory.
+*/
+Tile::~Tile() {
+}
+
+/**
+* Marks tile as selected and adds border to it.
 */
 void Tile::setBlock(bool block) {
     m_blocked = block;
@@ -29,10 +35,16 @@ void Tile::setBlock(bool block) {
     }
 }
 
+/**
+* Retrieves the blocked status.
+*/
 bool Tile::isBlocked() {
     return m_blocked;
 }
 
+/**
+* Sets the tile as having a sheep or not.
+*/
 void Tile::setHasSheep(bool placed) {
     if(placed) {
         m_hasSheep = true;
@@ -41,6 +53,10 @@ void Tile::setHasSheep(bool placed) {
     }
 }
 
+/**
+* On click, places a block on the tile and checks for win status, then
+* gives the turn to the computer.
+*/
 void Tile::mousePressEvent(QGraphicsSceneMouseEvent *event) {
     if(event->button() == Qt::LeftButton) {
         //get the game scene
@@ -58,20 +74,27 @@ void Tile::mousePressEvent(QGraphicsSceneMouseEvent *event) {
                 sc->computerTurn();
             }
 
-
-
         }
     }
 }
 
+/**
+* Retrieves the row of the tile.
+*/
 int Tile::getRow() {
     return m_row;
 }
 
+/**
+* Retrieves the column of the tile.
+*/
 int Tile::getCol() {
     return m_col;
 }
 
+/**
+* Checks if the column is a border.
+*/
 bool Tile::isBorder() {
     bool border = false;
     bool right_border = (m_row % 2 == 0 && m_col == 12) || (m_row % 2 != 0 && m_col == 11);
@@ -82,11 +105,44 @@ bool Tile::isBorder() {
     return border;
 }
 
+/**
+* Sets the visited status of the tile.
+*/
 void Tile::setVisited(bool visit) {
     m_visited = visit;
 }
 
+/**
+* Returns the visited status of the tile.
+*/
 bool Tile::isVisited() {
     return m_visited;
 }
 
+/**
+* Retrieves the distance to the sheep so far.
+*/
+int Tile::getDistance() {
+    return m_distance;
+}
+
+/**
+* Sets the distance to the sheep.
+*/
+void Tile::setDistance(int distance) {
+    m_distance = distance;
+}
+
+/**
+* Retrieves the previous tile.
+*/
+Tile* Tile::getPrev() {
+    return m_prevTile;
+}
+
+/**
+* Sets the previous tile.
+*/
+void Tile::setPrev(Tile* tile) {
+    m_prevTile = tile;
+}

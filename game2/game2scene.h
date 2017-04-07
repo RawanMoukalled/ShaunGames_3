@@ -140,6 +140,11 @@ public:
     */
     void computeDistances(Tile *current);
 
+    /**
+    * \brief Retrieves the non blocked border tiles
+    */
+    QVector< Tile* > *getNonBlockedBorders();
+
 
 signals:
     /**
