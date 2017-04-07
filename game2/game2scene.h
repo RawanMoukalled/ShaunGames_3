@@ -48,16 +48,26 @@ public:
     void placeSheepInitial();
 
     /**
-    * \brief gets the left, right, upper and lower neighbors of the given tile
+    * \brief Gets the left, right, upper and lower non-blocked neighbors of the given tile
     * \param center the tile that we're getting the neighbors of
     * \returns pointer to a vector of pointers to the neighboring tiles
     */
     QVector< Tile* > * getNeighbors(Tile * center);
 
     /**
-    * \brief sets all the blocks of the grid as having been unvisited
+    * \brief Sets all the blocks of the grid as having been unvisited
     */
     void resetVisited();
+
+    /**
+    * \brief Sets all the blocks of the grid as having infinite distance to the sheep
+    */
+    void resetDistances();
+
+    /**
+    * \brief Sets all the blocks of the grid as having the previous node null
+    */
+    void resetPrevious();
 
     /**
     * \brief retrieves the tile from the grid at the indices given
@@ -93,13 +103,6 @@ public:
     void setUserTurn(bool userTurn);
 
     /**
-    * \brief filters the given list of the blocked tiles
-    * \param tiles the list of tiles
-    * \returns list of non blocked tiles
-    */
-    QVector< Tile* > * getNonBlocked(QVector< Tile* > * tiles);
-
-    /**
     * \brief delays the computer turn
     */
     void computerTurn();
@@ -128,10 +131,14 @@ public:
     int getBlockCount();
 
     /**
-    * \brief Finds the shortest path
-    *
+    * \brief Finds the shortest path and returns the next tile accordingly
     */
-    void DFS();
+    Tile *findNextTile();
+
+    /**
+    * \brief Computes the distances from the sheep to every other tile
+    */
+    void computeDistances(Tile *current);
 
 
 signals:

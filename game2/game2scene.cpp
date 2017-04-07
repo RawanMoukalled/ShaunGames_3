@@ -1,5 +1,6 @@
 #include "game2scene.h"
 #include <algorithm>
+#include <climits>
 
 /**
 * \file game2scene.cpp
@@ -161,23 +162,6 @@ void Game2Scene::placeSheepInitial() {
 }
 
 /**
-* Checks for each element in the list the block status and only
-* returns the free ones
-*/
-QVector< Tile* > * Game2Scene::getNonBlocked(QVector<Tile*> * tiles) {
-    QVector< Tile* > * unblocked = new QVector< Tile* >;
-
-    QVector< Tile* >::iterator it;
-    for(it = tiles->begin(); it != tiles->end(); ++it) {
-        if(!(*it)->isBlocked()) {
-            unblocked->push_back((*it));
-        }
-    }
-
-    return unblocked;
-}
-
-/**
 * Gets for the given tile the left, right, upper and bottom neighbors
 */
 QVector< Tile* > * Game2Scene::getNeighbors(Tile * center) {
@@ -195,7 +179,9 @@ QVector< Tile* > * Game2Scene::getNeighbors(Tile * center) {
 
   if(j != 0) {
       left = (m_tiles.at(i)).at(j-1);
-      neighbors->push_back(left);
+      if (!left->isBlocked()) {
+          neighbors->push_back(left);
+      }
   }
 
   //on row with 13 columns
@@ -203,17 +189,23 @@ QVector< Tile* > * Game2Scene::getNeighbors(Tile * center) {
       //right
       if(j != 12) {
           right = (m_tiles.at(i)).at(j+1);
-          neighbors->push_back(right);
+          if (!right->isBlocked()) {
+               neighbors->push_back(right);
+          }
       }
 
 
       //top right and top left
       if(i != 0) {
           topRight = (m_tiles.at(i-1)).at(j);
-          neighbors->push_back(topRight);
+          if (!topRight->isBlocked()) {
+                neighbors->push_back(topRight);
+          }
           if(j != 0) {
               topLeft = (m_tiles.at(i-1)).at(j-1);
-              neighbors->push_back(topLeft);
+              if (!topLeft->isBlocked()) {
+                    neighbors->push_back(topLeft);
+              }
           }
       }
 
@@ -221,11 +213,15 @@ QVector< Tile* > * Game2Scene::getNeighbors(Tile * center) {
       if(i != 11) {
           if(j != 12){
             bottomRight = (m_tiles.at(i+1)).at(j);
-            neighbors->push_back(bottomRight);
+            if (!bottomRight->isBlocked()) {
+                neighbors->push_back(bottomRight);
+            }
           }
           if(j != 0) {
             bottomLeft = (m_tiles.at(i+1)).at(j-1);
-            neighbors->push_back(bottomLeft);
+            if (!bottomLeft->isBlocked()) {
+                neighbors->push_back(bottomLeft);
+            }
           }
       }
   }
@@ -235,27 +231,34 @@ QVector< Tile* > * Game2Scene::getNeighbors(Tile * center) {
       //right
       if(j != 11) {
           right = (m_tiles.at(i)).at(j+1);
-          neighbors->push_back(right);
+          if (!right->isBlocked()) {
+                neighbors->push_back(right);
+          }
       }
 
       //top right and top left
       if(i != 0) {
           topLeft = (m_tiles.at(i-1)).at(j);
-          neighbors->push_back(topLeft);
-
-              topRight = (m_tiles.at(i-1)).at(j+1);
+          if(!topLeft->isBlocked()) {
+                neighbors->push_back(topLeft);
+          }
+          topRight = (m_tiles.at(i-1)).at(j+1);
+          if(!topRight->isBlocked()) {
               neighbors->push_back(topRight);
-
+            }
       }
 
       //bottom right and bottom left
       if(i != 11) {
           bottomLeft = (m_tiles.at(i+1)).at(j);
-          neighbors->push_back(bottomLeft);
+          if (!bottomLeft->isBlocked()) {
+              neighbors->push_back(bottomLeft);
+          }
 
-              bottomRight = (m_tiles.at(i+1)).at(j+1);
+          bottomRight = (m_tiles.at(i+1)).at(j+1);
+          if (!bottomRight->isBlocked()) {
               neighbors->push_back(bottomRight);
-
+          }
       }
   }
 
@@ -276,6 +279,32 @@ void Game2Scene::resetVisited() {
 }
 
 /**
+* Resets the status of the grid tiles as having infinite distance to the sheep
+*/
+void Game2Scene::resetDistances() {
+    QVector< QVector< Tile*> >::iterator row;
+    for (row = m_tiles.begin(); row != m_tiles.end(); ++row) {
+        QVector< Tile*>::iterator tile;
+        for (tile = (*row).begin(); tile != (*row).end(); ++tile) {
+            (*tile)->setDistance(INT_MAX);
+        }
+    }
+}
+
+/**
+* Resets the status of the grid tiles as having their previous tile NULL
+*/
+void Game2Scene::resetPrevious() {
+    QVector< QVector< Tile*> >::iterator row;
+    for (row = m_tiles.begin(); row != m_tiles.end(); ++row) {
+        QVector< Tile*>::iterator tile;
+        for (tile = (*row).begin(); tile != (*row).end(); ++tile) {
+            (*tile)->setPrev(NULL);
+        }
+    }
+}
+
+/**
 * Gets the tile at the given indices
 */
 Tile* Game2Scene::tileAt(int i, int j) {
@@ -291,15 +320,13 @@ bool Game2Scene::win(Tile * tile) {
 
     QVector< Tile* >::iterator neighbor;
     for (neighbor = neighbors->begin(); neighbor != neighbors->end(); ++neighbor)  {
-        if (!(*neighbor)->isBlocked()) {
-            if ((*neighbor)->isBorder()) {
+        if ((*neighbor)->isBorder()) {
+            return false;
+        }
+        if (!(*neighbor)->isVisited()) {
+            (*neighbor)->setVisited(true);
+            if (!win(*neighbor)) {
                 return false;
-            }
-            if (!(*neighbor)->isVisited()) {
-                (*neighbor)->setVisited(true);
-                if (!win(*neighbor)) {
-                    return false;
-                }
             }
         }
     }
@@ -331,7 +358,7 @@ void Game2Scene::moveSheep() {
         //move randomly
         if(m_difficulty == EASY) {
             //pick a random non blocked neighbor and move to it
-            QVector< Tile* > * neighbors = getNonBlocked(getNeighbors(m_sheep->getCurrent()));
+            QVector< Tile* > * neighbors = getNeighbors(m_sheep->getCurrent());
             int index = rand()%(neighbors->size());
             m_sheep->setCurrent(neighbors->at(index));
         }
@@ -355,13 +382,6 @@ void Game2Scene::moveSheep() {
 
 
     }
-}
-
-/**
-* Depth first search to find the shortest path
-*/
-void Game2Scene::DFS() {
-
 }
 
 /**
@@ -404,4 +424,47 @@ QLCDNumber* Game2Scene::getScoreDisplay() {
 */
 int Game2Scene::getBlockCount() {
     return m_block_count;
+}
+
+/**
+* Finds the shortest path and returns the next tile accordingly.
+*/
+Tile *Game2Scene::findNextTile() {
+    resetVisited();
+    resetDistances();
+    resetPrevious();
+    computeDistances(m_sheep->getCurrent());
+
+    QVector<Tile*> borders = getNonBlockedBorders();
+    Tile *min = *borders.begin();
+    for (QVector< QVector< Tile* > >::iterator tile=borders.begin()+1; tile!=m_tiles.end(); ++tile) {
+        if ((*tile)->getDistance() < min->getDistance()) {
+            min = *tile;
+        }
+    }
+
+    while (min->getPrev() != NULL) {
+        min = min->getPrev();
+    }
+    return min;
+}
+
+/**
+* Computes the distances from the sheep to every other tile.
+*/
+void Game2Scene::computeDistances(Tile *current) {
+    static QQueue<Tile*> queue;
+    QVector<Tile*> neighbors = getNeighbors(current);
+
+    for (QVector< Tile* >::iterator neighbor = neighbors->begin(); neighbor != neighbors->end(); ++neighbor) {
+        if (!(*neighbor)->isVisited()) {
+            (*neighbor)->setVisited(true);
+            (*neighbor)->setDistance(current->getDistance()+1);
+            (*neighbor)->setPrev(current);
+            queue.append(*neighbor);
+        }
+    }
+    while (!queue.empty()) {
+        computeDistances(queue.dequeue());
+    }
 }
