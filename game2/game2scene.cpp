@@ -20,7 +20,7 @@ Game2Scene::Game2Scene(Difficulty difficulty, QObject *parent) :
     } else if(difficulty == HARD) {
         m_block_count = 5;
     }
-
+    m_score = 1500;
     m_scoreDisplay = new QLCDNumber(4);
 
     addWidget(m_scoreDisplay);
@@ -33,7 +33,7 @@ Game2Scene::Game2Scene(Difficulty difficulty, QObject *parent) :
     lcdPalette.setColor(QPalette::Dark, QColor(255, 0, 0));
 
     m_scoreDisplay->setPalette(lcdPalette);
-    m_scoreDisplay->display(1000.0/m_block_count);
+    m_scoreDisplay->display(m_score);
 
     m_gameOverPicture = NULL;
     m_user_turn = true;
@@ -338,6 +338,7 @@ void Game2Scene::moveSheep() {
 
         else if(m_difficulty == MODERATE) {
 
+
         }
 
         else if(m_difficulty == HARD) {
@@ -354,6 +355,13 @@ void Game2Scene::moveSheep() {
 
 
     }
+}
+
+/**
+* Depth first search to find the shortest path
+*/
+void Game2Scene::DFS() {
+
 }
 
 /**
@@ -379,8 +387,9 @@ void Game2Scene::gameOver(bool win) {
 /**
 * Increments the number of blocks by one on click of a tile
 */
-void Game2Scene::incrementBlockCount() {
-    m_block_count++;
+void Game2Scene::decrementScore() {
+    m_score-=10;
+    m_scoreDisplay->display(m_score);
 }
 
 /**
