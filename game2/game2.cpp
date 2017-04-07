@@ -71,7 +71,7 @@ void Game2::setGame2Layout() {
 }
 
 /**
-* Goes to the main menu of Sheep Line
+* Goes to the main menu of Trap the Sheep.
 */
 void Game2::goToMainMenu() {
     GameMainMenu *menu = new GameMainMenu(2);
@@ -80,7 +80,7 @@ void Game2::goToMainMenu() {
 }
 
 /**
-* Reloads game
+* Reloads game.
 */
 void Game2::replay() {
     delete m_gameScene;
@@ -107,7 +107,7 @@ void Game2::replay() {
 
 /**
 * Removes the save and exitbutton and adds the go back and replay
-* buttons along with their connections
+* buttons along with their connections.
 */
 void Game2::endGame() {
     m_goBack = new QPushButton("Go Back");

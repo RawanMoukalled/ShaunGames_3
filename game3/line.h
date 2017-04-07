@@ -54,7 +54,7 @@ public:
     * \brief Returns whether the line is horizontal or vertical
     * \returns Whether the line is horizontal
     */
-    bool isHorizontal() = 0;
+    virtual bool isHorizontal() = 0;
     
 signals:
     

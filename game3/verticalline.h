@@ -45,6 +45,18 @@ public:
     * \returns False
     */
     bool isHorizontal();
+
+    /**
+    * \brief Gets the box to the left of the line
+    * \returns box to the left of the line
+    */
+    Box* getLeft();
+
+    /**
+    * \brief Gets the box to the right of the line
+    * \returns box to the right of the line
+    */
+    Box* getRight();
     
 signals:
     

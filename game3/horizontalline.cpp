@@ -83,3 +83,17 @@ bool HorizontalLine::playTurn(bool userTurn) {
 bool HorizontalLine::isHorizontal() {
     return true;
 }
+
+/**
+* Returns the box above the line.
+*/
+Box* HorizontalLine::getAbove() {
+    return m_above;
+}
+
+/**
+* Returns the box under the line.
+*/
+Box* HorizontalLine::getUnder() {
+    return m_under;
+}

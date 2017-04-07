@@ -74,6 +74,6 @@ bool Box::isClosed() {
 /**
 * Checks if the box is one line away from being closed.
 */
-bool Box::threeSidesDrawn() {
+int Box::numberOfLinesDrawn() {
     return static_cast<int>(m_above) + static_cast<int>(m_left) + static_cast<int>(m_under) + static_cast<int>(m_right);
 }

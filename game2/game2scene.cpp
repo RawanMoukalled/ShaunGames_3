@@ -403,7 +403,7 @@ bool Game2Scene::getUserTurn() {
 }
 
 /**
-* Sets the user's turn as true or false
+* Sets the user's turn as true or false.
 */
 void Game2Scene::setUserTurn(bool userTurn) {
     m_user_turn = userTurn;
@@ -424,14 +424,14 @@ void Game2Scene::decrementScore() {
 }
 
 /**
-* Returns the score lcd
+* Returns the score lcd.
 */
 QLCDNumber* Game2Scene::getScoreDisplay() {
     return m_scoreDisplay;
 }
 
 /**
-* Returns the number of blocked tiles
+* Returns the number of blocked tiles.
 */
 int Game2Scene::getBlockCount() {
     return m_block_count;
