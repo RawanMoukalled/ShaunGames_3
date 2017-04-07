@@ -6,7 +6,7 @@
 */
 
 /**
-* Initializes the sheep position and picture
+* Initializes the sheep position and picture.
 */
 Sheep2::Sheep2(Tile * tile, QObject *parent) :
     QObject(parent)
@@ -19,7 +19,7 @@ Sheep2::Sheep2(Tile * tile, QObject *parent) :
 }
 
 /**
-* Unsets current tile and sets the argument tile as current
+* Unsets current tile and sets the argument tile as current.
 */
 void Sheep2::setCurrent(Tile * tile) {
     if(m_tile != NULL) {
@@ -31,7 +31,7 @@ void Sheep2::setCurrent(Tile * tile) {
 }
 
 /**
-* Gets the current tile of the sheep
+* Gets the current tile of the sheep.
 */
 Tile* Sheep2::getCurrent() {
     return m_tile;

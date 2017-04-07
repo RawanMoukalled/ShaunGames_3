@@ -3,6 +3,11 @@
 #include "sheep2.h"
 
 /**
+* \file tile.cpp
+* \brief Contains the Tile class that forms the grid
+*/
+
+/**
 * Sets the block status, scale and initializes indices.
 */
 Tile::Tile(bool block, int row, int col, QObject *parent) :
