@@ -149,3 +149,5 @@ Tile* Tile::getPrev() {
 void Tile::setPrev(Tile* tile) {
     m_prevTile = tile;
 }
+
+

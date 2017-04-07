@@ -246,6 +246,7 @@ QVector< Tile* > * Game2Scene::getNeighbors(Tile * center) {
               topRight = (m_tiles.at(i-1)).at(j+1);
               neighbors->push_back(topRight);
 
+
       }
 
       //bottom right and bottom left
@@ -404,4 +405,22 @@ QLCDNumber* Game2Scene::getScoreDisplay() {
 */
 int Game2Scene::getBlockCount() {
     return m_block_count;
+}
+
+/**
+* Retrieves the non blocked border tiles
+*/
+QVector< Tile* > Game2Scene::GetNonBlockedBorders() {
+
+    QVector< Tile* > borders;
+
+    for (QVector< QVector< Tile* > >::iterator row=m_tiles.begin(); row!=m_tiles.end(); ++row) {
+        for(QVector< Tile* >::iterator tile = (*row).begin(); tile!=(*row).end(); ++tile){
+            if ((*tile)->isBorder()) {
+                borders.push((*tile));
+            }
+        }
+    }
+
+    return borders;
 }
