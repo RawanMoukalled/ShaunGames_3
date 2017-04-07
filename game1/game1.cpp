@@ -46,6 +46,13 @@ Game1::~Game1() {
     if (m_exit != NULL) {
         delete m_exit;
     }
+    else {
+        delete m_goBack;
+        delete m_replay;
+        if (m_next != NULL) {
+            delete m_next;
+        }
+    }
 }
 
 /**

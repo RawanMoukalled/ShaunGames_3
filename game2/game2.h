@@ -55,8 +55,6 @@ private:
 
     Difficulty m_difficulty; ///< Difficulty selected
 
-    QVector<QSpacerItem*> m_spacerItems; ///< Vector of used spacer items
-
     QPushButton *m_goBack; ///< Button to go back to game menu
     QPushButton *m_replay; ///< Button to replay the game
 
