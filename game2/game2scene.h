@@ -33,7 +33,7 @@ public:
 
     /**
     * \brief Sets the layout of the level buttons
-    * \returns the indices of the tiles to block initially
+    * \returns The indices of the tiles to block initially
     */
     QVector<int> tilesToBlock();
 
@@ -49,8 +49,8 @@ public:
 
     /**
     * \brief Gets the left, right, upper and lower non-blocked neighbors of the given tile
-    * \param center the tile that we're getting the neighbors of
-    * \returns pointer to a vector of pointers to the neighboring tiles
+    * \param center The tile that we're getting the neighbors of
+    * \returns Pointer to a vector of pointers to the neighboring tiles
     */
     QVector< Tile* > * getNeighbors(Tile * center);
 

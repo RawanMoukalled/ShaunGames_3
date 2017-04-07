@@ -41,22 +41,16 @@ public:
     bool playTurn(bool userTurn);
 
     /**
-    * \brief Returns whether the line is horizontal or vertical
-    * \returns True
-    */
-    bool isHorizontal();
-
-    /**
     * \brief Gets the box above the line
     * \returns box above the line
     */
-    Box* getAbove();
+    Box* getAbove() const;
 
     /**
     * \brief Gets the box under the line
     * \returns box under the line
     */
-    Box* getUnder();
+    Box* getUnder() const;
     
 signals:
     

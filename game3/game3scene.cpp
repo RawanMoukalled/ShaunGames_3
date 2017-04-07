@@ -109,7 +109,9 @@ Game3Scene::~Game3Scene() {
             }
         }
     }
+    delete m_delay;
     delete m_scoreDisplay;
+    delete m_gameOverPicture;
 }
 
 /**
@@ -205,7 +207,7 @@ bool Game3Scene::noMoreMoves() {
 }
 
 /**
-* \brief Declares one more box as closed by user
+* Declares one more box as closed by user.
 */
 void Game3Scene::closeBoxByUser() {
     ++m_boxesClosedByUser;
@@ -214,7 +216,7 @@ void Game3Scene::closeBoxByUser() {
 }
 
 /**
-* \brief Declares one more box as closed by computer
+* Declares one more box as closed by computer.
 */
 void Game3Scene::closeBoxByComputer() {
     ++m_boxesClosedByComputer;

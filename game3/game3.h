@@ -48,8 +48,8 @@ public slots:
     void goToMainMenu();
 
 private:
-    const Difficulty m_difficulty;
-    const Size m_size;
+    const Difficulty m_difficulty; ///< Difficulty of the game in the scene
+    const Size m_size; ///< Size of the game in the scene
     QLabel *m_title; ///< Game title
     QPushButton *m_exit; ///< Button to save and exit
     QVBoxLayout *m_Game3Layout; ///< Layout of widget

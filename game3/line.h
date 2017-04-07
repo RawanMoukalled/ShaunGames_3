@@ -19,8 +19,9 @@ class Line : public QObject, public QGraphicsPixmapItem
 public:
     /**
     * \brief Default constructor
+    * \param isHorizontal Whether the line is horizontal or not (vertical)
     */
-    explicit Line(QObject *parent = 0);
+    explicit Line(bool isHorizontal, QObject *parent = 0);
 
     /**
     * \brief Makes the line grey
@@ -43,7 +44,7 @@ public:
     * \brief Returns whether the line has been drawn already
     * \returns Whether the line has been drawn already
     */
-    bool isDrawn();
+    bool isDrawn() const;
 
     /**
     * \brief Sets the line as drawn
@@ -54,13 +55,14 @@ public:
     * \brief Returns whether the line is horizontal or vertical
     * \returns Whether the line is horizontal
     */
-    virtual bool isHorizontal() = 0;
+    bool isHorizontal() const;
     
 signals:
     
 public slots:
 
 private:
+    const bool m_horizontal; ///< Whether the line is horizontal or vertical
     bool m_drawn; ///< Keeps track of whether the line has been clicked
 };
 

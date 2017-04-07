@@ -10,7 +10,7 @@
 * Sets HorizontalLine properties.
 */
 HorizontalLine::HorizontalLine(Box *above, Box *under, QObject *parent) :
-    Line(parent), m_above(above), m_under(under)
+    Line(true, parent), m_above(above), m_under(under)
 {
     setPixmap(QPixmap("pictures/Lines/horizontal_transparent.png"));
     setZValue(2);
@@ -78,22 +78,15 @@ bool HorizontalLine::playTurn(bool userTurn) {
 }
 
 /**
-* Returns the fact that the line is horizontal.
-*/
-bool HorizontalLine::isHorizontal() {
-    return true;
-}
-
-/**
 * Returns the box above the line.
 */
-Box* HorizontalLine::getAbove() {
+Box* HorizontalLine::getAbove() const {
     return m_above;
 }
 
 /**
 * Returns the box under the line.
 */
-Box* HorizontalLine::getUnder() {
+Box* HorizontalLine::getUnder() const {
     return m_under;
 }

@@ -4,7 +4,7 @@
 
 /**
 * \file game2.cpp
-* \brief Contains the Trap the Sheep game
+* \brief Contains Game2 class definition
 */
 
 /**
