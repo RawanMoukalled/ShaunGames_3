@@ -39,6 +39,18 @@ public:
     * \returns Whether it is still the player's turn
     */
     bool playTurn(bool userTurn);
+
+    /**
+    * \brief Gets the box above the line
+    * \returns box above the line
+    */
+    Box* getAbove();
+
+    /**
+    * \brief Gets the box under the line
+    * \returns box under the line
+    */
+    Box* getUnder();
     
 signals:
     

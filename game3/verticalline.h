@@ -39,6 +39,18 @@ public:
     * \returns Whether it is still the player's turn
     */
     bool playTurn(bool userTurn);
+
+    /**
+    * \brief Gets the box to the left of the line
+    * \returns box to the left of the line
+    */
+    Box* getLeft();
+
+    /**
+    * \brief Gets the box to the right of the line
+    * \returns box to the right of the line
+    */
+    Box* getRight();
     
 signals:
     

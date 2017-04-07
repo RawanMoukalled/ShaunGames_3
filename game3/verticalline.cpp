@@ -77,3 +77,17 @@ bool VerticalLine::playTurn(bool userTurn) {
     }
 }
 
+
+/**
+* Returns the box to the left of the line.
+*/
+Box* VerticalLine::getLeft() {
+    return m_left;
+}
+
+/**
+* Returns the box to the right of the line.
+*/
+Box* VerticalLine::getRight() {
+    return m_right;
+}
