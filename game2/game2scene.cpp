@@ -51,7 +51,6 @@ Game2Scene::Game2Scene(Difficulty difficulty, QObject *parent) :
 * Frees allocated memory
 */
 Game2Scene::~Game2Scene() {
-
     for (QVector< QVector< Tile* > >::iterator row=m_tiles.begin(); row!=m_tiles.end(); ++row) {
         for(QVector< Tile* >::iterator tile = (*row).begin(); tile!=(*row).end(); ++tile){
             delete *tile;
@@ -63,6 +62,7 @@ Game2Scene::~Game2Scene() {
     if(m_gameOverPicture != NULL) {
         delete m_gameOverPicture;
     }
+    delete m_scoreDisplay;
 }
 
 /**

@@ -10,7 +10,7 @@
 */
 Game3Scene::Game3Scene(Difficulty difficulty, Size size, QObject *parent) :
     QGraphicsScene(parent), m_difficulty(difficulty), m_size(size), m_userTurn(true), m_boxesClosedByUser(0),
-    m_boxesClosedByComputer(0), m_dots(size+1), m_horizontalLines(size+1), m_verticalLines(size), m_boxes(size),
+    m_boxesClosedByComputer(0), m_score(0), m_dots(size+1), m_horizontalLines(size+1), m_verticalLines(size), m_boxes(size),
     m_unmarkedLines(), m_newLines()
 {
     int firstX, firstY;
@@ -23,7 +23,7 @@ Game3Scene::Game3Scene(Difficulty difficulty, Size size, QObject *parent) :
         firstY = 130;
     }
     else {
-        firstX = 40;
+        firstX = 60;
         firstY = 10;
     }
 
@@ -75,6 +75,18 @@ Game3Scene::Game3Scene(Difficulty difficulty, Size size, QObject *parent) :
 
     m_delay = new QTimer(this);
     connect(m_delay, SIGNAL(timeout()), this, SLOT(computerMove()));
+
+    m_scoreDisplay = new QLCDNumber(4);
+    addWidget(m_scoreDisplay);
+    m_scoreDisplay->move(5,20);
+
+    QPalette lcdPalette = m_scoreDisplay->palette();
+    lcdPalette.setColor(QPalette::Background, QColor(170, 255, 0));
+    lcdPalette.setColor(QPalette::WindowText, QColor(85, 85, 255));
+    lcdPalette.setColor(QPalette::Light, QColor(255, 0, 0));
+    lcdPalette.setColor(QPalette::Dark, QColor(255, 0, 0));
+
+    m_scoreDisplay->setPalette(lcdPalette);
 }
 
 /**
@@ -97,6 +109,7 @@ Game3Scene::~Game3Scene() {
             }
         }
     }
+    delete m_scoreDisplay;
 }
 
 /**
@@ -188,6 +201,8 @@ bool Game3Scene::noMoreMoves() {
 */
 void Game3Scene::closeBoxByUser() {
     ++m_boxesClosedByUser;
+    m_score = m_score + 100;
+    m_scoreDisplay->display(m_score);
 }
 
 /**

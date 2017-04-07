@@ -93,6 +93,8 @@ private:
     bool m_userTurn; ///< True if it's the user's turn, False if it is the computer's turn
     int m_boxesClosedByUser; ///< Number of boxes closed by user
     int m_boxesClosedByComputer; ///< Number of boxes closed by computer
+    int m_score; ///< User score
+
     QVector< QVector<Dot*> > m_dots; ///< Dot objects
     QVector< QVector<HorizontalLine*> > m_horizontalLines; ///< Horizontal line objects
     QVector< QVector<VerticalLine*> > m_verticalLines; ///< Vertical line objects
@@ -103,6 +105,7 @@ private:
     QVector<Line*> m_newLines; ///< Keeps track of newly drawn lines
 
     GameOver *m_gameOverPicture; ///< Overlayed on top of the game to show Game Over
+    QLCDNumber *m_scoreDisplay; ///< Displays the game score
 };
 
 #endif // GAME3SCENE_H
