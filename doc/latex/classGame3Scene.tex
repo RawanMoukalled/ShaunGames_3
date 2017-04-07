@@ -1,0 +1,195 @@
+\hypertarget{classGame3Scene}{\section{\-Game3\-Scene \-Class \-Reference}
+\label{classGame3Scene}\index{\-Game3\-Scene@{\-Game3\-Scene}}
+}
+\subsection*{\-Public \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGame3Scene_a8baab5c5cf08a3da4c045237124f3312}{computer\-Move} ()
+\begin{DoxyCompactList}\small\item\em \-Computer move. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Signals}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classGame3Scene_afdf219b82363a1e8038a27d02df45cd2}{void \hyperlink{classGame3Scene_afdf219b82363a1e8038a27d02df45cd2}{done} ()}\label{classGame3Scene_afdf219b82363a1e8038a27d02df45cd2}
+
+\begin{DoxyCompactList}\small\item\em \-Signals \hyperlink{classGame3}{\-Game3} that the game is over. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGame3Scene_a807bd1fd85f313df2a265d0ccbcd2a78}{\-Game3\-Scene} (\-Difficulty difficulty, \-Size size, \-Q\-Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \-Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classGame3Scene_a6a41bfc50cb0f2304ecb7a82c39f615a}{$\sim$\-Game3\-Scene} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classGame3Scene_a42001b176b1bf8adaac5dbbdf78c944c}{computer\-Turn} ()
+\begin{DoxyCompactList}\small\item\em \-Computer turn. \end{DoxyCompactList}\item 
+bool \hyperlink{classGame3Scene_a15e0a02a54f5db10129d40bb9d5cd6ed}{is\-User\-Turn} ()
+\begin{DoxyCompactList}\small\item\em \-Returns whose turn it is to play. \end{DoxyCompactList}\item 
+void \hyperlink{classGame3Scene_a13d2095b46ba4f23f5b747bbbc556890}{add\-Newly\-Drawn\-Line} (\hyperlink{classLine}{\-Line} $\ast$line)
+\begin{DoxyCompactList}\small\item\em \-Remembers newly drawn line. \end{DoxyCompactList}\item 
+void \hyperlink{classGame3Scene_a8af77b8adc69ae0d2e6dc336674dd2e1}{clear\-New\-Lines} ()
+\begin{DoxyCompactList}\small\item\em \-Clears new lines by turning them grey. \end{DoxyCompactList}\item 
+void \hyperlink{classGame3Scene_a634df6ad5ac3776bc3d18519214e2eec}{game\-Over} ()
+\begin{DoxyCompactList}\small\item\em \-Triggers finishing the game. \end{DoxyCompactList}\item 
+bool \hyperlink{classGame3Scene_a1e1507f4dbb2a32cb6a22c97fc3f0877}{no\-More\-Moves} ()
+\begin{DoxyCompactList}\small\item\em \-Returns whether there are any moves left. \end{DoxyCompactList}\item 
+\hypertarget{classGame3Scene_a32f5b4495727883849959f0d832ac398}{void \hyperlink{classGame3Scene_a32f5b4495727883849959f0d832ac398}{close\-Box\-By\-User} ()}\label{classGame3Scene_a32f5b4495727883849959f0d832ac398}
+
+\begin{DoxyCompactList}\small\item\em \-Declares one more box as closed by user. \end{DoxyCompactList}\item 
+\hypertarget{classGame3Scene_a866b77e044e76b8ea79447cc9f4a31f1}{void \hyperlink{classGame3Scene_a866b77e044e76b8ea79447cc9f4a31f1}{close\-Box\-By\-Computer} ()}\label{classGame3Scene_a866b77e044e76b8ea79447cc9f4a31f1}
+
+\begin{DoxyCompactList}\small\item\em \-Declares one more box as closed by computer. \end{DoxyCompactList}\item 
+\hyperlink{classLine}{\-Line} $\ast$ \hyperlink{classGame3Scene_a68d775901007417eb7f67e3567d83b3f}{get\-Line\-That\-Closes\-Box} ()
+\begin{DoxyCompactList}\small\item\em \-Finds and returns a non-\/clicked line that closes at least one box. \end{DoxyCompactList}\item 
+\hyperlink{classLine}{\-Line} $\ast$ \hyperlink{classGame3Scene_a0ed388d4e3163fa39d05547b98794366}{get\-Smart\-Line} ()
+\begin{DoxyCompactList}\small\item\em \-Finds and returns a non-\/clicked line that does not let the user close a box. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classGame3Scene_a807bd1fd85f313df2a265d0ccbcd2a78}{\index{\-Game3\-Scene@{\-Game3\-Scene}!\-Game3\-Scene@{\-Game3\-Scene}}
+\index{\-Game3\-Scene@{\-Game3\-Scene}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{\-Game3\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game3\-Scene\-::\-Game3\-Scene} (
+\begin{DoxyParamCaption}
+\item[{\-Difficulty}]{difficulty, }
+\item[{\-Size}]{size, }
+\item[{\-Q\-Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classGame3Scene_a807bd1fd85f313df2a265d0ccbcd2a78}
+
+
+\-Constructor. 
+
+\-Initializes the difficulty, size, dots, lines and boxes of the game. \hypertarget{classGame3Scene_a6a41bfc50cb0f2304ecb7a82c39f615a}{\index{\-Game3\-Scene@{\-Game3\-Scene}!$\sim$\-Game3\-Scene@{$\sim$\-Game3\-Scene}}
+\index{$\sim$\-Game3\-Scene@{$\sim$\-Game3\-Scene}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{$\sim$\-Game3\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game3\-Scene\-::$\sim$\-Game3\-Scene} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classGame3Scene_a6a41bfc50cb0f2304ecb7a82c39f615a}
+
+
+\-Destructor. 
+
+\-Frees allocated memory. 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classGame3Scene_a13d2095b46ba4f23f5b747bbbc556890}{\index{\-Game3\-Scene@{\-Game3\-Scene}!add\-Newly\-Drawn\-Line@{add\-Newly\-Drawn\-Line}}
+\index{add\-Newly\-Drawn\-Line@{add\-Newly\-Drawn\-Line}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{add\-Newly\-Drawn\-Line}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game3\-Scene\-::add\-Newly\-Drawn\-Line} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Line} $\ast$}]{line}
+\end{DoxyParamCaption}
+)}}\label{classGame3Scene_a13d2095b46ba4f23f5b747bbbc556890}
+
+
+\-Remembers newly drawn line. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em line} & \-Newly drawn line\\
+\hline
+\end{DoxyParams}
+\-Remembers newly drawn line so it can be turned grey later. \-Also removes the line from the list of unmarked lines. \hypertarget{classGame3Scene_a8af77b8adc69ae0d2e6dc336674dd2e1}{\index{\-Game3\-Scene@{\-Game3\-Scene}!clear\-New\-Lines@{clear\-New\-Lines}}
+\index{clear\-New\-Lines@{clear\-New\-Lines}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{clear\-New\-Lines}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game3\-Scene\-::clear\-New\-Lines} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame3Scene_a8af77b8adc69ae0d2e6dc336674dd2e1}
+
+
+\-Clears new lines by turning them grey. 
+
+\-Clears new lines by turning them grey and removing them from the vector. \hypertarget{classGame3Scene_a8baab5c5cf08a3da4c045237124f3312}{\index{\-Game3\-Scene@{\-Game3\-Scene}!computer\-Move@{computer\-Move}}
+\index{computer\-Move@{computer\-Move}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{computer\-Move}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game3\-Scene\-::computer\-Move} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}\label{classGame3Scene_a8baab5c5cf08a3da4c045237124f3312}
+
+
+\-Computer move. 
+
+\-Picks a line to select according to difficulty, and plays the turn. \hypertarget{classGame3Scene_a42001b176b1bf8adaac5dbbdf78c944c}{\index{\-Game3\-Scene@{\-Game3\-Scene}!computer\-Turn@{computer\-Turn}}
+\index{computer\-Turn@{computer\-Turn}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{computer\-Turn}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game3\-Scene\-::computer\-Turn} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame3Scene_a42001b176b1bf8adaac5dbbdf78c944c}
+
+
+\-Computer turn. 
+
+\-Starts a delay to call \hyperlink{classGame3Scene_a8baab5c5cf08a3da4c045237124f3312}{computer\-Move()}. \hypertarget{classGame3Scene_a634df6ad5ac3776bc3d18519214e2eec}{\index{\-Game3\-Scene@{\-Game3\-Scene}!game\-Over@{game\-Over}}
+\index{game\-Over@{game\-Over}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{game\-Over}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game3\-Scene\-::game\-Over} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame3Scene_a634df6ad5ac3776bc3d18519214e2eec}
+
+
+\-Triggers finishing the game. 
+
+\-Ends the game. \hypertarget{classGame3Scene_a68d775901007417eb7f67e3567d83b3f}{\index{\-Game3\-Scene@{\-Game3\-Scene}!get\-Line\-That\-Closes\-Box@{get\-Line\-That\-Closes\-Box}}
+\index{get\-Line\-That\-Closes\-Box@{get\-Line\-That\-Closes\-Box}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{get\-Line\-That\-Closes\-Box}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Line} $\ast$ {\bf \-Game3\-Scene\-::get\-Line\-That\-Closes\-Box} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame3Scene_a68d775901007417eb7f67e3567d83b3f}
+
+
+\-Finds and returns a non-\/clicked line that closes at least one box. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Non-\/clicked line that closes a box
+\end{DoxyReturn}
+\-Finds and returns a non-\/clicked line that closes at least one box. \-Returns \-N\-U\-L\-L if not found. \hypertarget{classGame3Scene_a0ed388d4e3163fa39d05547b98794366}{\index{\-Game3\-Scene@{\-Game3\-Scene}!get\-Smart\-Line@{get\-Smart\-Line}}
+\index{get\-Smart\-Line@{get\-Smart\-Line}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{get\-Smart\-Line}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Line} $\ast$ {\bf \-Game3\-Scene\-::get\-Smart\-Line} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame3Scene_a0ed388d4e3163fa39d05547b98794366}
+
+
+\-Finds and returns a non-\/clicked line that does not let the user close a box. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Non-\/clicked line that does not let the user close a box next
+\end{DoxyReturn}
+\-Finds and returns a non-\/clicked line that does not let the user close a box. \-It does so by checking that the returned line is not the third line to be drawn around any box. \-If such a line is not found, it returns \-N\-U\-L\-L. \hypertarget{classGame3Scene_a15e0a02a54f5db10129d40bb9d5cd6ed}{\index{\-Game3\-Scene@{\-Game3\-Scene}!is\-User\-Turn@{is\-User\-Turn}}
+\index{is\-User\-Turn@{is\-User\-Turn}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{is\-User\-Turn}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Game3\-Scene\-::is\-User\-Turn} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame3Scene_a15e0a02a54f5db10129d40bb9d5cd6ed}
+
+
+\-Returns whose turn it is to play. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Whether it is the user's turn to play
+\end{DoxyReturn}
+\-Returns whether it is the user's turn to play. \hypertarget{classGame3Scene_a1e1507f4dbb2a32cb6a22c97fc3f0877}{\index{\-Game3\-Scene@{\-Game3\-Scene}!no\-More\-Moves@{no\-More\-Moves}}
+\index{no\-More\-Moves@{no\-More\-Moves}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{no\-More\-Moves}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Game3\-Scene\-::no\-More\-Moves} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame3Scene_a1e1507f4dbb2a32cb6a22c97fc3f0877}
+
+
+\-Returns whether there are any moves left. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Whether there are any unmarked lines left
+\end{DoxyReturn}
+\-Returns whether there are any unmarked lines left. 
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+game3/\hyperlink{game3scene_8h}{game3scene.\-h}\item 
+game3/\hyperlink{game3scene_8cpp}{game3scene.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,343 @@
+\contentsline {chapter}{\numberline {1}\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}E 435\discretionary {-}{}{}L \discretionary {-}{}{}Games \discretionary {-}{}{}Project}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}\discretionary {-}{}{}Class \discretionary {-}{}{}Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}\discretionary {-}{}{}Class \discretionary {-}{}{}Hierarchy}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}\discretionary {-}{}{}Class \discretionary {-}{}{}Index}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}\discretionary {-}{}{}Class \discretionary {-}{}{}List}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}\discretionary {-}{}{}File \discretionary {-}{}{}Index}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}\discretionary {-}{}{}File \discretionary {-}{}{}List}{7}{section.4.1}
+\contentsline {chapter}{\numberline {5}\discretionary {-}{}{}Class \discretionary {-}{}{}Documentation}{11}{chapter.5}
+\contentsline {section}{\numberline {5.1}\discretionary {-}{}{}Barn \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{11}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{11}{subsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.1.1}\discretionary {-}{}{}Barn}{11}{subsubsection.5.1.1.1}
+\contentsline {subsubsection}{\numberline {5.1.1.2}$\sim $\discretionary {-}{}{}Barn}{11}{subsubsection.5.1.1.2}
+\contentsline {subsection}{\numberline {5.1.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{12}{subsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.2.1}sheep\discretionary {-}{}{}In}{12}{subsubsection.5.1.2.1}
+\contentsline {section}{\numberline {5.2}\discretionary {-}{}{}Box \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{12}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{12}{subsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.1.1}\discretionary {-}{}{}Box}{12}{subsubsection.5.2.1.1}
+\contentsline {subsubsection}{\numberline {5.2.1.2}$\sim $\discretionary {-}{}{}Box}{13}{subsubsection.5.2.1.2}
+\contentsline {subsection}{\numberline {5.2.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{13}{subsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.1}draw\discretionary {-}{}{}Bitzer}{13}{subsubsection.5.2.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2.2}draw\discretionary {-}{}{}Shaun}{13}{subsubsection.5.2.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.3}is\discretionary {-}{}{}Closed}{13}{subsubsection.5.2.2.3}
+\contentsline {subsubsection}{\numberline {5.2.2.4}number\discretionary {-}{}{}Of\discretionary {-}{}{}Lines\discretionary {-}{}{}Drawn}{13}{subsubsection.5.2.2.4}
+\contentsline {section}{\numberline {5.3}\discretionary {-}{}{}Cannon \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{13}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{14}{subsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.1.1}\discretionary {-}{}{}Cannon}{14}{subsubsection.5.3.1.1}
+\contentsline {subsubsection}{\numberline {5.3.1.2}$\sim $\discretionary {-}{}{}Cannon}{14}{subsubsection.5.3.1.2}
+\contentsline {subsection}{\numberline {5.3.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{14}{subsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.2.1}key\discretionary {-}{}{}Press\discretionary {-}{}{}Event}{14}{subsubsection.5.3.2.1}
+\contentsline {section}{\numberline {5.4}\discretionary {-}{}{}Dot \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{14}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{15}{subsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.1.1}\discretionary {-}{}{}Dot}{15}{subsubsection.5.4.1.1}
+\contentsline {subsubsection}{\numberline {5.4.1.2}$\sim $\discretionary {-}{}{}Dot}{15}{subsubsection.5.4.1.2}
+\contentsline {section}{\numberline {5.5}\discretionary {-}{}{}Game1 \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{15}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{16}{subsection.5.5.1}
+\contentsline {subsubsection}{\numberline {5.5.1.1}\discretionary {-}{}{}Game1}{16}{subsubsection.5.5.1.1}
+\contentsline {subsubsection}{\numberline {5.5.1.2}$\sim $\discretionary {-}{}{}Game1}{16}{subsubsection.5.5.1.2}
+\contentsline {subsection}{\numberline {5.5.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{16}{subsection.5.5.2}
+\contentsline {subsubsection}{\numberline {5.5.2.1}end\discretionary {-}{}{}Game}{16}{subsubsection.5.5.2.1}
+\contentsline {subsubsection}{\numberline {5.5.2.2}go\discretionary {-}{}{}To\discretionary {-}{}{}Main\discretionary {-}{}{}Menu}{16}{subsubsection.5.5.2.2}
+\contentsline {subsubsection}{\numberline {5.5.2.3}load\discretionary {-}{}{}New\discretionary {-}{}{}Game}{16}{subsubsection.5.5.2.3}
+\contentsline {subsubsection}{\numberline {5.5.2.4}next}{17}{subsubsection.5.5.2.4}
+\contentsline {subsubsection}{\numberline {5.5.2.5}replay}{17}{subsubsection.5.5.2.5}
+\contentsline {section}{\numberline {5.6}\discretionary {-}{}{}Game1\discretionary {-}{}{}Options \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{17}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{18}{subsection.5.6.1}
+\contentsline {subsubsection}{\numberline {5.6.1.1}\discretionary {-}{}{}Game1\discretionary {-}{}{}Options}{18}{subsubsection.5.6.1.1}
+\contentsline {subsubsection}{\numberline {5.6.1.2}$\sim $\discretionary {-}{}{}Game1\discretionary {-}{}{}Options}{18}{subsubsection.5.6.1.2}
+\contentsline {subsection}{\numberline {5.6.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{18}{subsection.5.6.2}
+\contentsline {subsubsection}{\numberline {5.6.2.1}get\discretionary {-}{}{}Number\discretionary {-}{}{}Of\discretionary {-}{}{}Unlocked\discretionary {-}{}{}Levels}{18}{subsubsection.5.6.2.1}
+\contentsline {subsubsection}{\numberline {5.6.2.2}goto\discretionary {-}{}{}Game1}{18}{subsubsection.5.6.2.2}
+\contentsline {subsubsection}{\numberline {5.6.2.3}goto\discretionary {-}{}{}Game\discretionary {-}{}{}Main\discretionary {-}{}{}Menu}{18}{subsubsection.5.6.2.3}
+\contentsline {subsubsection}{\numberline {5.6.2.4}unlock\discretionary {-}{}{}Extra\discretionary {-}{}{}Level}{18}{subsubsection.5.6.2.4}
+\contentsline {section}{\numberline {5.7}\discretionary {-}{}{}Game1\discretionary {-}{}{}Scene \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{19}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{20}{subsection.5.7.1}
+\contentsline {subsubsection}{\numberline {5.7.1.1}\discretionary {-}{}{}Game1\discretionary {-}{}{}Scene}{20}{subsubsection.5.7.1.1}
+\contentsline {subsubsection}{\numberline {5.7.1.2}$\sim $\discretionary {-}{}{}Game1\discretionary {-}{}{}Scene}{20}{subsubsection.5.7.1.2}
+\contentsline {subsection}{\numberline {5.7.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{20}{subsection.5.7.2}
+\contentsline {subsubsection}{\numberline {5.7.2.1}collides\discretionary {-}{}{}With\discretionary {-}{}{}Sheep\discretionary {-}{}{}In\discretionary {-}{}{}Line}{20}{subsubsection.5.7.2.1}
+\contentsline {subsubsection}{\numberline {5.7.2.2}fire\discretionary {-}{}{}Sheep}{20}{subsubsection.5.7.2.2}
+\contentsline {subsubsection}{\numberline {5.7.2.3}game\discretionary {-}{}{}Over}{20}{subsubsection.5.7.2.3}
+\contentsline {subsubsection}{\numberline {5.7.2.4}get\discretionary {-}{}{}Score}{21}{subsubsection.5.7.2.4}
+\contentsline {subsubsection}{\numberline {5.7.2.5}mouse\discretionary {-}{}{}Press\discretionary {-}{}{}Event}{21}{subsubsection.5.7.2.5}
+\contentsline {subsubsection}{\numberline {5.7.2.6}move\discretionary {-}{}{}\_\discretionary {-}{}{}line}{21}{subsubsection.5.7.2.6}
+\contentsline {subsubsection}{\numberline {5.7.2.7}move\discretionary {-}{}{}Current\discretionary {-}{}{}Sheep}{21}{subsubsection.5.7.2.7}
+\contentsline {section}{\numberline {5.8}\discretionary {-}{}{}Game2 \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{21}{section.5.8}
+\contentsline {subsection}{\numberline {5.8.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{22}{subsection.5.8.1}
+\contentsline {subsubsection}{\numberline {5.8.1.1}\discretionary {-}{}{}Game2}{22}{subsubsection.5.8.1.1}
+\contentsline {subsubsection}{\numberline {5.8.1.2}$\sim $\discretionary {-}{}{}Game2}{22}{subsubsection.5.8.1.2}
+\contentsline {subsection}{\numberline {5.8.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{22}{subsection.5.8.2}
+\contentsline {subsubsection}{\numberline {5.8.2.1}end\discretionary {-}{}{}Game}{22}{subsubsection.5.8.2.1}
+\contentsline {subsubsection}{\numberline {5.8.2.2}go\discretionary {-}{}{}To\discretionary {-}{}{}Main\discretionary {-}{}{}Menu}{22}{subsubsection.5.8.2.2}
+\contentsline {subsubsection}{\numberline {5.8.2.3}replay}{23}{subsubsection.5.8.2.3}
+\contentsline {section}{\numberline {5.9}\discretionary {-}{}{}Game2\discretionary {-}{}{}Options \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{23}{section.5.9}
+\contentsline {subsection}{\numberline {5.9.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{23}{subsection.5.9.1}
+\contentsline {subsubsection}{\numberline {5.9.1.1}\discretionary {-}{}{}Game2\discretionary {-}{}{}Options}{23}{subsubsection.5.9.1.1}
+\contentsline {subsubsection}{\numberline {5.9.1.2}$\sim $\discretionary {-}{}{}Game2\discretionary {-}{}{}Options}{23}{subsubsection.5.9.1.2}
+\contentsline {subsection}{\numberline {5.9.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{24}{subsection.5.9.2}
+\contentsline {subsubsection}{\numberline {5.9.2.1}goto\discretionary {-}{}{}Game2}{24}{subsubsection.5.9.2.1}
+\contentsline {subsubsection}{\numberline {5.9.2.2}goto\discretionary {-}{}{}Game\discretionary {-}{}{}Main\discretionary {-}{}{}Menu}{24}{subsubsection.5.9.2.2}
+\contentsline {section}{\numberline {5.10}\discretionary {-}{}{}Game2\discretionary {-}{}{}Scene \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{24}{section.5.10}
+\contentsline {subsection}{\numberline {5.10.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{25}{subsection.5.10.1}
+\contentsline {subsubsection}{\numberline {5.10.1.1}\discretionary {-}{}{}Game2\discretionary {-}{}{}Scene}{25}{subsubsection.5.10.1.1}
+\contentsline {subsubsection}{\numberline {5.10.1.2}$\sim $\discretionary {-}{}{}Game2\discretionary {-}{}{}Scene}{26}{subsubsection.5.10.1.2}
+\contentsline {subsection}{\numberline {5.10.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{26}{subsection.5.10.2}
+\contentsline {subsubsection}{\numberline {5.10.2.1}computer\discretionary {-}{}{}Turn}{26}{subsubsection.5.10.2.1}
+\contentsline {subsubsection}{\numberline {5.10.2.2}decrement\discretionary {-}{}{}Score}{26}{subsubsection.5.10.2.2}
+\contentsline {subsubsection}{\numberline {5.10.2.3}game\discretionary {-}{}{}Over}{26}{subsubsection.5.10.2.3}
+\contentsline {subsubsection}{\numberline {5.10.2.4}get\discretionary {-}{}{}Block\discretionary {-}{}{}Count}{26}{subsubsection.5.10.2.4}
+\contentsline {subsubsection}{\numberline {5.10.2.5}get\discretionary {-}{}{}Neighbors}{26}{subsubsection.5.10.2.5}
+\contentsline {subsubsection}{\numberline {5.10.2.6}get\discretionary {-}{}{}Non\discretionary {-}{}{}Blocked\discretionary {-}{}{}Borders}{27}{subsubsection.5.10.2.6}
+\contentsline {subsubsection}{\numberline {5.10.2.7}get\discretionary {-}{}{}Score\discretionary {-}{}{}Display}{27}{subsubsection.5.10.2.7}
+\contentsline {subsubsection}{\numberline {5.10.2.8}get\discretionary {-}{}{}Sheep}{27}{subsubsection.5.10.2.8}
+\contentsline {subsubsection}{\numberline {5.10.2.9}get\discretionary {-}{}{}User\discretionary {-}{}{}Turn}{27}{subsubsection.5.10.2.9}
+\contentsline {subsubsection}{\numberline {5.10.2.10}move\discretionary {-}{}{}Sheep}{27}{subsubsection.5.10.2.10}
+\contentsline {subsubsection}{\numberline {5.10.2.11}place\discretionary {-}{}{}Sheep\discretionary {-}{}{}Initial}{28}{subsubsection.5.10.2.11}
+\contentsline {subsubsection}{\numberline {5.10.2.12}place\discretionary {-}{}{}Tiles}{28}{subsubsection.5.10.2.12}
+\contentsline {subsubsection}{\numberline {5.10.2.13}reset\discretionary {-}{}{}Distances}{28}{subsubsection.5.10.2.13}
+\contentsline {subsubsection}{\numberline {5.10.2.14}reset\discretionary {-}{}{}Previous}{28}{subsubsection.5.10.2.14}
+\contentsline {subsubsection}{\numberline {5.10.2.15}reset\discretionary {-}{}{}Visited}{28}{subsubsection.5.10.2.15}
+\contentsline {subsubsection}{\numberline {5.10.2.16}set\discretionary {-}{}{}User\discretionary {-}{}{}Turn}{28}{subsubsection.5.10.2.16}
+\contentsline {subsubsection}{\numberline {5.10.2.17}tile\discretionary {-}{}{}At}{28}{subsubsection.5.10.2.17}
+\contentsline {subsubsection}{\numberline {5.10.2.18}tiles\discretionary {-}{}{}To\discretionary {-}{}{}Block}{29}{subsubsection.5.10.2.18}
+\contentsline {subsubsection}{\numberline {5.10.2.19}win}{29}{subsubsection.5.10.2.19}
+\contentsline {section}{\numberline {5.11}\discretionary {-}{}{}Game3 \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{29}{section.5.11}
+\contentsline {subsection}{\numberline {5.11.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{30}{subsection.5.11.1}
+\contentsline {subsubsection}{\numberline {5.11.1.1}\discretionary {-}{}{}Game3}{30}{subsubsection.5.11.1.1}
+\contentsline {subsubsection}{\numberline {5.11.1.2}$\sim $\discretionary {-}{}{}Game3}{30}{subsubsection.5.11.1.2}
+\contentsline {subsection}{\numberline {5.11.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{30}{subsection.5.11.2}
+\contentsline {subsubsection}{\numberline {5.11.2.1}end\discretionary {-}{}{}Game}{30}{subsubsection.5.11.2.1}
+\contentsline {subsubsection}{\numberline {5.11.2.2}go\discretionary {-}{}{}To\discretionary {-}{}{}Main\discretionary {-}{}{}Menu}{30}{subsubsection.5.11.2.2}
+\contentsline {subsubsection}{\numberline {5.11.2.3}replay}{30}{subsubsection.5.11.2.3}
+\contentsline {section}{\numberline {5.12}\discretionary {-}{}{}Game3\discretionary {-}{}{}Options \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{31}{section.5.12}
+\contentsline {subsection}{\numberline {5.12.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{31}{subsection.5.12.1}
+\contentsline {subsubsection}{\numberline {5.12.1.1}\discretionary {-}{}{}Game3\discretionary {-}{}{}Options}{31}{subsubsection.5.12.1.1}
+\contentsline {subsubsection}{\numberline {5.12.1.2}$\sim $\discretionary {-}{}{}Game3\discretionary {-}{}{}Options}{31}{subsubsection.5.12.1.2}
+\contentsline {subsection}{\numberline {5.12.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{32}{subsection.5.12.2}
+\contentsline {subsubsection}{\numberline {5.12.2.1}goto\discretionary {-}{}{}Game}{32}{subsubsection.5.12.2.1}
+\contentsline {subsubsection}{\numberline {5.12.2.2}goto\discretionary {-}{}{}Game\discretionary {-}{}{}Main\discretionary {-}{}{}Menu}{32}{subsubsection.5.12.2.2}
+\contentsline {subsubsection}{\numberline {5.12.2.3}set\discretionary {-}{}{}Easy}{32}{subsubsection.5.12.2.3}
+\contentsline {subsubsection}{\numberline {5.12.2.4}set\discretionary {-}{}{}Hard}{32}{subsubsection.5.12.2.4}
+\contentsline {subsubsection}{\numberline {5.12.2.5}set\discretionary {-}{}{}Moderate}{32}{subsubsection.5.12.2.5}
+\contentsline {subsubsection}{\numberline {5.12.2.6}set\discretionary {-}{}{}Size\discretionary {-}{}{}Eight}{32}{subsubsection.5.12.2.6}
+\contentsline {subsubsection}{\numberline {5.12.2.7}set\discretionary {-}{}{}Size\discretionary {-}{}{}Four}{32}{subsubsection.5.12.2.7}
+\contentsline {subsubsection}{\numberline {5.12.2.8}set\discretionary {-}{}{}Size\discretionary {-}{}{}Sixteen}{32}{subsubsection.5.12.2.8}
+\contentsline {section}{\numberline {5.13}\discretionary {-}{}{}Game3\discretionary {-}{}{}Scene \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{33}{section.5.13}
+\contentsline {subsection}{\numberline {5.13.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{34}{subsection.5.13.1}
+\contentsline {subsubsection}{\numberline {5.13.1.1}\discretionary {-}{}{}Game3\discretionary {-}{}{}Scene}{34}{subsubsection.5.13.1.1}
+\contentsline {subsubsection}{\numberline {5.13.1.2}$\sim $\discretionary {-}{}{}Game3\discretionary {-}{}{}Scene}{34}{subsubsection.5.13.1.2}
+\contentsline {subsection}{\numberline {5.13.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{34}{subsection.5.13.2}
+\contentsline {subsubsection}{\numberline {5.13.2.1}add\discretionary {-}{}{}Newly\discretionary {-}{}{}Drawn\discretionary {-}{}{}Line}{34}{subsubsection.5.13.2.1}
+\contentsline {subsubsection}{\numberline {5.13.2.2}clear\discretionary {-}{}{}New\discretionary {-}{}{}Lines}{34}{subsubsection.5.13.2.2}
+\contentsline {subsubsection}{\numberline {5.13.2.3}computer\discretionary {-}{}{}Move}{34}{subsubsection.5.13.2.3}
+\contentsline {subsubsection}{\numberline {5.13.2.4}computer\discretionary {-}{}{}Turn}{34}{subsubsection.5.13.2.4}
+\contentsline {subsubsection}{\numberline {5.13.2.5}game\discretionary {-}{}{}Over}{35}{subsubsection.5.13.2.5}
+\contentsline {subsubsection}{\numberline {5.13.2.6}get\discretionary {-}{}{}Line\discretionary {-}{}{}That\discretionary {-}{}{}Closes\discretionary {-}{}{}Box}{35}{subsubsection.5.13.2.6}
+\contentsline {subsubsection}{\numberline {5.13.2.7}get\discretionary {-}{}{}Smart\discretionary {-}{}{}Line}{35}{subsubsection.5.13.2.7}
+\contentsline {subsubsection}{\numberline {5.13.2.8}is\discretionary {-}{}{}User\discretionary {-}{}{}Turn}{35}{subsubsection.5.13.2.8}
+\contentsline {subsubsection}{\numberline {5.13.2.9}no\discretionary {-}{}{}More\discretionary {-}{}{}Moves}{35}{subsubsection.5.13.2.9}
+\contentsline {section}{\numberline {5.14}\discretionary {-}{}{}Game\discretionary {-}{}{}Main\discretionary {-}{}{}Menu \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{36}{section.5.14}
+\contentsline {subsection}{\numberline {5.14.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{36}{subsection.5.14.1}
+\contentsline {subsubsection}{\numberline {5.14.1.1}\discretionary {-}{}{}Game\discretionary {-}{}{}Main\discretionary {-}{}{}Menu}{36}{subsubsection.5.14.1.1}
+\contentsline {subsubsection}{\numberline {5.14.1.2}$\sim $\discretionary {-}{}{}Game\discretionary {-}{}{}Main\discretionary {-}{}{}Menu}{36}{subsubsection.5.14.1.2}
+\contentsline {subsection}{\numberline {5.14.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{37}{subsection.5.14.2}
+\contentsline {subsubsection}{\numberline {5.14.2.1}goto\discretionary {-}{}{}Game\discretionary {-}{}{}Options}{37}{subsubsection.5.14.2.1}
+\contentsline {subsubsection}{\numberline {5.14.2.2}goto\discretionary {-}{}{}Game\discretionary {-}{}{}Selection}{37}{subsubsection.5.14.2.2}
+\contentsline {section}{\numberline {5.15}\discretionary {-}{}{}Game\discretionary {-}{}{}Over \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{37}{section.5.15}
+\contentsline {subsection}{\numberline {5.15.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{37}{subsection.5.15.1}
+\contentsline {subsubsection}{\numberline {5.15.1.1}\discretionary {-}{}{}Game\discretionary {-}{}{}Over}{37}{subsubsection.5.15.1.1}
+\contentsline {subsubsection}{\numberline {5.15.1.2}$\sim $\discretionary {-}{}{}Game\discretionary {-}{}{}Over}{37}{subsubsection.5.15.1.2}
+\contentsline {section}{\numberline {5.16}\discretionary {-}{}{}Game\discretionary {-}{}{}Selection \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{38}{section.5.16}
+\contentsline {subsection}{\numberline {5.16.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{38}{subsection.5.16.1}
+\contentsline {subsubsection}{\numberline {5.16.1.1}\discretionary {-}{}{}Game\discretionary {-}{}{}Selection}{38}{subsubsection.5.16.1.1}
+\contentsline {subsubsection}{\numberline {5.16.1.2}$\sim $\discretionary {-}{}{}Game\discretionary {-}{}{}Selection}{38}{subsubsection.5.16.1.2}
+\contentsline {subsection}{\numberline {5.16.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{39}{subsection.5.16.2}
+\contentsline {subsubsection}{\numberline {5.16.2.1}go\discretionary {-}{}{}To\discretionary {-}{}{}Game1}{39}{subsubsection.5.16.2.1}
+\contentsline {subsubsection}{\numberline {5.16.2.2}go\discretionary {-}{}{}To\discretionary {-}{}{}Game2}{39}{subsubsection.5.16.2.2}
+\contentsline {subsubsection}{\numberline {5.16.2.3}go\discretionary {-}{}{}To\discretionary {-}{}{}Game3}{39}{subsubsection.5.16.2.3}
+\contentsline {subsubsection}{\numberline {5.16.2.4}go\discretionary {-}{}{}To\discretionary {-}{}{}Main}{39}{subsubsection.5.16.2.4}
+\contentsline {subsubsection}{\numberline {5.16.2.5}go\discretionary {-}{}{}To\discretionary {-}{}{}My\discretionary {-}{}{}Account}{39}{subsubsection.5.16.2.5}
+\contentsline {section}{\numberline {5.17}\discretionary {-}{}{}Helper \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{39}{section.5.17}
+\contentsline {subsection}{\numberline {5.17.1}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{40}{subsection.5.17.1}
+\contentsline {subsubsection}{\numberline {5.17.1.1}make\discretionary {-}{}{}Widget\discretionary {-}{}{}Large}{40}{subsubsection.5.17.1.1}
+\contentsline {subsubsection}{\numberline {5.17.1.2}make\discretionary {-}{}{}Widget\discretionary {-}{}{}Small}{40}{subsubsection.5.17.1.2}
+\contentsline {subsubsection}{\numberline {5.17.1.3}to\discretionary {-}{}{}Radians}{40}{subsubsection.5.17.1.3}
+\contentsline {section}{\numberline {5.18}\discretionary {-}{}{}Horizontal\discretionary {-}{}{}Line \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{41}{section.5.18}
+\contentsline {subsection}{\numberline {5.18.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{41}{subsection.5.18.1}
+\contentsline {subsubsection}{\numberline {5.18.1.1}\discretionary {-}{}{}Horizontal\discretionary {-}{}{}Line}{41}{subsubsection.5.18.1.1}
+\contentsline {subsubsection}{\numberline {5.18.1.2}$\sim $\discretionary {-}{}{}Horizontal\discretionary {-}{}{}Line}{41}{subsubsection.5.18.1.2}
+\contentsline {subsection}{\numberline {5.18.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{42}{subsection.5.18.2}
+\contentsline {subsubsection}{\numberline {5.18.2.1}get\discretionary {-}{}{}Above}{42}{subsubsection.5.18.2.1}
+\contentsline {subsubsection}{\numberline {5.18.2.2}get\discretionary {-}{}{}Under}{42}{subsubsection.5.18.2.2}
+\contentsline {subsubsection}{\numberline {5.18.2.3}play\discretionary {-}{}{}Turn}{42}{subsubsection.5.18.2.3}
+\contentsline {subsubsection}{\numberline {5.18.2.4}turn\discretionary {-}{}{}Grey}{42}{subsubsection.5.18.2.4}
+\contentsline {section}{\numberline {5.19}\discretionary {-}{}{}Line \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{43}{section.5.19}
+\contentsline {subsection}{\numberline {5.19.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{43}{subsection.5.19.1}
+\contentsline {subsubsection}{\numberline {5.19.1.1}\discretionary {-}{}{}Line}{43}{subsubsection.5.19.1.1}
+\contentsline {subsection}{\numberline {5.19.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{43}{subsection.5.19.2}
+\contentsline {subsubsection}{\numberline {5.19.2.1}is\discretionary {-}{}{}Drawn}{43}{subsubsection.5.19.2.1}
+\contentsline {subsubsection}{\numberline {5.19.2.2}is\discretionary {-}{}{}Horizontal}{44}{subsubsection.5.19.2.2}
+\contentsline {subsubsection}{\numberline {5.19.2.3}mouse\discretionary {-}{}{}Press\discretionary {-}{}{}Event}{44}{subsubsection.5.19.2.3}
+\contentsline {subsubsection}{\numberline {5.19.2.4}play\discretionary {-}{}{}Turn}{44}{subsubsection.5.19.2.4}
+\contentsline {section}{\numberline {5.20}\discretionary {-}{}{}Main\discretionary {-}{}{}Widget \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{44}{section.5.20}
+\contentsline {subsection}{\numberline {5.20.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{45}{subsection.5.20.1}
+\contentsline {subsubsection}{\numberline {5.20.1.1}\discretionary {-}{}{}Main\discretionary {-}{}{}Widget}{45}{subsubsection.5.20.1.1}
+\contentsline {subsubsection}{\numberline {5.20.1.2}$\sim $\discretionary {-}{}{}Main\discretionary {-}{}{}Widget}{45}{subsubsection.5.20.1.2}
+\contentsline {section}{\numberline {5.21}\discretionary {-}{}{}My\discretionary {-}{}{}Account \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{45}{section.5.21}
+\contentsline {subsection}{\numberline {5.21.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{45}{subsection.5.21.1}
+\contentsline {subsubsection}{\numberline {5.21.1.1}\discretionary {-}{}{}My\discretionary {-}{}{}Account}{45}{subsubsection.5.21.1.1}
+\contentsline {subsubsection}{\numberline {5.21.1.2}$\sim $\discretionary {-}{}{}My\discretionary {-}{}{}Account}{46}{subsubsection.5.21.1.2}
+\contentsline {subsection}{\numberline {5.21.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{46}{subsection.5.21.2}
+\contentsline {subsubsection}{\numberline {5.21.2.1}go\discretionary {-}{}{}To\discretionary {-}{}{}Games}{46}{subsubsection.5.21.2.1}
+\contentsline {section}{\numberline {5.22}\discretionary {-}{}{}Shaun\discretionary {-}{}{}Games\discretionary {-}{}{}Test \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{46}{section.5.22}
+\contentsline {section}{\numberline {5.23}\discretionary {-}{}{}Sheep1 \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{46}{section.5.23}
+\contentsline {subsection}{\numberline {5.23.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{47}{subsection.5.23.1}
+\contentsline {subsubsection}{\numberline {5.23.1.1}\discretionary {-}{}{}Sheep1}{47}{subsubsection.5.23.1.1}
+\contentsline {subsubsection}{\numberline {5.23.1.2}$\sim $\discretionary {-}{}{}Sheep1}{48}{subsubsection.5.23.1.2}
+\contentsline {subsection}{\numberline {5.23.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{48}{subsection.5.23.2}
+\contentsline {subsubsection}{\numberline {5.23.2.1}fire}{48}{subsubsection.5.23.2.1}
+\contentsline {subsubsection}{\numberline {5.23.2.2}fired\discretionary {-}{}{}Move}{48}{subsubsection.5.23.2.2}
+\contentsline {subsubsection}{\numberline {5.23.2.3}get\discretionary {-}{}{}Angle}{48}{subsubsection.5.23.2.3}
+\contentsline {subsubsection}{\numberline {5.23.2.4}get\discretionary {-}{}{}Number}{48}{subsubsection.5.23.2.4}
+\contentsline {subsubsection}{\numberline {5.23.2.5}get\discretionary {-}{}{}Random\discretionary {-}{}{}Sheep\discretionary {-}{}{}Number}{48}{subsubsection.5.23.2.5}
+\contentsline {subsubsection}{\numberline {5.23.2.6}in\discretionary {-}{}{}Line\discretionary {-}{}{}Distance\discretionary {-}{}{}To}{49}{subsubsection.5.23.2.6}
+\contentsline {subsubsection}{\numberline {5.23.2.7}is\discretionary {-}{}{}In\discretionary {-}{}{}Line}{49}{subsubsection.5.23.2.7}
+\contentsline {subsubsection}{\numberline {5.23.2.8}move\discretionary {-}{}{}In\discretionary {-}{}{}Line}{49}{subsubsection.5.23.2.8}
+\contentsline {subsubsection}{\numberline {5.23.2.9}set\discretionary {-}{}{}Angle}{49}{subsubsection.5.23.2.9}
+\contentsline {subsubsection}{\numberline {5.23.2.10}set\discretionary {-}{}{}In\discretionary {-}{}{}Line}{49}{subsubsection.5.23.2.10}
+\contentsline {section}{\numberline {5.24}\discretionary {-}{}{}Sheep2 \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{50}{section.5.24}
+\contentsline {subsection}{\numberline {5.24.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{50}{subsection.5.24.1}
+\contentsline {subsubsection}{\numberline {5.24.1.1}\discretionary {-}{}{}Sheep2}{50}{subsubsection.5.24.1.1}
+\contentsline {subsection}{\numberline {5.24.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{50}{subsection.5.24.2}
+\contentsline {subsubsection}{\numberline {5.24.2.1}get\discretionary {-}{}{}Current}{50}{subsubsection.5.24.2.1}
+\contentsline {subsubsection}{\numberline {5.24.2.2}set\discretionary {-}{}{}Current}{50}{subsubsection.5.24.2.2}
+\contentsline {section}{\numberline {5.25}\discretionary {-}{}{}Tile \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{51}{section.5.25}
+\contentsline {subsection}{\numberline {5.25.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{52}{subsection.5.25.1}
+\contentsline {subsubsection}{\numberline {5.25.1.1}\discretionary {-}{}{}Tile}{52}{subsubsection.5.25.1.1}
+\contentsline {subsubsection}{\numberline {5.25.1.2}$\sim $\discretionary {-}{}{}Tile}{52}{subsubsection.5.25.1.2}
+\contentsline {subsection}{\numberline {5.25.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{52}{subsection.5.25.2}
+\contentsline {subsubsection}{\numberline {5.25.2.1}get\discretionary {-}{}{}Col}{52}{subsubsection.5.25.2.1}
+\contentsline {subsubsection}{\numberline {5.25.2.2}get\discretionary {-}{}{}Distance}{52}{subsubsection.5.25.2.2}
+\contentsline {subsubsection}{\numberline {5.25.2.3}get\discretionary {-}{}{}Prev}{52}{subsubsection.5.25.2.3}
+\contentsline {subsubsection}{\numberline {5.25.2.4}get\discretionary {-}{}{}Row}{52}{subsubsection.5.25.2.4}
+\contentsline {subsubsection}{\numberline {5.25.2.5}is\discretionary {-}{}{}Blocked}{53}{subsubsection.5.25.2.5}
+\contentsline {subsubsection}{\numberline {5.25.2.6}is\discretionary {-}{}{}Border}{53}{subsubsection.5.25.2.6}
+\contentsline {subsubsection}{\numberline {5.25.2.7}is\discretionary {-}{}{}Visited}{53}{subsubsection.5.25.2.7}
+\contentsline {subsubsection}{\numberline {5.25.2.8}mouse\discretionary {-}{}{}Press\discretionary {-}{}{}Event}{53}{subsubsection.5.25.2.8}
+\contentsline {subsubsection}{\numberline {5.25.2.9}set\discretionary {-}{}{}Block}{54}{subsubsection.5.25.2.9}
+\contentsline {subsubsection}{\numberline {5.25.2.10}set\discretionary {-}{}{}Distance}{54}{subsubsection.5.25.2.10}
+\contentsline {subsubsection}{\numberline {5.25.2.11}set\discretionary {-}{}{}Has\discretionary {-}{}{}Sheep}{54}{subsubsection.5.25.2.11}
+\contentsline {subsubsection}{\numberline {5.25.2.12}set\discretionary {-}{}{}Prev}{54}{subsubsection.5.25.2.12}
+\contentsline {subsubsection}{\numberline {5.25.2.13}set\discretionary {-}{}{}Visited}{54}{subsubsection.5.25.2.13}
+\contentsline {section}{\numberline {5.26}\discretionary {-}{}{}Vertical\discretionary {-}{}{}Line \discretionary {-}{}{}Class \discretionary {-}{}{}Reference}{55}{section.5.26}
+\contentsline {subsection}{\numberline {5.26.1}\discretionary {-}{}{}Constructor \& \discretionary {-}{}{}Destructor \discretionary {-}{}{}Documentation}{55}{subsection.5.26.1}
+\contentsline {subsubsection}{\numberline {5.26.1.1}\discretionary {-}{}{}Vertical\discretionary {-}{}{}Line}{55}{subsubsection.5.26.1.1}
+\contentsline {subsubsection}{\numberline {5.26.1.2}$\sim $\discretionary {-}{}{}Vertical\discretionary {-}{}{}Line}{56}{subsubsection.5.26.1.2}
+\contentsline {subsection}{\numberline {5.26.2}\discretionary {-}{}{}Member \discretionary {-}{}{}Function \discretionary {-}{}{}Documentation}{56}{subsection.5.26.2}
+\contentsline {subsubsection}{\numberline {5.26.2.1}get\discretionary {-}{}{}Left}{56}{subsubsection.5.26.2.1}
+\contentsline {subsubsection}{\numberline {5.26.2.2}get\discretionary {-}{}{}Right}{56}{subsubsection.5.26.2.2}
+\contentsline {subsubsection}{\numberline {5.26.2.3}play\discretionary {-}{}{}Turn}{56}{subsubsection.5.26.2.3}
+\contentsline {subsubsection}{\numberline {5.26.2.4}turn\discretionary {-}{}{}Grey}{56}{subsubsection.5.26.2.4}
+\contentsline {chapter}{\numberline {6}\discretionary {-}{}{}File \discretionary {-}{}{}Documentation}{59}{chapter.6}
+\contentsline {section}{\numberline {6.1}difficulty.\discretionary {-}{}{}h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{59}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{59}{subsection.6.1.1}
+\contentsline {section}{\numberline {6.2}game1/barn.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{59}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{59}{subsection.6.2.1}
+\contentsline {section}{\numberline {6.3}game1/barn.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{60}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{60}{subsection.6.3.1}
+\contentsline {section}{\numberline {6.4}game1/cannon.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{60}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{60}{subsection.6.4.1}
+\contentsline {section}{\numberline {6.5}game1/cannon.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{60}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{60}{subsection.6.5.1}
+\contentsline {section}{\numberline {6.6}game1/game1.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{61}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{61}{subsection.6.6.1}
+\contentsline {section}{\numberline {6.7}game1/game1.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{61}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{61}{subsection.6.7.1}
+\contentsline {section}{\numberline {6.8}game1/game1options.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{61}{section.6.8}
+\contentsline {subsection}{\numberline {6.8.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{62}{subsection.6.8.1}
+\contentsline {section}{\numberline {6.9}game1/game1options.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{62}{section.6.9}
+\contentsline {subsection}{\numberline {6.9.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{62}{subsection.6.9.1}
+\contentsline {section}{\numberline {6.10}game1/game1scene.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{62}{section.6.10}
+\contentsline {subsection}{\numberline {6.10.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{62}{subsection.6.10.1}
+\contentsline {section}{\numberline {6.11}game1/game1scene.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{62}{section.6.11}
+\contentsline {subsection}{\numberline {6.11.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{63}{subsection.6.11.1}
+\contentsline {section}{\numberline {6.12}game1/sheep1.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{63}{section.6.12}
+\contentsline {subsection}{\numberline {6.12.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{63}{subsection.6.12.1}
+\contentsline {section}{\numberline {6.13}game1/sheep1.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{63}{section.6.13}
+\contentsline {subsection}{\numberline {6.13.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{63}{subsection.6.13.1}
+\contentsline {section}{\numberline {6.14}game2/game2.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{64}{section.6.14}
+\contentsline {subsection}{\numberline {6.14.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{64}{subsection.6.14.1}
+\contentsline {section}{\numberline {6.15}game2/game2.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{64}{section.6.15}
+\contentsline {subsection}{\numberline {6.15.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{64}{subsection.6.15.1}
+\contentsline {section}{\numberline {6.16}game2/game2options.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{64}{section.6.16}
+\contentsline {subsection}{\numberline {6.16.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{64}{subsection.6.16.1}
+\contentsline {section}{\numberline {6.17}game2/game2options.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{65}{section.6.17}
+\contentsline {subsection}{\numberline {6.17.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{65}{subsection.6.17.1}
+\contentsline {section}{\numberline {6.18}game2/game2scene.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{65}{section.6.18}
+\contentsline {subsection}{\numberline {6.18.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{65}{subsection.6.18.1}
+\contentsline {section}{\numberline {6.19}game2/game2scene.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{65}{section.6.19}
+\contentsline {subsection}{\numberline {6.19.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{66}{subsection.6.19.1}
+\contentsline {section}{\numberline {6.20}game2/sheep2.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{66}{section.6.20}
+\contentsline {subsection}{\numberline {6.20.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{66}{subsection.6.20.1}
+\contentsline {section}{\numberline {6.21}game2/tile.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{66}{section.6.21}
+\contentsline {subsection}{\numberline {6.21.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{66}{subsection.6.21.1}
+\contentsline {section}{\numberline {6.22}game2/tile.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{66}{section.6.22}
+\contentsline {subsection}{\numberline {6.22.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{67}{subsection.6.22.1}
+\contentsline {section}{\numberline {6.23}game3/box.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{67}{section.6.23}
+\contentsline {subsection}{\numberline {6.23.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{67}{subsection.6.23.1}
+\contentsline {section}{\numberline {6.24}game3/box.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{67}{section.6.24}
+\contentsline {subsection}{\numberline {6.24.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{67}{subsection.6.24.1}
+\contentsline {section}{\numberline {6.25}game3/dot.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{67}{section.6.25}
+\contentsline {subsection}{\numberline {6.25.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{68}{subsection.6.25.1}
+\contentsline {section}{\numberline {6.26}game3/dot.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{68}{section.6.26}
+\contentsline {subsection}{\numberline {6.26.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{68}{subsection.6.26.1}
+\contentsline {section}{\numberline {6.27}game3/game3.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{68}{section.6.27}
+\contentsline {subsection}{\numberline {6.27.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{68}{subsection.6.27.1}
+\contentsline {section}{\numberline {6.28}game3/game3.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{68}{section.6.28}
+\contentsline {subsection}{\numberline {6.28.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{69}{subsection.6.28.1}
+\contentsline {section}{\numberline {6.29}game3/game3options.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{69}{section.6.29}
+\contentsline {subsection}{\numberline {6.29.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{69}{subsection.6.29.1}
+\contentsline {section}{\numberline {6.30}game3/game3options.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{69}{section.6.30}
+\contentsline {subsection}{\numberline {6.30.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{69}{subsection.6.30.1}
+\contentsline {section}{\numberline {6.31}game3/game3scene.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{70}{section.6.31}
+\contentsline {subsection}{\numberline {6.31.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{70}{subsection.6.31.1}
+\contentsline {section}{\numberline {6.32}game3/game3scene.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{70}{section.6.32}
+\contentsline {subsection}{\numberline {6.32.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{70}{subsection.6.32.1}
+\contentsline {section}{\numberline {6.33}game3/horizontalline.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{70}{section.6.33}
+\contentsline {subsection}{\numberline {6.33.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{70}{subsection.6.33.1}
+\contentsline {section}{\numberline {6.34}game3/horizontalline.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{71}{section.6.34}
+\contentsline {subsection}{\numberline {6.34.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{71}{subsection.6.34.1}
+\contentsline {section}{\numberline {6.35}game3/line.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{71}{section.6.35}
+\contentsline {subsection}{\numberline {6.35.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{71}{subsection.6.35.1}
+\contentsline {section}{\numberline {6.36}game3/line.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{71}{section.6.36}
+\contentsline {subsection}{\numberline {6.36.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{71}{subsection.6.36.1}
+\contentsline {section}{\numberline {6.37}game3/size.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{72}{section.6.37}
+\contentsline {subsection}{\numberline {6.37.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{72}{subsection.6.37.1}
+\contentsline {section}{\numberline {6.38}game3/verticalline.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{72}{section.6.38}
+\contentsline {subsection}{\numberline {6.38.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{72}{subsection.6.38.1}
+\contentsline {section}{\numberline {6.39}game3/verticalline.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{72}{section.6.39}
+\contentsline {subsection}{\numberline {6.39.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{73}{subsection.6.39.1}
+\contentsline {section}{\numberline {6.40}gameover.\discretionary {-}{}{}cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{73}{section.6.40}
+\contentsline {subsection}{\numberline {6.40.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{73}{subsection.6.40.1}
+\contentsline {section}{\numberline {6.41}gameover.\discretionary {-}{}{}h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{73}{section.6.41}
+\contentsline {subsection}{\numberline {6.41.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{73}{subsection.6.41.1}
+\contentsline {section}{\numberline {6.42}gui/gamemainmenu.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{73}{section.6.42}
+\contentsline {subsection}{\numberline {6.42.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{74}{subsection.6.42.1}
+\contentsline {section}{\numberline {6.43}gui/gamemainmenu.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{74}{section.6.43}
+\contentsline {subsection}{\numberline {6.43.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{74}{subsection.6.43.1}
+\contentsline {section}{\numberline {6.44}gui/gameselection.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{74}{section.6.44}
+\contentsline {subsection}{\numberline {6.44.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{74}{subsection.6.44.1}
+\contentsline {section}{\numberline {6.45}gui/gameselection.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{74}{section.6.45}
+\contentsline {subsection}{\numberline {6.45.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{75}{subsection.6.45.1}
+\contentsline {section}{\numberline {6.46}gui/mainwidget.cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{75}{section.6.46}
+\contentsline {subsection}{\numberline {6.46.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{75}{subsection.6.46.1}
+\contentsline {section}{\numberline {6.47}gui/mainwidget.h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{75}{section.6.47}
+\contentsline {subsection}{\numberline {6.47.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{75}{subsection.6.47.1}
+\contentsline {section}{\numberline {6.48}helper.\discretionary {-}{}{}cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{76}{section.6.48}
+\contentsline {subsection}{\numberline {6.48.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{76}{subsection.6.48.1}
+\contentsline {section}{\numberline {6.49}helper.\discretionary {-}{}{}h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{76}{section.6.49}
+\contentsline {subsection}{\numberline {6.49.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{76}{subsection.6.49.1}
+\contentsline {section}{\numberline {6.50}myaccount.\discretionary {-}{}{}cpp \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{76}{section.6.50}
+\contentsline {subsection}{\numberline {6.50.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{76}{subsection.6.50.1}
+\contentsline {section}{\numberline {6.51}myaccount.\discretionary {-}{}{}h \discretionary {-}{}{}File \discretionary {-}{}{}Reference}{77}{section.6.51}
+\contentsline {subsection}{\numberline {6.51.1}\discretionary {-}{}{}Detailed \discretionary {-}{}{}Description}{77}{subsection.6.51.1}

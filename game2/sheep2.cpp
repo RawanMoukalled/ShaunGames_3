@@ -2,7 +2,7 @@
 
 /**
 * \file sheep2.cpp
-* \brief Contains the Sheep class
+* \brief Contains Sheep class definition
 */
 
 /**

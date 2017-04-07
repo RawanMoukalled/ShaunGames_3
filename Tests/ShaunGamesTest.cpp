@@ -1,6 +1,6 @@
 #include "shaungamestest.h"
-#include "game1/sheep1.h"
-#include "helper.h"
+#include "../game1/sheep1.h"
+#include "../helper.h"
 
 CPPUNIT_TEST_SUITE_REGISTRATION (ShaunGamesTest);
 

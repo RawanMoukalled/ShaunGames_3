@@ -10,7 +10,7 @@
 * Sets VerticalLine properties.
 */
 VerticalLine::VerticalLine(Box *left, Box *right, QObject *parent) :
-    Line(parent), m_left(left), m_right(right)
+    Line(false, parent), m_left(left), m_right(right)
 {
     setPixmap(QPixmap("pictures/Lines/vertical_transparent.png"));
     setZValue(2);
@@ -77,17 +77,16 @@ bool VerticalLine::playTurn(bool userTurn) {
     }
 }
 
-
 /**
 * Returns the box to the left of the line.
 */
-Box* VerticalLine::getLeft() {
+Box* VerticalLine::getLeft() const {
     return m_left;
 }
 
 /**
 * Returns the box to the right of the line.
 */
-Box* VerticalLine::getRight() {
+Box* VerticalLine::getRight() const {
     return m_right;
 }

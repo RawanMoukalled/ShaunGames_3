@@ -44,13 +44,13 @@ public:
     * \brief Gets the box to the left of the line
     * \returns box to the left of the line
     */
-    Box* getLeft();
+    Box* getLeft() const;
 
     /**
     * \brief Gets the box to the right of the line
     * \returns box to the right of the line
     */
-    Box* getRight();
+    Box* getRight() const;
     
 signals:
     

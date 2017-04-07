@@ -1,9 +1,30 @@
 var searchData=
 [
+  ['setabove',['setAbove',['../classBox.html#a85433a90ba39dbabc23d1a5fe70eb8cb',1,'Box']]],
   ['setangle',['setAngle',['../classSheep1.html#a1644fdc3958aa506c792e5bf0e1ec964',1,'Sheep1']]],
+  ['setblock',['setBlock',['../classTile.html#afe226f718d68cf50f2c9f4067dc84eb2',1,'Tile']]],
+  ['setcurrent',['setCurrent',['../classSheep2.html#aea3d76bd96c0b5526f4bb8de2d846988',1,'Sheep2']]],
+  ['setdistance',['setDistance',['../classTile.html#ad4c98d62f7ac3912075c5ba53cb7c1c6',1,'Tile']]],
+  ['seteasy',['setEasy',['../classGame3Options.html#a58fc11a12194fd807c6df76afd8ca0ff',1,'Game3Options']]],
+  ['sethard',['setHard',['../classGame3Options.html#a0aa87fb6bd6c641e7612e864e20c4646',1,'Game3Options']]],
+  ['sethassheep',['setHasSheep',['../classTile.html#a9582c3c092f3cdd7fbd4fa37c8f4ab22',1,'Tile']]],
   ['setinline',['setInLine',['../classSheep1.html#ad5902cd1b715217e0bff1803c67e7184',1,'Sheep1']]],
+  ['setleft',['setLeft',['../classBox.html#a64676bbb58aa311da3628830b933641c',1,'Box']]],
+  ['setmoderate',['setModerate',['../classGame3Options.html#a9b419556514e2b5aa5a3264eff4eed23',1,'Game3Options']]],
+  ['setprev',['setPrev',['../classTile.html#aa734bc3878b263a0666efab0ff960f5a',1,'Tile']]],
+  ['setright',['setRight',['../classBox.html#a7fb35863d54190760a80fd7acd480436',1,'Box']]],
+  ['setsizeeight',['setSizeEight',['../classGame3Options.html#aecd31487db7cacbc94b6e84bcb480921',1,'Game3Options']]],
+  ['setsizefour',['setSizeFour',['../classGame3Options.html#a391983cf8d1d11ebd10eaf35ec8492f0',1,'Game3Options']]],
+  ['setsizesixteen',['setSizeSixteen',['../classGame3Options.html#ada00e9a71cf08be6ad4b1c52eb33ee7f',1,'Game3Options']]],
+  ['setunder',['setUnder',['../classBox.html#ac414cf1641426051411c9c80d24906e8',1,'Box']]],
+  ['setuserturn',['setUserTurn',['../classGame2Scene.html#ad0bee4e6175c046ea2cf7e96efaf86bf',1,'Game2Scene']]],
+  ['setvisited',['setVisited',['../classTile.html#acb96f0fb719b9f5b9a94ba9e721d6073',1,'Tile']]],
+  ['shaungamestest',['ShaunGamesTest',['../classShaunGamesTest.html',1,'']]],
   ['sheep1',['Sheep1',['../classSheep1.html',1,'Sheep1'],['../classSheep1.html#ac421bb46b209fc0c2a198d91a07ebfff',1,'Sheep1::Sheep1()']]],
   ['sheep1_2ecpp',['sheep1.cpp',['../sheep1_8cpp.html',1,'']]],
   ['sheep1_2eh',['sheep1.h',['../sheep1_8h.html',1,'']]],
-  ['sheepin',['sheepIn',['../classBarn.html#a296d424cb199b94ec6db3ecf4439e654',1,'Barn']]]
+  ['sheep2',['Sheep2',['../classSheep2.html',1,'Sheep2'],['../classSheep2.html#ad028dd72d649d58267104a3810763952',1,'Sheep2::Sheep2()']]],
+  ['sheep2_2ecpp',['sheep2.cpp',['../sheep2_8cpp.html',1,'']]],
+  ['sheepin',['sheepIn',['../classBarn.html#a296d424cb199b94ec6db3ecf4439e654',1,'Barn']]],
+  ['size_2eh',['size.h',['../size_8h.html',1,'']]]
 ];

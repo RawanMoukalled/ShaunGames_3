@@ -71,6 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -88,33 +89,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame3.html#a0a79ef23fdfd43052da0e31da7cf8172">endGame</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes save and exit button and adds replay and back buttons.  <a href="#a0a79ef23fdfd43052da0e31da7cf8172"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame3.html#ab37e7d626fddb52e5488caef0e2eb551">replay</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes save and exit button and adds replay and back buttons.  <a href="#ab37e7d626fddb52e5488caef0e2eb551"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame3.html#ab5b41e8bcbaf0c2299f1c9c21660867e">goToMainMenu</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot to go back to the games main menu when pressing Exit.  <a href="#ab5b41e8bcbaf0c2299f1c9c21660867e"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame3.html#ad462f007290c6f73149d744865f0655f">Game3</a> (QWidget *parent=0)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#ad462f007290c6f73149d744865f0655f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame3.html#a1c9c75bff5b0dcd841ce4eafb9a2b40b">Game3</a> (Difficulty difficulty, Size size, QWidget *parent=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a1c9c75bff5b0dcd841ce4eafb9a2b40b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame3.html#afa72d96885beec0fc5f4f542d20a9898">~Game3</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrucor.  <a href="#afa72d96885beec0fc5f4f542d20a9898"></a><br/></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ad462f007290c6f73149d744865f0655f"></a><!-- doxytag: member="Game3::Game3" ref="ad462f007290c6f73149d744865f0655f" args="(QWidget *parent=0)" -->
+<a class="anchor" id="a1c9c75bff5b0dcd841ce4eafb9a2b40b"></a><!-- doxytag: member="Game3::Game3" ref="a1c9c75bff5b0dcd841ce4eafb9a2b40b" args="(Difficulty difficulty, Size size, QWidget *parent=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classGame3.html#ad462f007290c6f73149d744865f0655f">Game3::Game3</a> </td>
+          <td class="memname"><a class="el" href="classGame3.html#a1c9c75bff5b0dcd841ce4eafb9a2b40b">Game3::Game3</a> </td>
           <td>(</td>
+          <td class="paramtype">Difficulty&#160;</td>
+          <td class="paramname"><em>difficulty</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Size&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">QWidget *&#160;</td>
-          <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
-          <td><code> [explicit]</code></td>
+          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [explicit]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>Default constructor. </p>
-<p>Sets the size of the window, initializes the graphic items, sets the layouts and connects buttons to their slots </p>
+<p>Sets the size of the window, initializes the graphic items, sets the layouts and connects buttons to their slots. </p>
 
 </div>
 </div>
@@ -138,6 +159,25 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a0a79ef23fdfd43052da0e31da7cf8172"></a><!-- doxytag: member="Game3::endGame" ref="a0a79ef23fdfd43052da0e31da7cf8172" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGame3.html#a0a79ef23fdfd43052da0e31da7cf8172">Game3::endGame</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Removes save and exit button and adds replay and back buttons. </p>
+<p>Removes the save and exitbutton and adds the go back and replay buttons along with their connections. </p>
+
+</div>
+</div>
 <a class="anchor" id="ab5b41e8bcbaf0c2299f1c9c21660867e"></a><!-- doxytag: member="Game3::goToMainMenu" ref="ab5b41e8bcbaf0c2299f1c9c21660867e" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -154,6 +194,25 @@ Public Member Functions</h2></td></tr>
 
 <p>Slot to go back to the games main menu when pressing Exit. </p>
 <p>Goes back to the Main meny of Dots and Lines. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab37e7d626fddb52e5488caef0e2eb551"></a><!-- doxytag: member="Game3::replay" ref="ab37e7d626fddb52e5488caef0e2eb551" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGame3.html#ab37e7d626fddb52e5488caef0e2eb551">Game3::replay</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Removes save and exit button and adds replay and back buttons. </p>
+<p>Reloads game. </p>
 
 </div>
 </div>
@@ -179,7 +238,7 @@ Public Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 16 2017 21:38:31 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 7 2017 22:21:23 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

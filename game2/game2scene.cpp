@@ -3,7 +3,7 @@
 
 /**
 * \file game2scene.cpp
-* \brief Contains the Trap the Sheep game scene
+* \brief Contains Game2Scene class definition
 */
 
 /**
@@ -159,7 +159,8 @@ void Game2Scene::placeSheepInitial() {
 }
 
 /**
-* Gets for the given tile the left, right, upper and bottom neighbors.
+* Gets the left, right, upper and bottom neighbors for the given tile.
+* Memory is allocated in this function and should be freed by the caller.
 */
 QVector< Tile* > * Game2Scene::getNeighbors(Tile * center) {
   QVector< Tile* > * neighbors = new QVector< Tile* >;
@@ -409,6 +410,9 @@ void Game2Scene::setUserTurn(bool userTurn) {
     m_user_turn = userTurn;
 }
 
+/**
+* Ends the game and displays the GameOver item.
+*/
 void Game2Scene::gameOver(bool win) {
     m_gameOverPicture = new GameOver(win);
     addItem(m_gameOverPicture);
@@ -484,6 +488,7 @@ void Game2Scene::computeDistances(Tile *current) {
 
 /**
 * Retrieves the non blocked border tiles.
+* Memory is allocated in this function and should be freed by the caller.
 */
 QVector< Tile* > *Game2Scene::getNonBlockedBorders() {
     QVector< Tile* > *borders = new QVector<Tile*>();

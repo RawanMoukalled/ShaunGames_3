@@ -1,0 +1,267 @@
+\hypertarget{classTile}{\section{\-Tile \-Class \-Reference}
+\label{classTile}\index{\-Tile@{\-Tile}}
+}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTile_ae086b4175de8e1826229c9447e0d7de0}{\-Tile} (bool block, int row, int col, \-Q\-Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classTile_afe226f718d68cf50f2c9f4067dc84eb2}{set\-Block} (bool block)
+\begin{DoxyCompactList}\small\item\em set the status of the tile as blocked or not \end{DoxyCompactList}\item 
+bool \hyperlink{classTile_a040dfc1b837d2a7f5bc63c0d1017ece4}{is\-Blocked} ()
+\begin{DoxyCompactList}\small\item\em retrieves the blocked status of the tile \end{DoxyCompactList}\item 
+void \hyperlink{classTile_aecbd71c0de7fe3fd79bb1b8bbca4f265}{mouse\-Press\-Event} (\-Q\-Graphics\-Scene\-Mouse\-Event $\ast$event)
+\begin{DoxyCompactList}\small\item\em what to do on the mouse press event \end{DoxyCompactList}\item 
+virtual \hyperlink{classTile_a98634abbd93fa13d0578d7103202d03d}{$\sim$\-Tile} ()
+\begin{DoxyCompactList}\small\item\em \-Destrictor. \end{DoxyCompactList}\item 
+void \hyperlink{classTile_a9582c3c092f3cdd7fbd4fa37c8f4ab22}{set\-Has\-Sheep} (bool placed)
+\begin{DoxyCompactList}\small\item\em sets the status of the tile as having a sheep on it or not \end{DoxyCompactList}\item 
+int \hyperlink{classTile_ac89b02b6a3735fdfccdcf90515febcd0}{get\-Row} ()
+\begin{DoxyCompactList}\small\item\em retrieves the row index of the current tile \end{DoxyCompactList}\item 
+int \hyperlink{classTile_a45d72d9141a1ef9b5a4c482595b067cd}{get\-Col} ()
+\begin{DoxyCompactList}\small\item\em retrieves the column index of the current tile \end{DoxyCompactList}\item 
+bool \hyperlink{classTile_af736a00b952f5b7893d1751049572c27}{is\-Border} ()
+\begin{DoxyCompactList}\small\item\em checks if the current tile is on the border of the grid \end{DoxyCompactList}\item 
+void \hyperlink{classTile_acb96f0fb719b9f5b9a94ba9e721d6073}{set\-Visited} (bool visit)
+\begin{DoxyCompactList}\small\item\em sets the status of the tile as visited or not \end{DoxyCompactList}\item 
+bool \hyperlink{classTile_a980db52575b7707886daaf3fcb925bb7}{is\-Visited} ()
+\begin{DoxyCompactList}\small\item\em checks if the current tile has been visited \end{DoxyCompactList}\item 
+int \hyperlink{classTile_ab2da6ab1fd6ee07cfae1f4231c2cca6a}{get\-Distance} ()
+\begin{DoxyCompactList}\small\item\em \-Retrieves the distance to the sheep so far. \end{DoxyCompactList}\item 
+void \hyperlink{classTile_ad4c98d62f7ac3912075c5ba53cb7c1c6}{set\-Distance} (int distance)
+\begin{DoxyCompactList}\small\item\em \-Sets the distance to the sheep. \end{DoxyCompactList}\item 
+\hyperlink{classTile}{\-Tile} $\ast$ \hyperlink{classTile_a465a5a48f021f97e29d977c6c0089299}{get\-Prev} ()
+\begin{DoxyCompactList}\small\item\em \-Retrieves the previous tile. \end{DoxyCompactList}\item 
+void \hyperlink{classTile_aa734bc3878b263a0666efab0ff960f5a}{set\-Prev} (\hyperlink{classTile}{\-Tile} $\ast$tile)
+\begin{DoxyCompactList}\small\item\em \-Sets the previous tile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classTile_ae086b4175de8e1826229c9447e0d7de0}{\index{\-Tile@{\-Tile}!\-Tile@{\-Tile}}
+\index{\-Tile@{\-Tile}!Tile@{\-Tile}}
+\subsubsection[{\-Tile}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Tile\-::\-Tile} (
+\begin{DoxyParamCaption}
+\item[{bool}]{block, }
+\item[{int}]{row, }
+\item[{int}]{col, }
+\item[{\-Q\-Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classTile_ae086b4175de8e1826229c9447e0d7de0}
+
+
+\-Default constructor. 
+
+\-Sets the block status, scale and initializes indices. \hypertarget{classTile_a98634abbd93fa13d0578d7103202d03d}{\index{\-Tile@{\-Tile}!$\sim$\-Tile@{$\sim$\-Tile}}
+\index{$\sim$\-Tile@{$\sim$\-Tile}!Tile@{\-Tile}}
+\subsubsection[{$\sim$\-Tile}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Tile\-::$\sim$\-Tile} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classTile_a98634abbd93fa13d0578d7103202d03d}
+
+
+\-Destrictor. 
+
+\-Frees allocated memory. 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classTile_a45d72d9141a1ef9b5a4c482595b067cd}{\index{\-Tile@{\-Tile}!get\-Col@{get\-Col}}
+\index{get\-Col@{get\-Col}!Tile@{\-Tile}}
+\subsubsection[{get\-Col}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Tile\-::get\-Col} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTile_a45d72d9141a1ef9b5a4c482595b067cd}
+
+
+retrieves the column index of the current tile 
+
+\begin{DoxyReturn}{\-Returns}
+the column index
+\end{DoxyReturn}
+\-Retrieves the column of the tile. \hypertarget{classTile_ab2da6ab1fd6ee07cfae1f4231c2cca6a}{\index{\-Tile@{\-Tile}!get\-Distance@{get\-Distance}}
+\index{get\-Distance@{get\-Distance}!Tile@{\-Tile}}
+\subsubsection[{get\-Distance}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Tile\-::get\-Distance} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTile_ab2da6ab1fd6ee07cfae1f4231c2cca6a}
+
+
+\-Retrieves the distance to the sheep so far. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The distance to the sheep 
+\end{DoxyReturn}
+\hypertarget{classTile_a465a5a48f021f97e29d977c6c0089299}{\index{\-Tile@{\-Tile}!get\-Prev@{get\-Prev}}
+\index{get\-Prev@{get\-Prev}!Tile@{\-Tile}}
+\subsubsection[{get\-Prev}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Tile} $\ast$ {\bf \-Tile\-::get\-Prev} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTile_a465a5a48f021f97e29d977c6c0089299}
+
+
+\-Retrieves the previous tile. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The previous tile 
+\end{DoxyReturn}
+\hypertarget{classTile_ac89b02b6a3735fdfccdcf90515febcd0}{\index{\-Tile@{\-Tile}!get\-Row@{get\-Row}}
+\index{get\-Row@{get\-Row}!Tile@{\-Tile}}
+\subsubsection[{get\-Row}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Tile\-::get\-Row} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTile_ac89b02b6a3735fdfccdcf90515febcd0}
+
+
+retrieves the row index of the current tile 
+
+\begin{DoxyReturn}{\-Returns}
+the row index
+\end{DoxyReturn}
+\-Retrieves the row of the tile. \hypertarget{classTile_a040dfc1b837d2a7f5bc63c0d1017ece4}{\index{\-Tile@{\-Tile}!is\-Blocked@{is\-Blocked}}
+\index{is\-Blocked@{is\-Blocked}!Tile@{\-Tile}}
+\subsubsection[{is\-Blocked}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Tile\-::is\-Blocked} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTile_a040dfc1b837d2a7f5bc63c0d1017ece4}
+
+
+retrieves the blocked status of the tile 
+
+\begin{DoxyReturn}{\-Returns}
+whether or not the tile is blocked
+\end{DoxyReturn}
+\-Retrieves the blocked status. \hypertarget{classTile_af736a00b952f5b7893d1751049572c27}{\index{\-Tile@{\-Tile}!is\-Border@{is\-Border}}
+\index{is\-Border@{is\-Border}!Tile@{\-Tile}}
+\subsubsection[{is\-Border}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Tile\-::is\-Border} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTile_af736a00b952f5b7893d1751049572c27}
+
+
+checks if the current tile is on the border of the grid 
+
+\begin{DoxyReturn}{\-Returns}
+the border status of the tile
+\end{DoxyReturn}
+\-Checks if the column is a border. \hypertarget{classTile_a980db52575b7707886daaf3fcb925bb7}{\index{\-Tile@{\-Tile}!is\-Visited@{is\-Visited}}
+\index{is\-Visited@{is\-Visited}!Tile@{\-Tile}}
+\subsubsection[{is\-Visited}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Tile\-::is\-Visited} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classTile_a980db52575b7707886daaf3fcb925bb7}
+
+
+checks if the current tile has been visited 
+
+\begin{DoxyReturn}{\-Returns}
+the visited status of the tile
+\end{DoxyReturn}
+\-Returns the visited status of the tile. \hypertarget{classTile_aecbd71c0de7fe3fd79bb1b8bbca4f265}{\index{\-Tile@{\-Tile}!mouse\-Press\-Event@{mouse\-Press\-Event}}
+\index{mouse\-Press\-Event@{mouse\-Press\-Event}!Tile@{\-Tile}}
+\subsubsection[{mouse\-Press\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Tile\-::mouse\-Press\-Event} (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Graphics\-Scene\-Mouse\-Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)}}\label{classTile_aecbd71c0de7fe3fd79bb1b8bbca4f265}
+
+
+what to do on the mouse press event 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em event} & the mouse press event\\
+\hline
+\end{DoxyParams}
+\-On click, places a block on the tile and checks for win status, then gives the turn to the computer. \hypertarget{classTile_afe226f718d68cf50f2c9f4067dc84eb2}{\index{\-Tile@{\-Tile}!set\-Block@{set\-Block}}
+\index{set\-Block@{set\-Block}!Tile@{\-Tile}}
+\subsubsection[{set\-Block}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Tile\-::set\-Block} (
+\begin{DoxyParamCaption}
+\item[{bool}]{block}
+\end{DoxyParamCaption}
+)}}\label{classTile_afe226f718d68cf50f2c9f4067dc84eb2}
+
+
+set the status of the tile as blocked or not 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em block} & decides if the tile is blocked or not\\
+\hline
+\end{DoxyParams}
+\-Marks tile as selected and adds border to it. \hypertarget{classTile_ad4c98d62f7ac3912075c5ba53cb7c1c6}{\index{\-Tile@{\-Tile}!set\-Distance@{set\-Distance}}
+\index{set\-Distance@{set\-Distance}!Tile@{\-Tile}}
+\subsubsection[{set\-Distance}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Tile\-::set\-Distance} (
+\begin{DoxyParamCaption}
+\item[{int}]{distance}
+\end{DoxyParamCaption}
+)}}\label{classTile_ad4c98d62f7ac3912075c5ba53cb7c1c6}
+
+
+\-Sets the distance to the sheep. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \-The} & distance to the sheep \\
+\hline
+\end{DoxyParams}
+\hypertarget{classTile_a9582c3c092f3cdd7fbd4fa37c8f4ab22}{\index{\-Tile@{\-Tile}!set\-Has\-Sheep@{set\-Has\-Sheep}}
+\index{set\-Has\-Sheep@{set\-Has\-Sheep}!Tile@{\-Tile}}
+\subsubsection[{set\-Has\-Sheep}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Tile\-::set\-Has\-Sheep} (
+\begin{DoxyParamCaption}
+\item[{bool}]{placed}
+\end{DoxyParamCaption}
+)}}\label{classTile_a9582c3c092f3cdd7fbd4fa37c8f4ab22}
+
+
+sets the status of the tile as having a sheep on it or not 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em placed} & boolean status of having a sheep placed on it or not\\
+\hline
+\end{DoxyParams}
+\-Sets the tile as having a sheep or not. \hypertarget{classTile_aa734bc3878b263a0666efab0ff960f5a}{\index{\-Tile@{\-Tile}!set\-Prev@{set\-Prev}}
+\index{set\-Prev@{set\-Prev}!Tile@{\-Tile}}
+\subsubsection[{set\-Prev}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Tile\-::set\-Prev} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Tile} $\ast$}]{tile}
+\end{DoxyParamCaption}
+)}}\label{classTile_aa734bc3878b263a0666efab0ff960f5a}
+
+
+\-Sets the previous tile. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em tile} & \-The tile to be set as previous \\
+\hline
+\end{DoxyParams}
+\hypertarget{classTile_acb96f0fb719b9f5b9a94ba9e721d6073}{\index{\-Tile@{\-Tile}!set\-Visited@{set\-Visited}}
+\index{set\-Visited@{set\-Visited}!Tile@{\-Tile}}
+\subsubsection[{set\-Visited}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Tile\-::set\-Visited} (
+\begin{DoxyParamCaption}
+\item[{bool}]{visit}
+\end{DoxyParamCaption}
+)}}\label{classTile_acb96f0fb719b9f5b9a94ba9e721d6073}
+
+
+sets the status of the tile as visited or not 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em visit} & visited status of the tile\\
+\hline
+\end{DoxyParams}
+\-Sets the visited status of the tile. 
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+game2/\hyperlink{tile_8h}{tile.\-h}\item 
+game2/\hyperlink{tile_8cpp}{tile.\-cpp}\end{DoxyCompactItemize}

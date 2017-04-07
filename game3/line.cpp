@@ -9,8 +9,8 @@
 /**
 * Initializes the object and marks it as not drawn.
 */
-Line::Line(QObject *parent) :
-    QObject(parent), m_drawn(false)
+Line::Line(bool isHorizontal, QObject *parent) :
+    QObject(parent), m_horizontal(isHorizontal), m_drawn(false)
 {
 }
 
@@ -39,7 +39,7 @@ void Line::mousePressEvent(QGraphicsSceneMouseEvent *event) {
 /**
 * Returns whether the line has been drawn already.
 */
-bool Line::isDrawn() {
+bool Line::isDrawn() const {
     return m_drawn;
 }
 
@@ -48,4 +48,11 @@ bool Line::isDrawn() {
 */
 void Line::draw() {
     m_drawn = true;
+}
+
+/**
+* Returns whether the line is horizontal or vertical
+*/
+bool Line::isHorizontal() const {
+    return m_horizontal;
 }

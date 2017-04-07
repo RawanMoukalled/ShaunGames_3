@@ -1,0 +1,357 @@
+\hypertarget{classGame2Scene}{\section{\-Game2\-Scene \-Class \-Reference}
+\label{classGame2Scene}\index{\-Game2\-Scene@{\-Game2\-Scene}}
+}
+\subsection*{\-Public \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGame2Scene_ada4c7bd4f05830b8bbe564c0fd726473}{move\-Sheep} ()
+\begin{DoxyCompactList}\small\item\em moves the sheep according to the difficulty of the game \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Signals}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classGame2Scene_a20b7c1c31cdd14edd0a237abe36cab5a}{void \hyperlink{classGame2Scene_a20b7c1c31cdd14edd0a237abe36cab5a}{\-Done} ()}\label{classGame2Scene_a20b7c1c31cdd14edd0a237abe36cab5a}
+
+\begin{DoxyCompactList}\small\item\em \-Signal sent to game2 to show that the game has ended. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGame2Scene_a83cec7f9dd9883b6f33846af1fdda44d}{\-Game2\-Scene} (\-Difficulty difficulty, \-Q\-Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classGame2Scene_afb89d017cdab6ebf2c7224803fb88d2b}{$\sim$\-Game2\-Scene} ()
+\item 
+\-Q\-Vector$<$ int $>$ \hyperlink{classGame2Scene_a9b9cb03a70be505cdddbf41f4ca756b3}{tiles\-To\-Block} ()
+\begin{DoxyCompactList}\small\item\em \-Sets the layout of the level buttons. \end{DoxyCompactList}\item 
+void \hyperlink{classGame2Scene_a0d6f721674317295a05aa8754d0bd5ea}{place\-Tiles} ()
+\begin{DoxyCompactList}\small\item\em \-Places the tiles to create the full grid. \end{DoxyCompactList}\item 
+void \hyperlink{classGame2Scene_a562bffb8b3f851df83bafd4aa006db5e}{place\-Sheep\-Initial} ()
+\begin{DoxyCompactList}\small\item\em places the sheep on a random unblocked tile at the beginning of the game \end{DoxyCompactList}\item 
+\-Q\-Vector$<$ \hyperlink{classTile}{\-Tile} $\ast$ $>$ $\ast$ \hyperlink{classGame2Scene_acd18cc2afd6f91be8fdd083c92ca100b}{get\-Neighbors} (\hyperlink{classTile}{\-Tile} $\ast$center)
+\begin{DoxyCompactList}\small\item\em \-Gets the left, right, upper and lower non-\/blocked neighbors of the given tile. \end{DoxyCompactList}\item 
+void \hyperlink{classGame2Scene_a898d10c9a3030265ab2352ec5e914706}{reset\-Visited} ()
+\begin{DoxyCompactList}\small\item\em \-Sets all the blocks of the grid as having been unvisited. \end{DoxyCompactList}\item 
+void \hyperlink{classGame2Scene_ace98f73655b3dc8ed1ea9ebe842e583c}{reset\-Distances} ()
+\begin{DoxyCompactList}\small\item\em \-Sets all the blocks of the grid as having infinite distance to the sheep. \end{DoxyCompactList}\item 
+void \hyperlink{classGame2Scene_a23a62e1bbf7e658c1bbc492011d9785b}{reset\-Previous} ()
+\begin{DoxyCompactList}\small\item\em \-Sets all the blocks of the grid as having the previous node null. \end{DoxyCompactList}\item 
+\hyperlink{classTile}{\-Tile} $\ast$ \hyperlink{classGame2Scene_a6e41f95c3cd53553076445ee42771b17}{tile\-At} (int i, int j)
+\begin{DoxyCompactList}\small\item\em retrieves the tile from the grid at the indices given \end{DoxyCompactList}\item 
+bool \hyperlink{classGame2Scene_ac67be84c6e44a47a4c6cfb914e6ad8b4}{win} (\hyperlink{classTile}{\-Tile} $\ast$tile)
+\begin{DoxyCompactList}\small\item\em determines if the user sucessfully trapped the sheep \end{DoxyCompactList}\item 
+\hyperlink{classSheep2}{\-Sheep2} $\ast$ \hyperlink{classGame2Scene_a18f8818b0aa1b4f62db76a46ef0a4264}{get\-Sheep} ()
+\begin{DoxyCompactList}\small\item\em gets the sheep of the game \end{DoxyCompactList}\item 
+bool \hyperlink{classGame2Scene_a7da54792cb9b5c90fd0ba55ab3806be8}{get\-User\-Turn} ()
+\begin{DoxyCompactList}\small\item\em retrieves whether or not it is the user's turn \end{DoxyCompactList}\item 
+void \hyperlink{classGame2Scene_ad0bee4e6175c046ea2cf7e96efaf86bf}{set\-User\-Turn} (bool user\-Turn)
+\begin{DoxyCompactList}\small\item\em sets the turn of the user \end{DoxyCompactList}\item 
+void \hyperlink{classGame2Scene_a6cc2a61e06a7c9ed0161dea7994c46cf}{computer\-Turn} ()
+\begin{DoxyCompactList}\small\item\em delays the computer turn \end{DoxyCompactList}\item 
+void \hyperlink{classGame2Scene_aaabae77c7589656966025ee6b4b3b6de}{game\-Over} (bool \hyperlink{classGame2Scene_ac67be84c6e44a47a4c6cfb914e6ad8b4}{win})
+\begin{DoxyCompactList}\small\item\em \-Ends the game. \end{DoxyCompactList}\item 
+void \hyperlink{classGame2Scene_a87cbb8341cd337cafc786ac377b6cc15}{decrement\-Score} ()
+\begin{DoxyCompactList}\small\item\em \-Increments the number of blocks on click of a tile. \end{DoxyCompactList}\item 
+\-Q\-L\-C\-D\-Number $\ast$ \hyperlink{classGame2Scene_a56438bf6f4bbee1c869eae94bca46d03}{get\-Score\-Display} ()
+\begin{DoxyCompactList}\small\item\em retrieves the lcd display \end{DoxyCompactList}\item 
+int \hyperlink{classGame2Scene_a76a2b32e9c93f1f88fa1b8b2fe87f04c}{get\-Block\-Count} ()
+\begin{DoxyCompactList}\small\item\em retrieves the number of blocked tiles \end{DoxyCompactList}\item 
+\hypertarget{classGame2Scene_ad38fb186d4d71eb1f5043a9f3486d8b4}{\hyperlink{classTile}{\-Tile} $\ast$ \hyperlink{classGame2Scene_ad38fb186d4d71eb1f5043a9f3486d8b4}{find\-Next\-Tile} ()}\label{classGame2Scene_ad38fb186d4d71eb1f5043a9f3486d8b4}
+
+\begin{DoxyCompactList}\small\item\em \-Finds the shortest path and returns the next tile accordingly. \end{DoxyCompactList}\item 
+\hypertarget{classGame2Scene_a02a6d6e7aef7ec61f76788b206240af9}{void \hyperlink{classGame2Scene_a02a6d6e7aef7ec61f76788b206240af9}{compute\-Distances} (\hyperlink{classTile}{\-Tile} $\ast$current)}\label{classGame2Scene_a02a6d6e7aef7ec61f76788b206240af9}
+
+\begin{DoxyCompactList}\small\item\em \-Computes the distances from the sheep to every other tile. \end{DoxyCompactList}\item 
+\-Q\-Vector$<$ \hyperlink{classTile}{\-Tile} $\ast$ $>$ $\ast$ \hyperlink{classGame2Scene_aa7fe6cf089b0f2339558f1ad787d001d}{get\-Non\-Blocked\-Borders} ()
+\begin{DoxyCompactList}\small\item\em \-Retrieves the non blocked border tiles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classGame2Scene_a83cec7f9dd9883b6f33846af1fdda44d}{\index{\-Game2\-Scene@{\-Game2\-Scene}!\-Game2\-Scene@{\-Game2\-Scene}}
+\index{\-Game2\-Scene@{\-Game2\-Scene}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{\-Game2\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game2\-Scene\-::\-Game2\-Scene} (
+\begin{DoxyParamCaption}
+\item[{\-Difficulty}]{difficulty, }
+\item[{\-Q\-Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classGame2Scene_a83cec7f9dd9883b6f33846af1fdda44d}
+
+
+\-Default constructor. 
+
+\-Places the items on the scene and sets the user turn. \hypertarget{classGame2Scene_afb89d017cdab6ebf2c7224803fb88d2b}{\index{\-Game2\-Scene@{\-Game2\-Scene}!$\sim$\-Game2\-Scene@{$\sim$\-Game2\-Scene}}
+\index{$\sim$\-Game2\-Scene@{$\sim$\-Game2\-Scene}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{$\sim$\-Game2\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game2\-Scene\-::$\sim$\-Game2\-Scene} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classGame2Scene_afb89d017cdab6ebf2c7224803fb88d2b}
+\-Destructor
+
+\-Frees allocated memory. 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classGame2Scene_a6cc2a61e06a7c9ed0161dea7994c46cf}{\index{\-Game2\-Scene@{\-Game2\-Scene}!computer\-Turn@{computer\-Turn}}
+\index{computer\-Turn@{computer\-Turn}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{computer\-Turn}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game2\-Scene\-::computer\-Turn} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_a6cc2a61e06a7c9ed0161dea7994c46cf}
+
+
+delays the computer turn 
+
+\-Starts the timer to delay the computer move. \hypertarget{classGame2Scene_a87cbb8341cd337cafc786ac377b6cc15}{\index{\-Game2\-Scene@{\-Game2\-Scene}!decrement\-Score@{decrement\-Score}}
+\index{decrement\-Score@{decrement\-Score}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{decrement\-Score}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game2\-Scene\-::decrement\-Score} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_a87cbb8341cd337cafc786ac377b6cc15}
+
+
+\-Increments the number of blocks on click of a tile. 
+
+\-Increments the number of blocks by one on click of a tile. \hypertarget{classGame2Scene_aaabae77c7589656966025ee6b4b3b6de}{\index{\-Game2\-Scene@{\-Game2\-Scene}!game\-Over@{game\-Over}}
+\index{game\-Over@{game\-Over}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{game\-Over}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game2\-Scene\-::game\-Over} (
+\begin{DoxyParamCaption}
+\item[{bool}]{win}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_aaabae77c7589656966025ee6b4b3b6de}
+
+
+\-Ends the game. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em win} & whether or not the user won\\
+\hline
+\end{DoxyParams}
+\-Ends the game and displays the \hyperlink{classGameOver}{\-Game\-Over} item. \hypertarget{classGame2Scene_a76a2b32e9c93f1f88fa1b8b2fe87f04c}{\index{\-Game2\-Scene@{\-Game2\-Scene}!get\-Block\-Count@{get\-Block\-Count}}
+\index{get\-Block\-Count@{get\-Block\-Count}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{get\-Block\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Game2\-Scene\-::get\-Block\-Count} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_a76a2b32e9c93f1f88fa1b8b2fe87f04c}
+
+
+retrieves the number of blocked tiles 
+
+\begin{DoxyReturn}{\-Returns}
+number of blocked tiles
+\end{DoxyReturn}
+\-Returns the number of blocked tiles. \hypertarget{classGame2Scene_acd18cc2afd6f91be8fdd083c92ca100b}{\index{\-Game2\-Scene@{\-Game2\-Scene}!get\-Neighbors@{get\-Neighbors}}
+\index{get\-Neighbors@{get\-Neighbors}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{get\-Neighbors}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Vector$<$ {\bf \-Tile} $\ast$ $>$ $\ast$ {\bf \-Game2\-Scene\-::get\-Neighbors} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Tile} $\ast$}]{center}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_acd18cc2afd6f91be8fdd083c92ca100b}
+
+
+\-Gets the left, right, upper and lower non-\/blocked neighbors of the given tile. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em center} & \-The tile that we're getting the neighbors of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Pointer to a vector of pointers to the neighboring tiles
+\end{DoxyReturn}
+\-Gets the left, right, upper and bottom neighbors for the given tile. \-Memory is allocated in this function and should be freed by the caller. \hypertarget{classGame2Scene_aa7fe6cf089b0f2339558f1ad787d001d}{\index{\-Game2\-Scene@{\-Game2\-Scene}!get\-Non\-Blocked\-Borders@{get\-Non\-Blocked\-Borders}}
+\index{get\-Non\-Blocked\-Borders@{get\-Non\-Blocked\-Borders}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{get\-Non\-Blocked\-Borders}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Vector$<$ {\bf \-Tile} $\ast$ $>$ $\ast$ {\bf \-Game2\-Scene\-::get\-Non\-Blocked\-Borders} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_aa7fe6cf089b0f2339558f1ad787d001d}
+
+
+\-Retrieves the non blocked border tiles. 
+
+\-Retrieves the non blocked border tiles. \-Memory is allocated in this function and should be freed by the caller. \hypertarget{classGame2Scene_a56438bf6f4bbee1c869eae94bca46d03}{\index{\-Game2\-Scene@{\-Game2\-Scene}!get\-Score\-Display@{get\-Score\-Display}}
+\index{get\-Score\-Display@{get\-Score\-Display}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{get\-Score\-Display}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-L\-C\-D\-Number $\ast$ {\bf \-Game2\-Scene\-::get\-Score\-Display} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_a56438bf6f4bbee1c869eae94bca46d03}
+
+
+retrieves the lcd display 
+
+\begin{DoxyReturn}{\-Returns}
+the lcd display
+\end{DoxyReturn}
+\-Returns the score lcd. \hypertarget{classGame2Scene_a18f8818b0aa1b4f62db76a46ef0a4264}{\index{\-Game2\-Scene@{\-Game2\-Scene}!get\-Sheep@{get\-Sheep}}
+\index{get\-Sheep@{get\-Sheep}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{get\-Sheep}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Sheep2} $\ast$ {\bf \-Game2\-Scene\-::get\-Sheep} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_a18f8818b0aa1b4f62db76a46ef0a4264}
+
+
+gets the sheep of the game 
+
+\begin{DoxyReturn}{\-Returns}
+the sheep of the game
+\end{DoxyReturn}
+\-Retrieves the sheep. \hypertarget{classGame2Scene_a7da54792cb9b5c90fd0ba55ab3806be8}{\index{\-Game2\-Scene@{\-Game2\-Scene}!get\-User\-Turn@{get\-User\-Turn}}
+\index{get\-User\-Turn@{get\-User\-Turn}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{get\-User\-Turn}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Game2\-Scene\-::get\-User\-Turn} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_a7da54792cb9b5c90fd0ba55ab3806be8}
+
+
+retrieves whether or not it is the user's turn 
+
+\begin{DoxyReturn}{\-Returns}
+boolean indicating if it's the user's turn
+\end{DoxyReturn}
+\-Retrieves the value that indicates if it's the user's turn. \hypertarget{classGame2Scene_ada4c7bd4f05830b8bbe564c0fd726473}{\index{\-Game2\-Scene@{\-Game2\-Scene}!move\-Sheep@{move\-Sheep}}
+\index{move\-Sheep@{move\-Sheep}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{move\-Sheep}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game2\-Scene\-::move\-Sheep} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}\label{classGame2Scene_ada4c7bd4f05830b8bbe564c0fd726473}
+
+
+moves the sheep according to the difficulty of the game 
+
+\-Moves the sheep according to the difficulty when it's the computer's turn. \hypertarget{classGame2Scene_a562bffb8b3f851df83bafd4aa006db5e}{\index{\-Game2\-Scene@{\-Game2\-Scene}!place\-Sheep\-Initial@{place\-Sheep\-Initial}}
+\index{place\-Sheep\-Initial@{place\-Sheep\-Initial}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{place\-Sheep\-Initial}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game2\-Scene\-::place\-Sheep\-Initial} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_a562bffb8b3f851df83bafd4aa006db5e}
+
+
+places the sheep on a random unblocked tile at the beginning of the game 
+
+\-Chooses a random tile to place the sheep on at the beginning of the game. \hypertarget{classGame2Scene_a0d6f721674317295a05aa8754d0bd5ea}{\index{\-Game2\-Scene@{\-Game2\-Scene}!place\-Tiles@{place\-Tiles}}
+\index{place\-Tiles@{place\-Tiles}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{place\-Tiles}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game2\-Scene\-::place\-Tiles} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_a0d6f721674317295a05aa8754d0bd5ea}
+
+
+\-Places the tiles to create the full grid. 
+
+\-Places the tiles on the grid of the game. \hypertarget{classGame2Scene_ace98f73655b3dc8ed1ea9ebe842e583c}{\index{\-Game2\-Scene@{\-Game2\-Scene}!reset\-Distances@{reset\-Distances}}
+\index{reset\-Distances@{reset\-Distances}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{reset\-Distances}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game2\-Scene\-::reset\-Distances} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_ace98f73655b3dc8ed1ea9ebe842e583c}
+
+
+\-Sets all the blocks of the grid as having infinite distance to the sheep. 
+
+\-Resets the status of the grid tiles as having infinite distance to the sheep. \hypertarget{classGame2Scene_a23a62e1bbf7e658c1bbc492011d9785b}{\index{\-Game2\-Scene@{\-Game2\-Scene}!reset\-Previous@{reset\-Previous}}
+\index{reset\-Previous@{reset\-Previous}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{reset\-Previous}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game2\-Scene\-::reset\-Previous} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_a23a62e1bbf7e658c1bbc492011d9785b}
+
+
+\-Sets all the blocks of the grid as having the previous node null. 
+
+\-Resets the status of the grid tiles as having their previous tile \-N\-U\-L\-L. \hypertarget{classGame2Scene_a898d10c9a3030265ab2352ec5e914706}{\index{\-Game2\-Scene@{\-Game2\-Scene}!reset\-Visited@{reset\-Visited}}
+\index{reset\-Visited@{reset\-Visited}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{reset\-Visited}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game2\-Scene\-::reset\-Visited} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_a898d10c9a3030265ab2352ec5e914706}
+
+
+\-Sets all the blocks of the grid as having been unvisited. 
+
+\-Resets the status of the grid tiles as not visited. \hypertarget{classGame2Scene_ad0bee4e6175c046ea2cf7e96efaf86bf}{\index{\-Game2\-Scene@{\-Game2\-Scene}!set\-User\-Turn@{set\-User\-Turn}}
+\index{set\-User\-Turn@{set\-User\-Turn}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{set\-User\-Turn}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game2\-Scene\-::set\-User\-Turn} (
+\begin{DoxyParamCaption}
+\item[{bool}]{user\-Turn}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_ad0bee4e6175c046ea2cf7e96efaf86bf}
+
+
+sets the turn of the user 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em user\-Turn} & whether or not it's the user's turn\\
+\hline
+\end{DoxyParams}
+\-Sets the user's turn as true or false. \hypertarget{classGame2Scene_a6e41f95c3cd53553076445ee42771b17}{\index{\-Game2\-Scene@{\-Game2\-Scene}!tile\-At@{tile\-At}}
+\index{tile\-At@{tile\-At}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{tile\-At}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Tile} $\ast$ {\bf \-Game2\-Scene\-::tile\-At} (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_a6e41f95c3cd53553076445ee42771b17}
+
+
+retrieves the tile from the grid at the indices given 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em i} & the row of the tile \\
+\hline
+{\em j} & the column of the tile \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+pointer to the tile at the indices
+\end{DoxyReturn}
+\-Gets the tile at the given indices. \hypertarget{classGame2Scene_a9b9cb03a70be505cdddbf41f4ca756b3}{\index{\-Game2\-Scene@{\-Game2\-Scene}!tiles\-To\-Block@{tiles\-To\-Block}}
+\index{tiles\-To\-Block@{tiles\-To\-Block}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{tiles\-To\-Block}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Vector$<$ int $>$ {\bf \-Game2\-Scene\-::tiles\-To\-Block} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_a9b9cb03a70be505cdddbf41f4ca756b3}
+
+
+\-Sets the layout of the level buttons. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The indices of the tiles to block initially
+\end{DoxyReturn}
+chooses distinct random tiles to flag for blocking initially at the start of the game. \hypertarget{classGame2Scene_ac67be84c6e44a47a4c6cfb914e6ad8b4}{\index{\-Game2\-Scene@{\-Game2\-Scene}!win@{win}}
+\index{win@{win}!Game2Scene@{\-Game2\-Scene}}
+\subsubsection[{win}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Game2\-Scene\-::win} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Tile} $\ast$}]{tile}
+\end{DoxyParamCaption}
+)}}\label{classGame2Scene_ac67be84c6e44a47a4c6cfb914e6ad8b4}
+
+
+determines if the user sucessfully trapped the sheep 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em tile} & the tile to check the neighbors of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+the state of the game if win or loss
+\end{DoxyReturn}
+\-Determines a win by checking if from the current sheep position it's possible to get to the border without encountering a blocked tile. 
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+game2/\hyperlink{game2scene_8h}{game2scene.\-h}\item 
+game2/\hyperlink{game2scene_8cpp}{game2scene.\-cpp}\end{DoxyCompactItemize}

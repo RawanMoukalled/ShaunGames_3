@@ -27,26 +27,8 @@ void listTest::toRadiansTest() {
 }
 
 void ShaunGamesTest::getRandomSheepNumberTest() {
-    CPPUNIT_ASSERT_EQUAL (a->getMin(), -10);
+    CPPUNIT_ASSERT_EQUAL (true, c >=1 && c < 10);
 
 }
-
-void listTest::alldistinctTest() {
-    CPPUNIT_ASSERT(a->allDistinct());
-    CPPUNIT_ASSERT(b->allDistinct());
-    CPPUNIT_ASSERT_EQUAL(c->allDistinct(), false);//fail: got true: empty array not accounted
-    CPPUNIT_ASSERT_EQUAL(f->allDistinct(), false);
-    CPPUNIT_ASSERT_EQUAL(h->allDistinct(), true);
-}
-
-void listTest::equaltoTest() {
-    CPPUNIT_ASSERT(a->equalTo(a));
-    //CPPUNIT_ASSERT_EQUAL(b->equalTo(a), false);//fail: got true: empty array not accounted for
-    CPPUNIT_ASSERT_EQUAL(j->equalTo(f), false);
-    CPPUNIT_ASSERT_EQUAL(i->equalTo(f), false);
-    CPPUNIT_ASSERT_EQUAL(false, f->equalTo(i));
-}
-
-
 
 

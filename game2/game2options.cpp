@@ -54,6 +54,7 @@ Game2Options::~Game2Options() {
     delete m_back;
     delete m_mainLayout;
     delete m_levelLayout;
+    delete m_signalMapper;
 
     for (QVector<QSpacerItem*>::iterator sp=m_spacerItems.begin(); sp!=m_spacerItems.end(); ++sp) {
         delete *sp;

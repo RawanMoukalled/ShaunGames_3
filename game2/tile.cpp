@@ -4,7 +4,7 @@
 
 /**
 * \file tile.cpp
-* \brief Contains the Tile class that forms the grid
+* \brief Contains Tile class definition
 */
 
 /**

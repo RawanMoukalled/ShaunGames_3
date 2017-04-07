@@ -9,7 +9,7 @@
 
 /**
 * Sets the size of the window, initializes the graphic items, sets the layouts
-* and connects buttons to their slots
+* and connects buttons to their slots.
 */
 Game3::Game3(Difficulty difficulty, Size size, QWidget *parent) :
     QWidget(parent), m_difficulty(difficulty), m_size(size)
@@ -68,7 +68,7 @@ void Game3::setGame3Layout() {
 }
 
 /**
-* Reloads game
+* Reloads game.
 */
 void Game3::replay() {
     delete m_gameScene;
@@ -94,7 +94,7 @@ void Game3::replay() {
 
 /**
 * Removes the save and exitbutton and adds the go back and replay
-* buttons along with their connections
+* buttons along with their connections.
 */
 void Game3::endGame() {
     m_goBack = new QPushButton("Go Back");
@@ -115,7 +115,7 @@ void Game3::endGame() {
 }
 
 /**
-* \brief Goes back to the Main meny of Dots and Lines
+* \brief Goes back to the Main meny of Dots and Lines.
 */
 void Game3::goToMainMenu() {
     GameMainMenu *menu = new GameMainMenu(3);

@@ -60,6 +60,12 @@ public:
     * \returns Whether the box has been closed
     */
     bool isClosed();
+
+    /**
+    * \brief Checks how many lines are drawn in the box
+    * \returns The number of lines drawn
+    */
+    int numberOfLinesDrawn();
     
 signals:
     

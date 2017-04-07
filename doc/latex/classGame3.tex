@@ -4,30 +4,36 @@
 \subsection*{\-Public \-Slots}
 \begin{DoxyCompactItemize}
 \item 
+void \hyperlink{classGame3_a0a79ef23fdfd43052da0e31da7cf8172}{end\-Game} ()
+\begin{DoxyCompactList}\small\item\em \-Removes save and exit button and adds replay and back buttons. \end{DoxyCompactList}\item 
+void \hyperlink{classGame3_ab37e7d626fddb52e5488caef0e2eb551}{replay} ()
+\begin{DoxyCompactList}\small\item\em \-Removes save and exit button and adds replay and back buttons. \end{DoxyCompactList}\item 
 void \hyperlink{classGame3_ab5b41e8bcbaf0c2299f1c9c21660867e}{go\-To\-Main\-Menu} ()
 \begin{DoxyCompactList}\small\item\em \-Slot to go back to the games main menu when pressing \-Exit. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{\-Public \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classGame3_ad462f007290c6f73149d744865f0655f}{\-Game3} (\-Q\-Widget $\ast$parent=0)
+\hyperlink{classGame3_a1c9c75bff5b0dcd841ce4eafb9a2b40b}{\-Game3} (\-Difficulty difficulty, \-Size size, \-Q\-Widget $\ast$parent=0)
 \begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
 virtual \hyperlink{classGame3_afa72d96885beec0fc5f4f542d20a9898}{$\sim$\-Game3} ()
 \begin{DoxyCompactList}\small\item\em \-Destrucor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Constructor \& \-Destructor \-Documentation}
-\hypertarget{classGame3_ad462f007290c6f73149d744865f0655f}{\index{\-Game3@{\-Game3}!\-Game3@{\-Game3}}
+\hypertarget{classGame3_a1c9c75bff5b0dcd841ce4eafb9a2b40b}{\index{\-Game3@{\-Game3}!\-Game3@{\-Game3}}
 \index{\-Game3@{\-Game3}!Game3@{\-Game3}}
 \subsubsection[{\-Game3}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game3\-::\-Game3} (
 \begin{DoxyParamCaption}
+\item[{\-Difficulty}]{difficulty, }
+\item[{\-Size}]{size, }
 \item[{\-Q\-Widget $\ast$}]{parent = {\ttfamily 0}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classGame3_ad462f007290c6f73149d744865f0655f}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classGame3_a1c9c75bff5b0dcd841ce4eafb9a2b40b}
 
 
 \-Default constructor. 
 
-\-Sets the size of the window, initializes the graphic items, sets the layouts and connects buttons to their slots \hypertarget{classGame3_afa72d96885beec0fc5f4f542d20a9898}{\index{\-Game3@{\-Game3}!$\sim$\-Game3@{$\sim$\-Game3}}
+\-Sets the size of the window, initializes the graphic items, sets the layouts and connects buttons to their slots. \hypertarget{classGame3_afa72d96885beec0fc5f4f542d20a9898}{\index{\-Game3@{\-Game3}!$\sim$\-Game3@{$\sim$\-Game3}}
 \index{$\sim$\-Game3@{$\sim$\-Game3}!Game3@{\-Game3}}
 \subsubsection[{$\sim$\-Game3}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game3\-::$\sim$\-Game3} (
 \begin{DoxyParamCaption}
@@ -41,7 +47,18 @@ virtual \hyperlink{classGame3_afa72d96885beec0fc5f4f542d20a9898}{$\sim$\-Game3} 
 \-Frees allocated memory. 
 
 \subsection{\-Member \-Function \-Documentation}
-\hypertarget{classGame3_ab5b41e8bcbaf0c2299f1c9c21660867e}{\index{\-Game3@{\-Game3}!go\-To\-Main\-Menu@{go\-To\-Main\-Menu}}
+\hypertarget{classGame3_a0a79ef23fdfd43052da0e31da7cf8172}{\index{\-Game3@{\-Game3}!end\-Game@{end\-Game}}
+\index{end\-Game@{end\-Game}!Game3@{\-Game3}}
+\subsubsection[{end\-Game}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game3\-::end\-Game} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}\label{classGame3_a0a79ef23fdfd43052da0e31da7cf8172}
+
+
+\-Removes save and exit button and adds replay and back buttons. 
+
+\-Removes the save and exitbutton and adds the go back and replay buttons along with their connections. \hypertarget{classGame3_ab5b41e8bcbaf0c2299f1c9c21660867e}{\index{\-Game3@{\-Game3}!go\-To\-Main\-Menu@{go\-To\-Main\-Menu}}
 \index{go\-To\-Main\-Menu@{go\-To\-Main\-Menu}!Game3@{\-Game3}}
 \subsubsection[{go\-To\-Main\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game3\-::go\-To\-Main\-Menu} (
 \begin{DoxyParamCaption}
@@ -52,7 +69,18 @@ virtual \hyperlink{classGame3_afa72d96885beec0fc5f4f542d20a9898}{$\sim$\-Game3} 
 
 \-Slot to go back to the games main menu when pressing \-Exit. 
 
-\-Goes back to the \-Main meny of \-Dots and \-Lines. 
+\-Goes back to the \-Main meny of \-Dots and \-Lines. \hypertarget{classGame3_ab37e7d626fddb52e5488caef0e2eb551}{\index{\-Game3@{\-Game3}!replay@{replay}}
+\index{replay@{replay}!Game3@{\-Game3}}
+\subsubsection[{replay}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game3\-::replay} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}\label{classGame3_ab37e7d626fddb52e5488caef0e2eb551}
+
+
+\-Removes save and exit button and adds replay and back buttons. 
+
+\-Reloads game. 
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

@@ -109,7 +109,9 @@ Game3Scene::~Game3Scene() {
             }
         }
     }
+    delete m_delay;
     delete m_scoreDisplay;
+    delete m_gameOverPicture;
 }
 
 /**
@@ -141,12 +143,20 @@ void Game3Scene::computerMove() {
     if (m_difficulty == EASY) {
         line = m_unmarkedLines[rand() % m_unmarkedLines.size()];
     }
-    // TODO: Moderate and Hard algorithms
     else if (m_difficulty == MODERATE) {
-        line = m_unmarkedLines[rand() % m_unmarkedLines.size()];
+        line = getLineThatClosesBox();
+        if (line == NULL) {
+            line = m_unmarkedLines[rand() % m_unmarkedLines.size()];
+        }
     }
     else {
-        line = m_unmarkedLines[rand() % m_unmarkedLines.size()];
+        line = getLineThatClosesBox();
+        if (line == NULL) {
+            line = getSmartLine();
+            if (line == NULL) {
+                line = m_unmarkedLines[rand() % m_unmarkedLines.size()];
+            }
+        }
     }
 
     addNewlyDrawnLine(line);
@@ -197,7 +207,7 @@ bool Game3Scene::noMoreMoves() {
 }
 
 /**
-* \brief Declares one more box as closed by user
+* Declares one more box as closed by user.
 */
 void Game3Scene::closeBoxByUser() {
     ++m_boxesClosedByUser;
@@ -206,8 +216,81 @@ void Game3Scene::closeBoxByUser() {
 }
 
 /**
-* \brief Declares one more box as closed by computer
+* Declares one more box as closed by computer.
 */
 void Game3Scene::closeBoxByComputer() {
     ++m_boxesClosedByComputer;
+}
+
+/**
+* Finds and returns a non-clicked line that closes at least one box.
+* Returns NULL if not found.
+*/
+Line *Game3Scene::getLineThatClosesBox() {
+    QVector<Line*> potentialLines;
+    for (QVector<Line*>::iterator it = m_unmarkedLines.begin(); it != m_unmarkedLines.end(); ++it) {
+        if ((*it)->isHorizontal()) {
+            HorizontalLine *line = static_cast<HorizontalLine*>(*it);
+            Box *above = line->getAbove();
+            Box *under = line->getUnder();
+            if (above != NULL && above->numberOfLinesDrawn() == 3) {
+                potentialLines.push_back(line);
+            }
+            else if (under != NULL && under->numberOfLinesDrawn() == 3) {
+                potentialLines.push_back(line);
+            }
+        }
+        else {
+            VerticalLine *line = static_cast<VerticalLine*>(*it);
+            Box *left = line->getLeft();
+            Box *right = line->getRight();
+            if (left != NULL && left->numberOfLinesDrawn() == 3) {
+                potentialLines.push_back(line);
+            }
+            else if (right != NULL && right->numberOfLinesDrawn() == 3) {
+                potentialLines.push_back(line);
+            }
+        }
+    }
+    if (potentialLines.empty()) {
+        return NULL;
+    }
+    else {
+        int size = potentialLines.size();
+        return potentialLines.at(rand() % size);
+    }
+}
+
+/**
+* Finds and returns a non-clicked line that does not let the user close a box.
+* It does so by checking that the returned line is not the third line to be drawn around any box.
+* If such a line is not found, it returns NULL.
+*/
+Line *Game3Scene::getSmartLine() {
+    QVector<Line*> potentialLines;
+    for (QVector<Line*>::iterator it = m_unmarkedLines.begin(); it != m_unmarkedLines.end(); ++it) {
+        if ((*it)->isHorizontal()) {
+            HorizontalLine *line = static_cast<HorizontalLine*>(*it);
+            Box *above = line->getAbove();
+            Box *under = line->getUnder();
+            if ((above == NULL || above->numberOfLinesDrawn() < 2) && (under == NULL || under->numberOfLinesDrawn() < 2)) {
+                potentialLines.push_back(line);
+            }
+        }
+        else {
+            VerticalLine *line = static_cast<VerticalLine*>(*it);
+            Box *left = line->getLeft();
+            Box *right = line->getRight();
+            if ((left == NULL || left->numberOfLinesDrawn() < 2) && (right == NULL || right->numberOfLinesDrawn() < 2)) {
+                potentialLines.push_back(line);
+            }
+        }
+    }
+    if (potentialLines.empty()) {
+        return NULL;
+    }
+    else {
+        int size = potentialLines.size();
+        return potentialLines.at(rand() % size);
+    }
 }

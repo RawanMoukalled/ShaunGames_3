@@ -70,3 +70,10 @@ void Box::setRight() {
 bool Box::isClosed() {
     return m_above && m_left && m_under && m_right;
 }
+
+/**
+* Checks if the box is one line away from being closed.
+*/
+int Box::numberOfLinesDrawn() {
+    return static_cast<int>(m_above) + static_cast<int>(m_left) + static_cast<int>(m_under) + static_cast<int>(m_right);
+}

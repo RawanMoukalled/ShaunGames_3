@@ -1,0 +1,119 @@
+\hypertarget{classLine}{\section{\-Line \-Class \-Reference}
+\label{classLine}\index{\-Line@{\-Line}}
+}
+\-Inheritance diagram for \-Line\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classLine}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLine_a556ea343ae2c6118ed775f99b1c1bd0a}{\-Line} (bool \hyperlink{classLine_a799c03e48bd560a9f6c0b2b729e38855}{is\-Horizontal}, \-Q\-Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
+\hypertarget{classLine_a63f54b0b50d2c6db91fc7d97c15433b1}{virtual void \hyperlink{classLine_a63f54b0b50d2c6db91fc7d97c15433b1}{turn\-Grey} ()=0}\label{classLine_a63f54b0b50d2c6db91fc7d97c15433b1}
+
+\begin{DoxyCompactList}\small\item\em \-Makes the line grey. \end{DoxyCompactList}\item 
+void \hyperlink{classLine_aac8ab0980da0a3db6e4991e734462193}{mouse\-Press\-Event} (\-Q\-Graphics\-Scene\-Mouse\-Event $\ast$event)
+\begin{DoxyCompactList}\small\item\em \-Called when the user clicks on the line. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classLine_adb2af7d5815c082d2c7864a86af27b14}{play\-Turn} (bool user\-Turn)=0
+\begin{DoxyCompactList}\small\item\em \-Called when a line is selected. \end{DoxyCompactList}\item 
+bool \hyperlink{classLine_a1adc846d2872638610850cc27e325317}{is\-Drawn} () const 
+\begin{DoxyCompactList}\small\item\em \-Returns whether the line has been drawn already. \end{DoxyCompactList}\item 
+\hypertarget{classLine_ab6265993bf5acbc28830181c3e712f10}{void \hyperlink{classLine_ab6265993bf5acbc28830181c3e712f10}{draw} ()}\label{classLine_ab6265993bf5acbc28830181c3e712f10}
+
+\begin{DoxyCompactList}\small\item\em \-Sets the line as drawn. \end{DoxyCompactList}\item 
+bool \hyperlink{classLine_a799c03e48bd560a9f6c0b2b729e38855}{is\-Horizontal} () const 
+\begin{DoxyCompactList}\small\item\em \-Returns whether the line is horizontal or vertical. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classLine_a556ea343ae2c6118ed775f99b1c1bd0a}{\index{\-Line@{\-Line}!\-Line@{\-Line}}
+\index{\-Line@{\-Line}!Line@{\-Line}}
+\subsubsection[{\-Line}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Line\-::\-Line} (
+\begin{DoxyParamCaption}
+\item[{bool}]{is\-Horizontal, }
+\item[{\-Q\-Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classLine_a556ea343ae2c6118ed775f99b1c1bd0a}
+
+
+\-Default constructor. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em is\-Horizontal} & \-Whether the line is horizontal or not (vertical)\\
+\hline
+\end{DoxyParams}
+\-Initializes the object and marks it as not drawn. 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classLine_a1adc846d2872638610850cc27e325317}{\index{\-Line@{\-Line}!is\-Drawn@{is\-Drawn}}
+\index{is\-Drawn@{is\-Drawn}!Line@{\-Line}}
+\subsubsection[{is\-Drawn}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Line\-::is\-Drawn} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classLine_a1adc846d2872638610850cc27e325317}
+
+
+\-Returns whether the line has been drawn already. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Whether the line has been drawn already 
+\end{DoxyReturn}
+\hypertarget{classLine_a799c03e48bd560a9f6c0b2b729e38855}{\index{\-Line@{\-Line}!is\-Horizontal@{is\-Horizontal}}
+\index{is\-Horizontal@{is\-Horizontal}!Line@{\-Line}}
+\subsubsection[{is\-Horizontal}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Line\-::is\-Horizontal} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classLine_a799c03e48bd560a9f6c0b2b729e38855}
+
+
+\-Returns whether the line is horizontal or vertical. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Whether the line is horizontal
+\end{DoxyReturn}
+\-Returns whether the line is horizontal or vertical \hypertarget{classLine_aac8ab0980da0a3db6e4991e734462193}{\index{\-Line@{\-Line}!mouse\-Press\-Event@{mouse\-Press\-Event}}
+\index{mouse\-Press\-Event@{mouse\-Press\-Event}!Line@{\-Line}}
+\subsubsection[{mouse\-Press\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Line\-::mouse\-Press\-Event} (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Graphics\-Scene\-Mouse\-Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)}}\label{classLine_aac8ab0980da0a3db6e4991e734462193}
+
+
+\-Called when the user clicks on the line. 
+
+\-Called when the user clicks on the line. \-The function changes the states of corresponding lines and boxes. \-It then checks for a win. \hypertarget{classLine_adb2af7d5815c082d2c7864a86af27b14}{\index{\-Line@{\-Line}!play\-Turn@{play\-Turn}}
+\index{play\-Turn@{play\-Turn}!Line@{\-Line}}
+\subsubsection[{play\-Turn}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool {\bf \-Line\-::play\-Turn} (
+\begin{DoxyParamCaption}
+\item[{bool}]{user\-Turn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classLine_adb2af7d5815c082d2c7864a86af27b14}
+
+
+\-Called when a line is selected. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em user\-Turn} & \-Whether it is the user's turn \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Whether it is still the player's turn 
+\end{DoxyReturn}
+
+
+\-Implemented in \hyperlink{classHorizontalLine_aefd796758e374952b730268387f134e6}{\-Horizontal\-Line}, and \hyperlink{classVerticalLine_ac90ef61324404c12668c73dc5567dc11}{\-Vertical\-Line}.
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+game3/\hyperlink{line_8h}{line.\-h}\item 
+game3/\hyperlink{line_8cpp}{line.\-cpp}\end{DoxyCompactItemize}
