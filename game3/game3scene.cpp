@@ -211,3 +211,27 @@ void Game3Scene::closeBoxByUser() {
 void Game3Scene::closeBoxByComputer() {
     ++m_boxesClosedByComputer;
 }
+
+/**
+* Finds and returns a non-clicked line that closes at least one box.
+* Returns NULL if not found.
+*/
+Line *Game3Scene::getLineThatClosesBox() {
+    QVector<Line*> potentialLines;
+    for (QVector<Line*>::iterator it = m_unmarkedLines.begin(); it != m_unmarkedLines.end(); ++it) {
+        if ((*it)->isHorizontal()) {
+            HorizontalLine *line = static_cast<HorizontalLine*>(*it);
+            Box *above = line->getAbove();
+            Box *under = line->getUnder();
+            if (above != NULL && above->threeSidesDrawn()) {
+                    potentialLines.push_back(line);
+            }
+            else if (under != NULL && under->threeSidesDrawn()) {
+
+            }
+        }
+        else {
+            VerticalLine *line = static_cast<VerticalLine*>(*it);
+        }
+    }
+}

@@ -77,3 +77,9 @@ bool VerticalLine::playTurn(bool userTurn) {
     }
 }
 
+/**
+* Returns the fact that the line is vertical.
+*/
+bool HorizontalLine::isHorizontal() {
+    return false;
+}

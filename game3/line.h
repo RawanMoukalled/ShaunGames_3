@@ -49,6 +49,12 @@ public:
     * \brief Sets the line as drawn
     */
     void draw();
+
+    /**
+    * \brief Returns whether the line is horizontal or vertical
+    * \returns Whether the line is horizontal
+    */
+    bool isHorizontal() = 0;
     
 signals:
     

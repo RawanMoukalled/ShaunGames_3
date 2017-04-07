@@ -39,6 +39,12 @@ public:
     * \returns Whether it is still the player's turn
     */
     bool playTurn(bool userTurn);
+
+    /**
+    * \brief Returns whether the line is horizontal or vertical
+    * \returns True
+    */
+    bool isHorizontal();
     
 signals:
     

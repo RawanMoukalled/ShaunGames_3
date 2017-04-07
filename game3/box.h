@@ -60,6 +60,12 @@ public:
     * \returns Whether the box has been closed
     */
     bool isClosed();
+
+    /**
+    * \brief Checks if the box is one line away from being closed
+    * \returns Whether the box only needs one line to be closed
+    */
+    bool threeSidesDrawn();
     
 signals:
     

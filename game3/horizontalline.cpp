@@ -76,3 +76,10 @@ bool HorizontalLine::playTurn(bool userTurn) {
         return keepTurn;
     }
 }
+
+/**
+* Returns the fact that the line is horizontal.
+*/
+bool HorizontalLine::isHorizontal() {
+    return true;
+}

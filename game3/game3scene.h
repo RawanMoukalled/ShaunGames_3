@@ -74,6 +74,12 @@ public:
     * \brief Declares one more box as closed by computer
     */
     void closeBoxByComputer();
+
+    /**
+    * \brief Finds and returns a non-clicked line that closes at least one box
+    * \returns Non-clicked line that closes a box
+    */
+    Line *getLineThatClosesBox();
     
 signals:
     /**
