@@ -113,7 +113,7 @@ public:
     /**
     * \brief Increments the number of blocks on click of a tile
     */
-    void incrementBlockCount();
+    void decrementScore();
 
     /**
     * \brief retrieves the lcd display
@@ -126,6 +126,12 @@ public:
     * \returns number of blocked tiles
     */
     int getBlockCount();
+
+    /**
+    * \brief Finds the shortest path
+    *
+    */
+    void DFS();
 
 
 signals:
