@@ -211,7 +211,7 @@ bool Game3Scene::noMoreMoves() {
 */
 void Game3Scene::closeBoxByUser() {
     ++m_boxesClosedByUser;
-    m_score = m_score + 100;
+    m_score = m_score + 30;
     m_scoreDisplay->display(m_score);
 }
 
