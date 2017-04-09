@@ -1,5 +1,7 @@
 #include "game2scene.h"
 #include <climits>
+#include <QSqlQuery>
+#include "helper.h"
 
 /**
 * \file game2scene.cpp
@@ -9,31 +11,33 @@
 /**
 * Places the items on the scene and sets the user turn.
 */
-Game2Scene::Game2Scene(Difficulty difficulty, QObject *parent) :
+Game2Scene::Game2Scene(Difficulty difficulty, bool resume, QObject *parent) :
     QGraphicsScene(parent), m_difficulty(difficulty), m_score(0)
 {
-    //starting blocks
-    if(difficulty == EASY) {
-        m_block_count = 10;
-    } else if(difficulty == MODERATE) {
-        m_block_count = 7;
-    } else if(difficulty == HARD) {
-        m_block_count = 5;
+//    if(resume) {
+//        bool opened = Helper::shaunDB.open();
+//        QSqlQuery query;
+//        if(opened) {
+//            query.exec("SELECT * FROM GAME2 WHERE ACCOUNTID='" + Helper::getUserId() +"'");
+//            query.next();
+//            //query.value(0)
+//        }
+//    }
+
+    if(!resume) {
+        //starting blocks
+        if(difficulty == EASY) {
+            m_block_count = 10;
+        } else if(difficulty == MODERATE) {
+            m_block_count = 7;
+        } else if(difficulty == HARD) {
+            m_block_count = 5;
+        }
     }
     m_score = 1500;
-    m_scoreDisplay = new QLCDNumber(4);
 
-    addWidget(m_scoreDisplay);
-    m_scoreDisplay->move(250,5);
 
-    QPalette lcdPalette = m_scoreDisplay->palette();
-    lcdPalette.setColor(QPalette::Background, QColor(170, 255, 0));
-    lcdPalette.setColor(QPalette::WindowText, QColor(85, 85, 255));
-    lcdPalette.setColor(QPalette::Light, QColor(255, 0, 0));
-    lcdPalette.setColor(QPalette::Dark, QColor(255, 0, 0));
-
-    m_scoreDisplay->setPalette(lcdPalette);
-    m_scoreDisplay->display(m_score);
+    placeLCD();
 
     m_gameOverPicture = NULL;
     m_user_turn = true;
@@ -63,6 +67,21 @@ Game2Scene::~Game2Scene() {
         delete m_gameOverPicture;
     }
     delete m_scoreDisplay;
+}
+
+void Game2Scene::placeLCD() {
+    m_scoreDisplay = new QLCDNumber(4);
+    addWidget(m_scoreDisplay);
+    m_scoreDisplay->move(250,5);
+
+    QPalette lcdPalette = m_scoreDisplay->palette();
+    lcdPalette.setColor(QPalette::Background, QColor(170, 255, 0));
+    lcdPalette.setColor(QPalette::WindowText, QColor(85, 85, 255));
+    lcdPalette.setColor(QPalette::Light, QColor(255, 0, 0));
+    lcdPalette.setColor(QPalette::Dark, QColor(255, 0, 0));
+
+    m_scoreDisplay->setPalette(lcdPalette);
+    m_scoreDisplay->display(m_score);
 }
 
 /**

@@ -24,7 +24,7 @@ public:
     /**
     * \brief Default constructor
     */
-    explicit Game2Scene(Difficulty difficulty, QObject *parent = 0);
+    explicit Game2Scene(Difficulty difficulty, bool resume, QObject *parent = 0);
 
     /**
     * Destructor
@@ -175,6 +175,10 @@ public:
     */
     void addToBlockedTiles(Tile* tile);
 
+    /**
+    * \brief Places the LCD on the screen
+    */
+    void placeLCD();
 
 signals:
     /**

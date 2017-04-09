@@ -25,7 +25,7 @@ Game2::Game2(Difficulty difficulty, bool resume, QWidget *parent) :
     Helper::makeWidgetSmall(m_exit);
 
     m_difficulty = difficulty;
-    m_gameScene = new Game2Scene(difficulty);
+    m_gameScene = new Game2Scene(difficulty, resume);
     m_gameView = new QGraphicsView;
 
     setGame2Layout();
@@ -86,7 +86,7 @@ void Game2::goToMainMenu() {
 */
 void Game2::replay() {
     delete m_gameScene;
-    m_gameScene = new Game2Scene(m_difficulty);
+    m_gameScene = new Game2Scene(m_difficulty, false);
     m_gameView->setScene(m_gameScene);
     m_gameScene->setSceneRect(0,0,575,505);
     m_gameView->setBackgroundBrush(QBrush(QImage("pictures/brown_bg.png").scaledToHeight(550)));
