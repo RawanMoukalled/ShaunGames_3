@@ -33,6 +33,16 @@ public slots:
     */
     void goToGameSelection();
 
+    /**
+    * \brief Signs in
+    */
+    void signIn();
+
+    /**
+    * \brief Signs up
+    */
+    void signUp();
+
 private:
     QPushButton *m_guestSignIn;  ///< Button for signing in as guest
     QPushButton *m_signIn; ///< Button for signing in for existing users

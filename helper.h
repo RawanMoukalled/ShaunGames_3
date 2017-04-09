@@ -2,6 +2,7 @@
 #define HELPER_H
 
 #include <QtGui>
+#include <QSqlDatabase>
 
 /**
 * \file helper.h
@@ -35,15 +36,30 @@ public:
     */
     static double toRadians(double degrees);
 
-private:
-    static QFont m_smallFont; ///< 12-pt font
-    static QFont m_largeFont; ///< 18-pt font
-    static bool m_uninitialized; ///< Boolean value that keeps track of whether helper values have been initialized
+    /**
+    * \brief Retrieves the user ID
+    * \returns The user ID
+    */
+    static int getUserId();
+
+    /**
+    * \brief Sets the user ID
+    * \param id The user ID
+    */
+    static void setUserId(int id);
 
     /**
     * \brief Initializes class attributes
     **/
     static void initialize();
+
+    static QSqlDatabase shaunDB; ///< The database for the game
+
+private:
+    static bool m_uninitialized; ///< Keeps track of whether the helper has been initialized
+    static QFont m_smallFont; ///< 12-pt font
+    static QFont m_largeFont; ///< 18-pt font
+    static int m_userId; ///< The account id
 };
 
 #endif // HELPER_H

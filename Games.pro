@@ -56,3 +56,5 @@ HEADERS += \
     gameover.h
 
 OTHER_FILES +=
+
+QT += sql

@@ -1,5 +1,9 @@
 #include "gui/mainwidget.h"
 #include "gui/gameselection.h"
+#include "helper.h"
+#include <QSqlQuery>
+#include <QSqlError>
+
 /**
 * \file mainwidget.cpp
 * \brief Contains MainWidget class definition
@@ -11,6 +15,8 @@
 MainWidget::MainWidget(QWidget *parent) :
     QWidget(parent)
 {
+    Helper::initialize();
+
     m_guestSignIn = new QPushButton("Proceed as Guest");
     m_signIn = new QPushButton("Sign In");
     m_signUp = new QPushButton("Sign up");
@@ -121,14 +127,82 @@ void MainWidget::setMainLayout() {
     m_mainLayout->addWidget(m_guestSignIn);
 }
 
+/**
+* Goes to Game Selection menu.
+*/
 void MainWidget::goToGameSelection() {
     GameSelection *selection = new GameSelection;
     selection->show();
     close();
 }
 
+/**
+* Signs in by retrieving the account with the given username and password
+*/
+void MainWidget::signIn() {
+    QString username = m_existingUsernameEdit->text();
+    QString password = m_existingPasswordEdit->text();
+
+    if(!username.isEmpty() && !password.isEmpty()) {
+        bool opened = Helper::shaunDB.open();
+        QSqlQuery query;
+        if(opened) {
+            query.exec("SELECT ID FROM ACCOUNT WHERE USERNAME='"+username+"' AND PASSWORD='"+password+"'");
+            query.next();
+            if(query.isValid()) {
+                Helper::setUserId(query.value(0).toInt());
+                goToGameSelection();
+            } else {
+                QMessageBox::information(0,"Alert", "Wrong username/password combination.");
+            }
+        }
+        Helper::shaunDB.close();
+    }
+    else {
+        QMessageBox::information(0,"Alert", "Please enter all fields.");
+    }
+}
+
+/**
+* Signs up by adding an entry to the database
+*/
+void MainWidget::signUp() {
+    QString firstname = m_firstNameEdit->text();
+    QString lastname = m_lastNameEdit->text();
+    QString username = m_usernameEdit->text();
+    QString password = m_passwordEdit->text();
+
+    if(!firstname.isEmpty() && !lastname.isEmpty() && !username.isEmpty() && !password.isEmpty()) {
+        bool opened = Helper::shaunDB.open();
+        QSqlQuery query;
+        if(opened) {
+            query.exec("SELECT COUNT(*) FROM ACCOUNT WHERE USERNAME='" + username +"'");
+            query.next();
+            //check if username already exists
+            if (query.value(0).toInt() <= 0) {
+                query.prepare("INSERT INTO ACCOUNT (FIRSTNAME, LASTNAME, USERNAME, PASSWORD) VALUES (:firstname, :lastname, :username, :password)");
+                query.bindValue(":firstname", firstname);
+                query.bindValue(":lastname", lastname);
+                query.bindValue(":username", username);
+                query.bindValue(":password", password);
+                query.exec();
+                goToGameSelection();
+            } else {
+                QMessageBox::information(0,"Alert", "Account already found with same username: " + username);
+            }
+        }
+
+        Helper::shaunDB.close();
+    } else {
+        QMessageBox::information(0,"Alert", "Please enter all fields.");
+    }
+}
+
+/**
+* Sets connections.
+*/
 void MainWidget::setConnections() {
-    QObject::connect(m_signIn, SIGNAL(clicked()), SLOT(goToGameSelection()));
-    QObject::connect(m_signUp, SIGNAL(clicked()), SLOT(goToGameSelection()));
+    QObject::connect(m_signIn, SIGNAL(clicked()), SLOT(signIn()));
+    QObject::connect(m_signUp, SIGNAL(clicked()), SLOT(signUp()));
     QObject::connect(m_guestSignIn, SIGNAL(clicked()), SLOT(goToGameSelection()));
 }

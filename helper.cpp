@@ -11,9 +11,6 @@
 * Makes the given widget small.
 */
 void Helper::makeWidgetSmall(QWidget *widget) {
-    if (m_uninitialized) {
-        initialize();
-    }
     widget->setFont(m_smallFont);
 }
 
@@ -21,9 +18,6 @@ void Helper::makeWidgetSmall(QWidget *widget) {
 * Makes the given widget large.
 */
 void Helper::makeWidgetLarge(QWidget *widget) {
-    if (m_uninitialized) {
-        initialize();
-    }
     widget->setFont(m_largeFont);
 }
 
@@ -37,17 +31,37 @@ double Helper::toRadians(double degrees) {
 }
 
 /**
+* Retrieves the user ID.
+*/
+int Helper::getUserId() {
+    return m_userId;
+}
+
+/**
+* Sets the user ID.
+*/
+void Helper::setUserId(int id) {
+    m_userId = id;
+}
+
+/**
 * Initializes static members.
 * Called only once.
 */
 void Helper::initialize() {
-    srand(time(0));
-    m_uninitialized = false;
-    m_smallFont.setPointSize(12);
-    m_largeFont.setPointSize(18);
+    if (m_uninitialized) {
+        srand(time(0));
+        m_uninitialized = false;
+        m_smallFont.setPointSize(12);
+        m_largeFont.setPointSize(18);
+        shaunDB = QSqlDatabase::addDatabase("QSQLITE");//not dbConnection
+        shaunDB.setDatabaseName("database/shaunDB.db");
+    }
 }
 
+QSqlDatabase Helper::shaunDB(QSqlDatabase::addDatabase("QSQLITE", "shaunDB"));
 QFont Helper::m_smallFont;
 QFont Helper::m_largeFont;
 bool Helper::m_uninitialized(true);
+int Helper::m_userId(0);
 
