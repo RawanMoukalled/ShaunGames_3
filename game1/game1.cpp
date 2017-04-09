@@ -2,6 +2,7 @@
 #include "helper.h"
 #include "gui/gamemainmenu.h"
 #include <QSqlQuery>
+#include <QSqlError>
 
 /**
 * \file game1.cpp
@@ -23,11 +24,13 @@ Game1::Game1(int level, bool resume, QWidget *parent) :
     int account = Helper::getUserId();
     if (account != 0) {
         bool opened = Helper::shaunDB.open();
+
         QSqlQuery query;
         if(opened) {
             query.exec("DELETE FROM GAME1 WHERE ACCOUNTID='" + QString::number(account) + "'");
+            qDebug() << query.lastError();
         }
-
+        Helper::shaunDB.close();
         m_exit = new QPushButton("Save and Exit");
     }
     else {

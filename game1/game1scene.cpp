@@ -4,7 +4,6 @@
 #include <QSet>
 #include "game1options.h"
 #include <QSqlQuery>
-#include <QSqlError>
 
 /**
 * \file game1scene.cpp
@@ -35,19 +34,15 @@ Game1Scene::Game1Scene(int level, bool resume, QObject *parent) :
 
     if (resume) {
         m_current = new Sheep1(query.value(4).toInt(), false);
+        m_next = new Sheep1(query.value(5).toInt(), false);
     }
     else {
         m_current = new Sheep1(Sheep1::getRandomSheepNumber(), false);
+        m_next = new Sheep1(Sheep1::getRandomSheepNumber(), false);
     }
     m_current->setPos(334,247);
     m_current->setRotation(345);
 
-    if (resume) {
-        m_next = new Sheep1(query.value(5).toInt(), false);
-    }
-    else {
-        m_next = new Sheep1(Sheep1::getRandomSheepNumber(), false);
-    }
     m_next->setPos(285,235);
 
     m_barn = new Barn;
@@ -62,11 +57,11 @@ Game1Scene::Game1Scene(int level, bool resume, QObject *parent) :
 
         int nbOfSheep = lineNumbers.size();
 
-        for (int i=1; i<nbOfSheep; ++i) {
+        for (int i=0; i<nbOfSheep; ++i) {
             Sheep1 *newSheep = new Sheep1(lineNumbers.at(i).digitValue(), true);
             newSheep->setPos(x, y);
             newSheep->moveInLine(40*i);
-            m_sheepLine.push_back(newSheep);
+            m_sheepLine.push_front(newSheep);
             addItem(newSheep);
         }
     }
@@ -281,7 +276,7 @@ QString Game1Scene::getLastLinePosition() const {
 */
 QString Game1Scene::getInLineSheepNumbers() const {
     QString ans = "";
-    for (QLinkedList<Sheep1*>::const_iterator i = m_sheepLine.begin(); i != m_sheepLine.end(); ++i) {
+    for (QLinkedList<Sheep1*>::const_iterator i = m_sheepLine.end()-1; i != m_sheepLine.begin()-1; --i) {
         ans += QString::number((*i)->getNumber());
     }
     return ans;
