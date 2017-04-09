@@ -12,17 +12,19 @@
 * Places the items on the scene and sets the user turn.
 */
 Game2Scene::Game2Scene(Difficulty difficulty, bool resume, QObject *parent) :
-    QGraphicsScene(parent), m_difficulty(difficulty), m_score(0)
+    QGraphicsScene(parent), m_score(0)
 {
 //    if(resume) {
 //        bool opened = Helper::shaunDB.open();
 //        QSqlQuery query;
 //        if(opened) {
-//            query.exec("SELECT * FROM GAME2 WHERE ACCOUNTID='" + Helper::getUserId() +"'");
+//            query.exec("SELECT * FROM GAME2 WHERE ACCOUNTID='" + QString::number(Helper::getUserId()) +"'");
 //            query.next();
-//            //query.value(0)
 //        }
+//        Helper::shaunDB.close();
 //    }
+
+    m_difficulty = difficulty;
 
     if(!resume) {
         //starting blocks
