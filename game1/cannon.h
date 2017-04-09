@@ -30,6 +30,12 @@ public:
     * \param event The event that has been triggered
     */
     void keyPressEvent(QKeyEvent *event);
+
+    /**
+    * \brief Rotates the cannon
+    * \param toTheRight Whether the movement should be to the right or to the left
+    */
+    void rotateCannon(bool toTheRight);
     
 signals:
     

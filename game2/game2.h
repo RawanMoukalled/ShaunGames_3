@@ -20,7 +20,7 @@ public:
     /**
     * \brief Default constructor
     */
-    explicit Game2(Difficulty difficulty, QWidget *parent = 0);
+    explicit Game2(Difficulty difficulty, bool resume = false, QWidget *parent = 0);
 
     /**
     * \brief Destructor

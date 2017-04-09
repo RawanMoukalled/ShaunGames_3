@@ -3,6 +3,7 @@
 #include <QVector>
 #include <QSet>
 #include "game1options.h"
+#include <QSqlQuery>
 
 /**
 * \file game1scene.cpp
@@ -12,39 +13,82 @@
 /**
 * Initializes variables and connections.
 */
-Game1Scene::Game1Scene(int level, QObject *parent) :
+Game1Scene::Game1Scene(int level, bool resume, QObject *parent) :
     QGraphicsScene(parent), m_level(level), m_score(0), m_gameOverPicture(NULL)
 {
+
+    int userId = Helper::getUserId();
+
+    bool opened;
+    QSqlQuery query;
+    if (resume) {
+        opened = Helper::shaunDB.open();
+        if(opened) {
+            query.exec("SELECT * FROM GAME1 WHERE ACCOUNTID='"+QString::number(userId)+"'");
+            query.next();
+        }
+        Helper::shaunDB.close();
+    }
+
     m_scoreDisplay = new QLCDNumber(4);
 
     m_cannon = new Cannon;
     m_cannon->setFlag(QGraphicsItem::ItemIsFocusable);
     m_cannon->setFocus();
 
-    m_current = new Sheep1(Sheep1::getRandomSheepNumber(), false);
+    if (resume) {
+        m_current = new Sheep1(query.value(4).toInt(), false);
+    }
+    else {
+        m_current = new Sheep1(Sheep1::getRandomSheepNumber(), false);
+    }
     m_current->setPos(334,247);
     m_current->setRotation(345);
-    m_next = new Sheep1(Sheep1::getRandomSheepNumber(), false);
+
+    if (resume) {
+        m_next = new Sheep1(query.value(5).toInt(), false);
+    }
+    else {
+        m_next = new Sheep1(Sheep1::getRandomSheepNumber(), false);
+    }
     m_next->setPos(285,235);
 
     m_barn = new Barn;
 
     int yValue = 0;
     int prevRand;
-    int currRand = Sheep1::getRandomSheepNumber();
 
-    for(int i = 0; i < 50; ++i) {
+    int currRand;
+    int nbOfSheep;
+    QString lineNumbers = query.value(7).toString();
+
+    if (resume) {
+        currRand = lineNumbers.at(0).digitValue();
+        nbOfSheep = lineNumbers.size();
+    }
+    else {
+        currRand = Sheep1::getRandomSheepNumber();
+        nbOfSheep = 50;
+    }
+
+
+    for(int i = 0; i < nbOfSheep; ++i) {
         Sheep1 *newSheep = new Sheep1(currRand, true);
         newSheep->setPos(500, yValue);
-        m_sheepLine.push_back(newSheep);        
+        m_sheepLine.push_back(newSheep);
         addItem(newSheep);
         yValue -= 40;
 
-        prevRand = currRand;
-        do {
-            currRand = Sheep1::getRandomSheepNumber();
+        if (resume) {
+            currRand = lineNumbers.at(i+1).digitValue();
         }
-        while(prevRand+currRand == 10);
+        else {
+            prevRand = currRand;
+            do {
+                currRand = Sheep1::getRandomSheepNumber();
+            }
+            while(prevRand+currRand == 10);
+        }
     }
 
     m_line_timer = new QTimer(this);
@@ -63,10 +107,19 @@ Game1Scene::Game1Scene(int level, QObject *parent) :
 
     m_scoreDisplay->setPalette(lcdPalette);
 
+    m_scoreDisplay->display(query.value(2).toInt());
+
     addItem(m_cannon);
     addItem(m_current);
     addItem(m_next);
     addItem(m_barn);
+
+    if (resume) {
+        int goalRotation = query.value(3).toInt();
+        while (m_cannon->rotation() != goalRotation) {
+            m_cannon->rotateCannon(true);
+        }
+    }
 }
 
 /**
@@ -177,6 +230,61 @@ bool Game1Scene::collidesWithSheepInLine(QGraphicsItem *item) {
 */
 int Game1Scene::getScore() const {
     return m_score;
+}
+
+/**
+* Freezes gameplay.
+* Called when the user stops the game mid-play.
+*/
+void Game1Scene::freeze() {
+    m_line_timer->stop();
+    m_cannon->setEnabled(false);
+}
+
+/**
+* Returns the cannon angle
+* Called when saving the game.
+*/
+int Game1Scene::getCannonAngle() const {
+    return m_cannon->rotation();
+}
+
+/**
+* Returns the number on the current sheep.
+* Called when saving the game.
+*/
+int Game1Scene::getCurrentSheepNumber() const {
+    return m_current->getNumber();
+}
+
+/**
+* Returns the number on the next sheep.
+* Called when saving the game.
+*/
+int Game1Scene::getNextSheepNumber() const {
+    return m_next->getNumber();
+}
+
+/**
+* Returns the position of the first in-line sheep.
+* Called when saving the game.
+*/
+QString Game1Scene::getFirstLinePosition() const {
+    Sheep1 *firstSheep = *m_sheepLine.begin();
+    QString ans = QString::number(firstSheep->x()) + "," + QString::number(firstSheep->y());
+    return ans;
+}
+
+/**
+* Returns the numbers of all sheep in the line in a QString.
+* Called when saving the game.
+*/
+QString Game1Scene::getInLineSheepNumbers() const {
+    QString ans = "";
+    for (QLinkedList<Sheep1*>::const_iterator i = m_sheepLine.begin(); i != m_sheepLine.end(); ++i) {
+        ans += QString::number((*i)->getNumber());
+    }
+    return ans;
 }
 
 /**
@@ -314,4 +422,3 @@ void Game1Scene::move_line() {
         newSheep->moveInLine(40);
     }
 }
-

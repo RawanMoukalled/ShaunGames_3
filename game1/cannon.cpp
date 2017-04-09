@@ -32,27 +32,36 @@ Cannon::~Cannon() {
 */
 void Cannon::keyPressEvent(QKeyEvent *event) {
     if (event->key() == Qt::Key_Left) {
-        int rot = rotation()-5;
-        if (rot < 0) {
-            rot = rot + 360;
-        }
-        setRotation(rot);
-
-        Game1Scene *s = static_cast<Game1Scene*>(scene());
-        s->moveCurrentSheep(false);
+        rotateCannon(false);
     }
     else if (event->key() == Qt::Key_Right) {
-        int rot = rotation()+5;
-        if (rot >= 360) {
-            rot = rot - 360;
-        }
-        setRotation(rot);
-
-        Game1Scene *s = static_cast<Game1Scene*>(scene());
-        s->moveCurrentSheep(true);
+        rotateCannon(true);
     }
     else if (event->key() == Qt::Key_Space) {
         Game1Scene *s = static_cast<Game1Scene*>(scene());
         s->fireSheep();
     }
+}
+
+/**
+* Rotates the cannon.
+*/
+void Cannon::rotateCannon(bool toTheRight) {
+    int rot;
+    if (toTheRight) {
+        rot = rotation()+5;
+        if (rot >= 360) {
+            rot = rot - 360;
+        }
+        setRotation(rot);
+    }
+    else {
+        rot = rotation()-5;
+        if (rot < 0) {
+            rot = rot + 360;
+        }
+    }
+    setRotation(rot);
+    Game1Scene *s = static_cast<Game1Scene*>(scene());
+    s->moveCurrentSheep(toTheRight);
 }

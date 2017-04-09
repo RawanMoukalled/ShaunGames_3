@@ -38,6 +38,11 @@ public slots:
     * \brief Takes the user to the game selection menu
     */
     void gotoGameSelection();
+
+    /**
+    * \brief Takes the user to his/her saved game
+    */
+    void resumeSavedGame();
     
 private:
     int m_gameChoice; ///< Game choice that brought the user here

@@ -20,7 +20,7 @@ public:
     * \brief Constructor
     * \param level Game level
     */
-    explicit Game1(int level, QWidget *parent = 0);
+    explicit Game1(int level, bool resume = false, QWidget *parent = 0);
 
     /**
     * \brief Destructor
@@ -51,11 +51,16 @@ public slots:
     * \brief Reloads the game with the same level
     */
     void replay();
-    
+
     /**
     * \brief Proceed to the next level
     */
     void next();
+
+    /**
+    * \brief Saves and exits
+    */
+    void save();
 
 private:
     QLabel *m_title; ///< Main title of the game
