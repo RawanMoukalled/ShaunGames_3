@@ -45,6 +45,11 @@ public slots:
     */
     void replay();
 
+    /**
+    * \brief Saves the state of the game into the database
+    */
+    void save();
+
 private:
     QLabel *m_title; ///< Game title
     QPushButton *m_exit; ///< Button to save and exit

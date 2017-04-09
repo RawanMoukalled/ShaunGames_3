@@ -145,6 +145,36 @@ public:
     */
     QVector< Tile* > *getNonBlockedBorders();
 
+    /**
+    * \brief Returns the difficulty of the game
+    * \returns the difficulty of the game
+    */
+    Difficulty getDifficulty();
+
+    /**
+    * \brief Returns the current score of the game
+    * \returns the score of the game
+    */
+    int getScore();
+
+    /**
+    * \brief Returns a string representation of the sheep row and column
+    * \returns string representing the sheep's current row and column
+    */
+    QString getSheepPos();
+
+    /**
+    * \brief Returns the string representation of the blocked tiles' positions
+    * \returns string representing the blocked tiles' positions
+    */
+    QString getBlockedTilesPos();
+
+    /**
+    * \brief Adds a tile to the list of blocked tiles
+    * \param tile The tile to add to the list
+    */
+    void addToBlockedTiles(Tile* tile);
+
 
 signals:
     /**
@@ -169,6 +199,7 @@ private:
     QTimer *m_delay; ///< Delay on computer's turn
     GameOver *m_gameOverPicture; ///< Picture to be overlayed on the screen when game is over
     QLCDNumber *m_scoreDisplay; ///< LCD that displays the score
+    QVector< Tile* > m_blockedTiles; ///< List of the blocked tiles
     
 };
 

@@ -123,8 +123,10 @@ void Game2Scene::placeTiles() {
         for(int j = 0; j < column_size; j++) {
             Tile *tile;
 
+            //if the tile is blocked
             if ( std::find(flagged.begin(), flagged.end(), count) != flagged.end() ) {
                 tile = new Tile(true, i, j);
+                m_blockedTiles.push_back(tile);
             } else {
                 tile = new Tile(false, i, j);
             }
@@ -502,4 +504,52 @@ QVector< Tile* > *Game2Scene::getNonBlockedBorders() {
     }
 
     return borders;
+}
+
+
+/**
+* Returns the difficulty of the game.
+*/
+Difficulty Game2Scene::getDifficulty() {
+    return m_difficulty;
+}
+
+/**
+* Returns the current score of the game.
+*/
+int Game2Scene::getScore() {
+    return m_score;
+}
+
+/**
+* Returns a string representation of the sheep row and column.
+*/
+QString Game2Scene::getSheepPos() {
+    QString pos = QString::number(m_sheep->getCurrent()->getRow());
+    pos.append(",");
+    pos.append(QString::number(m_sheep->getCurrent()->getCol()));
+
+    return pos;
+}
+
+/**
+* Returns the string representation of the blocked tiles' positions.
+*/
+QString Game2Scene::getBlockedTilesPos() {
+    QString pos = "";
+    for(QVector< Tile* >::iterator it = m_blockedTiles.begin(); it != m_blockedTiles.end(); ++it) {
+        pos.append(QString::number((*it)->getRow()));
+        pos.append(",");
+        pos.append(QString::number((*it)->getCol()));
+        pos.append(",");
+    }
+
+    return pos;
+}
+
+/**
+* Adds a tile to the list of blocked tiles
+*/
+void Game2Scene::addToBlockedTiles(Tile* tile) {
+    m_blockedTiles.push_back(tile);
 }

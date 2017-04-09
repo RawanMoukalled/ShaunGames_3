@@ -1,6 +1,8 @@
 #include "game2/game2.h"
 #include "helper.h"
 #include "gui/gamemainmenu.h"
+#include <QSqlQuery>
+#include <QSqlError>
 
 /**
 * \file game2.cpp
@@ -29,7 +31,7 @@ Game2::Game2(Difficulty difficulty, QWidget *parent) :
     setGame2Layout();
     setLayout(m_Game2Layout);
 
-    QObject::connect(m_exit, SIGNAL(clicked()), SLOT(goToMainMenu()));
+    QObject::connect(m_exit, SIGNAL(clicked()), SLOT(save()));
     QObject::connect(m_gameScene, SIGNAL(Done()),SLOT(endGame()));
 
 }
@@ -101,8 +103,35 @@ void Game2::replay() {
     m_exit = new QPushButton("Save and Exit");
     m_Game2Layout->addWidget(m_exit);
     m_Game2Layout->setAlignment(m_exit, Qt::AlignHCenter);
-    QObject::connect(m_exit, SIGNAL(clicked()), SLOT(goToMainMenu()));
+    QObject::connect(m_exit, SIGNAL(clicked()), SLOT(save()));
     QObject::connect(m_gameScene, SIGNAL(Done()),SLOT(endGame()));
+}
+
+/**
+* Saves the state of the game into the database.
+*/
+void Game2::save() {
+    //if logged in user
+    if(Helper::getUserId() != 0) {
+
+        bool opened = Helper::shaunDB.open();
+        QSqlQuery query;
+        if(opened) {
+
+            query.prepare("INSERT INTO GAME2 (ACCOUNTID, DIFFICULTY, SCORE, USERTURN, SHEEPPOS, BLOCKEDTILES) VALUES (:accountid, :difficulty, :score, :userturn, :sheeppos, :blockedtiles)");
+
+            query.bindValue(":accountid", Helper::getUserId());
+            query.bindValue(":difficulty", m_gameScene->getDifficulty());
+            query.bindValue(":score", m_gameScene->getScore());
+            query.bindValue(":userturn", m_gameScene->getUserTurn());
+            query.bindValue(":sheeppos", m_gameScene->getSheepPos());
+            query.bindValue(":blockedtiles", m_gameScene->getBlockedTilesPos());
+
+            query.exec();
+       }
+       Helper::shaunDB.close();
+    }
+    goToMainMenu();
 }
 
 /**
