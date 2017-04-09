@@ -94,7 +94,7 @@ public:
     * \brief Returns the position of the first in-line sheep
     * \returns Position of the first in-line sheep
     */
-    QString getFirstLinePosition() const;
+    QString getLastLinePosition() const;
 
     /**
     * \brief Returns the numbers of all sheep in the line

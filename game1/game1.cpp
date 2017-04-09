@@ -19,7 +19,15 @@ Game1::Game1(int level, bool resume, QWidget *parent) :
 
     m_title = new QLabel("Sheep Line (Level " + QString::number(level+1) + ")");
     m_game1Layout = new QVBoxLayout();
-    if (Helper::getUserId() != 0) {
+
+    int account = Helper::getUserId();
+    if (account != 0) {
+        bool opened = Helper::shaunDB.open();
+        QSqlQuery query;
+        if(opened) {
+            query.exec("DELETE FROM GAME1 WHERE ACCOUNTID='" + QString::number(account) + "'");
+        }
+
         m_exit = new QPushButton("Save and Exit");
     }
     else {
@@ -141,8 +149,8 @@ void Game1::save() {
         bool opened = Helper::shaunDB.open();
         QSqlQuery query;
         if(opened) {
-            query.prepare("INSERT INTO GAME1 (ACCOUNTID, LEVEL, SCORE, CANNONANGLE, CURRSHEEP, NEXTSHEEP, FIRSTPOS, SHEEPLINE)"
-                          "VALUES (:accountID, :level, :score, :cannonAngle, :currSheep, :nextSheep, :firstPos, :sheepLine)");
+            query.prepare("INSERT INTO GAME1 (ACCOUNTID, LEVEL, SCORE, CANNONANGLE, CURRSHEEP, NEXTSHEEP, LASTPOS, SHEEPLINE)"
+                          "VALUES (:accountID, :level, :score, :cannonAngle, :currSheep, :nextSheep, :lastPos, :sheepLine)");
 
             query.bindValue(":accountId", account);
             query.bindValue(":level", m_level);
@@ -150,7 +158,7 @@ void Game1::save() {
             query.bindValue(":cannonAngle", m_gameScene->getCannonAngle());
             query.bindValue(":currSheep", m_gameScene->getCurrentSheepNumber());
             query.bindValue(":nextSheep", m_gameScene->getNextSheepNumber());
-            query.bindValue(":firstPos", m_gameScene->getFirstLinePosition());
+            query.bindValue(":lastPos", m_gameScene->getLastLinePosition());
             query.bindValue(":sheepLine", m_gameScene->getInLineSheepNumbers());
 
             query.exec();
