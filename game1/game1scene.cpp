@@ -4,6 +4,7 @@
 #include <QSet>
 #include "game1options.h"
 #include <QSqlQuery>
+#include <QSqlError>
 
 /**
 * \file game1scene.cpp
@@ -16,19 +17,15 @@
 Game1Scene::Game1Scene(int level, bool resume, QObject *parent) :
     QGraphicsScene(parent), m_level(level), m_score(0), m_gameOverPicture(NULL)
 {
-
     int userId = Helper::getUserId();
 
-    bool opened;
+    bool opened = Helper::shaunDB.open();
     QSqlQuery query;
-    if (resume) {
-        opened = Helper::shaunDB.open();
-        if(opened) {
-            query.exec("SELECT * FROM GAME1 WHERE ACCOUNTID='"+QString::number(userId)+"'");
-            query.next();
-        }
-        Helper::shaunDB.close();
+    if (resume && opened) {
+        query.exec("SELECT * FROM GAME1 WHERE ACCOUNTID='"+QString::number(userId)+"'");
+        query.next();
     }
+    Helper::shaunDB.close();
 
     m_scoreDisplay = new QLCDNumber(4);
 
@@ -55,34 +52,37 @@ Game1Scene::Game1Scene(int level, bool resume, QObject *parent) :
 
     m_barn = new Barn;
 
-    int yValue = 0;
-    int prevRand;
-
-    int currRand;
-    int nbOfSheep;
-    QString lineNumbers = query.value(7).toString();
-
     if (resume) {
-        currRand = lineNumbers.at(0).digitValue();
-        nbOfSheep = lineNumbers.size();
+        QString lastPos = query.value(6).toString();
+        QString lineNumbers = query.value(7).toString();
+
+        QStringList lastCoordinates = lastPos.split(",");
+        qreal x = lastCoordinates.at(0).toDouble();
+        qreal y = lastCoordinates.at(1).toDouble();
+
+        int nbOfSheep = lineNumbers.size();
+
+        for (int i=1; i<nbOfSheep; ++i) {
+            Sheep1 *newSheep = new Sheep1(lineNumbers.at(i).digitValue(), true);
+            newSheep->setPos(x, y);
+            newSheep->moveInLine(40*i);
+            m_sheepLine.push_back(newSheep);
+            addItem(newSheep);
+        }
     }
     else {
-        currRand = Sheep1::getRandomSheepNumber();
-        nbOfSheep = 50;
-    }
+        int yValue = 0;
+        int prevRand;
 
+        int currRand = Sheep1::getRandomSheepNumber();
 
-    for(int i = 0; i < nbOfSheep; ++i) {
-        Sheep1 *newSheep = new Sheep1(currRand, true);
-        newSheep->setPos(500, yValue);
-        m_sheepLine.push_back(newSheep);
-        addItem(newSheep);
-        yValue -= 40;
+        for(int i = 0; i < 50; ++i) {
+            Sheep1 *newSheep = new Sheep1(currRand, true);
+            newSheep->setPos(500, yValue);
+            m_sheepLine.push_back(newSheep);
+            addItem(newSheep);
+            yValue -= 40;
 
-        if (resume) {
-            currRand = lineNumbers.at(i+1).digitValue();
-        }
-        else {
             prevRand = currRand;
             do {
                 currRand = Sheep1::getRandomSheepNumber();
@@ -107,14 +107,14 @@ Game1Scene::Game1Scene(int level, bool resume, QObject *parent) :
 
     m_scoreDisplay->setPalette(lcdPalette);
 
-    m_scoreDisplay->display(query.value(2).toInt());
-
     addItem(m_cannon);
     addItem(m_current);
     addItem(m_next);
     addItem(m_barn);
 
     if (resume) {
+        m_scoreDisplay->display(query.value(2).toInt());
+
         int goalRotation = query.value(3).toInt();
         while (m_cannon->rotation() != goalRotation) {
             m_cannon->rotateCannon(true);
@@ -269,9 +269,9 @@ int Game1Scene::getNextSheepNumber() const {
 * Returns the position of the first in-line sheep.
 * Called when saving the game.
 */
-QString Game1Scene::getFirstLinePosition() const {
-    Sheep1 *firstSheep = *m_sheepLine.begin();
-    QString ans = QString::number(firstSheep->x()) + "," + QString::number(firstSheep->y());
+QString Game1Scene::getLastLinePosition() const {
+    Sheep1 *lastSheep = *(m_sheepLine.end()-1);
+    QString ans = QString::number(lastSheep->x()) + "," + QString::number(lastSheep->y());
     return ans;
 }
 
