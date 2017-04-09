@@ -1,6 +1,7 @@
 #include "game1/game1.h"
 #include "helper.h"
 #include "gui/gamemainmenu.h"
+#include <QSqlQuery>
 
 /**
 * \file game1.cpp
@@ -11,19 +12,24 @@
 * Sets the size of the window, initializes the graphic items, sets the layouts
 * and connects buttons to their slots.
 */
-Game1::Game1(int level, QWidget *parent) :
+Game1::Game1(int level, bool resume, QWidget *parent) :
     QWidget(parent), m_level(level)
 {
     setFixedSize(600,600);
 
     m_title = new QLabel("Sheep Line (Level " + QString::number(level+1) + ")");
     m_game1Layout = new QVBoxLayout();
-    m_exit = new QPushButton("Save and Exit");
+    if (Helper::getUserId() != 0) {
+        m_exit = new QPushButton("Save and Exit");
+    }
+    else {
+        m_exit = new QPushButton("Exit");
+    }
 
     Helper::makeWidgetLarge(m_title);
     Helper::makeWidgetSmall(m_exit);
 
-    m_gameScene = new Game1Scene(level);
+    m_gameScene = new Game1Scene(level, resume);
     m_gameView = new QGraphicsView;
 
     m_next = NULL;
@@ -31,7 +37,7 @@ Game1::Game1(int level, QWidget *parent) :
     setGame1Layout();
     setLayout(m_game1Layout);
 
-    QObject::connect(m_exit, SIGNAL(clicked()), SLOT(goToMainMenu()));
+    QObject::connect(m_exit, SIGNAL(clicked()), SLOT(save()));
     QObject::connect(m_gameScene, SIGNAL(Done(bool)),SLOT(endGame(bool)));
 }
 
@@ -123,6 +129,36 @@ void Game1::replay() {
 */
 void Game1::next() {
     loadNewGame(false);
+}
+
+/**
+* Saves and exits
+*/
+void Game1::save() {
+    m_gameScene->freeze();
+    int account = Helper::getUserId();
+    if (account != 0) {
+        bool opened = Helper::shaunDB.open();
+        QSqlQuery query;
+        if(opened) {
+            query.prepare("INSERT INTO GAME1 (ACCOUNTID, LEVEL, SCORE, CANNONANGLE, CURRSHEEP, NEXTSHEEP, FIRSTPOS, SHEEPLINE)"
+                          "VALUES (:accountID, :level, :score, :cannonAngle, :currSheep, :nextSheep, :firstPos, :sheepLine)");
+
+            query.bindValue(":accountId", account);
+            query.bindValue(":level", m_level);
+            query.bindValue(":score", m_gameScene->getScore());
+            query.bindValue(":cannonAngle", m_gameScene->getCannonAngle());
+            query.bindValue(":currSheep", m_gameScene->getCurrentSheepNumber());
+            query.bindValue(":nextSheep", m_gameScene->getNextSheepNumber());
+            query.bindValue(":firstPos", m_gameScene->getFirstLinePosition());
+            query.bindValue(":sheepLine", m_gameScene->getInLineSheepNumbers());
+
+            query.exec();
+        }
+
+        Helper::shaunDB.close();
+    }
+    goToMainMenu();
 }
 
 /**

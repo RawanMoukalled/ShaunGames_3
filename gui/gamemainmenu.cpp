@@ -3,7 +3,13 @@
 #include "game1/game1options.h"
 #include "game2/game2options.h"
 #include "game3/game3options.h"
+#include "game1/game1.h"
+#include "game2/game2.h"
+#include "game3/game3.h"
 #include "gui/gameselection.h"
+#include "difficulty.h"
+#include "game3/size.h"
+#include <QSqlQuery>
 
 /**
 * \file gamemainmenu.cpp
@@ -55,7 +61,24 @@ GameMainMenu::GameMainMenu(int gameChoice, QWidget *parent) :
     m_back = new QPushButton("Back to Game Selection Menu");
     m_play = new QPushButton("Play");
     m_resume = new QPushButton("Resume");
-    m_resume->setDisabled(true);
+
+    int account = Helper::getUserId();
+    if (account != 0) {
+        bool opened = Helper::shaunDB.open();
+        QSqlQuery query;
+        if(opened) {
+            query.exec("SELECT COUNT(*) FROM GAME"+ QString::number(m_gameChoice) +" WHERE ACCOUNTID='"+QString::number(account)+"'");
+            query.next();
+            if (query.value(0).toInt() == 0)
+            {
+                m_resume->setDisabled(true);
+            }
+        }
+        Helper::shaunDB.close();
+    }
+    else {
+        m_resume->setDisabled(true);
+    }
 
     m_instructions->setWordWrap(true);
 
@@ -74,6 +97,7 @@ GameMainMenu::GameMainMenu(int gameChoice, QWidget *parent) :
 
     QObject::connect(m_play, SIGNAL(clicked()), this, SLOT(gotoGameOptions()));
     QObject::connect(m_back, SIGNAL(clicked()), this, SLOT(gotoGameSelection()));
+    QObject::connect(m_resume, SIGNAL(clicked()), this, SLOT(resumeSavedGame()));
 }
 
 /**
@@ -116,6 +140,37 @@ void GameMainMenu::gotoGameSelection() {
     GameSelection *selection = new GameSelection;
     selection->show();
     close();
+}
+
+/**
+* Takes the user to his/her saved game.
+* Called after calling resume.
+*/
+void GameMainMenu::resumeSavedGame() {
+    bool opened = Helper::shaunDB.open();
+    QSqlQuery query;
+    if(opened) {
+        query.exec("SELECT * FROM GAME"+ QString::number(m_gameChoice) +" WHERE ACCOUNTID='"+QString::number(Helper::getUserId())+"'");
+        query.next();
+    }
+    Helper::shaunDB.close();
+
+    if (m_gameChoice == 1) {
+        Game1 *op = new Game1(query.value(1).toInt(), true);
+        op->show();
+    }
+    else if (m_gameChoice == 2){
+        Difficulty d = static_cast<Difficulty>(query.value(1).toInt());
+        Game2 *op = new Game2(d, true);
+        op->show();
+    }
+    else {
+        Difficulty d = static_cast<Difficulty>(query.value(1).toInt());
+        Size s = static_cast<Size>(query.value(2).toInt());
+        Game3 *op = new Game3(d, s, true);
+        op->show();
+    }
+    this->close();
 }
 
 /**

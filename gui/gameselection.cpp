@@ -125,6 +125,7 @@ void GameSelection::setGamesListLayout() {
 * Called when the logout button is clicked.
 */
 void GameSelection::goToMain() {
+    Helper::setUserId(0);
     MainWidget *main = new MainWidget;
     main->show();
     close();

@@ -11,7 +11,7 @@
 * Sets the size of the window, initializes the graphic items, sets the layouts
 * and connects buttons to their slots.
 */
-Game2::Game2(Difficulty difficulty, QWidget *parent) :
+Game2::Game2(Difficulty difficulty, bool resume, QWidget *parent) :
     QWidget(parent)
 {
     setFixedSize(600,600);

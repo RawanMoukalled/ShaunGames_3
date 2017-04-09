@@ -2,7 +2,6 @@
 #include "gui/gameselection.h"
 #include "helper.h"
 #include <QSqlQuery>
-#include <QSqlError>
 
 /**
 * \file mainwidget.cpp
@@ -186,6 +185,11 @@ void MainWidget::signUp() {
                 query.bindValue(":username", username);
                 query.bindValue(":password", password);
                 query.exec();
+
+                query.exec("SELECT ID FROM ACCOUNT WHERE USERNAME='"+username+"' AND PASSWORD='"+password+"'");
+                query.next();
+                Helper::setUserId(query.value(0).toInt());
+
                 goToGameSelection();
             } else {
                 QMessageBox::information(0,"Alert", "Account already found with same username: " + username);

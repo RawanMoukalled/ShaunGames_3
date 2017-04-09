@@ -21,7 +21,7 @@ public:
     /**
     * \brief Default constructor
     */
-    explicit Game3(Difficulty difficulty, Size size, QWidget *parent = 0);
+    explicit Game3(Difficulty difficulty, Size size, bool resume = false, QWidget *parent = 0);
 
     /**
     * \brief Destrucor

@@ -25,7 +25,7 @@ public:
     * \brief Constructor
     * \param level Level of the game
     */
-    explicit Game1Scene(int level, QObject *parent = 0);
+    explicit Game1Scene(int level, bool resume = false, QObject *parent = 0);
 
     /**
     * \brief Destructor
@@ -66,6 +66,41 @@ public:
     * \returns Current player score
     */
     int getScore() const;
+
+    /**
+    * \brief Freezes gameplay
+    */
+    void freeze();
+
+    /**
+    * \brief Returns the cannon angle
+    * \returns The cannon angle
+    */
+    int getCannonAngle() const;
+
+    /**
+    * \brief Returns the number on the current sheep
+    * \returns The number on the current sheep
+    */
+    int getCurrentSheepNumber() const;
+
+    /**
+    * \brief Returns the number on the next sheep
+    * \returns The number on the next sheep
+    */
+    int getNextSheepNumber() const;
+
+    /**
+    * \brief Returns the position of the first in-line sheep
+    * \returns Position of the first in-line sheep
+    */
+    QString getFirstLinePosition() const;
+
+    /**
+    * \brief Returns the numbers of all sheep in the line
+    * \returns QString containing all numbers of the sheep in the line
+    */
+    QString getInLineSheepNumbers() const;
 
 signals:
     /**
