@@ -29,7 +29,6 @@ Game2Scene::Game2Scene(Difficulty difficulty, bool resume, QObject *parent) :
 
         QString blockedtiles = query.value(5).toString();
         QStringList tilepositions = blockedtiles.split(",");
-        qDebug()<<tilepositions.size();
         placeTilesResumed(tilepositions);
 
         QString sheeppos = query.value(4).toString();
@@ -217,8 +216,11 @@ void Game2Scene::placeTilesResumed(QStringList positions) {
     }
 
     //set blocks
-    qDebug()<<positions.size();
-    //TODO DONT FORGET TO ADD TO M_BLOCKEDTILES
+    for(int k = 0; k < positions.size()-1; k=k+2) {
+        Tile * toblock = tileAt(positions.at(k).toInt(), positions.at(k+1).toInt());
+        toblock->setBlock(true);
+        m_blockedTiles.push_back(toblock);
+    }
 }
 
 /**

@@ -14,7 +14,7 @@
 * and connects buttons to their slots.
 */
 Game2::Game2(Difficulty difficulty, bool resume, QWidget *parent) :
-    QWidget(parent)
+    QWidget(parent), m_justSaved(false)
 {
     setFixedSize(600,600);
     m_title = new QLabel("Trap the Sheep");
@@ -76,9 +76,9 @@ void Game2::setGame2Layout() {
 * Goes to the main menu of Trap the Sheep.
 */
 void Game2::goToMainMenu() {
+    close();
     GameMainMenu *menu = new GameMainMenu(2);
     menu->show();
-    close();
 }
 
 /**
@@ -113,11 +113,11 @@ void Game2::replay() {
 void Game2::save() {
     //if logged in user
     if(Helper::getUserId() != 0) {
-
+        Helper::deleteSavedGame(2);
+        m_justSaved = true;
         bool opened = Helper::shaunDB.open();
         QSqlQuery query;
         if(opened) {
-
             query.prepare("INSERT INTO GAME2 (ACCOUNTID, DIFFICULTY, SCORE, USERTURN, SHEEPPOS, BLOCKEDTILES) VALUES (:accountid, :difficulty, :score, :userturn, :sheeppos, :blockedtiles)");
 
             query.bindValue(":accountid", Helper::getUserId());
@@ -134,6 +134,17 @@ void Game2::save() {
     goToMainMenu();
 }
 
+
+/**
+* \brief Deletes the saved game on close
+* \param bar The event triggered
+*/
+void Game2::closeEvent(QCloseEvent *bar) {
+    if (!m_justSaved) {
+        Helper::deleteSavedGame(2);
+    }
+    bar->accept();
+}
 /**
 * Removes the save and exitbutton and adds the go back and replay
 * buttons along with their connections.
