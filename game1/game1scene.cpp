@@ -147,6 +147,7 @@ void Game1Scene::mousePressEvent(QGraphicsSceneMouseEvent *) {
 * Ends the game
 */
 void Game1Scene::gameOver(bool win) {
+    int account = Helper::getUserId();
     m_gameOverPicture = new GameOver(win);
 
     addItem(m_gameOverPicture);
@@ -154,6 +155,24 @@ void Game1Scene::gameOver(bool win) {
     emit Done(win);
     m_cannon->setEnabled(false);
     m_line_timer->stop();
+
+    if (account != 0) {
+        bool opened = Helper::shaunDB.open();
+        QSqlQuery query;
+        if (opened) {
+            query.exec("SELECT SCORE FROM SCORE WHERE ACCOUNTID='"+QString::number(account)+"' AND GAMENB='1'");
+            query.next();
+
+            QString scores = query.value(0).toString();
+            query.finish();
+
+            scores += QString::number(m_level) + "," + QString::number(m_score) + ",";
+
+            query.exec("UPDATE SCORE SET SCORE = '" + scores + "' WHERE ACCOUNTID = '"+ QString::number(account) +
+                       "' AND GAMENB='1'");
+        }
+        Helper::shaunDB.close();
+    }
 }
 
 /**

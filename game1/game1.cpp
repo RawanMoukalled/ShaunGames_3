@@ -2,7 +2,6 @@
 #include "helper.h"
 #include "gui/gamemainmenu.h"
 #include <QSqlQuery>
-#include <QSqlError>
 
 /**
 * \file game1.cpp
@@ -14,23 +13,14 @@
 * and connects buttons to their slots.
 */
 Game1::Game1(int level, bool resume, QWidget *parent) :
-    QWidget(parent), m_level(level)
+    QWidget(parent), m_level(level), m_justSaved(false)
 {
     setFixedSize(600,600);
 
     m_title = new QLabel("Sheep Line (Level " + QString::number(level+1) + ")");
     m_game1Layout = new QVBoxLayout();
 
-    int account = Helper::getUserId();
-    if (account != 0) {
-        bool opened = Helper::shaunDB.open();
-
-        QSqlQuery query;
-        if(opened) {
-            query.exec("DELETE FROM GAME1 WHERE ACCOUNTID='" + QString::number(account) + "'");
-            qDebug() << query.lastError();
-        }
-        Helper::shaunDB.close();
+    if (Helper::getUserId() != 0) {
         m_exit = new QPushButton("Save and Exit");
     }
     else {
@@ -50,6 +40,7 @@ Game1::Game1(int level, bool resume, QWidget *parent) :
 
     QObject::connect(m_exit, SIGNAL(clicked()), SLOT(save()));
     QObject::connect(m_gameScene, SIGNAL(Done(bool)),SLOT(endGame(bool)));
+
 }
 
 /**
@@ -94,9 +85,9 @@ void Game1::setGame1Layout() {
 * Goes to the main menu of Sheep Line
 */
 void Game1::goToMainMenu() {
+    close();
     GameMainMenu *menu = new GameMainMenu(1);
     menu->show();
-    close();
 }
 
 /**
@@ -149,6 +140,8 @@ void Game1::save() {
     m_gameScene->freeze();
     int account = Helper::getUserId();
     if (account != 0) {
+        Helper::deleteSavedGame(1);
+        m_justSaved = true;
         bool opened = Helper::shaunDB.open();
         QSqlQuery query;
         if(opened) {
@@ -173,6 +166,17 @@ void Game1::save() {
 }
 
 /**
+* \brief Deletes the saved game on close
+* \param bar The event triggered
+*/
+void Game1::closeEvent(QCloseEvent *bar) {
+    if (!m_justSaved) {
+        Helper::deleteSavedGame(1);
+    }
+    bar->accept();
+}
+
+/**
 * Loads a new game of either the same level or the next
 */
 void Game1::loadNewGame(bool sameLevel) {
@@ -188,7 +192,6 @@ void Game1::loadNewGame(bool sameLevel) {
     m_gameView->setBackgroundBrush(QBrush(QImage("pictures/grass.jpg").scaledToHeight(550)));
     m_gameView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_gameView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
 
     m_game1Layout->removeWidget(m_goBack);
     delete m_goBack;

@@ -62,6 +62,12 @@ public slots:
     */
     void save();
 
+    /**
+    * \brief Deletes the saved game on close
+    * \param bar The event triggered
+    */
+    void closeEvent(QCloseEvent *bar);
+
 private:
     QLabel *m_title; ///< Main title of the game
     QPushButton *m_exit; ///< Button to take the user to the game main menu
@@ -76,6 +82,7 @@ private:
 
     int m_level; ///<  Level selected
 
+    bool m_justSaved; ///< Remembers whether the game has just been saved
 
     /**
     * \brief Sets the different graphic items in one layout for the game

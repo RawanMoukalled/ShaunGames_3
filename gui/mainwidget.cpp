@@ -179,16 +179,27 @@ void MainWidget::signUp() {
             query.next();
             //check if username already exists
             if (query.value(0).toInt() <= 0) {
-                query.prepare("INSERT INTO ACCOUNT (FIRSTNAME, LASTNAME, USERNAME, PASSWORD) VALUES (:firstname, :lastname, :username, :password)");
+                query.prepare("INSERT INTO ACCOUNT (FIRSTNAME, LASTNAME, USERNAME, PASSWORD, GAME1UNLOCKEDLEVELS) VALUES (:firstname, :lastname, :username, :password, :game1Levels)");
                 query.bindValue(":firstname", firstname);
                 query.bindValue(":lastname", lastname);
                 query.bindValue(":username", username);
                 query.bindValue(":password", password);
+                query.bindValue(":game1Levels", 1);
                 query.exec();
 
                 query.exec("SELECT ID FROM ACCOUNT WHERE USERNAME='"+username+"' AND PASSWORD='"+password+"'");
                 query.next();
-                Helper::setUserId(query.value(0).toInt());
+
+                int userId = query.value(0).toInt();
+                Helper::setUserId(userId);
+
+                for (int i=1; i<=3; ++i) {
+                    query.prepare("INSERT INTO SCORE (ACCOUNTID, GAMENB, SCORE) VALUES (:accountId, :gameNb, :score)");
+                    query.bindValue(":accountId", QString::number(userId));
+                    query.bindValue(":gameNb", i);
+                    query.bindValue(":score", "");
+                    query.exec();
+                }
 
                 goToGameSelection();
             } else {
