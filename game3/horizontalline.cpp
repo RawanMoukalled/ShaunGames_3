@@ -90,3 +90,17 @@ Box* HorizontalLine::getAbove() const {
 Box* HorizontalLine::getUnder() const {
     return m_under;
 }
+
+/**
+* Draws the line as grey and edits its corresponding boxes.
+*/
+void HorizontalLine::simpleDraw() {
+    draw();
+    if (m_above != NULL) {
+        m_above->setUnder();
+    }
+    if (m_under != NULL) {
+        m_under->setAbove();
+    }
+    turnGrey();
+}

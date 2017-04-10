@@ -90,3 +90,17 @@ Box* VerticalLine::getLeft() const {
 Box* VerticalLine::getRight() const {
     return m_right;
 }
+
+/**
+* Draws the line as grey and edits its corresponding boxes.
+*/
+void VerticalLine::simpleDraw() {
+    draw();
+    if (m_left != NULL) {
+        m_left->setRight();
+    }
+    if (m_right != NULL) {
+        m_right->setLeft();
+    }
+    turnGrey();
+}

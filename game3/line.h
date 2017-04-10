@@ -56,6 +56,11 @@ public:
     * \returns Whether the line is horizontal
     */
     bool isHorizontal() const;
+
+    /**
+    * \brief Draws the line as grey and edits its corresponding boxes
+    */
+    virtual void simpleDraw() = 0;
     
 signals:
     

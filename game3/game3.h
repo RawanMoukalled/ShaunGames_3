@@ -31,7 +31,6 @@ public:
 signals:
 
 public slots:
-
     /**
     * \brief Removes save and exit button and adds replay and back buttons
     */
@@ -47,6 +46,17 @@ public slots:
     */
     void goToMainMenu();
 
+    /**
+    * \brief Saves and exits
+    */
+    void save();
+
+    /**
+    * \brief Deletes the saved game on close
+    * \param bar The event triggered
+    */
+    void closeEvent(QCloseEvent *bar);
+
 private:
     const Difficulty m_difficulty; ///< Difficulty of the game in the scene
     const Size m_size; ///< Size of the game in the scene
@@ -59,6 +69,8 @@ private:
 
     QPushButton *m_goBack; ///< Button to go back to game menu
     QPushButton *m_replay; ///< Button to replay the game
+
+    bool m_justSaved; ///< Remembers whether a new game has just been saved
 
     /**
     * \brief Sets the different graphic items in one layout for the game

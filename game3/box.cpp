@@ -9,7 +9,7 @@
 * Sets Box properties.
 */
 Box::Box(QObject *parent) :
-    QObject(parent), m_above(false), m_left(false), m_under(false), m_right(false)
+    QObject(parent), m_above(false), m_left(false), m_under(false), m_right(false), m_closedByUser(false), m_closedByPC(false)
 {
 }
 
@@ -26,6 +26,7 @@ Box::~Box() {
 void Box::drawShaun() {
     setPixmap(QPixmap("pictures/shaun.png"));
     setScale(0.1);
+    m_closedByPC = true;
 }
 
 /**
@@ -34,6 +35,7 @@ void Box::drawShaun() {
 void Box::drawBitzer() {
     setPixmap(QPixmap("pictures/Bitzer.png"));
     setScale(0.09);
+    m_closedByUser = true;
 }
 
 /**
@@ -67,13 +69,21 @@ void Box::setRight() {
 /**
 * Checks if the box has been closed.
 */
-bool Box::isClosed() {
+bool Box::isClosed() const {
     return m_above && m_left && m_under && m_right;
 }
 
 /**
 * Checks if the box is one line away from being closed.
 */
-int Box::numberOfLinesDrawn() {
+int Box::numberOfLinesDrawn() const {
     return static_cast<int>(m_above) + static_cast<int>(m_left) + static_cast<int>(m_under) + static_cast<int>(m_right);
+}
+
+/**
+* \brief Returns whether the user has closed this box
+* \returns Whether the user has closed this box
+*/
+bool Box::wasClosedByUser() const {
+    return m_closedByUser;
 }
