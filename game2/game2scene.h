@@ -43,9 +43,21 @@ public:
     void placeTiles();
 
     /**
+    * \brief Places tiles with blocks loaded from prevously saved game
+    * \param positions Loaded positions
+    */
+    void placeTilesResumed(QStringList positions);
+
+    /**
     * \brief places the sheep on a random unblocked tile at the beginning of the game
     */
     void placeSheepInitial();
+
+    /**
+    * \brief places the sheep on a the given unblocked tile at the beginning of the game
+    * \param tile The tile to place the sheep on
+    */
+    void placeSheepInitialResumed(Tile * tile);
 
     /**
     * \brief Gets the left, right, upper and lower non-blocked neighbors of the given tile

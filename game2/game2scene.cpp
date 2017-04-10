@@ -14,19 +14,32 @@
 Game2Scene::Game2Scene(Difficulty difficulty, bool resume, QObject *parent) :
     QGraphicsScene(parent), m_score(0)
 {
-//    if(resume) {
-//        bool opened = Helper::shaunDB.open();
-//        QSqlQuery query;
-//        if(opened) {
-//            query.exec("SELECT * FROM GAME2 WHERE ACCOUNTID='" + QString::number(Helper::getUserId()) +"'");
-//            query.next();
-//        }
-//        Helper::shaunDB.close();
-//    }
-
     m_difficulty = difficulty;
 
-    if(!resume) {
+    if(resume) {
+        bool opened = Helper::shaunDB.open();
+        QSqlQuery query;
+        if(opened) {
+            query.exec("SELECT * FROM GAME2 WHERE ACCOUNTID='" + QString::number(Helper::getUserId()) +"'");
+            query.next();
+        }
+        Helper::shaunDB.close();
+
+        m_score = query.value(2).toInt();
+
+        QString blockedtiles = query.value(5).toString();
+        QStringList tilepositions = blockedtiles.split(",");
+        qDebug()<<tilepositions.size();
+        placeTilesResumed(tilepositions);
+
+        QString sheeppos = query.value(4).toString();
+        QStringList pos = sheeppos.split(",");
+        int row = pos.at(0).toInt();
+        int col = pos.at(1).toInt();
+        Tile * currTile = tileAt(row, col);
+        placeSheepInitialResumed(currTile);
+        m_user_turn = query.value(3).toBool();
+    } else {
         //starting blocks
         if(difficulty == EASY) {
             m_block_count = 10;
@@ -35,22 +48,22 @@ Game2Scene::Game2Scene(Difficulty difficulty, bool resume, QObject *parent) :
         } else if(difficulty == HARD) {
             m_block_count = 5;
         }
-    }
-    m_score = 1500;
+        m_score = 1500;
+        m_user_turn = true;
 
+        placeTiles();
+        placeSheepInitial();
+    }
 
     placeLCD();
-
     m_gameOverPicture = NULL;
-    m_user_turn = true;
-
-    placeTiles();
-    placeSheepInitial();
 
     m_delay = new QTimer(this);
     connect(m_delay, SIGNAL(timeout()), this, SLOT(moveSheep()));
 
-
+    if(!m_user_turn) {
+        moveSheep();
+    }
 }
 
 /**
@@ -141,6 +154,7 @@ void Game2Scene::placeTiles() {
             offset = 22.5;
         }
 
+
         for(int j = 0; j < column_size; j++) {
             Tile *tile;
 
@@ -164,6 +178,50 @@ void Game2Scene::placeTiles() {
 }
 
 /**
+* Places tiles with blocks loaded from previously saved game
+*/
+void Game2Scene::placeTilesResumed(QStringList positions) {
+    bool even = false; //to alternate between 12 and 13
+    int column_size;
+
+    double left = 44.5;
+    double top = 38.5;
+    int offset;
+
+    int count = 0;
+
+    for(int i = 0; i < 12; i++) {
+        QVector< Tile* > row;
+        if(!even) {
+            column_size = 13;
+            offset = 0;
+
+        } else {
+            column_size = 12;
+            offset = 22.5;
+        }
+
+        for(int j = 0; j < column_size; j++) {
+            Tile *tile;
+
+            tile = new Tile(false, i, j);
+
+            tile->setPos(offset + j*left,30+i*top);
+            row.push_back(tile);
+            addItem(tile);
+            count++;
+        }
+        even = !even;
+
+        m_tiles.push_back(row);
+    }
+
+    //set blocks
+    qDebug()<<positions.size();
+    //TODO DONT FORGET TO ADD TO M_BLOCKEDTILES
+}
+
+/**
 * Chooses a random tile to place the sheep on at the beginning of the game.
 */
 void Game2Scene::placeSheepInitial() {
@@ -178,6 +236,14 @@ void Game2Scene::placeSheepInitial() {
 
     m_sheep = new Sheep2(sheep_tile);
 
+    addItem(m_sheep);
+}
+
+/**
+* Chooses a random tile to place the sheep on at the beginning of the game.
+*/
+void Game2Scene::placeSheepInitialResumed(Tile * tile) {
+    m_sheep = new Sheep2(tile);
     addItem(m_sheep);
 }
 
