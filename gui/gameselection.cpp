@@ -33,14 +33,19 @@ GameSelection::GameSelection(QWidget *parent) :
     m_game3->setIconSize(QSize(200,200));
 
     m_title = new QLabel("Let the Games Begin");
+    m_title->setAlignment(Qt::AlignCenter);
     Helper::makeWidgetLarge(m_title);
 
-    m_myAccountButton = new QPushButton("My Account");
-
+    if (Helper::getUserId() != 0) {
+        m_myAccountButton = new QPushButton("My Account");
+        Helper::makeWidgetSmall(m_myAccountButton);
+    }
+    else {
+        m_myAccountButton = NULL;
+    }
     m_logoutButton = new QPushButton("Logout");
     m_logoutButton->setAccessibleName("m_logoutButton");
 
-    Helper::makeWidgetSmall(m_myAccountButton);
     Helper::makeWidgetSmall(m_logoutButton);
 
     m_gameSelectionFullLayout = new QVBoxLayout;
@@ -61,7 +66,9 @@ GameSelection::~GameSelection() {
     delete m_game2;
     delete m_game3;
     delete m_title;
-    delete m_myAccountButton;
+    if (m_myAccountButton != NULL) {
+        delete m_myAccountButton;
+    }
     delete m_logoutButton;
     delete m_gamesListLayout;
     delete m_linksListLayout;
@@ -95,7 +102,9 @@ void GameSelection::setGamesSelectionFullLayout() {
 * Sets the layout for the navigation buttons.
 */
 void GameSelection::setLinksListLayout() {
-    m_linksListLayout->addWidget(m_myAccountButton);
+    if (m_myAccountButton != NULL) {
+        m_linksListLayout->addWidget(m_myAccountButton);
+    }
     m_linksListLayout->addWidget(m_logoutButton);
 }
 
@@ -172,7 +181,9 @@ void GameSelection::goToGame3() {
 * Sets all connections.
 */
 void GameSelection::setConnections() {
-    QObject::connect(m_myAccountButton, SIGNAL(clicked()), SLOT(goToMyAccount()));
+    if (m_myAccountButton != NULL) {
+        QObject::connect(m_myAccountButton, SIGNAL(clicked()), SLOT(goToMyAccount()));
+    }
     QObject::connect(m_logoutButton, SIGNAL(clicked()), SLOT(goToMain()));
     QObject::connect(m_game1, SIGNAL(clicked()), SLOT(goToGame1()));
     QObject::connect(m_game2, SIGNAL(clicked()), SLOT(goToGame2()));
