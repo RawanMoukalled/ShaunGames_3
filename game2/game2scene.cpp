@@ -1,5 +1,7 @@
 #include "game2scene.h"
 #include <climits>
+#include <QSqlQuery>
+#include "helper.h"
 
 /**
 * \file game2scene.cpp
@@ -9,42 +11,58 @@
 /**
 * Places the items on the scene and sets the user turn.
 */
-Game2Scene::Game2Scene(Difficulty difficulty, QObject *parent) :
-    QGraphicsScene(parent), m_difficulty(difficulty), m_score(0)
+Game2Scene::Game2Scene(Difficulty difficulty, bool resume, QObject *parent) :
+    QGraphicsScene(parent), m_score(0)
 {
-    //starting blocks
-    if(difficulty == EASY) {
-        m_block_count = 10;
-    } else if(difficulty == MODERATE) {
-        m_block_count = 7;
-    } else if(difficulty == HARD) {
-        m_block_count = 5;
+    m_difficulty = difficulty;
+
+    if(resume) {
+        bool opened = Helper::shaunDB.open();
+        QSqlQuery query;
+        if(opened) {
+            query.exec("SELECT * FROM GAME2 WHERE ACCOUNTID='" + QString::number(Helper::getUserId()) +"'");
+            query.next();
+        }
+        Helper::shaunDB.close();
+
+        m_score = query.value(2).toInt();
+
+        QString blockedtiles = query.value(5).toString();
+        QStringList tilepositions = blockedtiles.split(",");
+        placeTilesResumed(tilepositions);
+
+        QString sheeppos = query.value(4).toString();
+        QStringList pos = sheeppos.split(",");
+        int row = pos.at(0).toInt();
+        int col = pos.at(1).toInt();
+        Tile * currTile = tileAt(row, col);
+        placeSheepInitialResumed(currTile);
+        m_user_turn = query.value(3).toBool();
+    } else {
+        //starting blocks
+        if(difficulty == EASY) {
+            m_block_count = 10;
+        } else if(difficulty == MODERATE) {
+            m_block_count = 7;
+        } else if(difficulty == HARD) {
+            m_block_count = 5;
+        }
+        m_score = 1500;
+        m_user_turn = true;
+
+        placeTiles();
+        placeSheepInitial();
     }
-    m_score = 1500;
-    m_scoreDisplay = new QLCDNumber(4);
 
-    addWidget(m_scoreDisplay);
-    m_scoreDisplay->move(250,5);
-
-    QPalette lcdPalette = m_scoreDisplay->palette();
-    lcdPalette.setColor(QPalette::Background, QColor(170, 255, 0));
-    lcdPalette.setColor(QPalette::WindowText, QColor(85, 85, 255));
-    lcdPalette.setColor(QPalette::Light, QColor(255, 0, 0));
-    lcdPalette.setColor(QPalette::Dark, QColor(255, 0, 0));
-
-    m_scoreDisplay->setPalette(lcdPalette);
-    m_scoreDisplay->display(m_score);
-
+    placeLCD();
     m_gameOverPicture = NULL;
-    m_user_turn = true;
-
-    placeTiles();
-    placeSheepInitial();
 
     m_delay = new QTimer(this);
     connect(m_delay, SIGNAL(timeout()), this, SLOT(moveSheep()));
 
-
+    if(!m_user_turn) {
+        moveSheep();
+    }
 }
 
 /**
@@ -63,6 +81,21 @@ Game2Scene::~Game2Scene() {
         delete m_gameOverPicture;
     }
     delete m_scoreDisplay;
+}
+
+void Game2Scene::placeLCD() {
+    m_scoreDisplay = new QLCDNumber(4);
+    addWidget(m_scoreDisplay);
+    m_scoreDisplay->move(250,5);
+
+    QPalette lcdPalette = m_scoreDisplay->palette();
+    lcdPalette.setColor(QPalette::Background, QColor(170, 255, 0));
+    lcdPalette.setColor(QPalette::WindowText, QColor(85, 85, 255));
+    lcdPalette.setColor(QPalette::Light, QColor(255, 0, 0));
+    lcdPalette.setColor(QPalette::Dark, QColor(255, 0, 0));
+
+    m_scoreDisplay->setPalette(lcdPalette);
+    m_scoreDisplay->display(m_score);
 }
 
 /**
@@ -120,11 +153,14 @@ void Game2Scene::placeTiles() {
             offset = 22.5;
         }
 
+
         for(int j = 0; j < column_size; j++) {
             Tile *tile;
 
+            //if the tile is blocked
             if ( std::find(flagged.begin(), flagged.end(), count) != flagged.end() ) {
                 tile = new Tile(true, i, j);
+                m_blockedTiles.push_back(tile);
             } else {
                 tile = new Tile(false, i, j);
             }
@@ -137,6 +173,53 @@ void Game2Scene::placeTiles() {
         even = !even;
 
         m_tiles.push_back(row);
+    }
+}
+
+/**
+* Places tiles with blocks loaded from previously saved game
+*/
+void Game2Scene::placeTilesResumed(QStringList positions) {
+    bool even = false; //to alternate between 12 and 13
+    int column_size;
+
+    double left = 44.5;
+    double top = 38.5;
+    int offset;
+
+    int count = 0;
+
+    for(int i = 0; i < 12; i++) {
+        QVector< Tile* > row;
+        if(!even) {
+            column_size = 13;
+            offset = 0;
+
+        } else {
+            column_size = 12;
+            offset = 22.5;
+        }
+
+        for(int j = 0; j < column_size; j++) {
+            Tile *tile;
+
+            tile = new Tile(false, i, j);
+
+            tile->setPos(offset + j*left,30+i*top);
+            row.push_back(tile);
+            addItem(tile);
+            count++;
+        }
+        even = !even;
+
+        m_tiles.push_back(row);
+    }
+
+    //set blocks
+    for(int k = 0; k < positions.size()-1; k=k+2) {
+        Tile * toblock = tileAt(positions.at(k).toInt(), positions.at(k+1).toInt());
+        toblock->setBlock(true);
+        m_blockedTiles.push_back(toblock);
     }
 }
 
@@ -155,6 +238,14 @@ void Game2Scene::placeSheepInitial() {
 
     m_sheep = new Sheep2(sheep_tile);
 
+    addItem(m_sheep);
+}
+
+/**
+* Chooses a random tile to place the sheep on at the beginning of the game.
+*/
+void Game2Scene::placeSheepInitialResumed(Tile * tile) {
+    m_sheep = new Sheep2(tile);
     addItem(m_sheep);
 }
 
@@ -417,6 +508,25 @@ void Game2Scene::gameOver(bool win) {
     m_gameOverPicture = new GameOver(win);
     addItem(m_gameOverPicture);
     emit Done();
+
+    int account = Helper::getUserId();
+    if ( account != 0) {
+        bool opened = Helper::shaunDB.open();
+        QSqlQuery query;
+        if (opened) {
+            query.exec("SELECT SCORE FROM SCORE WHERE ACCOUNTID='"+QString::number(account)+"' AND GAMENB='2'");
+            query.next();
+
+            QString scores = query.value(0).toString();
+            query.finish();
+
+            scores += QString::number(m_difficulty) + "," + QString::number(m_score) + ",";
+
+            query.exec("UPDATE SCORE SET SCORE = '" + scores + "' WHERE ACCOUNTID = '"+ QString::number(account) +
+                       "' AND GAMENB='2'");
+        }
+        Helper::shaunDB.close();
+    }
 }
 
 /**
@@ -502,4 +612,52 @@ QVector< Tile* > *Game2Scene::getNonBlockedBorders() {
     }
 
     return borders;
+}
+
+
+/**
+* Returns the difficulty of the game.
+*/
+Difficulty Game2Scene::getDifficulty() {
+    return m_difficulty;
+}
+
+/**
+* Returns the current score of the game.
+*/
+int Game2Scene::getScore() {
+    return m_score;
+}
+
+/**
+* Returns a string representation of the sheep row and column.
+*/
+QString Game2Scene::getSheepPos() {
+    QString pos = QString::number(m_sheep->getCurrent()->getRow());
+    pos.append(",");
+    pos.append(QString::number(m_sheep->getCurrent()->getCol()));
+
+    return pos;
+}
+
+/**
+* Returns the string representation of the blocked tiles' positions.
+*/
+QString Game2Scene::getBlockedTilesPos() {
+    QString pos = "";
+    for(QVector< Tile* >::iterator it = m_blockedTiles.begin(); it != m_blockedTiles.end(); ++it) {
+        pos.append(QString::number((*it)->getRow()));
+        pos.append(",");
+        pos.append(QString::number((*it)->getCol()));
+        pos.append(",");
+    }
+
+    return pos;
+}
+
+/**
+* Adds a tile to the list of blocked tiles
+*/
+void Game2Scene::addToBlockedTiles(Tile* tile) {
+    m_blockedTiles.push_back(tile);
 }

@@ -24,7 +24,7 @@ public:
     /**
     * \brief Default constructor
     */
-    explicit Game2Scene(Difficulty difficulty, QObject *parent = 0);
+    explicit Game2Scene(Difficulty difficulty, bool resume, QObject *parent = 0);
 
     /**
     * Destructor
@@ -43,9 +43,21 @@ public:
     void placeTiles();
 
     /**
+    * \brief Places tiles with blocks loaded from prevously saved game
+    * \param positions Loaded positions
+    */
+    void placeTilesResumed(QStringList positions);
+
+    /**
     * \brief places the sheep on a random unblocked tile at the beginning of the game
     */
     void placeSheepInitial();
+
+    /**
+    * \brief places the sheep on a the given unblocked tile at the beginning of the game
+    * \param tile The tile to place the sheep on
+    */
+    void placeSheepInitialResumed(Tile * tile);
 
     /**
     * \brief Gets the left, right, upper and lower non-blocked neighbors of the given tile
@@ -145,6 +157,40 @@ public:
     */
     QVector< Tile* > *getNonBlockedBorders();
 
+    /**
+    * \brief Returns the difficulty of the game
+    * \returns the difficulty of the game
+    */
+    Difficulty getDifficulty();
+
+    /**
+    * \brief Returns the current score of the game
+    * \returns the score of the game
+    */
+    int getScore();
+
+    /**
+    * \brief Returns a string representation of the sheep row and column
+    * \returns string representing the sheep's current row and column
+    */
+    QString getSheepPos();
+
+    /**
+    * \brief Returns the string representation of the blocked tiles' positions
+    * \returns string representing the blocked tiles' positions
+    */
+    QString getBlockedTilesPos();
+
+    /**
+    * \brief Adds a tile to the list of blocked tiles
+    * \param tile The tile to add to the list
+    */
+    void addToBlockedTiles(Tile* tile);
+
+    /**
+    * \brief Places the LCD on the screen
+    */
+    void placeLCD();
 
 signals:
     /**
@@ -169,6 +215,7 @@ private:
     QTimer *m_delay; ///< Delay on computer's turn
     GameOver *m_gameOverPicture; ///< Picture to be overlayed on the screen when game is over
     QLCDNumber *m_scoreDisplay; ///< LCD that displays the score
+    QVector< Tile* > m_blockedTiles; ///< List of the blocked tiles
     
 };
 

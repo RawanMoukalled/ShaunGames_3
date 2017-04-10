@@ -68,6 +68,7 @@ void Tile::mousePressEvent(QGraphicsSceneMouseEvent *event) {
         Game2Scene *sc = static_cast<Game2Scene*>(scene());
         if(m_hasSheep == false && m_blocked == false && sc->getUserTurn()) {
             setBlock(true);
+            sc->addToBlockedTiles(this);
             sc->decrementScore();
 
             //check if the user has won
