@@ -51,6 +51,11 @@ public:
     * \returns box under the line
     */
     Box* getUnder() const;
+
+    /**
+    * \brief Draws the line as grey and edits its corresponding boxes
+    */
+    void simpleDraw();
     
 signals:
     

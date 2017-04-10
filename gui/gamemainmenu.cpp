@@ -167,6 +167,7 @@ void GameMainMenu::resumeSavedGame() {
     else {
         Difficulty d = static_cast<Difficulty>(query.value(1).toInt());
         Size s = static_cast<Size>(query.value(2).toInt());
+
         Game3 *op = new Game3(d, s, true);
         op->show();
     }

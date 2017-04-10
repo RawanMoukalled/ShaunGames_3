@@ -51,6 +51,11 @@ public:
     * \returns box to the right of the line
     */
     Box* getRight() const;
+
+    /**
+    * \brief Draws the line as grey and edits its corresponding boxes
+    */
+    void simpleDraw();
     
 signals:
     

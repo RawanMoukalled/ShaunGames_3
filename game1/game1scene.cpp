@@ -108,7 +108,8 @@ Game1Scene::Game1Scene(int level, bool resume, QObject *parent) :
     addItem(m_barn);
 
     if (resume) {
-        m_scoreDisplay->display(query.value(2).toInt());
+        m_score = query.value(2).toInt();
+        m_scoreDisplay->display(m_score);
 
         int goalRotation = query.value(3).toInt();
         while (m_cannon->rotation() != goalRotation) {

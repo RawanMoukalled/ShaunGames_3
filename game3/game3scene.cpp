@@ -1,4 +1,6 @@
 #include "game3scene.h"
+#include "helper.h"
+#include <QSqlQuery>
 
 /**
 * \file game3scene.cpp
@@ -8,7 +10,7 @@
 /**
 * Initializes the difficulty, size, dots, lines and boxes of the game.
 */
-Game3Scene::Game3Scene(Difficulty difficulty, Size size, QObject *parent) :
+Game3Scene::Game3Scene(Difficulty difficulty, Size size, bool resume, QObject *parent) :
     QGraphicsScene(parent), m_difficulty(difficulty), m_size(size), m_userTurn(true), m_boxesClosedByUser(0),
     m_boxesClosedByComputer(0), m_score(0), m_dots(size+1), m_horizontalLines(size+1), m_verticalLines(size), m_boxes(size),
     m_unmarkedLines(), m_newLines()
@@ -87,6 +89,63 @@ Game3Scene::Game3Scene(Difficulty difficulty, Size size, QObject *parent) :
     lcdPalette.setColor(QPalette::Dark, QColor(255, 0, 0));
 
     m_scoreDisplay->setPalette(lcdPalette);
+
+    int userId = Helper::getUserId();
+    if (userId != 0 && resume) {
+        bool opened = Helper::shaunDB.open();
+        QSqlQuery query;
+        if (resume && opened) {
+            query.exec("SELECT * FROM GAME3 WHERE ACCOUNTID='"+QString::number(userId)+"'");
+            query.next();
+        }
+        Helper::shaunDB.close();
+
+        m_score = query.value(3).toInt();
+        m_scoreDisplay->display(m_score);
+        m_userTurn = query.value(4).toBool();
+
+        QString pcBoxes = query.value(5).toString();
+        QStringList pcIndices = pcBoxes.split(",", QString::SkipEmptyParts);
+        for (int box=0; box<pcIndices.size(); box+=2) {
+            int i = pcIndices.at(box).toInt();
+            int j = pcIndices.at(box+1).toInt();
+
+            m_boxes[i][j]->drawShaun();
+            ++m_boxesClosedByComputer;
+        }
+
+        QString userBoxes = query.value(6).toString();
+        QStringList userIndices = userBoxes.split(",", QString::SkipEmptyParts);
+        for (int box=0; box<userIndices.size(); box+=2) {
+            int i = userIndices.at(box).toInt();
+            int j = userIndices.at(box+1).toInt();
+
+            m_boxes[i][j]->drawBitzer();
+            ++m_boxesClosedByUser;
+        }
+
+        QString horizontalLines = query.value(7).toString();
+        QStringList hLineIndices = horizontalLines.split(",", QString::SkipEmptyParts);
+        for (int box=0; box<hLineIndices.size(); box+=2) {
+            int i = hLineIndices.at(box).toInt();
+            int j = hLineIndices.at(box+1).toInt();
+
+            m_horizontalLines[i][j]->simpleDraw();
+            int ind = m_unmarkedLines.indexOf(m_horizontalLines[i][j]);
+            m_unmarkedLines.remove(ind);
+        }
+
+        QString verticalLines = query.value(8).toString();
+        QStringList vLineIndices = verticalLines.split(",", QString::SkipEmptyParts);
+        for (int box=0; box<vLineIndices.size(); box+=2) {
+            int i = vLineIndices.at(box).toInt();
+            int j = vLineIndices.at(box+1).toInt();
+
+            m_verticalLines[i][j]->simpleDraw();
+            int ind = m_unmarkedLines.indexOf(m_verticalLines[i][j]);
+            m_unmarkedLines.remove(ind);
+        }
+    }
 }
 
 /**
@@ -226,9 +285,9 @@ void Game3Scene::closeBoxByComputer() {
 * Finds and returns a non-clicked line that closes at least one box.
 * Returns NULL if not found.
 */
-Line *Game3Scene::getLineThatClosesBox() {
+Line *Game3Scene::getLineThatClosesBox() const {
     QVector<Line*> potentialLines;
-    for (QVector<Line*>::iterator it = m_unmarkedLines.begin(); it != m_unmarkedLines.end(); ++it) {
+    for (QVector<Line*>::const_iterator it = m_unmarkedLines.begin(); it != m_unmarkedLines.end(); ++it) {
         if ((*it)->isHorizontal()) {
             HorizontalLine *line = static_cast<HorizontalLine*>(*it);
             Box *above = line->getAbove();
@@ -266,9 +325,9 @@ Line *Game3Scene::getLineThatClosesBox() {
 * It does so by checking that the returned line is not the third line to be drawn around any box.
 * If such a line is not found, it returns NULL.
 */
-Line *Game3Scene::getSmartLine() {
+Line *Game3Scene::getSmartLine() const {
     QVector<Line*> potentialLines;
-    for (QVector<Line*>::iterator it = m_unmarkedLines.begin(); it != m_unmarkedLines.end(); ++it) {
+    for (QVector<Line*>::const_iterator it = m_unmarkedLines.begin(); it != m_unmarkedLines.end(); ++it) {
         if ((*it)->isHorizontal()) {
             HorizontalLine *line = static_cast<HorizontalLine*>(*it);
             Box *above = line->getAbove();
@@ -293,4 +352,84 @@ Line *Game3Scene::getSmartLine() {
         int size = potentialLines.size();
         return potentialLines.at(rand() % size);
     }
+}
+
+/**
+* Freezes gameplay.
+* Called when the user stops the game mid-play.
+*/
+void Game3Scene::freeze() {
+    m_userTurn = false;
+    m_delay->stop();
+}
+
+/**
+* Returns the game score.
+*/
+int Game3Scene::getScore() const {
+    return m_score;
+}
+
+/**
+* Returns a QString with information on which boxes have been closed by the user.
+* Called when saving the game.
+*/
+QString Game3Scene::getBoxesClosedByUser() const {
+    QString ans = "";
+    for (int i=0; i<m_size; ++i) {
+        for (int j=0; j<m_size; ++j) {
+            if (m_boxes[i][j]->isClosed() && m_boxes[i][j]->wasClosedByUser()) {
+                ans += QString::number(i) + "," + QString::number(j) + ",";
+            }
+        }
+    }
+    return ans;
+}
+
+/**
+* Returns a QString with information on which boxes have been closed by the PC.
+* Called when saving the game.
+*/
+QString Game3Scene::getBoxesClosedByPC() const {
+    QString ans = "";
+    for (int i=0; i<m_size; ++i) {
+        for (int j=0; j<m_size; ++j) {
+            if (m_boxes[i][j]->isClosed() && !m_boxes[i][j]->wasClosedByUser()) {
+                ans += QString::number(i) + "," + QString::number(j) + ",";
+            }
+        }
+    }
+    return ans;
+}
+
+/**
+* Returns a QString with information on which horizontal lines have been drawn.
+* Called when saving the game.
+*/
+QString Game3Scene::getDrawnHorizontalLines() const {
+    QString ans = "";
+    for (int i = 0; i <= m_size; ++i) {
+        for (int j = 0; j < m_size; ++j) {
+            if (m_horizontalLines[i][j]->isDrawn()) {
+                ans += QString::number(i) + "," + QString::number(j) + ",";
+            }
+        }
+    }
+    return ans;
+}
+
+/**
+* Returns a QString with information on which vertical lines have been drawn.
+* Called when saving the game.
+*/
+QString Game3Scene::getDrawnVerticalLines() const {
+    QString ans = "";
+    for (int i = 0; i < m_size; ++i) {
+        for (int j = 0; j <= m_size; ++j) {
+            if (m_verticalLines[i][j]->isDrawn()) {
+                ans += QString::number(i) + "," + QString::number(j) + ",";
+            }
+        }
+    }
+    return ans;
 }

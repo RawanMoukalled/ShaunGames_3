@@ -25,7 +25,7 @@ public:
     /**
     * \brief Constructor
     */
-    explicit Game3Scene(Difficulty difficulty, Size size, QObject *parent = 0);
+    explicit Game3Scene(Difficulty difficulty, Size size, bool resume = false, QObject *parent = 0);
 
     /**
     * \brief Destructor
@@ -79,13 +79,48 @@ public:
     * \brief Finds and returns a non-clicked line that closes at least one box
     * \returns Non-clicked line that closes a box
     */
-    Line *getLineThatClosesBox();
+    Line *getLineThatClosesBox() const;
 
     /**
     * \brief Finds and returns a non-clicked line that does not let the user close a box
     * \returns Non-clicked line that does not let the user close a box next
     */
-    Line *getSmartLine();
+    Line *getSmartLine() const;
+
+    /**
+    * \brief Freezes gameplay
+    */
+    void freeze();
+
+    /**
+    * \brief Returns the game score
+    * \returns Game score
+    */
+    int getScore() const;
+
+    /**
+    * \brief Returns which boxes have been closed by the user
+    * \returns QString listing boxes that have been closed by the user
+    */
+    QString getBoxesClosedByUser() const;
+
+    /**
+    * \brief Returns which boxes have been closed by the PC
+    * \returns QString listing boxes that have been closed by the PC
+    */
+    QString getBoxesClosedByPC() const;
+
+    /**
+    * \brief Returns which horizontal lines have already been drawn
+    * \returns QString listing horizontal lines that have been drawn
+    */
+    QString getDrawnHorizontalLines() const;
+
+    /**
+    * \brief Returns which vertical lines have already been drawn
+    * \returns QString listing vertical lines that have been drawn
+    */
+    QString getDrawnVerticalLines() const;
     
 signals:
     /**

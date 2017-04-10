@@ -59,13 +59,19 @@ public:
     * \brief Checks if the box has been closed
     * \returns Whether the box has been closed
     */
-    bool isClosed();
+    bool isClosed() const;
 
     /**
     * \brief Checks how many lines are drawn in the box
     * \returns The number of lines drawn
     */
-    int numberOfLinesDrawn();
+    int numberOfLinesDrawn() const;
+
+    /**
+    * \brief Returns whether the user has closed this box
+    * \returns Whether the user has closed this box
+    */
+    bool wasClosedByUser() const;
     
 signals:
     
@@ -73,7 +79,7 @@ public slots:
 
 private:
     bool m_above, m_left, m_under, m_right; ///< Remembers whether surrounding lines have been drawn
-    
+    bool m_closedByUser, m_closedByPC; ///< Remembers who closed the box. Both values cannot be true at the same time.
 };
 
 #endif // BOX_H

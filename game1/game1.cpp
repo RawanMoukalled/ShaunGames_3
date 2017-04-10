@@ -166,8 +166,7 @@ void Game1::save() {
 }
 
 /**
-* \brief Deletes the saved game on close
-* \param bar The event triggered
+* Deletes the saved game on close unless it is a newly saved game.
 */
 void Game1::closeEvent(QCloseEvent *bar) {
     if (!m_justSaved) {
