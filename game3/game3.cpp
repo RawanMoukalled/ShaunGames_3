@@ -18,7 +18,13 @@ Game3::Game3(Difficulty difficulty, Size size, bool resume, QWidget *parent) :
     setFixedSize(600,600);
     m_title = new QLabel("Dots and Lines");
     m_Game3Layout = new QVBoxLayout();
-    m_exit = new QPushButton("Save and Exit");
+
+    if (Helper::getUserId() != 0) {
+        m_exit = new QPushButton("Save and Exit");
+    }
+    else {
+        m_exit = new QPushButton("Exit");
+    }
 
     Helper::makeWidgetLarge(m_title);
     Helper::makeWidgetSmall(m_exit);
