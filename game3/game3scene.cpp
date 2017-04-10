@@ -256,6 +256,25 @@ void Game3Scene::gameOver() {
     addItem(m_gameOverPicture);
 
     emit done();
+
+    int account = Helper::getUserId();
+    if (account != 0) {
+        bool opened = Helper::shaunDB.open();
+        QSqlQuery query;
+        if (opened) {
+            query.exec("SELECT SCORE FROM SCORE WHERE ACCOUNTID='"+QString::number(account)+"' AND GAMENB='3'");
+            query.next();
+
+            QString scores = query.value(0).toString();
+            query.finish();
+
+            scores += QString::number(m_difficulty) + "," + QString::number(m_size) + "," + QString::number(m_score) + ",";
+
+            query.exec("UPDATE SCORE SET SCORE = '" + scores + "' WHERE ACCOUNTID = '"+ QString::number(account) +
+                       "' AND GAMENB='1'");
+        }
+        Helper::shaunDB.close();
+    }
 }
 
 /**
