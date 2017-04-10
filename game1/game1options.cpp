@@ -2,6 +2,7 @@
 #include "helper.h"
 #include "gui/gamemainmenu.h"
 #include "game1/game1.h"
+#include <QSqlQuery>
 
 /**
 * \file game1options.cpp
@@ -64,6 +65,18 @@ Game1Options::~Game1Options() {
 * Returns the number of levels that the user has unlocked.
 */
 int Game1Options::getNumberOfUnlockedLevels() {
+    int userId = Helper::getUserId();
+    if (userId != 0 && m_numberOfUnlockedLevels==1) {
+        bool opened = Helper::shaunDB.open();
+        QSqlQuery query;
+        if (opened) {
+            query.exec("SELECT GAME1UNLOCKEDLEVELS FROM ACCOUNT WHERE ID='"+QString::number(userId)+"'");
+            query.next();
+
+            m_numberOfUnlockedLevels = query.value(0).toInt();
+        }
+        Helper::shaunDB.close();
+    }
     return m_numberOfUnlockedLevels;
 }
 
@@ -74,6 +87,14 @@ int Game1Options::getNumberOfUnlockedLevels() {
 void Game1Options::unlockExtraLevel(int currLevel) {
     if (m_numberOfUnlockedLevels == currLevel+1) {
         ++m_numberOfUnlockedLevels;
+
+        bool opened = Helper::shaunDB.open();
+        QSqlQuery query;
+        if (opened) {
+            query.exec("UPDATE ACCOUNT SET GAME1UNLOCKEDLEVELS = '" + QString::number(m_numberOfUnlockedLevels) +
+                       "' WHERE ID = '"+ QString::number(Helper::getUserId()) + "'");
+        }
+        Helper::shaunDB.close();
     }
 }
 

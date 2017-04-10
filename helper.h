@@ -37,6 +37,12 @@ public:
     static double toRadians(double degrees);
 
     /**
+    * \brief Removes saved game for given game
+    * \param gameNumber The game whose entry we wish to delete
+    */
+    static void deleteSavedGame(int gameNumber);
+
+    /**
     * \brief Retrieves the user ID
     * \returns The user ID
     */

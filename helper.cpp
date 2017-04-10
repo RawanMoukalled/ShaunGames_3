@@ -1,6 +1,8 @@
 #include "helper.h"
 #include <ctime>
 #include <QTime>
+#include <QSqlQuery>
+#include <QSqlError>
 
 /**
 * \file helper.cpp
@@ -28,6 +30,20 @@ const double Helper::PI = 3.14159265;
 */
 double Helper::toRadians(double degrees) {
     return degrees*PI/180;
+}
+
+/**
+* Removes saved game for given game.
+*/
+void Helper::deleteSavedGame(int gameNumber) {
+    if (m_userId != 0) {
+        bool opened = Helper::shaunDB.open();
+        QSqlQuery query;
+        if (opened) {
+            query.exec("DELETE FROM GAME" + QString::number(gameNumber) + " WHERE ACCOUNTID='" + QString::number(m_userId) + "'");
+        }
+        Helper::shaunDB.close();
+    }
 }
 
 /**
