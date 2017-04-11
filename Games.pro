@@ -1,6 +1,5 @@
 SOURCES += \
     main.cpp \
-    myaccount.cpp \
     helper.cpp \
     game2/game2.cpp \
     game1/game1options.cpp \
@@ -24,10 +23,11 @@ SOURCES += \
     game3/verticalline.cpp \
     game3/box.cpp \
     game3/line.cpp \
-    gameover.cpp
+    gameover.cpp \
+    account/myaccount.cpp \
+    account/qcustomplot.cpp
 
 HEADERS += \
-    myaccount.h \
     helper.h \
     game2/game2.h \
     game1/game1options.h \
@@ -53,7 +53,9 @@ HEADERS += \
     game3/verticalline.h \
     game3/box.h \
     game3/line.h \
-    gameover.h
+    gameover.h \
+    account/myaccount.h \
+    account/qcustomplot.h
 
 OTHER_FILES +=
 
