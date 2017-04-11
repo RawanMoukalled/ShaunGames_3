@@ -95,7 +95,7 @@ void Game2Scene::placeLCD() {
     lcdPalette.setColor(QPalette::Dark, QColor(255, 0, 0));
 
     m_scoreDisplay->setPalette(lcdPalette);
-    m_scoreDisplay->display(m_score);
+    m_scoreDisplay->display(0);
 }
 
 /**
@@ -509,6 +509,13 @@ void Game2Scene::gameOver(bool win) {
     addItem(m_gameOverPicture);
     emit Done();
 
+    if (win) {
+        m_scoreDisplay->display(m_score);
+    }
+    else {
+        m_score = 0;
+    }
+
     int account = Helper::getUserId();
     if ( account != 0) {
         bool opened = Helper::shaunDB.open();
@@ -534,7 +541,6 @@ void Game2Scene::gameOver(bool win) {
 */
 void Game2Scene::decrementScore() {
     m_score-=10;
-    m_scoreDisplay->display(m_score);
 }
 
 /**
