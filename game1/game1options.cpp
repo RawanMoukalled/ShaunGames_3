@@ -66,7 +66,7 @@ Game1Options::~Game1Options() {
 */
 int Game1Options::getNumberOfUnlockedLevels() {
     int userId = Helper::getUserId();
-    if (userId != 0 && m_numberOfUnlockedLevels==1) {
+    if (userId != 0) {
         bool opened = Helper::shaunDB.open();
         QSqlQuery query;
         if (opened) {
@@ -88,13 +88,17 @@ void Game1Options::unlockExtraLevel(int currLevel) {
     if (m_numberOfUnlockedLevels == currLevel+1) {
         ++m_numberOfUnlockedLevels;
 
-        bool opened = Helper::shaunDB.open();
-        QSqlQuery query;
-        if (opened) {
-            query.exec("UPDATE ACCOUNT SET GAME1UNLOCKEDLEVELS = '" + QString::number(m_numberOfUnlockedLevels) +
-                       "' WHERE ID = '"+ QString::number(Helper::getUserId()) + "'");
+        int userId = Helper::getUserId();
+
+        if (userId != 0) {
+            bool opened = Helper::shaunDB.open();
+            QSqlQuery query;
+            if (opened) {
+                query.exec("UPDATE ACCOUNT SET GAME1UNLOCKEDLEVELS = '" + QString::number(m_numberOfUnlockedLevels) +
+                           "' WHERE ID = '"+ QString::number(userId) + "'");
+            }
+            Helper::shaunDB.close();
         }
-        Helper::shaunDB.close();
     }
 }
 

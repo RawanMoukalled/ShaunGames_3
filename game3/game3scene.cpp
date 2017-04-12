@@ -252,10 +252,24 @@ void Game3Scene::clearNewLines() {
 * Ends the game.
 */
 void Game3Scene::gameOver() {
-    m_gameOverPicture = new GameOver(m_boxesClosedByUser > m_boxesClosedByComputer);
+    bool win = m_boxesClosedByUser > m_boxesClosedByComputer;
+    m_gameOverPicture = new GameOver(win);
     addItem(m_gameOverPicture);
 
     emit done();
+
+    if (win) {
+        if (m_difficulty == EASY) {
+            m_score += 100;
+        }
+        else if (m_difficulty == MODERATE) {
+            m_score += 500;
+        }
+        else {
+            m_score += 1000;
+        }
+        m_scoreDisplay->display(m_score);
+    }
 
     int account = Helper::getUserId();
     if (account != 0) {
@@ -268,10 +282,10 @@ void Game3Scene::gameOver() {
             QString scores = query.value(0).toString();
             query.finish();
 
-            scores += QString::number(m_difficulty) + "," + QString::number(m_size) + "," + QString::number(m_score) + ",";
+            scores += QString::number(m_score) + ",";
 
             query.exec("UPDATE SCORE SET SCORE = '" + scores + "' WHERE ACCOUNTID = '"+ QString::number(account) +
-                       "' AND GAMENB='1'");
+                       "' AND GAMENB='3'");
         }
         Helper::shaunDB.close();
     }

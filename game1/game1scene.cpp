@@ -157,6 +157,11 @@ void Game1Scene::gameOver(bool win) {
     m_cannon->setEnabled(false);
     m_line_timer->stop();
 
+    if(win) {
+        m_score += 50*m_level;
+        m_scoreDisplay->display(m_score);
+    }
+
     if (account != 0) {
         bool opened = Helper::shaunDB.open();
         QSqlQuery query;
@@ -167,7 +172,7 @@ void Game1Scene::gameOver(bool win) {
             QString scores = query.value(0).toString();
             query.finish();
 
-            scores += QString::number(m_level) + "," + QString::number(m_score) + ",";
+            scores += QString::number(m_score) + ",";
 
             query.exec("UPDATE SCORE SET SCORE = '" + scores + "' WHERE ACCOUNTID = '"+ QString::number(account) +
                        "' AND GAMENB='1'");

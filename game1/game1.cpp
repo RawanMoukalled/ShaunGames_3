@@ -204,7 +204,12 @@ void Game1::loadNewGame(bool sameLevel) {
         m_next = NULL;
     }
 
-    m_exit = new QPushButton("Save and Exit");
+    if (Helper::getUserId() != 0) {
+        m_exit = new QPushButton("Save and Exit");
+    }
+    else {
+        m_exit = new QPushButton("Exit");
+    }
     m_game1Layout->addWidget(m_exit);
     m_game1Layout->setAlignment(m_exit, Qt::AlignHCenter);
     QObject::connect(m_exit, SIGNAL(clicked()), SLOT(goToMainMenu()));

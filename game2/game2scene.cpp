@@ -510,6 +510,15 @@ void Game2Scene::gameOver(bool win) {
     emit Done();
 
     if (win) {
+        if (m_difficulty == EASY) {
+            m_score += 100;
+        }
+        else if (m_difficulty == MODERATE) {
+            m_score += 500;
+        }
+        else {
+            m_score += 1000;
+        }
         m_scoreDisplay->display(m_score);
     }
     else {
@@ -527,7 +536,7 @@ void Game2Scene::gameOver(bool win) {
             QString scores = query.value(0).toString();
             query.finish();
 
-            scores += QString::number(m_difficulty) + "," + QString::number(m_score) + ",";
+            scores += QString::number(m_score) + ",";
 
             query.exec("UPDATE SCORE SET SCORE = '" + scores + "' WHERE ACCOUNTID = '"+ QString::number(account) +
                        "' AND GAMENB='2'");

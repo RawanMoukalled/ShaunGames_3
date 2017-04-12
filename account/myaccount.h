@@ -2,7 +2,7 @@
 #define MYACCOUNT_H
 
 #include <QtGui>
-#include "qcustomplot.h"
+#include "account/qcustomplot.h"
 
 /**
 * \file myaccount.h
@@ -26,13 +26,6 @@ public:
     */
     virtual ~MyAccount();
 
-    /**
-    * \brief Sets the connections for the buttons
-    */
-    void setConnections();
-
-
-
 signals:
 
 public slots:
@@ -51,9 +44,7 @@ private:
     QLabel *m_title; ///< Title of the page
     QPushButton *m_backToGamesButton; ///< Button to go back to the games selection window
 
-    QVBoxLayout *m_myAccountLayout; ///< Layout of the my account page
-    QLabel *m_performance; ///< Image representing the history performance of the signed in user
-    QHBoxLayout *m_selectionLayout; ///< Layout of the buttons for selection
+    QGridLayout *m_myAccountLayout; ///< Layout of the my account page
 
     QCustomPlot *m_customPlot; ///< Contains the plot that will be drawn
     QPushButton *m_showGame1; ///< Button to display game1 performance
@@ -63,6 +54,26 @@ private:
 
     QSignalMapper *m_signalMapper; ///< Maps signals to slots to allow for game selection to be passed
 
+    int m_min1, m_max1; ///< Contains minimum and maximum scores for game 1
+    QVector<double> m_game1GameNbs; ///< Contains game 1 game numbers
+    QVector<double> m_game1Scores; ///< Contains game 1 scores
+
+    int m_min2, m_max2; ///< Contains minimum and maximum scores for game 2
+    QVector<double> m_game2GameNbs; ///< Contains game 2 game numbers
+    QVector<double> m_game2Scores; ///< Contains game 2 scores
+
+    int m_min3, m_max3; ///< Contains minimum and maximum scores for game 3
+    QVector<double> m_game3GameNbs; ///< Contains game 3 game numbers
+    QVector<double> m_game3Scores; ///< Contains game 3 scores
+
+    int m_minAll, m_maxAll; ///< Contains minimum and maximum scores for all games
+
+    QVector<QSpacerItem*> m_spacerItems; ///< Vector of used spacer items
+
+    /**
+    * \brief Sets the connections for the buttons
+    */
+    void setConnections();
 
     /**
     * \brief Sets the layout for the My Account page
@@ -70,10 +81,9 @@ private:
     void setMyAccountLayout();
 
     /**
-    * \brief Sets the layout for the selection buttons
+    * \brief Initializes the score vectors for all games
     */
-    void setSelectionLayout();
-
+    void setScoreVectors();
 };
 
 #endif // MYACCOUNT_H

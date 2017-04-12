@@ -2,7 +2,7 @@
 #include "helper.h"
 #include "gui/mainwidget.h"
 #include "gui/gamemainmenu.h"
-#include "myaccount.h"
+#include "account/myaccount.h"
 
 /**
 * \file gameselection.cpp
