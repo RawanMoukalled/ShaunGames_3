@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -85,12 +86,13 @@ This is the complete list of members for <a class="el" href="classBox.html">Box<
   <tr class="memlist"><td><a class="el" href="classBox.html#a503cee497e04af238190ba3399c5af31">Box</a>(QObject *parent=0)</td><td><a class="el" href="classBox.html">Box</a></td><td><code> [explicit]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classBox.html#a0d9638999c98c4b30de81111c198c875">drawBitzer</a>()</td><td><a class="el" href="classBox.html">Box</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classBox.html#a95cdba384c3ec1a1e449f1e94881c338">drawShaun</a>()</td><td><a class="el" href="classBox.html">Box</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classBox.html#a1f0213e1e280ab983294fe67c5672e0c">isClosed</a>()</td><td><a class="el" href="classBox.html">Box</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classBox.html#a34c0243bb636ae52045b930bb14e28c2">numberOfLinesDrawn</a>()</td><td><a class="el" href="classBox.html">Box</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classBox.html#a1489f102d7527122535a5e94a5e91a15">isClosed</a>() const </td><td><a class="el" href="classBox.html">Box</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classBox.html#a34d0b328ebbd1add43f66dbe6c0c205e">numberOfLinesDrawn</a>() const </td><td><a class="el" href="classBox.html">Box</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classBox.html#a85433a90ba39dbabc23d1a5fe70eb8cb">setAbove</a>()</td><td><a class="el" href="classBox.html">Box</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classBox.html#a64676bbb58aa311da3628830b933641c">setLeft</a>()</td><td><a class="el" href="classBox.html">Box</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classBox.html#a7fb35863d54190760a80fd7acd480436">setRight</a>()</td><td><a class="el" href="classBox.html">Box</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classBox.html#ac414cf1641426051411c9c80d24906e8">setUnder</a>()</td><td><a class="el" href="classBox.html">Box</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classBox.html#a9f6699ac0342d013c2d518896d921e19">wasClosedByUser</a>() const </td><td><a class="el" href="classBox.html">Box</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classBox.html#a6a5e09398e85d602a046b429062fb9c2">~Box</a>()</td><td><a class="el" href="classBox.html">Box</a></td><td><code> [virtual]</code></td></tr>
 </table></div><!-- contents -->
 <!-- window showing the filter options -->
@@ -98,7 +100,7 @@ This is the complete list of members for <a class="el" href="classBox.html">Box<
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,7 +112,7 @@ This is the complete list of members for <a class="el" href="classBox.html">Box<
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 7 2017 22:21:23 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 13 2017 22:23:28 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

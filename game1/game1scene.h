@@ -24,6 +24,7 @@ public:
     /**
     * \brief Constructor
     * \param level Level of the game
+    * \param resume Whether this is a new game
     */
     explicit Game1Scene(int level, bool resume = false, QObject *parent = 0);
 

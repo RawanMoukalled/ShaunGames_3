@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -108,10 +109,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7fb35863d54190760a80fd7acd480436"></a><!-- doxytag: member="Box::setRight" ref="a7fb35863d54190760a80fd7acd480436" args="()" -->
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBox.html#a7fb35863d54190760a80fd7acd480436">setRight</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks that the right of the box has been drawn. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBox.html#a1f0213e1e280ab983294fe67c5672e0c">isClosed</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the box has been closed.  <a href="#a1f0213e1e280ab983294fe67c5672e0c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBox.html#a34c0243bb636ae52045b930bb14e28c2">numberOfLinesDrawn</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks how many lines are drawn in the box.  <a href="#a34c0243bb636ae52045b930bb14e28c2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBox.html#a1489f102d7527122535a5e94a5e91a15">isClosed</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the box has been closed.  <a href="#a1489f102d7527122535a5e94a5e91a15"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBox.html#a34d0b328ebbd1add43f66dbe6c0c205e">numberOfLinesDrawn</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks how many lines are drawn in the box.  <a href="#a34d0b328ebbd1add43f66dbe6c0c205e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBox.html#a9f6699ac0342d013c2d518896d921e19">wasClosedByUser</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the user has closed this box.  <a href="#a9f6699ac0342d013c2d518896d921e19"></a><br/></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a503cee497e04af238190ba3399c5af31"></a><!-- doxytag: member="Box::Box" ref="a503cee497e04af238190ba3399c5af31" args="(QObject *parent=0)" -->
@@ -192,15 +195,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a class="anchor" id="a1f0213e1e280ab983294fe67c5672e0c"></a><!-- doxytag: member="Box::isClosed" ref="a1f0213e1e280ab983294fe67c5672e0c" args="()" -->
+<a class="anchor" id="a1489f102d7527122535a5e94a5e91a15"></a><!-- doxytag: member="Box::isClosed" ref="a1489f102d7527122535a5e94a5e91a15" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classBox.html#a1f0213e1e280ab983294fe67c5672e0c">Box::isClosed</a> </td>
+          <td class="memname">bool <a class="el" href="classBox.html#a1489f102d7527122535a5e94a5e91a15">Box::isClosed</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
@@ -211,15 +214,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a class="anchor" id="a34c0243bb636ae52045b930bb14e28c2"></a><!-- doxytag: member="Box::numberOfLinesDrawn" ref="a34c0243bb636ae52045b930bb14e28c2" args="()" -->
+<a class="anchor" id="a34d0b328ebbd1add43f66dbe6c0c205e"></a><!-- doxytag: member="Box::numberOfLinesDrawn" ref="a34d0b328ebbd1add43f66dbe6c0c205e" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="classBox.html#a34c0243bb636ae52045b930bb14e28c2">Box::numberOfLinesDrawn</a> </td>
+          <td class="memname">int <a class="el" href="classBox.html#a34d0b328ebbd1add43f66dbe6c0c205e">Box::numberOfLinesDrawn</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
@@ -228,6 +231,25 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Checks how many lines are drawn in the box. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The number of lines drawn</dd></dl>
 <p>Checks if the box is one line away from being closed. </p>
+
+</div>
+</div>
+<a class="anchor" id="a9f6699ac0342d013c2d518896d921e19"></a><!-- doxytag: member="Box::wasClosedByUser" ref="a9f6699ac0342d013c2d518896d921e19" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classBox.html#a9f6699ac0342d013c2d518896d921e19">Box::wasClosedByUser</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns whether the user has closed this box. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Whether the user has closed this box </dd></dl>
 
 </div>
 </div>
@@ -241,7 +263,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -253,7 +275,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 7 2017 22:21:23 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 13 2017 22:23:28 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

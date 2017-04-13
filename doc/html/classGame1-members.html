@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -82,12 +83,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 This is the complete list of members for <a class="el" href="classGame1.html">Game1</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="classGame1.html#aa3a44255c2437ca14fe1d9ac4e64b6c1">closeEvent</a>(QCloseEvent *bar)</td><td><a class="el" href="classGame1.html">Game1</a></td><td><code> [slot]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classGame1.html#a77d143d518941d661ed7ed58d7709eb3">endGame</a>(bool win)</td><td><a class="el" href="classGame1.html">Game1</a></td><td><code> [slot]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classGame1.html#a8f936cce407e67e38223ce348c97f027">Game1</a>(int level, QWidget *parent=0)</td><td><a class="el" href="classGame1.html">Game1</a></td><td><code> [explicit]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classGame1.html#aece50ba2e3c9c2662416901d10045796">Game1</a>(int level, bool resume=false, QWidget *parent=0)</td><td><a class="el" href="classGame1.html">Game1</a></td><td><code> [explicit]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classGame1.html#ad2deb82e0e796476d4e872b35b18298a">goToMainMenu</a>()</td><td><a class="el" href="classGame1.html">Game1</a></td><td><code> [slot]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classGame1.html#a5c85823c0c4c44e22bfa66146d04fcac">loadNewGame</a>(bool sameLevel)</td><td><a class="el" href="classGame1.html">Game1</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classGame1.html#a556cb1f167454f0b668b706da20d403f">next</a>()</td><td><a class="el" href="classGame1.html">Game1</a></td><td><code> [slot]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classGame1.html#ae77aa2b2516135ecaa1667c8d3edc7c4">replay</a>()</td><td><a class="el" href="classGame1.html">Game1</a></td><td><code> [slot]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classGame1.html#a1104aaaccf868b6726c42779af376bd1">save</a>()</td><td><a class="el" href="classGame1.html">Game1</a></td><td><code> [slot]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classGame1.html#aa498b4499c4032cc7a65cc7755b1d3be">~Game1</a>()</td><td><a class="el" href="classGame1.html">Game1</a></td><td><code> [virtual]</code></td></tr>
 </table></div><!-- contents -->
 <!-- window showing the filter options -->
@@ -95,7 +98,7 @@ This is the complete list of members for <a class="el" href="classGame1.html">Ga
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,7 +110,7 @@ This is the complete list of members for <a class="el" href="classGame1.html">Ga
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 7 2017 22:21:23 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 13 2017 22:23:28 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

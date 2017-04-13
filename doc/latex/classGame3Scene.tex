@@ -15,7 +15,7 @@ void \hyperlink{classGame3Scene_a8baab5c5cf08a3da4c045237124f3312}{computer\-Mov
 \subsection*{\-Public \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classGame3Scene_a807bd1fd85f313df2a265d0ccbcd2a78}{\-Game3\-Scene} (\-Difficulty difficulty, \-Size size, \-Q\-Object $\ast$parent=0)
+\hyperlink{classGame3Scene_a474f98b788997992aed5f5120414a095}{\-Game3\-Scene} (\-Difficulty difficulty, \-Size size, bool resume=false, \-Q\-Object $\ast$parent=0)
 \begin{DoxyCompactList}\small\item\em \-Constructor. \end{DoxyCompactList}\item 
 virtual \hyperlink{classGame3Scene_a6a41bfc50cb0f2304ecb7a82c39f615a}{$\sim$\-Game3\-Scene} ()
 \begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\item 
@@ -37,26 +37,48 @@ bool \hyperlink{classGame3Scene_a1e1507f4dbb2a32cb6a22c97fc3f0877}{no\-More\-Mov
 \hypertarget{classGame3Scene_a866b77e044e76b8ea79447cc9f4a31f1}{void \hyperlink{classGame3Scene_a866b77e044e76b8ea79447cc9f4a31f1}{close\-Box\-By\-Computer} ()}\label{classGame3Scene_a866b77e044e76b8ea79447cc9f4a31f1}
 
 \begin{DoxyCompactList}\small\item\em \-Declares one more box as closed by computer. \end{DoxyCompactList}\item 
-\hyperlink{classLine}{\-Line} $\ast$ \hyperlink{classGame3Scene_a68d775901007417eb7f67e3567d83b3f}{get\-Line\-That\-Closes\-Box} ()
+\hyperlink{classLine}{\-Line} $\ast$ \hyperlink{classGame3Scene_a6f6707f6d26cec444e8f336c28c84959}{get\-Line\-That\-Closes\-Box} () const 
 \begin{DoxyCompactList}\small\item\em \-Finds and returns a non-\/clicked line that closes at least one box. \end{DoxyCompactList}\item 
-\hyperlink{classLine}{\-Line} $\ast$ \hyperlink{classGame3Scene_a0ed388d4e3163fa39d05547b98794366}{get\-Smart\-Line} ()
-\begin{DoxyCompactList}\small\item\em \-Finds and returns a non-\/clicked line that does not let the user close a box. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\hyperlink{classLine}{\-Line} $\ast$ \hyperlink{classGame3Scene_af15b82c1411cda7276c9ccb5644e5f6f}{get\-Smart\-Line} () const 
+\begin{DoxyCompactList}\small\item\em \-Finds and returns a non-\/clicked line that does not let the user close a box. \end{DoxyCompactList}\item 
+void \hyperlink{classGame3Scene_a00de2fe4e152c59fa638588301f5618c}{freeze} ()
+\begin{DoxyCompactList}\small\item\em \-Freezes gameplay. \end{DoxyCompactList}\item 
+int \hyperlink{classGame3Scene_a43a7e15210eb159a2dec71bf00db10c9}{get\-Score} () const 
+\begin{DoxyCompactList}\small\item\em \-Returns the game score. \end{DoxyCompactList}\item 
+\-Q\-String \hyperlink{classGame3Scene_a66330e50ed9312909949302292867c89}{get\-Boxes\-Closed\-By\-User} () const 
+\begin{DoxyCompactList}\small\item\em \-Returns which boxes have been closed by the user. \end{DoxyCompactList}\item 
+\-Q\-String \hyperlink{classGame3Scene_a16307e85274c2ccff7af7690550d005c}{get\-Boxes\-Closed\-By\-P\-C} () const 
+\begin{DoxyCompactList}\small\item\em \-Returns which boxes have been closed by the \-P\-C. \end{DoxyCompactList}\item 
+\-Q\-String \hyperlink{classGame3Scene_a175fc8ca97b32bd13997bb86119a5a69}{get\-Drawn\-Horizontal\-Lines} () const 
+\begin{DoxyCompactList}\small\item\em \-Returns which horizontal lines have already been drawn. \end{DoxyCompactList}\item 
+\-Q\-String \hyperlink{classGame3Scene_acc62a86e17fc7a48aa38a5148ea17973}{get\-Drawn\-Vertical\-Lines} () const 
+\begin{DoxyCompactList}\small\item\em \-Returns which vertical lines have already been drawn. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Constructor \& \-Destructor \-Documentation}
-\hypertarget{classGame3Scene_a807bd1fd85f313df2a265d0ccbcd2a78}{\index{\-Game3\-Scene@{\-Game3\-Scene}!\-Game3\-Scene@{\-Game3\-Scene}}
+\hypertarget{classGame3Scene_a474f98b788997992aed5f5120414a095}{\index{\-Game3\-Scene@{\-Game3\-Scene}!\-Game3\-Scene@{\-Game3\-Scene}}
 \index{\-Game3\-Scene@{\-Game3\-Scene}!Game3Scene@{\-Game3\-Scene}}
 \subsubsection[{\-Game3\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game3\-Scene\-::\-Game3\-Scene} (
 \begin{DoxyParamCaption}
 \item[{\-Difficulty}]{difficulty, }
 \item[{\-Size}]{size, }
+\item[{bool}]{resume = {\ttfamily false}, }
 \item[{\-Q\-Object $\ast$}]{parent = {\ttfamily 0}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classGame3Scene_a807bd1fd85f313df2a265d0ccbcd2a78}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classGame3Scene_a474f98b788997992aed5f5120414a095}
 
 
 \-Constructor. 
 
+
+\begin{DoxyParams}{\-Parameters}
+{\em difficulty} & \-Difficulty of the game \\
+\hline
+{\em size} & \-Size of the game \\
+\hline
+{\em resume} & \-Whether this is a new game\\
+\hline
+\end{DoxyParams}
 \-Initializes the difficulty, size, dots, lines and boxes of the game. \hypertarget{classGame3Scene_a6a41bfc50cb0f2304ecb7a82c39f615a}{\index{\-Game3\-Scene@{\-Game3\-Scene}!$\sim$\-Game3\-Scene@{$\sim$\-Game3\-Scene}}
 \index{$\sim$\-Game3\-Scene@{$\sim$\-Game3\-Scene}!Game3Scene@{\-Game3\-Scene}}
 \subsubsection[{$\sim$\-Game3\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game3\-Scene\-::$\sim$\-Game3\-Scene} (
@@ -120,7 +142,18 @@ bool \hyperlink{classGame3Scene_a1e1507f4dbb2a32cb6a22c97fc3f0877}{no\-More\-Mov
 
 \-Computer turn. 
 
-\-Starts a delay to call \hyperlink{classGame3Scene_a8baab5c5cf08a3da4c045237124f3312}{computer\-Move()}. \hypertarget{classGame3Scene_a634df6ad5ac3776bc3d18519214e2eec}{\index{\-Game3\-Scene@{\-Game3\-Scene}!game\-Over@{game\-Over}}
+\-Starts a delay to call \hyperlink{classGame3Scene_a8baab5c5cf08a3da4c045237124f3312}{computer\-Move()}. \hypertarget{classGame3Scene_a00de2fe4e152c59fa638588301f5618c}{\index{\-Game3\-Scene@{\-Game3\-Scene}!freeze@{freeze}}
+\index{freeze@{freeze}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{freeze}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game3\-Scene\-::freeze} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGame3Scene_a00de2fe4e152c59fa638588301f5618c}
+
+
+\-Freezes gameplay. 
+
+\-Freezes gameplay. \-Called when the user stops the game mid-\/play. \hypertarget{classGame3Scene_a634df6ad5ac3776bc3d18519214e2eec}{\index{\-Game3\-Scene@{\-Game3\-Scene}!game\-Over@{game\-Over}}
 \index{game\-Over@{game\-Over}!Game3Scene@{\-Game3\-Scene}}
 \subsubsection[{game\-Over}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game3\-Scene\-::game\-Over} (
 \begin{DoxyParamCaption}
@@ -131,13 +164,69 @@ bool \hyperlink{classGame3Scene_a1e1507f4dbb2a32cb6a22c97fc3f0877}{no\-More\-Mov
 
 \-Triggers finishing the game. 
 
-\-Ends the game. \hypertarget{classGame3Scene_a68d775901007417eb7f67e3567d83b3f}{\index{\-Game3\-Scene@{\-Game3\-Scene}!get\-Line\-That\-Closes\-Box@{get\-Line\-That\-Closes\-Box}}
+\-Ends the game. \hypertarget{classGame3Scene_a16307e85274c2ccff7af7690550d005c}{\index{\-Game3\-Scene@{\-Game3\-Scene}!get\-Boxes\-Closed\-By\-P\-C@{get\-Boxes\-Closed\-By\-P\-C}}
+\index{get\-Boxes\-Closed\-By\-P\-C@{get\-Boxes\-Closed\-By\-P\-C}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{get\-Boxes\-Closed\-By\-P\-C}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-String {\bf \-Game3\-Scene\-::get\-Boxes\-Closed\-By\-P\-C} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classGame3Scene_a16307e85274c2ccff7af7690550d005c}
+
+
+\-Returns which boxes have been closed by the \-P\-C. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Q\-String listing boxes that have been closed by the \-P\-C
+\end{DoxyReturn}
+\-Returns a \-Q\-String with information on which boxes have been closed by the \-P\-C. \-Called when saving the game. \hypertarget{classGame3Scene_a66330e50ed9312909949302292867c89}{\index{\-Game3\-Scene@{\-Game3\-Scene}!get\-Boxes\-Closed\-By\-User@{get\-Boxes\-Closed\-By\-User}}
+\index{get\-Boxes\-Closed\-By\-User@{get\-Boxes\-Closed\-By\-User}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{get\-Boxes\-Closed\-By\-User}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-String {\bf \-Game3\-Scene\-::get\-Boxes\-Closed\-By\-User} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classGame3Scene_a66330e50ed9312909949302292867c89}
+
+
+\-Returns which boxes have been closed by the user. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Q\-String listing boxes that have been closed by the user
+\end{DoxyReturn}
+\-Returns a \-Q\-String with information on which boxes have been closed by the user. \-Called when saving the game. \hypertarget{classGame3Scene_a175fc8ca97b32bd13997bb86119a5a69}{\index{\-Game3\-Scene@{\-Game3\-Scene}!get\-Drawn\-Horizontal\-Lines@{get\-Drawn\-Horizontal\-Lines}}
+\index{get\-Drawn\-Horizontal\-Lines@{get\-Drawn\-Horizontal\-Lines}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{get\-Drawn\-Horizontal\-Lines}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-String {\bf \-Game3\-Scene\-::get\-Drawn\-Horizontal\-Lines} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classGame3Scene_a175fc8ca97b32bd13997bb86119a5a69}
+
+
+\-Returns which horizontal lines have already been drawn. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Q\-String listing horizontal lines that have been drawn
+\end{DoxyReturn}
+\-Returns a \-Q\-String with information on which horizontal lines have been drawn. \-Called when saving the game. \hypertarget{classGame3Scene_acc62a86e17fc7a48aa38a5148ea17973}{\index{\-Game3\-Scene@{\-Game3\-Scene}!get\-Drawn\-Vertical\-Lines@{get\-Drawn\-Vertical\-Lines}}
+\index{get\-Drawn\-Vertical\-Lines@{get\-Drawn\-Vertical\-Lines}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{get\-Drawn\-Vertical\-Lines}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-String {\bf \-Game3\-Scene\-::get\-Drawn\-Vertical\-Lines} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classGame3Scene_acc62a86e17fc7a48aa38a5148ea17973}
+
+
+\-Returns which vertical lines have already been drawn. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Q\-String listing vertical lines that have been drawn
+\end{DoxyReturn}
+\-Returns a \-Q\-String with information on which vertical lines have been drawn. \-Called when saving the game. \hypertarget{classGame3Scene_a6f6707f6d26cec444e8f336c28c84959}{\index{\-Game3\-Scene@{\-Game3\-Scene}!get\-Line\-That\-Closes\-Box@{get\-Line\-That\-Closes\-Box}}
 \index{get\-Line\-That\-Closes\-Box@{get\-Line\-That\-Closes\-Box}!Game3Scene@{\-Game3\-Scene}}
 \subsubsection[{get\-Line\-That\-Closes\-Box}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Line} $\ast$ {\bf \-Game3\-Scene\-::get\-Line\-That\-Closes\-Box} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classGame3Scene_a68d775901007417eb7f67e3567d83b3f}
+) const}}\label{classGame3Scene_a6f6707f6d26cec444e8f336c28c84959}
 
 
 \-Finds and returns a non-\/clicked line that closes at least one box. 
@@ -145,13 +234,27 @@ bool \hyperlink{classGame3Scene_a1e1507f4dbb2a32cb6a22c97fc3f0877}{no\-More\-Mov
 \begin{DoxyReturn}{\-Returns}
 \-Non-\/clicked line that closes a box
 \end{DoxyReturn}
-\-Finds and returns a non-\/clicked line that closes at least one box. \-Returns \-N\-U\-L\-L if not found. \hypertarget{classGame3Scene_a0ed388d4e3163fa39d05547b98794366}{\index{\-Game3\-Scene@{\-Game3\-Scene}!get\-Smart\-Line@{get\-Smart\-Line}}
+\-Finds and returns a non-\/clicked line that closes at least one box. \-Returns \-N\-U\-L\-L if not found. \hypertarget{classGame3Scene_a43a7e15210eb159a2dec71bf00db10c9}{\index{\-Game3\-Scene@{\-Game3\-Scene}!get\-Score@{get\-Score}}
+\index{get\-Score@{get\-Score}!Game3Scene@{\-Game3\-Scene}}
+\subsubsection[{get\-Score}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Game3\-Scene\-::get\-Score} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classGame3Scene_a43a7e15210eb159a2dec71bf00db10c9}
+
+
+\-Returns the game score. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Game score 
+\end{DoxyReturn}
+\hypertarget{classGame3Scene_af15b82c1411cda7276c9ccb5644e5f6f}{\index{\-Game3\-Scene@{\-Game3\-Scene}!get\-Smart\-Line@{get\-Smart\-Line}}
 \index{get\-Smart\-Line@{get\-Smart\-Line}!Game3Scene@{\-Game3\-Scene}}
 \subsubsection[{get\-Smart\-Line}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Line} $\ast$ {\bf \-Game3\-Scene\-::get\-Smart\-Line} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classGame3Scene_a0ed388d4e3163fa39d05547b98794366}
+) const}}\label{classGame3Scene_af15b82c1411cda7276c9ccb5644e5f6f}
 
 
 \-Finds and returns a non-\/clicked line that does not let the user close a box. 
@@ -192,4 +295,5 @@ bool \hyperlink{classGame3Scene_a1e1507f4dbb2a32cb6a22c97fc3f0877}{no\-More\-Mov
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
 game3/\hyperlink{game3scene_8h}{game3scene.\-h}\item 
+bin/moc\-\_\-game3scene.\-cpp\item 
 game3/\hyperlink{game3scene_8cpp}{game3scene.\-cpp}\end{DoxyCompactItemize}

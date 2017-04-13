@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -85,8 +86,14 @@ This is the complete list of members for <a class="el" href="classGame1Scene.htm
   <tr class="memlist"><td><a class="el" href="classGame1Scene.html#ac171b3011a3526480c9483b2a486a984">collidesWithSheepInLine</a>(QGraphicsItem *item)</td><td><a class="el" href="classGame1Scene.html">Game1Scene</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classGame1Scene.html#a5dd2bbbbd2585ad528766db8b74c4534">Done</a>(bool)</td><td><a class="el" href="classGame1Scene.html">Game1Scene</a></td><td><code> [signal]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classGame1Scene.html#a82ce3eadf3a51778be131f8b92632991">fireSheep</a>()</td><td><a class="el" href="classGame1Scene.html">Game1Scene</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classGame1Scene.html#a9583982b66f78ed0dbca103ba2e26d77">Game1Scene</a>(int level, QObject *parent=0)</td><td><a class="el" href="classGame1Scene.html">Game1Scene</a></td><td><code> [explicit]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classGame1Scene.html#a4983da56ad4c8ef487cdf08f01e99910">freeze</a>()</td><td><a class="el" href="classGame1Scene.html">Game1Scene</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classGame1Scene.html#a500b6864f463c38f17bf319131979ba4">Game1Scene</a>(int level, bool resume=false, QObject *parent=0)</td><td><a class="el" href="classGame1Scene.html">Game1Scene</a></td><td><code> [explicit]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classGame1Scene.html#abd59b6c83eb85402d1f07ad06728f05b">gameOver</a>(bool win)</td><td><a class="el" href="classGame1Scene.html">Game1Scene</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classGame1Scene.html#aa76ca6726f4337d2487de02cbd446615">getCannonAngle</a>() const </td><td><a class="el" href="classGame1Scene.html">Game1Scene</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classGame1Scene.html#a896bb178aa503a25de5815ec3b4ab6d2">getCurrentSheepNumber</a>() const </td><td><a class="el" href="classGame1Scene.html">Game1Scene</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classGame1Scene.html#ad2aa885de82b171ed8356352f3dbf10e">getInLineSheepNumbers</a>() const </td><td><a class="el" href="classGame1Scene.html">Game1Scene</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classGame1Scene.html#a8156cdf869b5432e79c968f465e381f6">getLastLinePosition</a>() const </td><td><a class="el" href="classGame1Scene.html">Game1Scene</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classGame1Scene.html#a4bfbe53fd1441802bb28f76e6a25fe3e">getNextSheepNumber</a>() const </td><td><a class="el" href="classGame1Scene.html">Game1Scene</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classGame1Scene.html#a8698a81a65f06e6b07cdf1da92ba9d22">getScore</a>() const </td><td><a class="el" href="classGame1Scene.html">Game1Scene</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classGame1Scene.html#a3f20ac9bd39e4506c1dca07428a7e1b2">mousePressEvent</a>(QGraphicsSceneMouseEvent *)</td><td><a class="el" href="classGame1Scene.html">Game1Scene</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classGame1Scene.html#a78806ef4597b5770184b46c194ff95c7">move_line</a>()</td><td><a class="el" href="classGame1Scene.html">Game1Scene</a></td><td><code> [slot]</code></td></tr>
@@ -98,7 +105,7 @@ This is the complete list of members for <a class="el" href="classGame1Scene.htm
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,7 +117,7 @@ This is the complete list of members for <a class="el" href="classGame1Scene.htm
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 7 2017 22:21:23 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 13 2017 22:23:28 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

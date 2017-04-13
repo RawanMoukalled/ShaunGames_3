@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -82,9 +83,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 This is the complete list of members for <a class="el" href="classHelper.html">Helper</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="classHelper.html#a63c2ce5e48ee451d4364726770047db1">deleteSavedGame</a>(int gameNumber)</td><td><a class="el" href="classHelper.html">Helper</a></td><td><code> [static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classHelper.html#a26086740d6daa9a5d51a616498b921c8">getUserId</a>()</td><td><a class="el" href="classHelper.html">Helper</a></td><td><code> [static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classHelper.html#aaaf9678b2140d1f394557af950de930f">initialize</a>()</td><td><a class="el" href="classHelper.html">Helper</a></td><td><code> [static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classHelper.html#a1c444bceb723964a341b1c8b2bd2f95c">makeWidgetLarge</a>(QWidget *widget)</td><td><a class="el" href="classHelper.html">Helper</a></td><td><code> [static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classHelper.html#a2eeb1ba71a75f4d0f59c6efdd429a1b7">makeWidgetSmall</a>(QWidget *widget)</td><td><a class="el" href="classHelper.html">Helper</a></td><td><code> [static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classHelper.html#a13faf9f5fa52f832db1a99b4c0c91cb8">PI</a></td><td><a class="el" href="classHelper.html">Helper</a></td><td><code> [static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classHelper.html#acaf57a101dc37cd3c628b1c7d3e16b2d">setUserId</a>(int id)</td><td><a class="el" href="classHelper.html">Helper</a></td><td><code> [static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classHelper.html#ae56a649c53d60fa3801122cea200f15d">shaunDB</a></td><td><a class="el" href="classHelper.html">Helper</a></td><td><code> [static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classHelper.html#ad085317d0b7ad0e5ac3d08b559a7015f">toRadians</a>(double degrees)</td><td><a class="el" href="classHelper.html">Helper</a></td><td><code> [static]</code></td></tr>
 </table></div><!-- contents -->
 <!-- window showing the filter options -->
@@ -92,7 +98,7 @@ This is the complete list of members for <a class="el" href="classHelper.html">H
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -104,7 +110,7 @@ This is the complete list of members for <a class="el" href="classHelper.html">H
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 7 2017 22:21:23 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 13 2017 22:23:28 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

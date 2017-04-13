@@ -24,6 +24,9 @@ class Game3Scene : public QGraphicsScene
 public:
     /**
     * \brief Constructor
+    * \param difficulty Difficulty of the game
+    * \param size Size of the game
+    * \param resume Whether this is a new game
     */
     explicit Game3Scene(Difficulty difficulty, Size size, bool resume = false, QObject *parent = 0);
 

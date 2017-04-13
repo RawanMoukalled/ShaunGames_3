@@ -9,17 +9,69 @@ static void \hyperlink{classHelper_a2eeb1ba71a75f4d0f59c6efdd429a1b7}{make\-Widg
 static void \hyperlink{classHelper_a1c444bceb723964a341b1c8b2bd2f95c}{make\-Widget\-Large} (\-Q\-Widget $\ast$widget)
 \begin{DoxyCompactList}\small\item\em \-Makes given widget large. \end{DoxyCompactList}\item 
 static double \hyperlink{classHelper_ad085317d0b7ad0e5ac3d08b559a7015f}{to\-Radians} (double degrees)
-\begin{DoxyCompactList}\small\item\em \-Takes an angle in degrees, turns it into radians. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \-Takes an angle in degrees, turns it into radians. \end{DoxyCompactList}\item 
+static void \hyperlink{classHelper_a63c2ce5e48ee451d4364726770047db1}{delete\-Saved\-Game} (int game\-Number)
+\begin{DoxyCompactList}\small\item\em \-Removes saved game for given game. \end{DoxyCompactList}\item 
+static int \hyperlink{classHelper_a26086740d6daa9a5d51a616498b921c8}{get\-User\-Id} ()
+\begin{DoxyCompactList}\small\item\em \-Retrieves the user \-I\-D. \end{DoxyCompactList}\item 
+static void \hyperlink{classHelper_acaf57a101dc37cd3c628b1c7d3e16b2d}{set\-User\-Id} (int id)
+\begin{DoxyCompactList}\small\item\em \-Sets the user \-I\-D. \end{DoxyCompactList}\item 
+static void \hyperlink{classHelper_aaaf9678b2140d1f394557af950de930f}{initialize} ()
+\begin{DoxyCompactList}\small\item\em \-Initializes class attributes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{\-Static \-Public \-Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{classHelper_a13faf9f5fa52f832db1a99b4c0c91cb8}{static const double \hyperlink{classHelper_a13faf9f5fa52f832db1a99b4c0c91cb8}{\-P\-I} = 3.\-14159265}\label{classHelper_a13faf9f5fa52f832db1a99b4c0c91cb8}
 
-\begin{DoxyCompactList}\small\item\em \-P\-I. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \-P\-I. \end{DoxyCompactList}\item 
+\hypertarget{classHelper_ae56a649c53d60fa3801122cea200f15d}{static \-Q\-Sql\-Database \hyperlink{classHelper_ae56a649c53d60fa3801122cea200f15d}{shaun\-D\-B}}\label{classHelper_ae56a649c53d60fa3801122cea200f15d}
+
+\begin{DoxyCompactList}\small\item\em \-The database for the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Member \-Function \-Documentation}
-\hypertarget{classHelper_a1c444bceb723964a341b1c8b2bd2f95c}{\index{\-Helper@{\-Helper}!make\-Widget\-Large@{make\-Widget\-Large}}
+\hypertarget{classHelper_a63c2ce5e48ee451d4364726770047db1}{\index{\-Helper@{\-Helper}!delete\-Saved\-Game@{delete\-Saved\-Game}}
+\index{delete\-Saved\-Game@{delete\-Saved\-Game}!Helper@{\-Helper}}
+\subsubsection[{delete\-Saved\-Game}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-::delete\-Saved\-Game} (
+\begin{DoxyParamCaption}
+\item[{int}]{game\-Number}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelper_a63c2ce5e48ee451d4364726770047db1}
+
+
+\-Removes saved game for given game. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em game\-Number} & \-The game whose entry we wish to delete \\
+\hline
+\end{DoxyParams}
+\hypertarget{classHelper_a26086740d6daa9a5d51a616498b921c8}{\index{\-Helper@{\-Helper}!get\-User\-Id@{get\-User\-Id}}
+\index{get\-User\-Id@{get\-User\-Id}!Helper@{\-Helper}}
+\subsubsection[{get\-User\-Id}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Helper\-::get\-User\-Id} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelper_a26086740d6daa9a5d51a616498b921c8}
+
+
+\-Retrieves the user \-I\-D. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The user \-I\-D 
+\end{DoxyReturn}
+\hypertarget{classHelper_aaaf9678b2140d1f394557af950de930f}{\index{\-Helper@{\-Helper}!initialize@{initialize}}
+\index{initialize@{initialize}!Helper@{\-Helper}}
+\subsubsection[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-::initialize} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelper_aaaf9678b2140d1f394557af950de930f}
+
+
+\-Initializes class attributes. 
+
+\-Initializes static members. \-Called only once. \hypertarget{classHelper_a1c444bceb723964a341b1c8b2bd2f95c}{\index{\-Helper@{\-Helper}!make\-Widget\-Large@{make\-Widget\-Large}}
 \index{make\-Widget\-Large@{make\-Widget\-Large}!Helper@{\-Helper}}
 \subsubsection[{make\-Widget\-Large}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-::make\-Widget\-Large} (
 \begin{DoxyParamCaption}
@@ -51,7 +103,23 @@ static double \hyperlink{classHelper_ad085317d0b7ad0e5ac3d08b559a7015f}{to\-Radi
 {\em widget} & \-Widget whose size to change\\
 \hline
 \end{DoxyParams}
-\-Makes the given widget small. \hypertarget{classHelper_ad085317d0b7ad0e5ac3d08b559a7015f}{\index{\-Helper@{\-Helper}!to\-Radians@{to\-Radians}}
+\-Makes the given widget small. \hypertarget{classHelper_acaf57a101dc37cd3c628b1c7d3e16b2d}{\index{\-Helper@{\-Helper}!set\-User\-Id@{set\-User\-Id}}
+\index{set\-User\-Id@{set\-User\-Id}!Helper@{\-Helper}}
+\subsubsection[{set\-User\-Id}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Helper\-::set\-User\-Id} (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classHelper_acaf57a101dc37cd3c628b1c7d3e16b2d}
+
+
+\-Sets the user \-I\-D. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em id} & \-The user \-I\-D \\
+\hline
+\end{DoxyParams}
+\hypertarget{classHelper_ad085317d0b7ad0e5ac3d08b559a7015f}{\index{\-Helper@{\-Helper}!to\-Radians@{to\-Radians}}
 \index{to\-Radians@{to\-Radians}!Helper@{\-Helper}}
 \subsubsection[{to\-Radians}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Helper\-::to\-Radians} (
 \begin{DoxyParamCaption}

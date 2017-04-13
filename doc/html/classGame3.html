@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -95,20 +96,24 @@ Public Slots</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes save and exit button and adds replay and back buttons.  <a href="#ab37e7d626fddb52e5488caef0e2eb551"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame3.html#ab5b41e8bcbaf0c2299f1c9c21660867e">goToMainMenu</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot to go back to the games main menu when pressing Exit.  <a href="#ab5b41e8bcbaf0c2299f1c9c21660867e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame3.html#aa53cda927c3a9797d8e2ce37e20daab1">save</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves and exits.  <a href="#aa53cda927c3a9797d8e2ce37e20daab1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame3.html#afd341ba6bd89317a7303eeb4d8147a7b">closeEvent</a> (QCloseEvent *bar)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the saved game on close.  <a href="#afd341ba6bd89317a7303eeb4d8147a7b"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame3.html#a1c9c75bff5b0dcd841ce4eafb9a2b40b">Game3</a> (Difficulty difficulty, Size size, QWidget *parent=0)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a1c9c75bff5b0dcd841ce4eafb9a2b40b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame3.html#a6deb46aa31d139c6685e49a26d3b642d">Game3</a> (Difficulty difficulty, Size size, bool resume=false, QWidget *parent=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a6deb46aa31d139c6685e49a26d3b642d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame3.html#afa72d96885beec0fc5f4f542d20a9898">~Game3</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrucor.  <a href="#afa72d96885beec0fc5f4f542d20a9898"></a><br/></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a1c9c75bff5b0dcd841ce4eafb9a2b40b"></a><!-- doxytag: member="Game3::Game3" ref="a1c9c75bff5b0dcd841ce4eafb9a2b40b" args="(Difficulty difficulty, Size size, QWidget *parent=0)" -->
+<a class="anchor" id="a6deb46aa31d139c6685e49a26d3b642d"></a><!-- doxytag: member="Game3::Game3" ref="a6deb46aa31d139c6685e49a26d3b642d" args="(Difficulty difficulty, Size size, bool resume=false, QWidget *parent=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classGame3.html#a1c9c75bff5b0dcd841ce4eafb9a2b40b">Game3::Game3</a> </td>
+          <td class="memname"><a class="el" href="classGame3.html#a6deb46aa31d139c6685e49a26d3b642d">Game3::Game3</a> </td>
           <td>(</td>
           <td class="paramtype">Difficulty&#160;</td>
           <td class="paramname"><em>difficulty</em>, </td>
@@ -118,6 +123,12 @@ Public Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">Size&#160;</td>
           <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>resume</em> = <code>false</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -134,7 +145,15 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Default constructor. </p>
+<p>Constructor. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">difficulty</td><td>Difficulty of the game </td></tr>
+    <tr><td class="paramname">size</td><td>Size of the game </td></tr>
+    <tr><td class="paramname">resume</td><td>Whether this is a new game</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Sets the size of the window, initializes the graphic items, sets the layouts and connects buttons to their slots. </p>
 
 </div>
@@ -159,6 +178,32 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="afd341ba6bd89317a7303eeb4d8147a7b"></a><!-- doxytag: member="Game3::closeEvent" ref="afd341ba6bd89317a7303eeb4d8147a7b" args="(QCloseEvent *bar)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGame3.html#afd341ba6bd89317a7303eeb4d8147a7b">Game3::closeEvent</a> </td>
+          <td>(</td>
+          <td class="paramtype">QCloseEvent *&#160;</td>
+          <td class="paramname"><em>bar</em></td><td>)</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Deletes the saved game on close. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bar</td><td>The event triggered</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Deletes the saved game on close unless it is a newly saved game. </p>
+
+</div>
+</div>
 <a class="anchor" id="a0a79ef23fdfd43052da0e31da7cf8172"></a><!-- doxytag: member="Game3::endGame" ref="a0a79ef23fdfd43052da0e31da7cf8172" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -216,6 +261,25 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aa53cda927c3a9797d8e2ce37e20daab1"></a><!-- doxytag: member="Game3::save" ref="aa53cda927c3a9797d8e2ce37e20daab1" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGame3.html#aa53cda927c3a9797d8e2ce37e20daab1">Game3::save</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Saves and exits. </p>
+<p>Saves and exits </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>game3/<a class="el" href="game3_8h_source.html">game3.h</a></li>
 <li>game3/<a class="el" href="game3_8cpp.html">game3.cpp</a></li>
@@ -226,7 +290,7 @@ Public Member Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -238,7 +302,7 @@ Public Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 7 2017 22:21:23 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 13 2017 22:23:28 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

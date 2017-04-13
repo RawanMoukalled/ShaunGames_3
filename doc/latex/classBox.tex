@@ -24,10 +24,12 @@ void \hyperlink{classBox_a0d9638999c98c4b30de81111c198c875}{draw\-Bitzer} ()
 \hypertarget{classBox_a7fb35863d54190760a80fd7acd480436}{void \hyperlink{classBox_a7fb35863d54190760a80fd7acd480436}{set\-Right} ()}\label{classBox_a7fb35863d54190760a80fd7acd480436}
 
 \begin{DoxyCompactList}\small\item\em \-Marks that the right of the box has been drawn. \end{DoxyCompactList}\item 
-bool \hyperlink{classBox_a1f0213e1e280ab983294fe67c5672e0c}{is\-Closed} ()
+bool \hyperlink{classBox_a1489f102d7527122535a5e94a5e91a15}{is\-Closed} () const 
 \begin{DoxyCompactList}\small\item\em \-Checks if the box has been closed. \end{DoxyCompactList}\item 
-int \hyperlink{classBox_a34c0243bb636ae52045b930bb14e28c2}{number\-Of\-Lines\-Drawn} ()
-\begin{DoxyCompactList}\small\item\em \-Checks how many lines are drawn in the box. \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \hyperlink{classBox_a34d0b328ebbd1add43f66dbe6c0c205e}{number\-Of\-Lines\-Drawn} () const 
+\begin{DoxyCompactList}\small\item\em \-Checks how many lines are drawn in the box. \end{DoxyCompactList}\item 
+bool \hyperlink{classBox_a9f6699ac0342d013c2d518896d921e19}{was\-Closed\-By\-User} () const 
+\begin{DoxyCompactList}\small\item\em \-Returns whether the user has closed this box. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Constructor \& \-Destructor \-Documentation}
@@ -78,13 +80,13 @@ int \hyperlink{classBox_a34c0243bb636ae52045b930bb14e28c2}{number\-Of\-Lines\-Dr
 
 \-Sets pixmap to \-Shaun. 
 
-\-Draws \-Shaun on the box. \hypertarget{classBox_a1f0213e1e280ab983294fe67c5672e0c}{\index{\-Box@{\-Box}!is\-Closed@{is\-Closed}}
+\-Draws \-Shaun on the box. \hypertarget{classBox_a1489f102d7527122535a5e94a5e91a15}{\index{\-Box@{\-Box}!is\-Closed@{is\-Closed}}
 \index{is\-Closed@{is\-Closed}!Box@{\-Box}}
 \subsubsection[{is\-Closed}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Box\-::is\-Closed} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classBox_a1f0213e1e280ab983294fe67c5672e0c}
+) const}}\label{classBox_a1489f102d7527122535a5e94a5e91a15}
 
 
 \-Checks if the box has been closed. 
@@ -92,13 +94,13 @@ int \hyperlink{classBox_a34c0243bb636ae52045b930bb14e28c2}{number\-Of\-Lines\-Dr
 \begin{DoxyReturn}{\-Returns}
 \-Whether the box has been closed 
 \end{DoxyReturn}
-\hypertarget{classBox_a34c0243bb636ae52045b930bb14e28c2}{\index{\-Box@{\-Box}!number\-Of\-Lines\-Drawn@{number\-Of\-Lines\-Drawn}}
+\hypertarget{classBox_a34d0b328ebbd1add43f66dbe6c0c205e}{\index{\-Box@{\-Box}!number\-Of\-Lines\-Drawn@{number\-Of\-Lines\-Drawn}}
 \index{number\-Of\-Lines\-Drawn@{number\-Of\-Lines\-Drawn}!Box@{\-Box}}
 \subsubsection[{number\-Of\-Lines\-Drawn}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Box\-::number\-Of\-Lines\-Drawn} (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classBox_a34c0243bb636ae52045b930bb14e28c2}
+) const}}\label{classBox_a34d0b328ebbd1add43f66dbe6c0c205e}
 
 
 \-Checks how many lines are drawn in the box. 
@@ -106,7 +108,21 @@ int \hyperlink{classBox_a34c0243bb636ae52045b930bb14e28c2}{number\-Of\-Lines\-Dr
 \begin{DoxyReturn}{\-Returns}
 \-The number of lines drawn
 \end{DoxyReturn}
-\-Checks if the box is one line away from being closed. 
+\-Checks if the box is one line away from being closed. \hypertarget{classBox_a9f6699ac0342d013c2d518896d921e19}{\index{\-Box@{\-Box}!was\-Closed\-By\-User@{was\-Closed\-By\-User}}
+\index{was\-Closed\-By\-User@{was\-Closed\-By\-User}!Box@{\-Box}}
+\subsubsection[{was\-Closed\-By\-User}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Box\-::was\-Closed\-By\-User} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classBox_a9f6699ac0342d013c2d518896d921e19}
+
+
+\-Returns whether the user has closed this box. 
+
+\begin{DoxyReturn}{\-Returns}
+\-Whether the user has closed this box 
+\end{DoxyReturn}
+
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

@@ -9,7 +9,9 @@
 virtual \hyperlink{classCannon_a94a7e119675944cf6ee687439a2709bc}{$\sim$\-Cannon} ()
 \begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\item 
 void \hyperlink{classCannon_ab0ab1659f47a68f40bc25050575053e0}{key\-Press\-Event} (\-Q\-Key\-Event $\ast$event)
-\begin{DoxyCompactList}\small\item\em \-Entrance point of triggered key events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \-Entrance point of triggered key events. \end{DoxyCompactList}\item 
+void \hyperlink{classCannon_aa635a752c77024618cb8ba67c2ff8d4e}{rotate\-Cannon} (bool to\-The\-Right)
+\begin{DoxyCompactList}\small\item\em \-Rotates the cannon. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Constructor \& \-Destructor \-Documentation}
@@ -54,7 +56,23 @@ void \hyperlink{classCannon_ab0ab1659f47a68f40bc25050575053e0}{key\-Press\-Event
 {\em event} & \-The event that has been triggered\\
 \hline
 \end{DoxyParams}
-\-Checks the key that triggered the event. \-If the key was a left or right arrow key, the cannon rotates left or right. \-If the key was a space, a sheep is thrown. 
+\-Checks the key that triggered the event. \-If the key was a left or right arrow key, the cannon rotates left or right. \-If the key was a space, a sheep is thrown. \hypertarget{classCannon_aa635a752c77024618cb8ba67c2ff8d4e}{\index{\-Cannon@{\-Cannon}!rotate\-Cannon@{rotate\-Cannon}}
+\index{rotate\-Cannon@{rotate\-Cannon}!Cannon@{\-Cannon}}
+\subsubsection[{rotate\-Cannon}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Cannon\-::rotate\-Cannon} (
+\begin{DoxyParamCaption}
+\item[{bool}]{to\-The\-Right}
+\end{DoxyParamCaption}
+)}}\label{classCannon_aa635a752c77024618cb8ba67c2ff8d4e}
+
+
+\-Rotates the cannon. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em to\-The\-Right} & \-Whether the movement should be to the right or to the left \\
+\hline
+\end{DoxyParams}
+
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

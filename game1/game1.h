@@ -19,6 +19,7 @@ public:
     /**
     * \brief Constructor
     * \param level Game level
+    * \param resume Whether this is a new game
     */
     explicit Game1(int level, bool resume = false, QWidget *parent = 0);
 

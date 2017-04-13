@@ -19,6 +19,8 @@ class Game2 : public QWidget
 public:
     /**
     * \brief Default constructor
+    * \param difficulty Difficulty of the game
+    * \param resume Whether this is a new game
     */
     explicit Game2(Difficulty difficulty, bool resume = false, QWidget *parent = 0);
 

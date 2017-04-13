@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,6 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div>
@@ -93,65 +95,77 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00022"></a>00022 {
 <a name="l00023"></a>00023     Q_OBJECT
 <a name="l00024"></a>00024 <span class="keyword">public</span>:
-<a name="l00028"></a>00028     <span class="keyword">explicit</span> <a class="code" href="classGame3Scene.html#a807bd1fd85f313df2a265d0ccbcd2a78" title="Constructor.">Game3Scene</a>(Difficulty difficulty, Size size, QObject *parent = 0);
-<a name="l00029"></a>00029 
-<a name="l00033"></a>00033     <span class="keyword">virtual</span> <a class="code" href="classGame3Scene.html#a6a41bfc50cb0f2304ecb7a82c39f615a" title="Destructor.">~Game3Scene</a>();
-<a name="l00034"></a>00034 
-<a name="l00038"></a>00038     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#a42001b176b1bf8adaac5dbbdf78c944c" title="Computer turn.">computerTurn</a>();
-<a name="l00039"></a>00039 
-<a name="l00044"></a>00044     <span class="keywordtype">bool</span> <a class="code" href="classGame3Scene.html#a15e0a02a54f5db10129d40bb9d5cd6ed" title="Returns whose turn it is to play.">isUserTurn</a>();
-<a name="l00045"></a>00045 
-<a name="l00050"></a>00050     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#a13d2095b46ba4f23f5b747bbbc556890" title="Remembers newly drawn line.">addNewlyDrawnLine</a>(<a class="code" href="classLine.html">Line</a> *line);
-<a name="l00051"></a>00051 
-<a name="l00055"></a>00055     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#a8af77b8adc69ae0d2e6dc336674dd2e1" title="Clears new lines by turning them grey.">clearNewLines</a>();
-<a name="l00056"></a>00056 
-<a name="l00060"></a>00060     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#a634df6ad5ac3776bc3d18519214e2eec" title="Triggers finishing the game.">gameOver</a>();
-<a name="l00061"></a>00061 
-<a name="l00066"></a>00066     <span class="keywordtype">bool</span> <a class="code" href="classGame3Scene.html#a1e1507f4dbb2a32cb6a22c97fc3f0877" title="Returns whether there are any moves left.">noMoreMoves</a>();
-<a name="l00067"></a>00067 
-<a name="l00071"></a>00071     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#a32f5b4495727883849959f0d832ac398" title="Declares one more box as closed by user.">closeBoxByUser</a>();
-<a name="l00072"></a>00072 
-<a name="l00076"></a>00076     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#a866b77e044e76b8ea79447cc9f4a31f1" title="Declares one more box as closed by computer.">closeBoxByComputer</a>();
-<a name="l00077"></a>00077 
-<a name="l00082"></a>00082     <a class="code" href="classLine.html">Line</a> *<a class="code" href="classGame3Scene.html#a68d775901007417eb7f67e3567d83b3f" title="Finds and returns a non-clicked line that closes at least one box.">getLineThatClosesBox</a>();
-<a name="l00083"></a>00083 
-<a name="l00088"></a>00088     <a class="code" href="classLine.html">Line</a> *<a class="code" href="classGame3Scene.html#a0ed388d4e3163fa39d05547b98794366" title="Finds and returns a non-clicked line that does not let the user close a box.">getSmartLine</a>();
-<a name="l00089"></a>00089     
-<a name="l00090"></a>00090 signals:
-<a name="l00094"></a>00094     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#afdf219b82363a1e8038a27d02df45cd2" title="Signals Game3 that the game is over.">done</a>();
-<a name="l00095"></a>00095     
-<a name="l00096"></a>00096 <span class="keyword">public</span> slots:
-<a name="l00100"></a>00100     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#a8baab5c5cf08a3da4c045237124f3312" title="Computer move.">computerMove</a>();
-<a name="l00101"></a>00101 
-<a name="l00102"></a>00102 <span class="keyword">private</span>:
-<a name="l00103"></a>00103     <span class="keyword">const</span> Difficulty m_difficulty; 
-<a name="l00104"></a>00104     <span class="keyword">const</span> Size m_size; 
-<a name="l00105"></a>00105     <span class="keywordtype">bool</span> m_userTurn; 
-<a name="l00106"></a>00106     <span class="keywordtype">int</span> m_boxesClosedByUser; 
-<a name="l00107"></a>00107     <span class="keywordtype">int</span> m_boxesClosedByComputer; 
-<a name="l00108"></a>00108     <span class="keywordtype">int</span> m_score; 
+<a name="l00031"></a>00031     <span class="keyword">explicit</span> <a class="code" href="classGame3Scene.html#a474f98b788997992aed5f5120414a095" title="Constructor.">Game3Scene</a>(Difficulty difficulty, Size size, <span class="keywordtype">bool</span> resume = <span class="keyword">false</span>, QObject *parent = 0);
+<a name="l00032"></a>00032 
+<a name="l00036"></a>00036     <span class="keyword">virtual</span> <a class="code" href="classGame3Scene.html#a6a41bfc50cb0f2304ecb7a82c39f615a" title="Destructor.">~Game3Scene</a>();
+<a name="l00037"></a>00037 
+<a name="l00041"></a>00041     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#a42001b176b1bf8adaac5dbbdf78c944c" title="Computer turn.">computerTurn</a>();
+<a name="l00042"></a>00042 
+<a name="l00047"></a>00047     <span class="keywordtype">bool</span> <a class="code" href="classGame3Scene.html#a15e0a02a54f5db10129d40bb9d5cd6ed" title="Returns whose turn it is to play.">isUserTurn</a>();
+<a name="l00048"></a>00048 
+<a name="l00053"></a>00053     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#a13d2095b46ba4f23f5b747bbbc556890" title="Remembers newly drawn line.">addNewlyDrawnLine</a>(<a class="code" href="classLine.html">Line</a> *line);
+<a name="l00054"></a>00054 
+<a name="l00058"></a>00058     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#a8af77b8adc69ae0d2e6dc336674dd2e1" title="Clears new lines by turning them grey.">clearNewLines</a>();
+<a name="l00059"></a>00059 
+<a name="l00063"></a>00063     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#a634df6ad5ac3776bc3d18519214e2eec" title="Triggers finishing the game.">gameOver</a>();
+<a name="l00064"></a>00064 
+<a name="l00069"></a>00069     <span class="keywordtype">bool</span> <a class="code" href="classGame3Scene.html#a1e1507f4dbb2a32cb6a22c97fc3f0877" title="Returns whether there are any moves left.">noMoreMoves</a>();
+<a name="l00070"></a>00070 
+<a name="l00074"></a>00074     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#a32f5b4495727883849959f0d832ac398" title="Declares one more box as closed by user.">closeBoxByUser</a>();
+<a name="l00075"></a>00075 
+<a name="l00079"></a>00079     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#a866b77e044e76b8ea79447cc9f4a31f1" title="Declares one more box as closed by computer.">closeBoxByComputer</a>();
+<a name="l00080"></a>00080 
+<a name="l00085"></a>00085     <a class="code" href="classLine.html">Line</a> *<a class="code" href="classGame3Scene.html#a6f6707f6d26cec444e8f336c28c84959" title="Finds and returns a non-clicked line that closes at least one box.">getLineThatClosesBox</a>() <span class="keyword">const</span>;
+<a name="l00086"></a>00086 
+<a name="l00091"></a>00091     <a class="code" href="classLine.html">Line</a> *<a class="code" href="classGame3Scene.html#af15b82c1411cda7276c9ccb5644e5f6f" title="Finds and returns a non-clicked line that does not let the user close a box.">getSmartLine</a>() <span class="keyword">const</span>;
+<a name="l00092"></a>00092 
+<a name="l00096"></a>00096     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#a00de2fe4e152c59fa638588301f5618c" title="Freezes gameplay.">freeze</a>();
+<a name="l00097"></a>00097 
+<a name="l00102"></a>00102     <span class="keywordtype">int</span> <a class="code" href="classGame3Scene.html#a43a7e15210eb159a2dec71bf00db10c9" title="Returns the game score.">getScore</a>() <span class="keyword">const</span>;
+<a name="l00103"></a>00103 
+<a name="l00108"></a>00108     QString <a class="code" href="classGame3Scene.html#a66330e50ed9312909949302292867c89" title="Returns which boxes have been closed by the user.">getBoxesClosedByUser</a>() <span class="keyword">const</span>;
 <a name="l00109"></a>00109 
-<a name="l00110"></a>00110     QVector&lt; QVector&lt;Dot*&gt; &gt; m_dots; 
-<a name="l00111"></a>00111     QVector&lt; QVector&lt;HorizontalLine*&gt; &gt; m_horizontalLines; 
-<a name="l00112"></a>00112     QVector&lt; QVector&lt;VerticalLine*&gt; &gt; m_verticalLines; 
-<a name="l00113"></a>00113     QVector&lt; QVector&lt;Box*&gt; &gt; m_boxes; 
-<a name="l00114"></a>00114     QTimer *m_delay; 
+<a name="l00114"></a>00114     QString <a class="code" href="classGame3Scene.html#a16307e85274c2ccff7af7690550d005c" title="Returns which boxes have been closed by the PC.">getBoxesClosedByPC</a>() <span class="keyword">const</span>;
 <a name="l00115"></a>00115 
-<a name="l00116"></a>00116     QVector&lt;Line*&gt; m_unmarkedLines; 
-<a name="l00117"></a>00117     QVector&lt;Line*&gt; m_newLines; 
-<a name="l00118"></a>00118 
-<a name="l00119"></a>00119     <a class="code" href="classGameOver.html">GameOver</a> *m_gameOverPicture; 
-<a name="l00120"></a>00120     QLCDNumber *m_scoreDisplay; 
-<a name="l00121"></a>00121 };
-<a name="l00122"></a>00122 
-<a name="l00123"></a>00123 <span class="preprocessor">#endif // GAME3SCENE_H</span>
+<a name="l00120"></a>00120     QString <a class="code" href="classGame3Scene.html#a175fc8ca97b32bd13997bb86119a5a69" title="Returns which horizontal lines have already been drawn.">getDrawnHorizontalLines</a>() <span class="keyword">const</span>;
+<a name="l00121"></a>00121 
+<a name="l00126"></a>00126     QString <a class="code" href="classGame3Scene.html#acc62a86e17fc7a48aa38a5148ea17973" title="Returns which vertical lines have already been drawn.">getDrawnVerticalLines</a>() <span class="keyword">const</span>;
+<a name="l00127"></a>00127     
+<a name="l00128"></a>00128 signals:
+<a name="l00132"></a>00132     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#afdf219b82363a1e8038a27d02df45cd2" title="Signals Game3 that the game is over.">done</a>();
+<a name="l00133"></a>00133     
+<a name="l00134"></a>00134 <span class="keyword">public</span> slots:
+<a name="l00138"></a>00138     <span class="keywordtype">void</span> <a class="code" href="classGame3Scene.html#a8baab5c5cf08a3da4c045237124f3312" title="Computer move.">computerMove</a>();
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140 <span class="keyword">private</span>:
+<a name="l00141"></a>00141     <span class="keyword">const</span> Difficulty m_difficulty; 
+<a name="l00142"></a>00142     <span class="keyword">const</span> Size m_size; 
+<a name="l00143"></a>00143     <span class="keywordtype">bool</span> m_userTurn; 
+<a name="l00144"></a>00144     <span class="keywordtype">int</span> m_boxesClosedByUser; 
+<a name="l00145"></a>00145     <span class="keywordtype">int</span> m_boxesClosedByComputer; 
+<a name="l00146"></a>00146     <span class="keywordtype">int</span> m_score; 
+<a name="l00147"></a>00147 
+<a name="l00148"></a>00148     QVector&lt; QVector&lt;Dot*&gt; &gt; m_dots; 
+<a name="l00149"></a>00149     QVector&lt; QVector&lt;HorizontalLine*&gt; &gt; m_horizontalLines; 
+<a name="l00150"></a>00150     QVector&lt; QVector&lt;VerticalLine*&gt; &gt; m_verticalLines; 
+<a name="l00151"></a>00151     QVector&lt; QVector&lt;Box*&gt; &gt; m_boxes; 
+<a name="l00152"></a>00152     QTimer *m_delay; 
+<a name="l00153"></a>00153 
+<a name="l00154"></a>00154     QVector&lt;Line*&gt; m_unmarkedLines; 
+<a name="l00155"></a>00155     QVector&lt;Line*&gt; m_newLines; 
+<a name="l00156"></a>00156 
+<a name="l00157"></a>00157     <a class="code" href="classGameOver.html">GameOver</a> *m_gameOverPicture; 
+<a name="l00158"></a>00158     QLCDNumber *m_scoreDisplay; 
+<a name="l00159"></a>00159 };
+<a name="l00160"></a>00160 
+<a name="l00161"></a>00161 <span class="preprocessor">#endif // GAME3SCENE_H</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -163,7 +177,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 7 2017 22:21:23 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 13 2017 22:23:27 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

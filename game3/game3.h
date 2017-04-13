@@ -19,7 +19,10 @@ class Game3 : public QWidget
     Q_OBJECT
 public:
     /**
-    * \brief Default constructor
+    * \brief Constructor
+    * \param difficulty Difficulty of the game
+    * \param size Size of the game
+    * \param resume Whether this is a new game
     */
     explicit Game3(Difficulty difficulty, Size size, bool resume = false, QWidget *parent = 0);
 

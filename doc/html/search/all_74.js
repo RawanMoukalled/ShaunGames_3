@@ -1,10 +1,30 @@
 var searchData=
 [
+  ['take',['take',['../classQCPLayout.html#ada26cd17e56472b0b4d7fbbc96873e4c',1,'QCPLayout::take()'],['../classQCPLayoutGrid.html#a666a9fe9e92054436f9b66eba25cca0c',1,'QCPLayoutGrid::take()'],['../classQCPLayoutInset.html#a9ac707ccff650633b97f52dd5cddcf49',1,'QCPLayoutInset::take()']]],
+  ['takeat',['takeAt',['../classQCPLayout.html#a5a79621fa0a6eabb8b520cfc04fb601a',1,'QCPLayout::takeAt()'],['../classQCPLayoutGrid.html#acc1277394ff8a6432e111ff9463e6375',1,'QCPLayoutGrid::takeAt()'],['../classQCPLayoutInset.html#ad6756a3b507e20496aaf7f5ca16c47d1',1,'QCPLayoutInset::takeAt()']]],
+  ['ticklabeldata',['TickLabelData',['../structQCPAxisPainterPrivate_1_1TickLabelData.html',1,'QCPAxisPainterPrivate']]],
+  ['ticksrequest',['ticksRequest',['../classQCPAxis.html#af46d99613d29518795134ec4928e3873',1,'QCPAxis']]],
   ['tile',['Tile',['../classTile.html',1,'Tile'],['../classTile.html#ae086b4175de8e1826229c9447e0d7de0',1,'Tile::Tile()']]],
   ['tile_2ecpp',['tile.cpp',['../tile_8cpp.html',1,'']]],
   ['tile_2eh',['tile.h',['../tile_8h.html',1,'']]],
   ['tileat',['tileAt',['../classGame2Scene.html#a6e41f95c3cd53553076445ee42771b17',1,'Game2Scene']]],
   ['tilestoblock',['tilesToBlock',['../classGame2Scene.html#a9b9cb03a70be505cdddbf41f4ca756b3',1,'Game2Scene']]],
+  ['timeseriestoohlc',['timeSeriesToOhlc',['../classQCPFinancial.html#a0c3453d1c03e320950fdd2df54e3ebc8',1,'QCPFinancial']]],
+  ['titleclick',['titleClick',['../classQCustomPlot.html#a2137a819e518fee7edd1c0bf5984d8d6',1,'QCustomPlot']]],
+  ['titledoubleclick',['titleDoubleClick',['../classQCustomPlot.html#ad51d65f6abf5edfaeef6e0519a4c1a2f',1,'QCustomPlot']]],
+  ['top',['top',['../classQCPAxisRect.html#ac45aef1eb75cea46b241b6303028a607',1,'QCPAxisRect']]],
+  ['topainter',['toPainter',['../classQCustomPlot.html#a1be68d5c0f1e086d6374d1340a193fb9',1,'QCustomPlot']]],
+  ['topixmap',['toPixmap',['../classQCustomPlot.html#aabb974d71ce96c137dc04eb6eab844fe',1,'QCustomPlot']]],
+  ['topleft',['topLeft',['../classQCPAxisRect.html#a88acbe716bcf5072790a6f95637c40d8',1,'QCPAxisRect']]],
+  ['topright',['topRight',['../classQCPAxisRect.html#a232409546394c23b59407bc62fa460a8',1,'QCPAxisRect']]],
+  ['toqcpitemposition',['toQCPItemPosition',['../classQCPItemAnchor.html#ac54b20120669950255a63587193dbb86',1,'QCPItemAnchor::toQCPItemPosition()'],['../classQCPItemPosition.html#a577a7efc601df85a20b3e709d1ac320e',1,'QCPItemPosition::toQCPItemPosition()']]],
   ['toradians',['toRadians',['../classHelper.html#ad085317d0b7ad0e5ac3d08b559a7015f',1,'Helper']]],
-  ['turngrey',['turnGrey',['../classHorizontalLine.html#ae4b1b9f4b9de1e4393868675813fbf8c',1,'HorizontalLine::turnGrey()'],['../classLine.html#a63f54b0b50d2c6db91fc7d97c15433b1',1,'Line::turnGrey()'],['../classVerticalLine.html#ae4ac7f318bec7b2ed7a90c1c31a3752d',1,'VerticalLine::turnGrey()']]]
+  ['tracerstyle',['TracerStyle',['../classQCPItemTracer.html#a2f05ddb13978036f902ca3ab47076500',1,'QCPItemTracer']]],
+  ['tscircle',['tsCircle',['../classQCPItemTracer.html#a2f05ddb13978036f902ca3ab47076500ae2252c28f4842880d71e9f94e69de94e',1,'QCPItemTracer']]],
+  ['tscrosshair',['tsCrosshair',['../classQCPItemTracer.html#a2f05ddb13978036f902ca3ab47076500af562ec81ac3ba99e26ef8540cf1ec16f',1,'QCPItemTracer']]],
+  ['tsnone',['tsNone',['../classQCPItemTracer.html#a2f05ddb13978036f902ca3ab47076500aac27462c79146225bfa8fba24d2ee8a4',1,'QCPItemTracer']]],
+  ['tsplus',['tsPlus',['../classQCPItemTracer.html#a2f05ddb13978036f902ca3ab47076500a3323fb04017146e4885e080a459472fa',1,'QCPItemTracer']]],
+  ['tssquare',['tsSquare',['../classQCPItemTracer.html#a2f05ddb13978036f902ca3ab47076500a4ed5f01f2c5fd86d980366d79f481b9b',1,'QCPItemTracer']]],
+  ['turngrey',['turnGrey',['../classHorizontalLine.html#ae4b1b9f4b9de1e4393868675813fbf8c',1,'HorizontalLine::turnGrey()'],['../classLine.html#a63f54b0b50d2c6db91fc7d97c15433b1',1,'Line::turnGrey()'],['../classVerticalLine.html#ae4ac7f318bec7b2ed7a90c1c31a3752d',1,'VerticalLine::turnGrey()']]],
+  ['type',['type',['../classQCPItemPosition.html#aecb709d72c9aa334a7f62e2c9e0b5d60',1,'QCPItemPosition']]]
 ];

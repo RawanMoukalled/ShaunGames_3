@@ -9,29 +9,42 @@ void \hyperlink{classGame2_a4703d041f8981d8e74b9970968b033d7}{go\-To\-Main\-Menu
 void \hyperlink{classGame2_a38618590c202d5a3a8adc7aa7a770f0a}{end\-Game} ()
 \begin{DoxyCompactList}\small\item\em removes save and exit button and adds replay and back buttons \end{DoxyCompactList}\item 
 void \hyperlink{classGame2_a54ec031ce8f63c248862bfa9e2637bf6}{replay} ()
-\begin{DoxyCompactList}\small\item\em removes save and exit button and adds replay and back buttons \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em removes save and exit button and adds replay and back buttons \end{DoxyCompactList}\item 
+\hypertarget{classGame2_a8364cb2fe2c02cb0e3b93363672b24fe}{void \hyperlink{classGame2_a8364cb2fe2c02cb0e3b93363672b24fe}{save} ()}\label{classGame2_a8364cb2fe2c02cb0e3b93363672b24fe}
+
+\begin{DoxyCompactList}\small\item\em \-Saves the state of the game into the database. \end{DoxyCompactList}\item 
+void \hyperlink{classGame2_a57498c49c759e065615d43426d87137e}{close\-Event} (\-Q\-Close\-Event $\ast$bar)
+\begin{DoxyCompactList}\small\item\em \-Deletes the saved game on close. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{\-Public \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classGame2_ae983deec0de588dc91ab231e091cd7c3}{\-Game2} (\-Difficulty difficulty, \-Q\-Widget $\ast$parent=0)
+\hyperlink{classGame2_a9c069e25e758ba238dbd35e0b7e1eb35}{\-Game2} (\-Difficulty difficulty, bool resume=false, \-Q\-Widget $\ast$parent=0)
 \begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
 virtual \hyperlink{classGame2_a7c8c6d11b9f40a3cf3cc5b87f9a85807}{$\sim$\-Game2} ()
 \begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Constructor \& \-Destructor \-Documentation}
-\hypertarget{classGame2_ae983deec0de588dc91ab231e091cd7c3}{\index{\-Game2@{\-Game2}!\-Game2@{\-Game2}}
+\hypertarget{classGame2_a9c069e25e758ba238dbd35e0b7e1eb35}{\index{\-Game2@{\-Game2}!\-Game2@{\-Game2}}
 \index{\-Game2@{\-Game2}!Game2@{\-Game2}}
 \subsubsection[{\-Game2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game2\-::\-Game2} (
 \begin{DoxyParamCaption}
 \item[{\-Difficulty}]{difficulty, }
+\item[{bool}]{resume = {\ttfamily false}, }
 \item[{\-Q\-Widget $\ast$}]{parent = {\ttfamily 0}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classGame2_ae983deec0de588dc91ab231e091cd7c3}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classGame2_a9c069e25e758ba238dbd35e0b7e1eb35}
 
 
 \-Default constructor. 
 
+
+\begin{DoxyParams}{\-Parameters}
+{\em difficulty} & \-Difficulty of the game \\
+\hline
+{\em resume} & \-Whether this is a new game\\
+\hline
+\end{DoxyParams}
 \-Sets the size of the window, initializes the graphic items, sets the layouts and connects buttons to their slots. \hypertarget{classGame2_a7c8c6d11b9f40a3cf3cc5b87f9a85807}{\index{\-Game2@{\-Game2}!$\sim$\-Game2@{$\sim$\-Game2}}
 \index{$\sim$\-Game2@{$\sim$\-Game2}!Game2@{\-Game2}}
 \subsubsection[{$\sim$\-Game2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game2\-::$\sim$\-Game2} (
@@ -46,6 +59,22 @@ virtual \hyperlink{classGame2_a7c8c6d11b9f40a3cf3cc5b87f9a85807}{$\sim$\-Game2} 
 \-Frees allocated memory. 
 
 \subsection{\-Member \-Function \-Documentation}
+\hypertarget{classGame2_a57498c49c759e065615d43426d87137e}{\index{\-Game2@{\-Game2}!close\-Event@{close\-Event}}
+\index{close\-Event@{close\-Event}!Game2@{\-Game2}}
+\subsubsection[{close\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game2\-::close\-Event} (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Close\-Event $\ast$}]{bar}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}\label{classGame2_a57498c49c759e065615d43426d87137e}
+
+
+\-Deletes the saved game on close. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em bar} & \-The event triggered \\
+\hline
+\end{DoxyParams}
 \hypertarget{classGame2_a38618590c202d5a3a8adc7aa7a770f0a}{\index{\-Game2@{\-Game2}!end\-Game@{end\-Game}}
 \index{end\-Game@{end\-Game}!Game2@{\-Game2}}
 \subsubsection[{end\-Game}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game2\-::end\-Game} (

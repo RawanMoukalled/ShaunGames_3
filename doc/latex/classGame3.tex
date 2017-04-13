@@ -9,30 +9,44 @@ void \hyperlink{classGame3_a0a79ef23fdfd43052da0e31da7cf8172}{end\-Game} ()
 void \hyperlink{classGame3_ab37e7d626fddb52e5488caef0e2eb551}{replay} ()
 \begin{DoxyCompactList}\small\item\em \-Removes save and exit button and adds replay and back buttons. \end{DoxyCompactList}\item 
 void \hyperlink{classGame3_ab5b41e8bcbaf0c2299f1c9c21660867e}{go\-To\-Main\-Menu} ()
-\begin{DoxyCompactList}\small\item\em \-Slot to go back to the games main menu when pressing \-Exit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \-Slot to go back to the games main menu when pressing \-Exit. \end{DoxyCompactList}\item 
+void \hyperlink{classGame3_aa53cda927c3a9797d8e2ce37e20daab1}{save} ()
+\begin{DoxyCompactList}\small\item\em \-Saves and exits. \end{DoxyCompactList}\item 
+void \hyperlink{classGame3_afd341ba6bd89317a7303eeb4d8147a7b}{close\-Event} (\-Q\-Close\-Event $\ast$bar)
+\begin{DoxyCompactList}\small\item\em \-Deletes the saved game on close. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{\-Public \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classGame3_a1c9c75bff5b0dcd841ce4eafb9a2b40b}{\-Game3} (\-Difficulty difficulty, \-Size size, \-Q\-Widget $\ast$parent=0)
-\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classGame3_a6deb46aa31d139c6685e49a26d3b642d}{\-Game3} (\-Difficulty difficulty, \-Size size, bool resume=false, \-Q\-Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \-Constructor. \end{DoxyCompactList}\item 
 virtual \hyperlink{classGame3_afa72d96885beec0fc5f4f542d20a9898}{$\sim$\-Game3} ()
 \begin{DoxyCompactList}\small\item\em \-Destrucor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Constructor \& \-Destructor \-Documentation}
-\hypertarget{classGame3_a1c9c75bff5b0dcd841ce4eafb9a2b40b}{\index{\-Game3@{\-Game3}!\-Game3@{\-Game3}}
+\hypertarget{classGame3_a6deb46aa31d139c6685e49a26d3b642d}{\index{\-Game3@{\-Game3}!\-Game3@{\-Game3}}
 \index{\-Game3@{\-Game3}!Game3@{\-Game3}}
 \subsubsection[{\-Game3}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game3\-::\-Game3} (
 \begin{DoxyParamCaption}
 \item[{\-Difficulty}]{difficulty, }
 \item[{\-Size}]{size, }
+\item[{bool}]{resume = {\ttfamily false}, }
 \item[{\-Q\-Widget $\ast$}]{parent = {\ttfamily 0}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classGame3_a1c9c75bff5b0dcd841ce4eafb9a2b40b}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classGame3_a6deb46aa31d139c6685e49a26d3b642d}
 
 
-\-Default constructor. 
+\-Constructor. 
 
+
+\begin{DoxyParams}{\-Parameters}
+{\em difficulty} & \-Difficulty of the game \\
+\hline
+{\em size} & \-Size of the game \\
+\hline
+{\em resume} & \-Whether this is a new game\\
+\hline
+\end{DoxyParams}
 \-Sets the size of the window, initializes the graphic items, sets the layouts and connects buttons to their slots. \hypertarget{classGame3_afa72d96885beec0fc5f4f542d20a9898}{\index{\-Game3@{\-Game3}!$\sim$\-Game3@{$\sim$\-Game3}}
 \index{$\sim$\-Game3@{$\sim$\-Game3}!Game3@{\-Game3}}
 \subsubsection[{$\sim$\-Game3}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game3\-::$\sim$\-Game3} (
@@ -47,7 +61,23 @@ virtual \hyperlink{classGame3_afa72d96885beec0fc5f4f542d20a9898}{$\sim$\-Game3} 
 \-Frees allocated memory. 
 
 \subsection{\-Member \-Function \-Documentation}
-\hypertarget{classGame3_a0a79ef23fdfd43052da0e31da7cf8172}{\index{\-Game3@{\-Game3}!end\-Game@{end\-Game}}
+\hypertarget{classGame3_afd341ba6bd89317a7303eeb4d8147a7b}{\index{\-Game3@{\-Game3}!close\-Event@{close\-Event}}
+\index{close\-Event@{close\-Event}!Game3@{\-Game3}}
+\subsubsection[{close\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game3\-::close\-Event} (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Close\-Event $\ast$}]{bar}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}\label{classGame3_afd341ba6bd89317a7303eeb4d8147a7b}
+
+
+\-Deletes the saved game on close. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em bar} & \-The event triggered\\
+\hline
+\end{DoxyParams}
+\-Deletes the saved game on close unless it is a newly saved game. \hypertarget{classGame3_a0a79ef23fdfd43052da0e31da7cf8172}{\index{\-Game3@{\-Game3}!end\-Game@{end\-Game}}
 \index{end\-Game@{end\-Game}!Game3@{\-Game3}}
 \subsubsection[{end\-Game}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game3\-::end\-Game} (
 \begin{DoxyParamCaption}
@@ -80,7 +110,18 @@ virtual \hyperlink{classGame3_afa72d96885beec0fc5f4f542d20a9898}{$\sim$\-Game3} 
 
 \-Removes save and exit button and adds replay and back buttons. 
 
-\-Reloads game. 
+\-Reloads game. \hypertarget{classGame3_aa53cda927c3a9797d8e2ce37e20daab1}{\index{\-Game3@{\-Game3}!save@{save}}
+\index{save@{save}!Game3@{\-Game3}}
+\subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game3\-::save} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}\label{classGame3_aa53cda927c3a9797d8e2ce37e20daab1}
+
+
+\-Saves and exits. 
+
+\-Saves and exits 
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

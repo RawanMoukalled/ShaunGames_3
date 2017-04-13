@@ -11,11 +11,15 @@ void \hyperlink{classGame1_a77d143d518941d661ed7ed58d7709eb3}{end\-Game} (bool w
 void \hyperlink{classGame1_ae77aa2b2516135ecaa1667c8d3edc7c4}{replay} ()
 \begin{DoxyCompactList}\small\item\em \-Reloads the game with the same level. \end{DoxyCompactList}\item 
 void \hyperlink{classGame1_a556cb1f167454f0b668b706da20d403f}{next} ()
-\begin{DoxyCompactList}\small\item\em \-Proceed to the next level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \-Proceed to the next level. \end{DoxyCompactList}\item 
+void \hyperlink{classGame1_a1104aaaccf868b6726c42779af376bd1}{save} ()
+\begin{DoxyCompactList}\small\item\em \-Saves and exits. \end{DoxyCompactList}\item 
+void \hyperlink{classGame1_aa3a44255c2437ca14fe1d9ac4e64b6c1}{close\-Event} (\-Q\-Close\-Event $\ast$bar)
+\begin{DoxyCompactList}\small\item\em \-Deletes the saved game on close. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{\-Public \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classGame1_a8f936cce407e67e38223ce348c97f027}{\-Game1} (int level, \-Q\-Widget $\ast$parent=0)
+\hyperlink{classGame1_aece50ba2e3c9c2662416901d10045796}{\-Game1} (int level, bool resume=false, \-Q\-Widget $\ast$parent=0)
 \begin{DoxyCompactList}\small\item\em \-Constructor. \end{DoxyCompactList}\item 
 virtual \hyperlink{classGame1_aa498b4499c4032cc7a65cc7755b1d3be}{$\sim$\-Game1} ()
 \begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\item 
@@ -24,21 +28,24 @@ void \hyperlink{classGame1_a5c85823c0c4c44e22bfa66146d04fcac}{load\-New\-Game} (
 
 
 \subsection{\-Constructor \& \-Destructor \-Documentation}
-\hypertarget{classGame1_a8f936cce407e67e38223ce348c97f027}{\index{\-Game1@{\-Game1}!\-Game1@{\-Game1}}
+\hypertarget{classGame1_aece50ba2e3c9c2662416901d10045796}{\index{\-Game1@{\-Game1}!\-Game1@{\-Game1}}
 \index{\-Game1@{\-Game1}!Game1@{\-Game1}}
 \subsubsection[{\-Game1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Game1\-::\-Game1} (
 \begin{DoxyParamCaption}
 \item[{int}]{level, }
+\item[{bool}]{resume = {\ttfamily false}, }
 \item[{\-Q\-Widget $\ast$}]{parent = {\ttfamily 0}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classGame1_a8f936cce407e67e38223ce348c97f027}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classGame1_aece50ba2e3c9c2662416901d10045796}
 
 
 \-Constructor. 
 
 
 \begin{DoxyParams}{\-Parameters}
-{\em level} & \-Game level\\
+{\em level} & \-Game level \\
+\hline
+{\em resume} & \-Whether this is a new game\\
 \hline
 \end{DoxyParams}
 \-Sets the size of the window, initializes the graphic items, sets the layouts and connects buttons to their slots. \hypertarget{classGame1_aa498b4499c4032cc7a65cc7755b1d3be}{\index{\-Game1@{\-Game1}!$\sim$\-Game1@{$\sim$\-Game1}}
@@ -55,7 +62,23 @@ void \hyperlink{classGame1_a5c85823c0c4c44e22bfa66146d04fcac}{load\-New\-Game} (
 \-Frees allocated memory 
 
 \subsection{\-Member \-Function \-Documentation}
-\hypertarget{classGame1_a77d143d518941d661ed7ed58d7709eb3}{\index{\-Game1@{\-Game1}!end\-Game@{end\-Game}}
+\hypertarget{classGame1_aa3a44255c2437ca14fe1d9ac4e64b6c1}{\index{\-Game1@{\-Game1}!close\-Event@{close\-Event}}
+\index{close\-Event@{close\-Event}!Game1@{\-Game1}}
+\subsubsection[{close\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-::close\-Event} (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Close\-Event $\ast$}]{bar}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}\label{classGame1_aa3a44255c2437ca14fe1d9ac4e64b6c1}
+
+
+\-Deletes the saved game on close. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em bar} & \-The event triggered\\
+\hline
+\end{DoxyParams}
+\-Deletes the saved game on close unless it is a newly saved game. \hypertarget{classGame1_a77d143d518941d661ed7ed58d7709eb3}{\index{\-Game1@{\-Game1}!end\-Game@{end\-Game}}
 \index{end\-Game@{end\-Game}!Game1@{\-Game1}}
 \subsubsection[{end\-Game}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-::end\-Game} (
 \begin{DoxyParamCaption}
@@ -120,7 +143,18 @@ void \hyperlink{classGame1_a5c85823c0c4c44e22bfa66146d04fcac}{load\-New\-Game} (
 
 \-Reloads the game with the same level. 
 
-\-Loads a new instance of the \hyperlink{classGame1}{\-Game1} \-Scene 
+\-Loads a new instance of the \hyperlink{classGame1}{\-Game1} \-Scene \hypertarget{classGame1_a1104aaaccf868b6726c42779af376bd1}{\index{\-Game1@{\-Game1}!save@{save}}
+\index{save@{save}!Game1@{\-Game1}}
+\subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Game1\-::save} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}\label{classGame1_a1104aaaccf868b6726c42779af376bd1}
+
+
+\-Saves and exits. 
+
+\-Saves and exits 
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

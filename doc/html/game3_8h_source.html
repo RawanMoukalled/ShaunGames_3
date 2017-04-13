@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,6 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div>
@@ -90,44 +92,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00018"></a>00018 {
 <a name="l00019"></a>00019     Q_OBJECT
 <a name="l00020"></a>00020 <span class="keyword">public</span>:
-<a name="l00024"></a>00024     <span class="keyword">explicit</span> <a class="code" href="classGame3.html#a1c9c75bff5b0dcd841ce4eafb9a2b40b" title="Default constructor.">Game3</a>(Difficulty difficulty, Size size, QWidget *parent = 0);
-<a name="l00025"></a>00025 
-<a name="l00029"></a>00029     <span class="keyword">virtual</span> <a class="code" href="classGame3.html#afa72d96885beec0fc5f4f542d20a9898" title="Destrucor.">~Game3</a>();
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 signals:
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="keyword">public</span> slots:
-<a name="l00034"></a>00034 
-<a name="l00038"></a>00038     <span class="keywordtype">void</span> <a class="code" href="classGame3.html#a0a79ef23fdfd43052da0e31da7cf8172" title="Removes save and exit button and adds replay and back buttons.">endGame</a>();
-<a name="l00039"></a>00039 
-<a name="l00043"></a>00043     <span class="keywordtype">void</span> <a class="code" href="classGame3.html#ab37e7d626fddb52e5488caef0e2eb551" title="Removes save and exit button and adds replay and back buttons.">replay</a>();
-<a name="l00044"></a>00044 
-<a name="l00048"></a>00048     <span class="keywordtype">void</span> <a class="code" href="classGame3.html#ab5b41e8bcbaf0c2299f1c9c21660867e" title="Slot to go back to the games main menu when pressing Exit.">goToMainMenu</a>();
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 <span class="keyword">private</span>:
-<a name="l00051"></a>00051     <span class="keyword">const</span> Difficulty m_difficulty; 
-<a name="l00052"></a>00052     <span class="keyword">const</span> Size m_size; 
-<a name="l00053"></a>00053     QLabel *m_title; 
-<a name="l00054"></a>00054     QPushButton *m_exit; 
-<a name="l00055"></a>00055     QVBoxLayout *m_Game3Layout; 
+<a name="l00027"></a>00027     <span class="keyword">explicit</span> <a class="code" href="classGame3.html#a6deb46aa31d139c6685e49a26d3b642d" title="Constructor.">Game3</a>(Difficulty difficulty, Size size, <span class="keywordtype">bool</span> resume = <span class="keyword">false</span>, QWidget *parent = 0);
+<a name="l00028"></a>00028 
+<a name="l00032"></a>00032     <span class="keyword">virtual</span> <a class="code" href="classGame3.html#afa72d96885beec0fc5f4f542d20a9898" title="Destrucor.">~Game3</a>();
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 signals:
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 <span class="keyword">public</span> slots:
+<a name="l00040"></a>00040     <span class="keywordtype">void</span> <a class="code" href="classGame3.html#a0a79ef23fdfd43052da0e31da7cf8172" title="Removes save and exit button and adds replay and back buttons.">endGame</a>();
+<a name="l00041"></a>00041 
+<a name="l00045"></a>00045     <span class="keywordtype">void</span> <a class="code" href="classGame3.html#ab37e7d626fddb52e5488caef0e2eb551" title="Removes save and exit button and adds replay and back buttons.">replay</a>();
+<a name="l00046"></a>00046 
+<a name="l00050"></a>00050     <span class="keywordtype">void</span> <a class="code" href="classGame3.html#ab5b41e8bcbaf0c2299f1c9c21660867e" title="Slot to go back to the games main menu when pressing Exit.">goToMainMenu</a>();
+<a name="l00051"></a>00051 
+<a name="l00055"></a>00055     <span class="keywordtype">void</span> <a class="code" href="classGame3.html#aa53cda927c3a9797d8e2ce37e20daab1" title="Saves and exits.">save</a>();
 <a name="l00056"></a>00056 
-<a name="l00057"></a>00057     QGraphicsView *m_gameView; 
-<a name="l00058"></a>00058     <a class="code" href="classGame3Scene.html">Game3Scene</a> *m_gameScene; 
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060     QPushButton *m_goBack; 
-<a name="l00061"></a>00061     QPushButton *m_replay; 
+<a name="l00061"></a>00061     <span class="keywordtype">void</span> <a class="code" href="classGame3.html#afd341ba6bd89317a7303eeb4d8147a7b" title="Deletes the saved game on close.">closeEvent</a>(QCloseEvent *bar);
 <a name="l00062"></a>00062 
-<a name="l00066"></a>00066     <span class="keywordtype">void</span> setGame3Layout();
-<a name="l00067"></a>00067 };
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069 <span class="preprocessor">#endif // Game3_H</span>
+<a name="l00063"></a>00063 <span class="keyword">private</span>:
+<a name="l00064"></a>00064     <span class="keyword">const</span> Difficulty m_difficulty; 
+<a name="l00065"></a>00065     <span class="keyword">const</span> Size m_size; 
+<a name="l00066"></a>00066     QLabel *m_title; 
+<a name="l00067"></a>00067     QPushButton *m_exit; 
+<a name="l00068"></a>00068     QVBoxLayout *m_Game3Layout; 
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070     QGraphicsView *m_gameView; 
+<a name="l00071"></a>00071     <a class="code" href="classGame3Scene.html">Game3Scene</a> *m_gameScene; 
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073     QPushButton *m_goBack; 
+<a name="l00074"></a>00074     QPushButton *m_replay; 
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076     <span class="keywordtype">bool</span> m_justSaved; 
+<a name="l00077"></a>00077 
+<a name="l00081"></a>00081     <span class="keywordtype">void</span> setGame3Layout();
+<a name="l00082"></a>00082 };
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 <span class="preprocessor">#endif // Game3_H</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -139,7 +146,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 7 2017 22:21:23 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 13 2017 22:23:27 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

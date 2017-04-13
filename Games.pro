@@ -60,3 +60,7 @@ HEADERS += \
 OTHER_FILES +=
 
 QT += sql
+
+DESTDIR=bin #Target file directory
+OBJECTS_DIR=bin #Intermediate object files directory
+MOC_DIR=bin #Intermediate moc files directory

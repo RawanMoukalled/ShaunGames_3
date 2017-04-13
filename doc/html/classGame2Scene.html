@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -99,15 +100,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal sent to game2 to show that the game has ended. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#a83cec7f9dd9883b6f33846af1fdda44d">Game2Scene</a> (Difficulty difficulty, QObject *parent=0)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a83cec7f9dd9883b6f33846af1fdda44d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#aa12457bef5fc7d6b9794460cd5278d61">Game2Scene</a> (Difficulty difficulty, bool resume, QObject *parent=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#aa12457bef5fc7d6b9794460cd5278d61"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#afb89d017cdab6ebf2c7224803fb88d2b">~Game2Scene</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QVector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#a9b9cb03a70be505cdddbf41f4ca756b3">tilesToBlock</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the layout of the level buttons.  <a href="#a9b9cb03a70be505cdddbf41f4ca756b3"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#a0d6f721674317295a05aa8754d0bd5ea">placeTiles</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Places the tiles to create the full grid.  <a href="#a0d6f721674317295a05aa8754d0bd5ea"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#aa5da08510767483aefe5339411a41845">placeTilesResumed</a> (QStringList positions)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Places tiles with blocks loaded from prevously saved game.  <a href="#aa5da08510767483aefe5339411a41845"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#a562bffb8b3f851df83bafd4aa006db5e">placeSheepInitial</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">places the sheep on a random unblocked tile at the beginning of the game  <a href="#a562bffb8b3f851df83bafd4aa006db5e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#a24fc1f77c33e5c8aab234285fc2eb4d4">placeSheepInitialResumed</a> (<a class="el" href="classTile.html">Tile</a> *tile)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">places the sheep on a the given unblocked tile at the beginning of the game  <a href="#a24fc1f77c33e5c8aab234285fc2eb4d4"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QVector&lt; <a class="el" href="classTile.html">Tile</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#acd18cc2afd6f91be8fdd083c92ca100b">getNeighbors</a> (<a class="el" href="classTile.html">Tile</a> *center)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the left, right, upper and lower non-blocked neighbors of the given tile.  <a href="#acd18cc2afd6f91be8fdd083c92ca100b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#a898d10c9a3030265ab2352ec5e914706">resetVisited</a> ()</td></tr>
@@ -144,17 +149,36 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the distances from the sheep to every other tile. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QVector&lt; <a class="el" href="classTile.html">Tile</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#aa7fe6cf089b0f2339558f1ad787d001d">getNonBlockedBorders</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the non blocked border tiles.  <a href="#aa7fe6cf089b0f2339558f1ad787d001d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">Difficulty&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#a15661ca51aa6bf5616e92d308675713d">getDifficulty</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the difficulty of the game.  <a href="#a15661ca51aa6bf5616e92d308675713d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#a1e4e9a28a8210c1c047fb6543e01ff6c">getScore</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current score of the game.  <a href="#a1e4e9a28a8210c1c047fb6543e01ff6c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#aa4c646f84bfa02a4daf7960d3852e169">getSheepPos</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string representation of the sheep row and column.  <a href="#aa4c646f84bfa02a4daf7960d3852e169"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#aa75b286f0690b5fe64e0e2760a3fd50f">getBlockedTilesPos</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the string representation of the blocked tiles' positions.  <a href="#aa75b286f0690b5fe64e0e2760a3fd50f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#aa67215865bb64154a191367d905a5964">addToBlockedTiles</a> (<a class="el" href="classTile.html">Tile</a> *tile)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a tile to the list of blocked tiles.  <a href="#aa67215865bb64154a191367d905a5964"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9841b482de291641ba28b0e22007754"></a><!-- doxytag: member="Game2Scene::placeLCD" ref="af9841b482de291641ba28b0e22007754" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame2Scene.html#af9841b482de291641ba28b0e22007754">placeLCD</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Places the LCD on the screen. <br/></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a83cec7f9dd9883b6f33846af1fdda44d"></a><!-- doxytag: member="Game2Scene::Game2Scene" ref="a83cec7f9dd9883b6f33846af1fdda44d" args="(Difficulty difficulty, QObject *parent=0)" -->
+<a class="anchor" id="aa12457bef5fc7d6b9794460cd5278d61"></a><!-- doxytag: member="Game2Scene::Game2Scene" ref="aa12457bef5fc7d6b9794460cd5278d61" args="(Difficulty difficulty, bool resume, QObject *parent=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classGame2Scene.html#a83cec7f9dd9883b6f33846af1fdda44d">Game2Scene::Game2Scene</a> </td>
+          <td class="memname"><a class="el" href="classGame2Scene.html#aa12457bef5fc7d6b9794460cd5278d61">Game2Scene::Game2Scene</a> </td>
           <td>(</td>
           <td class="paramtype">Difficulty&#160;</td>
           <td class="paramname"><em>difficulty</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>resume</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -172,6 +196,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div class="memdoc">
 
 <p>Default constructor. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">difficulty</td><td>Difficulty of the game </td></tr>
+    <tr><td class="paramname">resume</td><td>Whether this is a new game</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Places the items on the scene and sets the user turn. </p>
 
 </div>
@@ -195,6 +226,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="aa67215865bb64154a191367d905a5964"></a><!-- doxytag: member="Game2Scene::addToBlockedTiles" ref="aa67215865bb64154a191367d905a5964" args="(Tile *tile)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGame2Scene.html#aa67215865bb64154a191367d905a5964">Game2Scene::addToBlockedTiles</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classTile.html">Tile</a> *&#160;</td>
+          <td class="paramname"><em>tile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Adds a tile to the list of blocked tiles. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tile</td><td>The tile to add to the list</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Adds a tile to the list of blocked tiles </p>
+
+</div>
+</div>
 <a class="anchor" id="a6cc2a61e06a7c9ed0161dea7994c46cf"></a><!-- doxytag: member="Game2Scene::computerTurn" ref="a6cc2a61e06a7c9ed0161dea7994c46cf" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -279,6 +336,44 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a class="anchor" id="aa75b286f0690b5fe64e0e2760a3fd50f"></a><!-- doxytag: member="Game2Scene::getBlockedTilesPos" ref="aa75b286f0690b5fe64e0e2760a3fd50f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="classGame2Scene.html#aa75b286f0690b5fe64e0e2760a3fd50f">Game2Scene::getBlockedTilesPos</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns the string representation of the blocked tiles' positions. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>string representing the blocked tiles' positions </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a15661ca51aa6bf5616e92d308675713d"></a><!-- doxytag: member="Game2Scene::getDifficulty" ref="a15661ca51aa6bf5616e92d308675713d" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Difficulty <a class="el" href="classGame2Scene.html#a15661ca51aa6bf5616e92d308675713d">Game2Scene::getDifficulty</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns the difficulty of the game. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>the difficulty of the game </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="acd18cc2afd6f91be8fdd083c92ca100b"></a><!-- doxytag: member="Game2Scene::getNeighbors" ref="acd18cc2afd6f91be8fdd083c92ca100b" args="(Tile *center)" -->
 <div class="memitem">
 <div class="memproto">
@@ -325,6 +420,25 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a class="anchor" id="a1e4e9a28a8210c1c047fb6543e01ff6c"></a><!-- doxytag: member="Game2Scene::getScore" ref="a1e4e9a28a8210c1c047fb6543e01ff6c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classGame2Scene.html#a1e4e9a28a8210c1c047fb6543e01ff6c">Game2Scene::getScore</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns the current score of the game. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>the score of the game </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a56438bf6f4bbee1c869eae94bca46d03"></a><!-- doxytag: member="Game2Scene::getScoreDisplay" ref="a56438bf6f4bbee1c869eae94bca46d03" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -362,6 +476,25 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>gets the sheep of the game </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>the sheep of the game</dd></dl>
 <p>Retrieves the sheep. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa4c646f84bfa02a4daf7960d3852e169"></a><!-- doxytag: member="Game2Scene::getSheepPos" ref="aa4c646f84bfa02a4daf7960d3852e169" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="classGame2Scene.html#aa4c646f84bfa02a4daf7960d3852e169">Game2Scene::getSheepPos</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns a string representation of the sheep row and column. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>string representing the sheep's current row and column </dd></dl>
 
 </div>
 </div>
@@ -423,6 +556,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a class="anchor" id="a24fc1f77c33e5c8aab234285fc2eb4d4"></a><!-- doxytag: member="Game2Scene::placeSheepInitialResumed" ref="a24fc1f77c33e5c8aab234285fc2eb4d4" args="(Tile *tile)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGame2Scene.html#a24fc1f77c33e5c8aab234285fc2eb4d4">Game2Scene::placeSheepInitialResumed</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classTile.html">Tile</a> *&#160;</td>
+          <td class="paramname"><em>tile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>places the sheep on a the given unblocked tile at the beginning of the game </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tile</td><td>The tile to place the sheep on</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Chooses a random tile to place the sheep on at the beginning of the game. </p>
+
+</div>
+</div>
 <a class="anchor" id="a0d6f721674317295a05aa8754d0bd5ea"></a><!-- doxytag: member="Game2Scene::placeTiles" ref="a0d6f721674317295a05aa8754d0bd5ea" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -439,6 +598,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Places the tiles to create the full grid. </p>
 <p>Places the tiles on the grid of the game. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa5da08510767483aefe5339411a41845"></a><!-- doxytag: member="Game2Scene::placeTilesResumed" ref="aa5da08510767483aefe5339411a41845" args="(QStringList positions)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGame2Scene.html#aa5da08510767483aefe5339411a41845">Game2Scene::placeTilesResumed</a> </td>
+          <td>(</td>
+          <td class="paramtype">QStringList&#160;</td>
+          <td class="paramname"><em>positions</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Places tiles with blocks loaded from prevously saved game. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">positions</td><td>Loaded positions</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Places tiles with blocks loaded from previously saved game </p>
 
 </div>
 </div>
@@ -612,6 +797,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>game2/<a class="el" href="game2scene_8h_source.html">game2scene.h</a></li>
+<li>bin/moc_game2scene.cpp</li>
 <li>game2/<a class="el" href="game2scene_8cpp.html">game2scene.cpp</a></li>
 </ul>
 </div><!-- contents -->
@@ -620,7 +806,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -632,7 +818,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 7 2017 22:21:23 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 13 2017 22:23:28 for Group 3 Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
